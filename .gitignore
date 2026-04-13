@@ -5,9 +5,18 @@ includes/config.php
 test_mail.php
 replace_cta.js
 replace_cta.py
+replace_images.py
 
 # Exclude DB schema
 db_setup.sql
+
+# Exclude temp/audit/work files
+audit_temp.txt
+*.docx
+*.py
+
+# Exclude webhook config (stays on server only)
+webhook.json
 
 # Exclude temp/system files
 vendor/
