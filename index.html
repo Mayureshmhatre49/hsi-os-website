@@ -12,7 +12,32 @@
   <meta property="og:url" content="https://www.HSIOS.in" />
   <link rel="canonical" href="https://www.HSIOS.in" />
   <meta name="theme-color" content="#05070f" />
+  <!-- Performance: preconnect to Google Fonts domains before the browser requests them -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "HSI Smart Interiors",
+    "image": "https://www.HSIOS.in/projects-casa-frangipani-1.jpg",
+    "@id": "https://www.HSIOS.in",
+    "url": "https://www.HSIOS.in",
+    "telephone": "+91-8010234802",
+    "email": "hello@hsios.in",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Alibag",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "description": "Premium luxury interior execution platform specializing in villas and high-end residences in Alibag and Mumbai."
+  }
+  </script>
 </head>
 <body>
 
@@ -20,7 +45,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg-image" style="background-image: url('hero-banner.png');"></div>
+  <div class="hero-bg-image" style="background-image: url('projects-casa-frangipani-1.jpg');"></div>
   <div class="hero-grid-overlay"></div>
   <div class="hero-glow-orb hero-glow-1"></div>
   <div class="hero-glow-orb hero-glow-2"></div>
@@ -31,15 +56,15 @@
       Execution Intelligence Platform
     </div>
     <h1 class="hero-title">
-      <span class="highlight">Execution Intelligence</span><br>
-      for Premium Interior<br>Projects
+      <span class="highlight">India's Most Structured</span><br>
+      Luxury Interior Execution &mdash;<br>Alibag, Mumbai & Beyond
     </h1>
     <p class="hero-subtitle">
-      HSI OS brings structure, transparency, and real-time control to villa and high-end apartment interiors.
+      HSI Smart Interiors delivers premium villa and high-end residential interiors with complete transparency, real-time project control, and zero execution surprises — powered by HSI OS.
     </p>
     <div class="hero-cta-group">
-      <a href="contact.html" class="btn btn-primary">Request Demo →</a>
-      <a href="hsi-os.html" class="btn btn-ghost">Explore Platform</a>
+      <a target="_blank" href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20interested%20in%20discussing%20my%20project" class="btn btn-primary">Start Your Project Conversation →</a>
+      <a href="how-it-works.html" class="btn btn-ghost">See How HSI Works →</a>
     </div>
 
     <div class="hero-stats">
@@ -86,9 +111,9 @@
   <div class="split-section">
     <div>
       <div class="section-badge reveal">The Platform</div>
-      <h2 class="section-title reveal">We Are Not Just an Interior Company</h2>
+      <h2 class="section-title reveal">Premium Villa Interiors, Executed with the Precision of a Professional System</h2>
       <p class="section-subtitle reveal" style="margin-bottom: 28px;">
-        HSI OS is built on real project experience from premium villa executions. We've lived the coordination gaps, cost overruns, and communication failures — and built a system to eliminate them.
+        Most luxury interior projects in Alibag and Mumbai fail not because of bad design — but because of broken execution. Cost overruns with no explanation. Timeline delays with no accountability. Vendors working in silos. HSI was built to eliminate this. With 7 completed premium villas and a purpose-built execution platform — HSI OS — we bring military-grade structure to every rupee and every day of your project.
       </p>
       <ul class="value-list reveal">
         <li><span class="check">✓</span> Full lifecycle project management</li>
@@ -319,6 +344,50 @@
   </div>
 </section>
 
+<!-- TRUST SIGNALS / TESTIMONIALS -->
+<section style="background: var(--gradient-hero);">
+  <div class="section-header centered">
+    <div class="section-badge reveal">Trust & Transparency</div>
+    <h2 class="section-title reveal">Built for the <span class="highlight">Discerning Homeowner</span></h2>
+    <p class="section-subtitle reveal">Don't just take our word for it. Here is what happens when execution intelligence meets luxury design.</p>
+  </div>
+  
+  <div class="grid-2 reveal" style="max-width: 900px; margin: 0 auto;">
+    <div class="card" style="position: relative;">
+      <div style="font-size: 32px; color: var(--accent-gold-light); margin-bottom: 16px;">"</div>
+      <p style="font-size: 15px; color: var(--text-primary); line-height: 1.8; margin-bottom: 24px; font-style: italic;">
+        "Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSI OS gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered my home 3 weeks ahead of schedule."
+      </p>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--border-card); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--text-muted);">S</div>
+        <div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Saurabh M.</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Homeowner, Alibag Villa</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" style="position: relative;">
+      <div style="font-size: 32px; color: var(--accent-gold-light); margin-bottom: 16px;">"</div>
+      <p style="font-size: 15px; color: var(--text-primary); line-height: 1.8; margin-bottom: 24px; font-style: italic;">
+        "As an NRI, I had no way to verifying what my previous contractor was charging me. HSI stepped in, onboarded my property to their platform, and suddenly I had complete visibility. The trust factor is unmatched."
+      </p>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--border-card); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--text-muted);">A</div>
+        <div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Ankit R.</div>
+          <div style="font-size: 12px; color: var(--text-muted);">NRI Client, Goa Project</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div style="text-align: center; margin-top: 48px;" class="reveal">
+    <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Managed by Industry Experts</div>
+    <p style="font-size: 14px; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Founded by Nishant Mhatre, HSI brings years of frontline luxury execution experience combined with enterprise-grade project management. <a href="about.html" style="color: var(--accent-blue-light); text-decoration: none;">Read the founder's story →</a></p>
+  </div>
+</section>
+
 <!-- SEO LOCATION CONTENT -->
 <section>
   <div class="seo-block reveal">
@@ -344,10 +413,10 @@
   <div class="section-badge" style="margin-bottom: 20px;">Get Started</div>
   <h2 class="cta-title">Ready to Bring <span class="highlight">Intelligence</span> to Your Project?</h2>
   <p class="cta-subtitle">Talk to us about your villa or residential interior project. We'll show you how HSI OS changes everything.</p>
-  <a href="contact.html" class="btn btn-primary" style="font-size: 16px; padding: 16px 36px;">Request a Demo Today →</a>
+  <a target="_blank" href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20interested%20in%20discussing%20my%20project" class="btn btn-primary" style="font-size: 16px; padding: 16px 36px;">Request a Demo Today →</a>
 </div>
 
 <div id="footer-placeholder"></div>
-<script src="nav.js"></script>
+<script src="nav.js" defer></script>
 </body>
 </html>

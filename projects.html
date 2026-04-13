@@ -10,6 +10,10 @@
   <meta property="og:description" content="Premium villa and residential interior execution experience in Alibaug shapes every feature of HSI OS." />
   <link rel="canonical" href="https://www.HSIOS.in/projects.html" />
   <meta name="theme-color" content="#05070f" />
+  <!-- Performance: preconnect to Google Fonts domains before the browser requests them -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
   <style>
     .project-card {
@@ -25,23 +29,20 @@
       box-shadow: 0 30px 80px rgba(0,0,0,0.5);
     }
     .project-card-image {
-      background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(8,12,26,0.9));
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      border-bottom: 1px solid var(--border-subtle);
+      height: 220px;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
     }
     .project-card-image img {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.3;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .project-card-image img {
+      transform: scale(1.04);
     }
     .project-card-body {
       padding: 28px;
@@ -126,7 +127,7 @@
       </div>
     </div>
     <div class="split-image reveal animate-float">
-      <img src="hero-banner.png" alt="HSI Premium Project Experience" style="aspect-ratio: 4/3; object-fit: cover;" />
+      <img src="projects-casa-frangipani-1.jpg" alt="HSI Premium Project Experience" loading="lazy" style="aspect-ratio: 4/3; object-fit: cover;" />
     </div>
   </div>
 </section>
@@ -160,9 +161,8 @@
 
     <!-- Casa Frangipani -->
     <div class="project-card">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Casa Frangipani" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">🌺</span>
+      <div class="project-card-image">
+        <img src="hestia-casa-frangipani.jpg" alt="Casa Frangipani — Luxury Villa Alibaug" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Alibaug · 6 Bedrooms</span>
@@ -176,9 +176,8 @@
 
     <!-- Serenity Villa -->
     <div class="project-card">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(16, 80, 60, 0.3), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Serenity Villa" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">🌿</span>
+      <div class="project-card-image">
+        <img src="hestia-serenity-villa.jpg" alt="Serenity Villa — Dhokawade Alibaug" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Dhokawade, Alibaug · Villa</span>
@@ -192,9 +191,8 @@
 
     <!-- Villa Rughani -->
     <div class="project-card">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(100, 60, 20, 0.3), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Villa Rughani" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">⛰️</span>
+      <div class="project-card-image">
+        <img src="hestia-villa-rughani.jpeg" alt="Villa Rughani — Kothimbe Karjat" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Kothimbe, Karjat · Villa</span>
@@ -208,9 +206,8 @@
 
     <!-- Villa Blue Haven -->
     <div class="project-card">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(10, 60, 120, 0.35), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Villa Blue Haven" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">🏠</span>
+      <div class="project-card-image">
+        <img src="hestia-villa-blue-haven.jpg" alt="Villa Blue Haven — Alibaug Renovation" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Alibaug · Renovation</span>
@@ -224,9 +221,8 @@
 
     <!-- Villa Bellissimo -->
     <div class="project-card">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(100, 37, 150, 0.2), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Villa Bellissimo" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">✨</span>
+      <div class="project-card-image">
+        <img src="hestia-villa-bellissimo.jpg" alt="Villa Bellissimo — Village Awas Alibaug" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Village Awas, Alibaug · Villa</span>
@@ -240,9 +236,8 @@
 
     <!-- Villa Vayu -->
     <div class="project-card">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(20, 100, 80, 0.3), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Villa Vayu" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">💨</span>
+      <div class="project-card-image">
+        <img src="hestia-villa-vayu.jpg" alt="Villa Vayu — 4 Bedroom Villa Alibaug" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Alibaug · 4 Bedrooms</span>
@@ -256,9 +251,8 @@
 
     <!-- Villa Awas -->
     <div class="project-card" style="border-color: rgba(201,168,76,0.25);">
-      <div class="project-card-image" style="background: linear-gradient(135deg, rgba(150, 110, 20, 0.25), rgba(8,12,26,0.9));">
-        <img src="hero-banner.png" alt="Villa Awas" />
-        <span style="position: relative; z-index: 1; font-size: 52px;">🏡</span>
+      <div class="project-card-image">
+        <img src="hestia-villa-awas.jpg" alt="Villa Awas — Family Residence Alibaug" loading="lazy" />
       </div>
       <div class="project-card-body">
         <span class="project-card-tag">Alibaug · Family Residence</span>
@@ -317,10 +311,10 @@
   <div class="section-badge" style="margin-bottom: 20px;">Work With HSI</div>
   <h2 class="cta-title">Your Project Could Be <span class="highlight">Next</span></h2>
   <p class="cta-subtitle">Let's bring intelligence, structure, and precision to your premium interior project.</p>
-  <a href="contact.html" class="btn btn-primary" style="font-size: 16px; padding: 16px 36px;">Start Your Project →</a>
+  <a target="_blank" href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20interested%20in%20discussing%20my%20project" class="btn btn-primary" style="font-size: 16px; padding: 16px 36px;">Start Your Project →</a>
 </div>
 
 <div id="footer-placeholder"></div>
-<script src="nav.js"></script>
+<script src="nav.js" defer></script>
 </body>
 </html>

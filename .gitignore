@@ -1,5 +1,16 @@
+# Exclude sensitive config files — NEVER commit credentials
+includes/config.php
+
+# Exclude test/debug scripts
+test_mail.php
+replace_cta.js
+replace_cta.py
+
+# Exclude DB schema
+db_setup.sql
+
+# Exclude temp/system files
 vendor/
 .DS_Store
 Archieve/
 *.log
-db_setup.sql

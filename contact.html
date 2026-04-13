@@ -6,6 +6,10 @@
   <title>Contact & Request Demo — HSI OS</title>
   <meta name="description" content="Talk to the HSI team about your premium interior project. Request a demo of HSI OS or start your project with us today." />
   <meta name="theme-color" content="#05070f" />
+  <!-- Performance: preconnect to Google Fonts domains before the browser requests them -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
   <style>
     .contact-layout {
@@ -100,7 +104,7 @@
   <div class="page-hero-content">
     <div class="section-badge reveal">Get In Touch</div>
     <h1 class="section-title reveal" style="font-size: clamp(2rem, 5vw, 3.5rem);">
-      Let's Build Better<br><span class="highlight">Interior Projects</span>
+      Let's Build Better <br><span class="highlight">Interior Projects</span>
     </h1>
     <p class="section-subtitle reveal" style="margin: 16px auto 0;">
       Whether you're a homeowner, developer, or partner — we'd love to understand your project and show you how HSI OS can help.
@@ -128,7 +132,14 @@
           <div class="contact-info-icon">📧</div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:Support@HSIOS.in">Support@HSIOS.in</a>
+            <a href="mailto:hello@hsios.in">hello@hsios.in</a>
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:+918010234802">+91-8010234802</a>
           </div>
         </div>
         <div class="contact-info-block">
@@ -248,7 +259,7 @@
 </section>
 
 <div id="footer-placeholder"></div>
-<script src="nav.js"></script>
+<script src="nav.js" defer></script>
 <script>
 async function handleSubmit(e) {
   e.preventDefault();
