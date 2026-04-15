@@ -11,10 +11,10 @@ const navLinks = [
   { href: '/how-it-works',    label: 'How It Works' },
   { href: '/insights',        label: 'Insights' },
   { href: '/about',           label: 'About' },
+  { href: '/for-homeowners', label: 'Homeowners' },
 ]
 
 const solutionLinks = [
-  { href: '/for-homeowners', label: 'For Homeowners' },
   { href: '/for-developers', label: 'For Developers' },
 ]
 
@@ -56,7 +56,7 @@ export default function Navbar() {
           }
         `}
       >
-        <nav className="container-luxury flex items-center justify-between h-18 gap-8">
+        <nav className="container-luxury flex items-center justify-between h-18 lg:gap-12 gap-8">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
@@ -69,7 +69,7 @@ export default function Navbar() {
             >
               H
             </div>
-            <div>
+            <div className="hidden sm:block">
               <div
                 className={`
                   font-serif font-bold text-base leading-none transition-colors duration-300
@@ -91,13 +91,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-1">
+          <ul className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
                   className={`
-                    relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                    relative px-3 py-2 rounded-lg text-[13px] xl:text-sm font-medium transition-all duration-200 whitespace-nowrap
                     ${isActive(href)
                       ? transparent
                         ? 'text-white'
@@ -121,20 +121,11 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/for-homeowners"
-              className={`
-                text-sm font-medium transition-colors duration-200
-                ${transparent ? 'text-white/80 hover:text-white' : 'text-warmgray-600 hover:text-charcoal-800'}
-              `}
-            >
-              Homeowners
-            </Link>
+          <div className="hidden lg:flex items-center flex-shrink-0">
             <Link
               href="/contact"
               className={`
-                btn text-sm px-5 py-2.5
+                btn text-xs xl:text-sm px-5 py-2.5
                 ${transparent
                   ? 'bg-white/15 backdrop-blur-sm text-white border border-white/30 hover:bg-white hover:text-charcoal-800'
                   : 'btn-bronze'
