@@ -23,3 +23,16 @@ vendor/
 .DS_Store
 Archieve/
 *.log
+
+# Next.js
+.next/
+out/
+node_modules/
+npm-debug.log*
+
+# Environment secrets — NEVER commit
+.env.local
+.env*.local
+
+# Vercel
+.vercel
