@@ -910,26 +910,18 @@ function FounderVisionSection() {
           <RevealOnScroll delay={0.2}>
             <div className="relative group">
               <div className="absolute -inset-4 bg-sandstone-400/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative bg-charcoal-900 aspect-square rounded-[2rem] overflow-hidden border border-white/10 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-charcoal-800 to-charcoal-950" />
-                <div className="relative z-10 text-center p-12">
-                  <div className="w-24 h-24 bg-sandstone-400/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-sandstone-400/30">
-                    <span className="font-serif text-4xl text-sandstone-300 italic">NM</span>
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-serif text-2xl text-white font-bold tracking-tight">Nishant Mhatre</h3>
-                    <p className="text-sandstone-400 text-sm font-semibold tracking-widest uppercase pb-4">Founder & Visionary</p>
-                  </div>
-                  <div className="pt-6 border-t border-white/10 flex justify-center gap-6">
-                    <div className="text-center">
-                      <div className="text-sm font-bold text-white mb-1">Vision</div>
-                      <div className="text-[10px] text-warmgray-500 uppercase tracking-widest">Sustainability First</div>
-                    </div>
-                    <div className="text-center">
-                       <div className="text-sm font-bold text-white mb-1">Method</div>
-                       <div className="text-[10px] text-warmgray-500 uppercase tracking-widest">HSIOS™ Intelligence</div>
-                    </div>
-                  </div>
+              <div className="relative bg-charcoal-900 aspect-square rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+                <Image
+                  src="/nishant-mhatre.jpg"
+                  alt="Nishant Mhatre — Founder of Hestia Smart Interiors"
+                  fill
+                  className="object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-transparent to-transparent opacity-60" />
+                <div className="absolute bottom-8 left-8 right-8 z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="font-serif text-2xl text-white font-bold tracking-tight">Nishant Mhatre</h3>
+                  <p className="text-sandstone-400 text-xs font-semibold tracking-widest uppercase">Founder & Visionary</p>
                 </div>
               </div>
             </div>

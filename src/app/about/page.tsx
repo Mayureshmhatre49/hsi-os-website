@@ -61,17 +61,14 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-sandstone-100 rounded-[2.5rem] -rotate-2" />
                 <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
-                  {/* Stylized background for lack of photo */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-charcoal-700 to-charcoal-900" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center p-8">
-                       <div className="w-32 h-32 bg-sandstone-400/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-sandstone-400/20">
-                         <span className="font-serif text-6xl text-sandstone-300 italic">NM</span>
-                       </div>
-                       <h3 className="font-serif text-3xl text-white mb-2">Nishant Mhatre</h3>
-                       <p className="text-sandstone-400 font-semibold tracking-widest uppercase text-xs">Founder & Visionary</p>
-                    </div>
-                  </div>
+                  <Image
+                    src="/nishant-mhatre.jpg"
+                    alt="Nishant Mhatre — Founder of Hestia Smart Interiors"
+                    fill
+                    className="object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/40 via-transparent to-transparent opacity-60" />
                   {/* Decorative corner elements */}
                   <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-sandstone-400/30" />
                   <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-sandstone-400/30" />
