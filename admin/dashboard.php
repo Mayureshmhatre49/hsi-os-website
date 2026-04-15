@@ -8,6 +8,7 @@ require_once dirname(__DIR__) . '/includes/db.php';
 
 ini_set('session.cookie_httponly', '1');
 ini_set('session.cookie_samesite', 'Strict');
+ini_set('session.cookie_secure',   '1');
 session_start();
 
 // Auth guard
@@ -22,9 +23,24 @@ try {
     die('Database error: ' . htmlspecialchars($e->getMessage()));
 }
 
+// ─── CSRF token ─────────────────────────────────────────────
+if (empty($_SESSION['csrf_dashboard'])) {
+    $_SESSION['csrf_dashboard'] = bin2hex(random_bytes(24));
+}
+$csrf = $_SESSION['csrf_dashboard'];
+
 // ─── Actions ────────────────────────────────────────────────
-$action = $_GET['action'] ?? '';
-$id     = (int) ($_GET['id'] ?? 0);
+$action    = $_GET['action'] ?? '';
+$id        = (int) ($_GET['id'] ?? 0);
+$csrf_get  = $_GET['csrf'] ?? '';
+
+// Validate CSRF for all state-mutating actions
+if (in_array($action, ['read', 'unread', 'delete', 'export'], true)) {
+    if (!hash_equals($_SESSION['csrf_dashboard'] ?? '', $csrf_get)) {
+        http_response_code(403);
+        die('Invalid request. Please go back and try again.');
+    }
+}
 
 if (in_array($action, ['read', 'unread'], true) && $id > 0) {
     $val = $action === 'read' ? 1 : 0;
@@ -64,10 +80,17 @@ if ($action === 'export') {
     exit;
 }
 
-// ─── Stats ───────────────────────────────────────────────────
-$total  = (int) $db->query('SELECT COUNT(*)   FROM leads')->fetchColumn();
-$unread = (int) $db->query('SELECT COUNT(*)   FROM leads WHERE is_read = 0')->fetchColumn();
-$today  = (int) $db->query("SELECT COUNT(*)   FROM leads WHERE DATE(created_at) = CURDATE()")->fetchColumn();
+// ─── Stats (single query instead of 3 round-trips) ───────────
+$stats = $db->query(
+    "SELECT
+        COUNT(*)                                          AS total,
+        SUM(CASE WHEN is_read = 0 THEN 1 ELSE 0 END)    AS unread,
+        SUM(CASE WHEN DATE(created_at) = CURDATE() THEN 1 ELSE 0 END) AS today
+     FROM leads"
+)->fetch();
+$total  = (int) ($stats['total']  ?? 0);
+$unread = (int) ($stats['unread'] ?? 0);
+$today  = (int) ($stats['today']  ?? 0);
 
 // ─── Pagination ──────────────────────────────────────────────
 $per_page = 20;
@@ -355,7 +378,7 @@ $h = fn(string $v): string => htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 
   </div>
   <div class="topbar-right">
     <span class="user-chip">👤 <?= $h($_SESSION['admin_user']) ?></span>
-    <a href="dashboard.php?action=export" class="btn-sm">↓ Export CSV</a>
+    <a href="dashboard.php?action=export&csrf=<?= urlencode($csrf) ?>" class="btn-sm">↓ Export CSV</a>
     <a href="logout.php" class="btn-sm">Sign Out</a>
   </div>
 </div>
@@ -384,7 +407,7 @@ $h = fn(string $v): string => htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 
     <div class="table-header">
       <h2>All Leads<?php if ($unread > 0): ?> <span style="color:#60a5fa;font-size:13px;font-weight:500;">(<?= $unread ?> new)</span><?php endif; ?></h2>
       <div class="table-actions">
-        <a href="dashboard.php?action=export" class="btn-sm btn-primary-sm">Export CSV</a>
+        <a href="dashboard.php?action=export&csrf=<?= urlencode($csrf) ?>" class="btn-sm btn-primary-sm">Export CSV</a>
       </div>
     </div>
 
@@ -437,12 +460,12 @@ $h = fn(string $v): string => htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 
               <td onclick="event.stopPropagation()">
                 <div class="action-links">
                   <?php if ($lead['is_read']): ?>
-                    <a href="?action=unread&id=<?= (int)$lead['id'] ?>">Mark Unread</a>
+                    <a href="?action=unread&id=<?= (int)$lead['id'] ?>&csrf=<?= urlencode($csrf) ?>">Mark Unread</a>
                   <?php else: ?>
-                    <a href="?action=read&id=<?= (int)$lead['id'] ?>">Mark Read</a>
+                    <a href="?action=read&id=<?= (int)$lead['id'] ?>&csrf=<?= urlencode($csrf) ?>">Mark Read</a>
                   <?php endif; ?>
                   <a class="del"
-                     href="?action=delete&id=<?= (int)$lead['id'] ?>"
+                     href="?action=delete&id=<?= (int)$lead['id'] ?>&csrf=<?= urlencode($csrf) ?>"
                      onclick="return confirm('Delete this lead permanently?')">Delete</a>
                 </div>
               </td>
@@ -514,17 +537,37 @@ $h = fn(string $v): string => htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 
 
     document.getElementById('m-name').textContent     = row.dataset.name;
     document.getElementById('m-phone').textContent    = row.dataset.phone;
-    document.getElementById('m-email').innerHTML      = '<a href="mailto:' + row.dataset.email + '" style="color:#93c5fd;">' + row.dataset.email + '</a>';
+
+    // Safe email link — use DOM methods, not innerHTML, to prevent XSS
+    const emailCell = document.getElementById('m-email');
+    emailCell.textContent = '';
+    const emailLink = document.createElement('a');
+    emailLink.href      = 'mailto:' + row.dataset.email;
+    emailLink.textContent = row.dataset.email;
+    emailLink.style.color = '#93c5fd';
+    emailCell.appendChild(emailLink);
+
     document.getElementById('m-type').textContent     = row.dataset.type;
     document.getElementById('m-location').textContent = row.dataset.location;
     document.getElementById('m-date').textContent     = row.dataset.date;
     document.getElementById('m-message').textContent  = row.dataset.message;
 
-    const isRead = row.dataset.read === '1';
+    const isRead  = row.dataset.read === '1';
     const actions = document.getElementById('m-actions');
-    actions.innerHTML = isRead
-      ? '<a href="?action=unread&id=' + id + '" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;padding:8px 14px;border:1px solid rgba(255,255,255,.1);border-radius:7px;">Mark Unread</a>'
-      : '<a href="?action=read&id='  + id + '" style="font-size:13px;color:#93c5fd;text-decoration:none;padding:8px 14px;background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.25);border-radius:7px;">✓ Mark as Read</a>';
+    actions.textContent = '';
+    const csrf = '<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>';
+
+    const actionLink = document.createElement('a');
+    if (isRead) {
+      actionLink.href = '?action=unread&id=' + id + '&csrf=' + encodeURIComponent(csrf);
+      actionLink.textContent = 'Mark Unread';
+      actionLink.style.cssText = 'font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;padding:8px 14px;border:1px solid rgba(255,255,255,.1);border-radius:7px;';
+    } else {
+      actionLink.href = '?action=read&id=' + id + '&csrf=' + encodeURIComponent(csrf);
+      actionLink.textContent = '✓ Mark as Read';
+      actionLink.style.cssText = 'font-size:13px;color:#93c5fd;text-decoration:none;padding:8px 14px;background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.25);border-radius:7px;';
+    }
+    actions.appendChild(actionLink);
 
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow = 'hidden';

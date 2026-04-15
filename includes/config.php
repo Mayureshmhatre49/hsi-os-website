@@ -12,7 +12,7 @@ defined('HSIOS_APP') or die('Direct access not permitted.');
 define('DB_HOST',    'localhost');
 define('DB_NAME',    'xxxxxxxxxxxxxxxx');
 define('DB_USER',    'xxxxxxxxxxxxxxx');
-define('DB_PASS',    'xxxxxxxxxxxxxx);              // ← ADD YOUR DATABASE PASSWORD HERE
+define('DB_PASS',    'xxxxxxxxxxxxxx');              // ← ADD YOUR DATABASE PASSWORD HERE
 define('DB_CHARSET', 'utf8mb4');
 
 // ─── SMTP Email ──────────────────────────────────────────────
@@ -22,17 +22,15 @@ define('SMTP_ENABLED',    true);               // Hostinger SMTP is configured
 define('SMTP_HOST',       'smtp.hostinger.com');
 define('SMTP_PORT',        465);
 define('SMTP_SECURE',     'ssl');
-define('SMTP_USER',       'support@hsios.in');
-define('SMTP_PASS',       'xxxxxxxxxxxx
-');                 // ← ADD YOUR EMAIL PASSWORD HERE
-define('SMTP_FROM_EMAIL', 'support@hsios.in');
-define('SMTP_FROM_NAME',  'HSI OS Website');
-jdk
+define('SMTP_USER',       'hello@hsios.in');
+define('SMTP_PASS',       'xxxxxxxxxxxx');     // ← ADD YOUR EMAIL PASSWORD HERE
+define('SMTP_FROM_EMAIL', 'hello@hsios.in');
+define('SMTP_FROM_NAME',  'HSI Smart Interiors');
 
 // ─── Lead Notifications ──────────────────────────────────────
 // Every new form submission is emailed here (when SMTP_ENABLED = true).
-define('NOTIFY_EMAIL', ['Support@HSIOS.in', 'mayureshmhatre49@gmail.com', 'nishant.mhatre@mail.com']);
+define('NOTIFY_EMAIL', ['hello@hsios.in', 'mayureshmhatre49@gmail.com', 'nishant.mhatre@mail.com']);
 
 // ─── Site ────────────────────────────────────────────────────
-define('SITE_NAME', 'HSI OS');
+define('SITE_NAME', 'HSI Smart Interiors');
 define('SITE_URL',  'https://www.hsios.in');
