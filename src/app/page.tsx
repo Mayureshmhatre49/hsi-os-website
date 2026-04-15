@@ -23,8 +23,10 @@ export default function HomePage() {
       <WhyChooseUsSection />
       <PoweredByHSIOSSection />
       <SustainabilitySection />
+      <FounderQuoteSection />
       <FeaturedProjectSection />
       <HestiaLegacySection />
+      <FounderVisionSection />
       <ForDevelopersSection />
       <TestimonialsSection />
       <FinalCTASection />
@@ -843,6 +845,96 @@ function FinalCTASection() {
             </p>
           </div>
         </RevealOnScroll>
+      </div>
+    </section>
+  )
+}
+
+/* ── 11. FOUNDER QUOTE ───────────────────────────────────── */
+function FounderQuoteSection() {
+  return (
+    <section className="py-24 bg-ivory-100 flex items-center justify-center text-center overflow-hidden">
+      <div className="container-luxury">
+        <RevealOnScroll>
+          <div className="max-w-4xl mx-auto">
+            <span className="text-4xl sm:text-6xl text-sandstone-300 font-serif leading-none opacity-50">&ldquo;</span>
+            <h2 className="font-serif text-display-md text-charcoal-800 leading-tight mb-8 mt-4 italic">
+              True luxury is not just how a space looks. It is how intelligently, efficiently, and responsibly it is created.
+            </h2>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-px bg-sandstone-400 mb-4" />
+              <p className="font-sans font-bold text-charcoal-800 tracking-widest uppercase text-xs">
+                Nishant Mhatre
+              </p>
+              <p className="text-warmgray-500 text-[10px] tracking-widest uppercase mt-1">
+                Founder · Hestia Smart Interiors
+              </p>
+            </div>
+          </div>
+        </RevealOnScroll>
+      </div>
+    </section>
+  )
+}
+
+/* ── 12. FOUNDER VISION ──────────────────────────────────── */
+function FounderVisionSection() {
+  return (
+    <section className="section-py bg-charcoal-800 relative overflow-hidden" aria-label="Founder Vision">
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 mix-blend-overlay pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-sandstone-500 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="container-luxury relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <RevealOnScroll>
+            <div className="section-label text-sandstone-400">Visionary Leadership</div>
+            <h2 className="font-serif text-display-lg text-white mb-8">
+              Redefining <em className="not-italic text-sandstone-300">Premium Execution.</em>
+            </h2>
+            <div className="space-y-6 text-warmgray-300 text-lg leading-relaxed">
+              <p>
+                Nishant Mhatre founded HSIOS with a bold vision—to reinvent premium interiors through technology, sustainability, and execution intelligence.
+              </p>
+              <p>
+                By embedding the principles of <span className="text-white font-medium italic">Refuse, Reuse, Recycle</span>, reducing carbon footprint, and minimizing waste, he is building a smarter future for luxury interior delivery.
+              </p>
+            </div>
+            <div className="mt-10">
+              <Link href="/about" className="btn btn-outline-white">
+                Read the Founder&apos;s Story →
+              </Link>
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.2}>
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-sandstone-400/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative bg-charcoal-900 aspect-square rounded-[2rem] overflow-hidden border border-white/10 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-charcoal-800 to-charcoal-950" />
+                <div className="relative z-10 text-center p-12">
+                  <div className="w-24 h-24 bg-sandstone-400/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-sandstone-400/30">
+                    <span className="font-serif text-4xl text-sandstone-300 italic">NM</span>
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-serif text-2xl text-white font-bold tracking-tight">Nishant Mhatre</h3>
+                    <p className="text-sandstone-400 text-sm font-semibold tracking-widest uppercase pb-4">Founder & Visionary</p>
+                  </div>
+                  <div className="pt-6 border-t border-white/10 flex justify-center gap-6">
+                    <div className="text-center">
+                      <div className="text-sm font-bold text-white mb-1">Vision</div>
+                      <div className="text-[10px] text-warmgray-500 uppercase tracking-widest">Sustainability First</div>
+                    </div>
+                    <div className="text-center">
+                       <div className="text-sm font-bold text-white mb-1">Method</div>
+                       <div className="text-[10px] text-warmgray-500 uppercase tracking-widest">HSIOS™ Intelligence</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
       </div>
     </section>
   )

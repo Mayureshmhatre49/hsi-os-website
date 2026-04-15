@@ -51,6 +51,89 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── MEET THE FOUNDER ───────────────────────────────── */}
+      <section className="section-py bg-white overflow-hidden" aria-label="Meet our founder">
+        <div className="container-luxury">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            
+            {/* Founder Image Column */}
+            <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-sandstone-100 rounded-[2.5rem] -rotate-2" />
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+                  {/* Stylized background for lack of photo */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-charcoal-700 to-charcoal-900" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center p-8">
+                       <div className="w-32 h-32 bg-sandstone-400/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-sandstone-400/20">
+                         <span className="font-serif text-6xl text-sandstone-300 italic">NM</span>
+                       </div>
+                       <h3 className="font-serif text-3xl text-white mb-2">Nishant Mhatre</h3>
+                       <p className="text-sandstone-400 font-semibold tracking-widest uppercase text-xs">Founder & Visionary</p>
+                    </div>
+                  </div>
+                  {/* Decorative corner elements */}
+                  <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-sandstone-400/30" />
+                  <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-sandstone-400/30" />
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            {/* Founder Narrative Column */}
+            <RevealOnScroll className="lg:col-span-7" delay={0.1}>
+              <div className="section-label">The Vision Behind HSI</div>
+              <h2 className="font-serif text-display-md text-charcoal-800 mb-8 mt-2">
+                Redefining the Future of <em className="not-italic text-sandstone-600">Interior Execution.</em>
+              </h2>
+              
+              <div className="space-y-6 text-warmgray-600 leading-relaxed text-lg">
+                <p className="font-medium text-charcoal-800">
+                  Nishant Mhatre is a visionary entrepreneur committed to redefining premium interiors through technology, operational excellence, and sustainability.
+                </p>
+                <p>
+                  As the founder of HSIOS, he believes the future of interior execution must go beyond aesthetics and timelines—it must also create smarter, cleaner, and more responsible spaces.
+                </p>
+                <p>
+                  Through years of experience in luxury residential and villa projects, Nishant identified recurring industry challenges: fragmented execution, avoidable delays, material wastage, poor coordination, and limited accountability.
+                </p>
+                <p>
+                  This vision led to the creation of HSIOS: an intelligent Interior Operating System built to bring precision, transparency, and sustainability into every stage of the project lifecycle.
+                </p>
+              </div>
+
+              {/* Sustainability Framework Sub-section */}
+              <div className="mt-12 p-8 rounded-3xl bg-ivory-100 border border-ivory-200">
+                <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-6 flex items-center gap-3">
+                  <span className="text-2xl">🌿</span>
+                  The Sustainability Framework
+                </h3>
+                <div className="grid gap-6">
+                  {[
+                    { title: 'Refuse', desc: 'Unnecessary consumption, wasteful materials, and inefficient processes.' },
+                    { title: 'Reuse', desc: 'Existing assets, salvageable materials, and components wherever possible.' },
+                    { title: 'Recycle', desc: 'Responsibly through structured disposal and circular material practices.' },
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4">
+                      <div className="font-serif text-sandstone-600 font-bold italic w-16 pt-0.5">{item.title}</div>
+                      <div className="text-sm text-warmgray-600 flex-1">{item.desc}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-12 space-y-6 text-warmgray-600 leading-relaxed">
+                <p>
+                  His mission is to help every project reduce carbon footprint, minimize construction waste, optimize material usage, and create premium interiors that are elegant not only in appearance—but also in impact.
+                </p>
+                <p className="italic font-serif text-charcoal-700 text-xl">
+                  &ldquo;Nishant’s long-term vision is clear: to make world-class interior execution measurable, predictable, sustainable, and scalable across India and beyond.&rdquo;
+                </p>
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
       {/* ── OUR STORY ─────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
