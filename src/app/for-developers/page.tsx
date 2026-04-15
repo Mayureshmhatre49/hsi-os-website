@@ -44,7 +44,7 @@ export default function ForDevelopersPage() {
       <section className="relative min-h-screen flex items-end pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hestia-villa-blue-haven.jpg"
+            src="/developer-solutions-hero.jpg"
             alt="Luxury developer project — Hestia Smart Interiors"
             fill
             className="object-cover"

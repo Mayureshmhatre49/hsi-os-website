@@ -679,7 +679,7 @@ function ForDevelopersSection() {
           {/* Image */}
           <div className="relative min-h-[320px] lg:min-h-0">
             <Image
-              src="/hestia-villa-blue-haven.jpg"
+              src="/developer-solutions-hero.jpg"
               alt="Luxury developer project — Hestia Smart Interiors"
               fill
               className="object-cover"
