@@ -8,14 +8,13 @@ const NAV_HTML = `
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="hsi-os.html">HSI OS</a></li>
-    <li><a href="how-it-works.html">How It Works</a></li>
     <li><a href="projects.html">Projects</a></li>
+    <li><a href="hsi-os.html">HSIOS™</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
     <li><a href="insights.html">Insights</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="for-homeowners.html">Homeowners</a></li>
-    <li><a href="for-developers.html">Developers</a></li>
-    <li><a href="contact.html" class="nav-cta">Start Project</a></li>
+    <li><a href="contact.html" class="nav-cta">Book Consultation</a></li>
   </ul>
   <div class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -33,7 +32,7 @@ const NAV_HTML = `
     <li><a href="for-developers.html">For Developers</a></li>
     <li><a href="alibag-villa-interiors.html">📍 Alibag Interiors</a></li>
     <li><a href="mumbai-luxury-interiors.html">📍 Mumbai Interiors</a></li>
-    <li><a href="contact.html">Start Project →</a></li>
+    <li><a href="contact.html">Book Consultation →</a></li>
   </ul>
 </div>`;
 
