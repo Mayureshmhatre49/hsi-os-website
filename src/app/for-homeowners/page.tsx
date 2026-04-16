@@ -4,26 +4,26 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'For Homeowners — Clarity, Control & Visibility in Your Interior Project | HSI',
+  title: 'For Homeowners — Complete Project Visibility & Control | HSI',
   description:
-    'HSI gives homeowners complete visibility into their villa or apartment interior project — clear costs, live progress and peace of mind. Use HSI as a full partner or alongside your existing team.',
+    'Complete visibility, live cost tracking, and peace of mind for homeowners. Manage your villa project from anywhere in the world with HSIOS™.',
   alternates: { canonical: 'https://www.hsios.in/for-homeowners' },
 }
 
 const painPoints = [
-  { title: 'Discovering the Project is 40% Over Budget at the End',    solution: 'Live budget tracking in HSIOS™ means you see every rupee, every day.' },
-  { title: 'Not Knowing What Stage Your Project Is At',                 solution: 'A real-time dashboard shows exactly what is done, what is next and what is pending.' },
-  { title: 'Vendor Delays Nobody Warned You About',                     solution: 'HSIOS™ tracks all vendor commitments and flags delays before they impact your timeline.' },
-  { title: 'Managing This From Another City or Abroad',                 solution: 'Your dashboard travels with you. Full project visibility, zero site visits required.' },
+  { title: 'Budget overrun discovered at handover',       solution: 'Live tracking — every rupee visible, every day.' },
+  { title: 'No idea what stage the project is at',        solution: 'Real-time dashboard — done, active, and pending.' },
+  { title: 'Vendor delays with no warning',               solution: 'HSIOS™ flags delays before they impact your timeline.' },
+  { title: 'Managing from another city or abroad',        solution: 'Full control from any device, zero site visits required.' },
 ]
 
 const benefits = [
-  { icon: '👁️', title: 'Complete Project Visibility',   desc: 'Live dashboards showing phase-by-phase progress, upcoming milestones and completed tasks — accessible from any device, anywhere.' },
-  { icon: '💰', title: 'Cost Clarity at Every Stage',   desc: 'Real-time budget tracking across every room, trade and vendor. Approved spend, pending payments and projected completion cost — always visible.' },
-  { icon: '📋', title: 'Every Decision Documented',     desc: 'No verbal agreements. Every change, approval and instruction is logged in HSIOS™, creating a permanent, transparent record.' },
-  { icon: '🏆', title: 'Quality You Can Verify',        desc: 'Milestone-based quality inspections with photo documentation. Work does not proceed until the previous phase is signed off.' },
-  { icon: '🤝', title: 'One Team, One Responsibility',  desc: 'No blame shifting. One accountable team managing all vendors, trades and coordination — with you in the loop at all times.' },
-  { icon: '📍', title: 'NRI-Ready Remote Management',   desc: 'Built for homeowners who cannot be on-site. HSIOS™ gives you the same visibility and control whether you are in Mumbai or Melbourne.' },
+  { icon: '👁️', title: 'Complete Project Visibility',   desc: 'Phase-by-phase dashboards accessible from any device, anywhere.' },
+  { icon: '💰', title: 'Cost Clarity at Every Stage',   desc: 'Real-time budget tracking across every room, trade, and vendor. Approved spend and projected cost — always visible.' },
+  { icon: '📋', title: 'Every Decision Documented',     desc: 'No verbal agreements. Every change, approval, and instruction is logged in HSIOS™ — permanently.' },
+  { icon: '🏆', title: 'Quality You Can Verify',        desc: 'Photo-documented milestone inspections. Work only proceeds after sign-off.' },
+  { icon: '🤝', title: 'One Accountable Team',          desc: 'No blame-shifting. One team managing all vendors, trades, and coordination.' },
+  { icon: '📍', title: 'NRI-Ready Remote Management',   desc: 'Same visibility and control whether you\'re in Mumbai or Melbourne.' },
 ]
 
 export default function ForHomeownersPage() {
@@ -51,14 +51,27 @@ export default function ForHomeownersPage() {
                 <em className="not-italic text-sandstone-300">Your Control.</em>
               </h1>
               <p className="text-warmgray-200 text-lg leading-relaxed mb-8">
-                Premium interior execution with complete visibility, cost clarity and
-                peace of mind — whether you are in the next room or the next continent.
+                Complete project visibility, cost clarity, and peace of mind — whether you&apos;re on-site or overseas.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn btn-bronze">Book Private Consultation</Link>
                 <Link href="/how-it-works" className="btn btn-outline-white">See Our Process</Link>
               </div>
             </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ── POSITIONING STATEMENT ─────────────────────────── */}
+      <section className="py-16 bg-charcoal-800">
+        <div className="container-luxury max-w-3xl text-center">
+          <RevealOnScroll>
+            <p className="font-serif text-display-sm text-white leading-snug mb-4">
+              Build once. Build right.
+            </p>
+            <p className="text-warmgray-300 text-lg leading-relaxed">
+              HSIOS™ ends endless rework, budget drift, and vendor dependency. You get clarity, structure, and results.
+            </p>
           </RevealOnScroll>
         </div>
       </section>
@@ -127,13 +140,11 @@ export default function ForHomeownersPage() {
           <RevealOnScroll>
             <div className="section-label text-sandstone-400">NRI Homeowners</div>
             <h2 className="font-serif text-display-md text-white mb-6">
-              Managing Your India Villa<br />
-              <span className="text-sandstone-300">From Anywhere in the World.</span>
+              Your India Villa.<br />
+              <span className="text-sandstone-300">Managed From Anywhere.</span>
             </h2>
             <p className="text-warmgray-300 leading-relaxed mb-6">
-              HSIOS™ was built with NRI homeowners in mind. Distance is no longer a
-              disadvantage — it is simply a timezone difference. Your dashboard gives you
-              the same visibility and control as being on-site.
+              HSIOS™ was built with NRI homeowners in mind. Distance is just a timezone difference — your dashboard never leaves you.
             </p>
             <ul className="space-y-3 mb-8">
               {[
@@ -179,8 +190,7 @@ export default function ForHomeownersPage() {
               Ready for a Different Experience?
             </h2>
             <p className="text-white/80 leading-relaxed mb-8">
-              Book a private consultation. Tell us about your project — we&apos;ll show you
-              exactly what working with HSI looks like for you.
+              Tell us about your project — we&apos;ll show you what complete control looks like.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn bg-white text-charcoal-800 hover:bg-ivory-100">

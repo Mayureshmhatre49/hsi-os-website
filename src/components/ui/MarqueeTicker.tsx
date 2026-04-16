@@ -1,13 +1,13 @@
 'use client'
 
 const items = [
-  'Beautiful Interiors. Responsibly Delivered.',
-  'Precision Execution. Every Rupee Tracked.',
+  'Precision is the New Luxury.',
+  'Build Once. Build Right.',
+  'Where Luxury Meets Logic.',
   'Powered by HSIOS™',
-  'From Villa to Penthouse — One Accountable Team.',
-  'Sustainability Built Into Every Decision.',
-  'Design Meets Intelligence.',
-  'Luxury Without Compromise.',
+  'Intelligent Planning. Flawless Execution.',
+  'Sustainability Without Compromise.',
+  'The Future of Premium Interiors.',
   'Alibag · Mumbai · Pune · Goa · Beyond.',
 ]
 

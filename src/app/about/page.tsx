@@ -4,9 +4,9 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'About Hestia Smart Interiors — Our Story, Values & Vision',
+  title: 'About Hestia Smart Interiors — Vision, Values & Founder',
   description:
-    'Hestia Smart Interiors was born from real project experience. We combine deep on-ground villa execution with HSIOS™ — our proprietary execution intelligence platform.',
+    'Hestia Smart Interiors was built to change how premium homes are executed. Meet our founder, values, and the vision behind HSIOS™.',
   alternates: { canonical: 'https://www.hsios.in/about' },
 }
 
@@ -131,6 +131,36 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── MISSION & STANDARDS ───────────────────────────── */}
+      <section className="section-py bg-sandstone-400">
+        <div className="container-luxury">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <RevealOnScroll>
+              <div className="section-label text-white/60">Our Mission</div>
+              <h2 className="font-serif text-display-md text-white mb-6">
+                To become the most trusted operating system for premium residential interiors.
+              </h2>
+              <p className="text-white/80 text-lg leading-relaxed">
+                Built from frustration with how premium homes were being built — beautiful designs
+                ruined during execution, poor planning hidden until too late, waste mistaken for premium,
+                clients forced to micromanage. HSIOS™ was created to change that.
+              </p>
+            </RevealOnScroll>
+            <RevealOnScroll delay={0.1}>
+              <div className="section-label text-white/60">Our Standards</div>
+              <div className="grid grid-cols-2 gap-4 mt-2">
+                {['Precision','Integrity','Sustainability','Innovation','Transparency','Long-term value creation'].map((standard, i) => (
+                  <div key={standard} className="flex items-center gap-3 p-4 rounded-xl bg-white/10 border border-white/15">
+                    <span className="font-serif text-2xl font-bold text-white/20 leading-none">{String(i + 1).padStart(2,'0')}</span>
+                    <span className="font-semibold text-white text-sm">{standard}</span>
+                  </div>
+                ))}
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
       {/* ── OUR STORY ─────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
@@ -226,7 +256,7 @@ export default function AboutPage() {
               Meet <span className="text-sandstone-300">HSIOS™</span>
             </h2>
             <p className="text-warmgray-300 leading-relaxed mb-8">
-              The unified execution intelligence platform powering every Hestia project.
+              The unified execution intelligence platform powering every Hestia project. See it in action.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/hsi-os" className="btn btn-bronze">Explore HSIOS™ →</Link>

@@ -4,19 +4,19 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'For Developers — Scale Premium Interior Execution Across Your Portfolio | HSI',
+  title: 'For Developers — Scale Premium Interiors Across Your Portfolio | HSI',
   description:
-    'HSIOS™ enables property developers to standardise luxury interior execution across multiple units — reducing delays, maintaining quality consistency and providing buyer transparency.',
+    'Standardise luxury interior execution across your entire portfolio. HSIOS™ delivers quality, consistency, and buyer transparency at any scale.',
   alternates: { canonical: 'https://www.hsios.in/for-developers' },
 }
 
 const developerBenefits = [
-  { icon: '📐', title: 'Standardised Execution',        desc: 'HSIOS™ creates repeatable execution templates across all your units — consistent quality, every time.' },
-  { icon: '📊', title: 'Multi-Unit Dashboard',           desc: 'Manage multiple units in parallel from a single view. Progress, costs and timelines for every property in your portfolio.' },
-  { icon: '💰', title: 'Procurement Efficiency',         desc: 'Consolidated procurement across units reduces cost, improves vendor terms and eliminates duplication.' },
-  { icon: '🏆', title: 'Quality Documentation',          desc: 'Every quality checkpoint is documented in HSIOS™ — creating a permanent, auditable record for every unit delivered.' },
-  { icon: '👥', title: 'Buyer-Facing Transparency',      desc: 'Give your buyers real-time progress visibility as a sales differentiator. Demonstrate premium execution before the keys are handed over.' },
-  { icon: '⚡', title: 'Faster Handover Timelines',      desc: 'Structured execution reduces rework and coordination delays — accelerating handover across your entire project timeline.' },
+  { icon: '📐', title: 'Standardised Execution',        desc: 'Repeatable execution templates across all units — consistent quality, every time.' },
+  { icon: '📊', title: 'Multi-Unit Dashboard',           desc: 'All units, all progress, one view. Progress, costs, and timelines across your entire portfolio.' },
+  { icon: '💰', title: 'Procurement Efficiency',         desc: 'Consolidated procurement across units reduces cost and eliminates duplication.' },
+  { icon: '🏆', title: 'Quality Documentation',          desc: 'Auditable quality records for every unit delivered — permanent and defensible.' },
+  { icon: '👥', title: 'Buyer Transparency',             desc: 'Give buyers real-time progress visibility as a sales differentiator. Premium execution, proven before handover.' },
+  { icon: '⚡', title: 'Faster Handover',                desc: 'Structured execution reduces rework and coordination delays — accelerating handover timelines.' },
 ]
 
 const useCases = [
@@ -62,14 +62,36 @@ export default function ForDevelopersPage() {
                 <em className="not-italic text-sandstone-300">Across Your Portfolio.</em>
               </h1>
               <p className="text-warmgray-200 text-lg leading-relaxed mb-8">
-                HSIOS™ brings the same execution intelligence and quality discipline
-                to every unit in your development — from sample villas to full-scale
-                luxury developments.
+                HSIOS™ brings consistent execution intelligence to every unit in your development — from sample villas to full-scale luxury projects.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn btn-bronze">Discuss Your Development</Link>
                 <Link href="/hsi-os" className="btn btn-outline-white">Explore HSIOS™</Link>
               </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ── PREMIUM BUYERS EXPECT ─────────────────────────── */}
+      <section className="py-16 bg-charcoal-800">
+        <div className="container-luxury">
+          <RevealOnScroll>
+            <div className="max-w-2xl mx-auto text-center mb-12">
+              <p className="font-serif text-display-sm text-white leading-snug mb-4">
+                Premium Buyers Expect More Than Square Feet.
+              </p>
+              <p className="text-warmgray-300 text-lg leading-relaxed">
+                Smart planning, cleaner execution, and trustworthy delivery. HSIOS™ helps you deliver differentiated premium residences that meet — and exceed — these expectations.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+              {['Smart planning','Better sustainability','Cleaner execution','Trustworthy delivery','Functional luxury'].map((item, i) => (
+                <div key={item} className="p-4 rounded-xl bg-white/8 border border-white/10 text-center">
+                  <div className="font-serif text-3xl font-bold text-sandstone-400/30 leading-none mb-2">{String(i+1).padStart(2,'0')}</div>
+                  <div className="text-xs font-semibold text-warmgray-200 leading-snug">{item}</div>
+                </div>
+              ))}
             </div>
           </RevealOnScroll>
         </div>
@@ -154,9 +176,9 @@ export default function ForDevelopersPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { n: '01', title: 'Unit-level dashboards',      desc: 'Individual progress tracking for every unit in your development.' },
-              { n: '02', title: 'Portfolio overview',          desc: 'A single view across your entire project — all units, all phases.' },
-              { n: '03', title: 'Cost benchmarking',           desc: 'Compare costs across units, identify variances and control budget at scale.' },
-              { n: '04', title: 'Buyer access portal',         desc: 'Give each buyer their own visibility into their specific unit\'s progress.' },
+              { n: '02', title: 'Portfolio overview',          desc: 'All units, all phases — one view.' },
+              { n: '03', title: 'Cost benchmarking',           desc: 'Compare costs across units, control budget at scale.' },
+              { n: '04', title: 'Buyer access portal',         desc: 'Each buyer sees their specific unit\'s live progress.' },
             ].map(({ n, title, desc }) => (
               <RevealOnScroll key={n}>
                 <div className="p-7 rounded-2xl border border-white/8 bg-white/5 hover:bg-white/8 hover:border-sandstone-400/30 transition-all duration-300">
@@ -178,8 +200,7 @@ export default function ForDevelopersPage() {
               Let&apos;s Discuss Your Development.
             </h2>
             <p className="text-white/80 leading-relaxed mb-8">
-              Whether you are planning a single sample villa or a full luxury development,
-              we would love to show you how HSI can work for your portfolio.
+              One sample villa or a 50-unit development — we&apos;ll show you how HSIOS™ works at your scale.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn bg-white text-charcoal-800 hover:bg-ivory-100">

@@ -19,6 +19,13 @@ const posts = [
     featured: true,
   },
   {
+    slug: 'blog-sustainable-luxury',
+    category: 'Insights · Sustainability',
+    title: "Sustainable Luxury Interiors: Why 'Good Looking' is No Longer Enough",
+    excerpt: 'How technology and execution intelligence enable true environmental responsibility in luxury home building through the Refuse, Reuse, Recycle framework.',
+    readTime: '6 min read',
+  },
+  {
     slug: 'blog-alibag-villa-cost',
     category: 'Cost Intelligence · Alibag',
     title: 'How Much Does a Villa Interior Cost in Alibag?',

@@ -5,9 +5,9 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import MarqueeTicker from '@/components/ui/MarqueeTicker'
 
 export const metadata: Metadata = {
-  title: 'Beautiful Interiors. Responsibly Delivered. | Hestia Smart Interiors',
+  title: 'Luxury Villa Interiors, Powered by HSIOS™ | Hestia Smart Interiors',
   description:
-    'Luxury turnkey interiors for villas, premium homes and holiday properties in Alibag, Mumbai and beyond — powered by HSIOS™, our precision execution platform.',
+    'HSIOS™-powered luxury interior execution for premium villas, residences and developments. Precision, transparency, and zero surprises.',
   alternates: { canonical: 'https://www.hsios.in' },
 }
 
@@ -19,14 +19,17 @@ export default function HomePage() {
     <>
       <HeroSection />
       <MarqueeTicker />
+      <WhyHSIOSExistsSection />
       <WhatWeCreateSection />
       <WhyChooseUsSection />
       <PoweredByHSIOSSection />
       <SustainabilitySection />
+      <WhoWeServeSection />
       <FounderQuoteSection />
       <FeaturedProjectSection />
       <HestiaLegacySection />
       <FounderVisionSection />
+      <DifferenceSection />
       <ForDevelopersSection />
       <TestimonialsSection />
       <FinalCTASection />
@@ -65,22 +68,23 @@ function HeroSection() {
           <div className="flex items-center gap-3 mb-7 animate-fade-up">
             <div className="w-7 h-px bg-sandstone-400" />
             <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-sandstone-300">
-              Hestia Smart Interiors — Luxury Execution Platform
+              Hestia Smart Interiors — India&apos;s First Interior Operating System
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-display-2xl text-white mb-6 animate-fade-up [animation-delay:120ms]">
-            Beautiful Interiors.<br />
-            <em className="not-italic text-sandstone-300">Responsibly Delivered.</em>
+          <h1 className="font-serif text-display-2xl text-white mb-3 animate-fade-up [animation-delay:120ms]">
+            Luxury Homes Need<br />
+            More Than Interiors.
           </h1>
+          <p className="font-serif text-display-sm text-sandstone-300 mb-6 animate-fade-up [animation-delay:180ms]">
+            They Need an Operating System.
+          </p>
 
           {/* Subheadline */}
           <p className="text-lg text-white/75 font-sans leading-relaxed max-w-xl mb-10 animate-fade-up [animation-delay:240ms]">
-            Luxury turnkey interiors for villas, premium homes and holiday properties —
-            powered by{' '}
-            <span className="text-sandstone-300 font-semibold">HSIOS™</span>,
-            our intelligent execution platform for precision, transparency and sustainability.
+            HSIOS™ brings precision, transparency, and intelligent execution to premium villas,
+            residences, and developments across India.
           </p>
 
           {/* CTAs */}
@@ -97,10 +101,10 @@ function HeroSection() {
         {/* Stats Row */}
         <div className="mt-16 pt-10 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-8 animate-fade-up [animation-delay:480ms]">
           {[
-            { value: '7+',    label: 'Luxury Villas Delivered' },
-            { value: '100%',  label: 'Project Visibility' },
-            { value: '0',     label: 'Execution Surprises' },
-            { value: '2',     label: 'States — Alibag & Beyond' },
+            { value: '7+',     label: 'Luxury Villas Delivered' },
+            { value: '₹100Cr+', label: 'Projects Managed' },
+            { value: '100%',   label: 'Client Visibility' },
+            { value: '0',      label: 'Execution Surprises' },
           ].map(({ value, label }) => (
             <div key={label}>
               <div className="font-serif text-4xl font-bold text-sandstone-300 mb-1">{value}</div>
@@ -230,8 +234,7 @@ function WhyChooseUsSection() {
               <em className="not-italic text-sandstone-300">The Execution You Rarely Get.</em>
             </h2>
             <p className="text-warmgray-300 text-lg leading-relaxed">
-              Most luxury interior projects fail not in design — but in execution.
-              HSI was built to end that problem for good.
+              Most luxury interior projects fail not in design — but in execution. HSI was built to end that.
             </p>
           </div>
         </RevealOnScroll>
@@ -276,11 +279,12 @@ function WhyChooseUsSection() {
 
 /* ── 4. POWERED BY HSIOS™ ────────────────────────────────── */
 const modules = [
-  { icon: '🗂️', label: 'Project Planning Engine',   desc: 'Scope, timelines and execution roadmaps built for real-world complexity.' },
-  { icon: '💰', label: 'Budget & Cost Intelligence', desc: 'Live cost tracking, variance alerts and financial clarity at every milestone.' },
-  { icon: '⚡', label: 'Execution Tracking',         desc: 'Real-time progress across all teams, trades and site activities.' },
-  { icon: '🔗', label: 'Vendor & Procurement',       desc: 'Streamlined vendor coordination, purchase orders and delivery schedules.' },
-  { icon: '📊', label: 'Real-Time Client Reporting', desc: 'Elegant dashboards giving homeowners and developers instant visibility.' },
+  { icon: '🗂️', label: 'Intelligent Planning',        desc: 'Detect layout inefficiencies and space waste before money is spent.' },
+  { icon: '⚠️', label: 'Conflict Detection Engine',   desc: 'Resolve plumbing, electrical, and joinery clashes before site work begins.' },
+  { icon: '💰', label: 'Budget & Cost Intelligence',  desc: 'Live variance tracking and milestone-based cost transparency.' },
+  { icon: '🌿', label: 'Sustainability Intelligence', desc: 'Lower waste, smarter sourcing, reduced carbon — built in, not bolted on.' },
+  { icon: '⚡', label: 'Premium Execution System',    desc: 'Precision workmanship and timeline discipline at every stage.' },
+  { icon: '🏠', label: 'Ownership Mode',              desc: 'Asset records, maintenance planning, and vendor intelligence after handover.' },
 ]
 
 function PoweredByHSIOSSection() {
@@ -300,10 +304,7 @@ function PoweredByHSIOSSection() {
                 for Luxury Execution.
               </h2>
               <p className="text-warmgray-600 text-lg leading-relaxed mb-8">
-                HSIOS™ is our proprietary execution intelligence platform — purpose-built for premium
-                residential interiors. It isn&apos;t a generic project tool adapted for interiors.
-                It speaks the language of villa projects: scope definitions, trade sequencing,
-                material lead times and procurement control.
+                Purpose-built for premium residential interiors. Not a generic tool adapted — a platform that speaks the language of villa projects.
               </p>
               <div className="flex flex-col gap-4 mb-10">
                 {modules.map(({ icon, label, desc }) => (
@@ -415,25 +416,25 @@ const sustainabilityPillars = [
     word: 'Refuse',
     icon: '🚫',
     title: 'Refuse Waste at Source',
-    desc: 'Every procurement decision is evaluated for environmental impact before it is approved. If it can be avoided, it is.',
+    desc: 'Unnecessary materials, over-ordering, single-use site waste — rejected before procurement approval.',
   },
   {
     word: 'Reuse',
     icon: '♻️',
-    title: 'Reuse Usable Assets',
-    desc: 'Premium materials and fixtures are retained, refurbished and reintegrated where appropriate — reducing cost and landfill.',
+    title: 'Reuse Wherever Meaningful',
+    desc: 'Salvageable materials, premium fixtures, and structural elements are refurbished and reintegrated.',
   },
   {
     word: 'Recycle',
     icon: '🌿',
     title: 'Recycle Responsibly',
-    desc: 'Construction waste is segregated and routed to certified recyclers. No site waste goes to unmanaged disposal.',
+    desc: 'Construction waste is segregated and routed to certified recyclers — with documented disposal records.',
   },
   {
     word: 'Reduce',
     icon: '📉',
     title: 'Reduce Carbon Footprint',
-    desc: 'Smarter sourcing, consolidated transport cycles and local vendor preference reduce the carbon cost of every project.',
+    desc: 'Local vendor preference and consolidated deliveries lower the carbon cost of every project.',
   },
 ]
 
@@ -455,8 +456,7 @@ function SustainabilitySection() {
             <em className="not-italic text-sandstone-300">Responsible.</em>
           </h2>
           <p className="text-warmgray-300 text-lg leading-relaxed">
-            HSIOS™ embeds sustainability into execution — not as a marketing claim,
-            but as a tracked, documented commitment on every project.
+            HSIOS™ embeds sustainability into every project phase — from procurement to disposal. Every decision is measured, documented, and reported.
           </p>
         </RevealOnScroll>
 
@@ -478,9 +478,14 @@ function SustainabilitySection() {
             Tracked through HSIOS™ — every project receives a sustainability report
             documenting waste reduction, sourcing decisions and carbon offsets.
           </p>
-          <Link href="/hsi-os" className="btn btn-outline-white text-sm">
-            Learn How HSIOS™ Tracks This
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/sustainability" className="btn btn-outline-white text-sm">
+              Our Full Sustainability Commitment
+            </Link>
+            <Link href="/hsi-os" className="btn btn-outline-white text-sm opacity-70">
+              How HSIOS™ Tracks This
+            </Link>
+          </div>
         </RevealOnScroll>
       </div>
     </section>
@@ -692,12 +697,10 @@ function ForDevelopersSection() {
           <RevealOnScroll className="p-12 xl:p-16 flex flex-col justify-center">
             <div className="section-label text-sandstone-400">For Developers</div>
             <h2 className="font-serif text-display-md text-white mb-6">
-              Scale Luxury Execution Across Your Entire Portfolio.
+              Scale Luxury Execution Across Your Portfolio.
             </h2>
             <p className="text-warmgray-300 leading-relaxed mb-8">
-              HSIOS™ was designed for multi-unit consistency. Whether you are delivering
-              sample villas, a boutique resort or an entire luxury development — our platform
-              and execution team ensure every unit meets the same premium standard.
+              HSIOS™ brings consistent execution intelligence to every unit in your development — from sample villas to full-scale luxury projects.
             </p>
             <ul className="space-y-3 mb-10">
               {[
@@ -817,13 +820,12 @@ function FinalCTASection() {
             </div>
 
             <h2 className="font-serif text-display-xl text-white mb-6">
-              Your Home Deserves<br />
-              <em className="not-italic text-sandstone-300">This Level of Attention.</em>
+              Ready for a<br />
+              <em className="not-italic text-sandstone-300">Different Standard?</em>
             </h2>
 
             <p className="text-warmgray-300 text-lg leading-relaxed mb-12">
-              Book a private consultation. Share your vision — villa, apartment, holiday home
-              or development. We will show you exactly how HSI and HSIOS™ would work for you.
+              Book a private consultation. We&apos;ll show you exactly how HSI and HSIOS™ work for your project.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -843,6 +845,169 @@ function FinalCTASection() {
             <p className="mt-10 text-xs text-warmgray-500 tracking-wide">
               +91-8010234802 &nbsp;·&nbsp; hello@hsios.in &nbsp;·&nbsp; Alibag · Mumbai · Pune · Goa
             </p>
+          </div>
+        </RevealOnScroll>
+      </div>
+    </section>
+  )
+}
+
+/* ── NEW: WHY HSIOS EXISTS ───────────────────────────────── */
+const painPoints = [
+  'Cost overruns',
+  'Poor coordination',
+  'Hidden execution mistakes',
+  'Delays and rework',
+  'Wasted materials',
+  'Weak sustainability planning',
+  'Stressful decision-making',
+  'Lack of accountability',
+]
+
+function WhyHSIOSExistsSection() {
+  return (
+    <section className="section-py bg-charcoal-800 relative overflow-hidden" aria-label="Why HSIOS exists">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sandstone-600/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="container-luxury relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <RevealOnScroll>
+            <div className="section-label text-sandstone-400">The Problem We Solve</div>
+            <h2 className="font-serif text-display-lg text-white mb-6">
+              Most Luxury Projects Fail<br />
+              <em className="not-italic text-sandstone-300">in Execution. Not Design.</em>
+            </h2>
+            <p className="text-warmgray-300 text-lg leading-relaxed mb-8">
+              Missed timelines. Silent cost overruns. Vendors who go dark. Beautiful designs ruined on site. HSIOS™ was built to end that — permanently.
+            </p>
+            <blockquote className="border-l-2 border-sandstone-400 pl-6 font-serif text-lg text-sandstone-200 italic mb-8">
+              &ldquo;For those who refuse ordinary homes, delayed projects, wasteful decisions,
+              and outdated execution methods. HSIOS™ was built for a new generation of premium living.&rdquo;
+            </blockquote>
+            <Link href="/hsi-os" className="btn btn-bronze">Explore HSIOS™ →</Link>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <div className="grid grid-cols-2 gap-3">
+              {painPoints.map((point, i) => (
+                <div
+                  key={point}
+                  className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/8
+                             hover:bg-white/8 hover:border-sandstone-400/30 transition-all duration-300"
+                  style={{ animationDelay: `${i * 50}ms` }}
+                >
+                  <span className="w-5 h-5 rounded-full bg-red-500/15 border border-red-500/25 flex items-center justify-center text-red-400 text-xs flex-shrink-0">✗</span>
+                  <span className="text-warmgray-300 text-sm leading-snug">{point}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-center text-sandstone-400 font-serif text-lg italic">
+              We eliminate all of these.
+            </p>
+          </RevealOnScroll>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── NEW: WHO WE SERVE ───────────────────────────────────── */
+const personas = [
+  { icon: '🏡', title: 'Premium Homeowners',          desc: 'Build once. Build right. Complete visibility, cost clarity and peace of mind from brief to handover.', href: '/for-homeowners' },
+  { icon: '🏗️', title: 'Villa Owners During Construction', desc: 'Prevent irreversible mistakes before they happen. Catch conflicts and cost overruns in planning, not on site.', href: '/for-homeowners' },
+  { icon: '📐', title: 'Architects & Interior Designers', desc: 'Protect design vision through intelligent execution. Fewer clashes. Better collaboration. Design fidelity preserved.', href: '/for-architects' },
+  { icon: '🏢', title: 'Developers',                  desc: 'Deliver premium projects with better margins, stronger buyer trust and faster handover timelines.', href: '/for-developers' },
+  { icon: '📋', title: 'PMC & Project Teams',          desc: 'Operate with one clear source of truth. All vendors, trades and milestones in a single intelligent system.', href: '/hsi-os' },
+]
+
+function WhoWeServeSection() {
+  return (
+    <section className="section-py bg-ivory-100" aria-label="Who we serve">
+      <div className="container-luxury">
+        <RevealOnScroll className="max-w-xl mb-16">
+          <div className="section-label">Who We Serve</div>
+          <h2 className="font-serif text-display-lg text-charcoal-800">
+            Built for Every Role in{' '}
+            <span className="text-sandstone-600">Premium Living.</span>
+          </h2>
+          <p className="text-warmgray-600 mt-4 leading-relaxed">
+            Because premium clients value peace of mind, smarter investments, better finishes,
+            transparent execution, and future-ready homes.
+          </p>
+        </RevealOnScroll>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          {personas.map(({ icon, title, desc, href }, i) => (
+            <RevealOnScroll key={title} delay={i * 0.07}>
+              <Link href={href} className="group block p-7 rounded-2xl bg-white border border-ivory-300
+                hover:border-sandstone-300 hover:shadow-card transition-all duration-300 h-full">
+                <div className="text-4xl mb-4 transition-transform duration-300 group-hover:scale-110 origin-left">{icon}</div>
+                <h3 className="font-serif font-bold text-charcoal-800 text-sm mb-2 group-hover:text-sandstone-700 transition-colors leading-snug">{title}</h3>
+                <p className="text-warmgray-500 text-xs leading-relaxed">{desc}</p>
+              </Link>
+            </RevealOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── NEW: TRADITIONAL VS HSIOS ───────────────────────────── */
+const comparison = [
+  { aspect: 'Approach',        traditional: 'Reactive',    hsios: 'Proactive' },
+  { aspect: 'Coordination',    traditional: 'Fragmented',  hsios: 'Integrated' },
+  { aspect: 'Decision-Making', traditional: 'Vendor-led',  hsios: 'Data-led' },
+  { aspect: 'Outcome',         traditional: 'Uncertain',   hsios: 'Predictable' },
+  { aspect: 'Cost Control',    traditional: 'Post-facto',  hsios: 'Real-time' },
+  { aspect: 'Sustainability',  traditional: 'Ignored',     hsios: 'Built-in' },
+  { aspect: 'Client Role',     traditional: 'Micromanager',hsios: 'Informed Owner' },
+  { aspect: 'After Handover',  traditional: 'Nothing',     hsios: 'Ownership Mode' },
+]
+
+function DifferenceSection() {
+  return (
+    <section className="section-py bg-ivory-200" aria-label="HSIOS difference">
+      <div className="container-luxury">
+        <RevealOnScroll className="max-w-xl mb-16">
+          <div className="section-label">The Difference</div>
+          <h2 className="font-serif text-display-lg text-charcoal-800">
+            Traditional Interior Approach{' '}
+            <span className="text-sandstone-600">vs HSIOS™.</span>
+          </h2>
+          <p className="text-warmgray-600 mt-4 leading-relaxed">
+            Precision is the new luxury.
+          </p>
+        </RevealOnScroll>
+
+        <RevealOnScroll>
+          <div className="rounded-3xl overflow-hidden border border-ivory-300 bg-white">
+            {/* Header */}
+            <div className="grid grid-cols-3 bg-charcoal-800 text-white">
+              <div className="px-6 py-4 text-xs font-bold tracking-widest uppercase text-warmgray-400"></div>
+              <div className="px-6 py-4 text-center">
+                <div className="text-xs font-bold tracking-widest uppercase text-warmgray-400 mb-1">Traditional</div>
+                <div className="text-sm font-semibold text-white/60">Reactive. Fragmented.</div>
+              </div>
+              <div className="px-6 py-4 text-center bg-sandstone-400/15 border-l border-sandstone-400/20">
+                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-1">HSIOS™</div>
+                <div className="text-sm font-semibold text-white">Proactive. Integrated.</div>
+              </div>
+            </div>
+            {/* Rows */}
+            {comparison.map(({ aspect, traditional, hsios }, i) => (
+              <div key={aspect} className={`grid grid-cols-3 border-b border-ivory-200 last:border-0 ${i % 2 === 0 ? 'bg-white' : 'bg-ivory-50'}`}>
+                <div className="px-6 py-4 text-xs font-bold tracking-widest uppercase text-warmgray-500">{aspect}</div>
+                <div className="px-6 py-4 text-center">
+                  <span className="inline-flex items-center gap-1.5 text-sm text-warmgray-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />{traditional}
+                  </span>
+                </div>
+                <div className="px-6 py-4 text-center bg-sandstone-50 border-l border-sandstone-100">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-sandstone-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-sandstone-400 flex-shrink-0" />{hsios}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </RevealOnScroll>
       </div>

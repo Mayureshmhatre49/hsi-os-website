@@ -5,23 +5,26 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { href: '/',                label: 'Home' },
-  { href: '/projects',        label: 'Projects' },
-  { href: '/hsi-os',          label: 'HSIOS™' },
-  { href: '/how-it-works',    label: 'How It Works' },
-  { href: '/insights',        label: 'Insights' },
-  { href: '/about',           label: 'About' },
-  { href: '/for-homeowners', label: 'Homeowners' },
+  { href: '/',                 label: 'Home' },
+  { href: '/projects',         label: 'Projects' },
+  { href: '/hsi-os',           label: 'HSIOS™' },
+  { href: '/how-it-works',     label: 'How It Works' },
+  { href: '/sustainability',   label: 'Sustainability' },
+  { href: '/insights',         label: 'Insights' },
+  { href: '/about',            label: 'About' },
 ]
 
 const solutionLinks = [
-  { href: '/for-developers', label: 'For Developers' },
+  { href: '/for-homeowners',  label: 'For Homeowners' },
+  { href: '/for-developers',  label: 'For Developers' },
+  { href: '/for-architects',  label: 'For Architects' },
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled]     = useState(false)
-  const [menuOpen, setMenuOpen]     = useState(false)
-  const [mounted, setMounted]       = useState(false)
+  const [scrolled, setScrolled]       = useState(false)
+  const [menuOpen, setMenuOpen]       = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [mounted, setMounted]         = useState(false)
   const pathname = usePathname()
 
   // Throttled scroll listener
@@ -35,14 +38,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
-  // Close mobile menu on route change
-  useEffect(() => { setMenuOpen(false) }, [pathname])
+  // Close mobile menu and dropdown on route change
+  useEffect(() => { setMenuOpen(false); setDropdownOpen(false) }, [pathname])
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   // Hero pages should start transparent; other pages start with bg
-  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/hsi-os'].includes(pathname)
+  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/hsi-os', '/sustainability'].includes(pathname)
   const transparent = isHeroPage && !scrolled && !menuOpen
 
   return (
@@ -118,6 +121,52 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+
+            {/* Solutions dropdown */}
+            <li className="relative">
+              <button
+                onClick={() => setDropdownOpen(v => !v)}
+                onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
+                className={`
+                  flex items-center gap-1 px-3 py-2 rounded-lg text-[13px] xl:text-sm font-medium
+                  transition-all duration-200 whitespace-nowrap
+                  ${solutionLinks.some(l => isActive(l.href))
+                    ? transparent ? 'text-white' : 'text-sandstone-700 bg-sandstone-50'
+                    : transparent
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-warmgray-700 hover:text-charcoal-800 hover:bg-ivory-200'
+                  }
+                `}
+              >
+                Solutions
+                <svg
+                  width="10" height="10" viewBox="0 0 10 10" fill="none"
+                  className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                >
+                  <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-48 rounded-xl bg-ivory-50 border border-ivory-200 shadow-luxury overflow-hidden z-50">
+                  {solutionLinks.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className={`
+                        block px-4 py-3 text-sm font-medium transition-colors
+                        ${isActive(href)
+                          ? 'bg-sandstone-50 text-sandstone-700'
+                          : 'text-charcoal-700 hover:bg-ivory-200'
+                        }
+                      `}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </li>
           </ul>
 
           {/* Desktop CTA */}
@@ -229,7 +278,10 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-ivory-200 mt-2 space-y-1">
+            <div className="pt-4 border-t border-ivory-200 mt-2 space-y-1">
+              <div className="px-4 pb-1 text-[10px] font-bold tracking-widest uppercase text-warmgray-400">
+                Solutions
+              </div>
               {solutionLinks.map(({ href, label }) => (
                 <Link
                   key={href}
