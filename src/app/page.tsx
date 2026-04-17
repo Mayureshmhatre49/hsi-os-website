@@ -19,6 +19,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <MarqueeTicker />
+      <WhatIsHSIOSSection />
       <WhyHSIOSExistsSection />
       <WhatWeCreateSection />
       <WhyChooseUsSection />
@@ -124,7 +125,86 @@ function HeroSection() {
   )
 }
 
-/* ── 2. WHAT WE CREATE ───────────────────────────────────── */
+/* ── 2. WHAT IS HSIOS ────────────────────────────────────── */
+const hsioPillars = [
+  {
+    title: 'Project Management',
+    desc: 'Milestones, trade sequencing, and task tracking — every decision logged and visible.',
+  },
+  {
+    title: 'Procurement Intelligence',
+    desc: 'Material sourcing, vendor vetting, and pricing benchmarks so you never overpay.',
+  },
+  {
+    title: 'Quality Systems',
+    desc: 'Site audits, defect tracking, and finish-grade verification at every stage.',
+  },
+  {
+    title: 'Budget Transparency',
+    desc: 'Live cost dashboards and approval flows — no silent overruns, ever.',
+  },
+  {
+    title: 'Conflict Detection',
+    desc: 'Pre-execution clash analysis catches design and trade conflicts before they hit the site.',
+  },
+  {
+    title: 'Home Lifecycle Support',
+    desc: 'Post-handover AMC, maintenance scheduling, and smart home management.',
+  },
+]
+
+function WhatIsHSIOSSection() {
+  return (
+    <section className="section-py bg-white border-b border-ivory-200" aria-label="What is HSIOS">
+      <div className="container-luxury">
+        <RevealOnScroll>
+          <div className="max-w-3xl mb-4">
+            <div className="section-label">What Is HSIOS™?</div>
+            <h2 className="font-serif text-display-lg text-charcoal-800 mb-5">
+              A Premium Interior Execution Platform.{' '}
+              <em className="not-italic text-sandstone-600">Not a Design Firm. Not a Contractor.</em>
+            </h2>
+            <p className="text-warmgray-600 text-lg leading-relaxed max-w-2xl">
+              HSIOS™ is the operating system behind your home — combining project management,
+              procurement intelligence, quality systems, budget transparency, conflict detection,
+              and post-handover lifecycle support into one unified platform. We don&apos;t just
+              design beautiful spaces. We ensure they get built the way they were designed.
+            </p>
+          </div>
+        </RevealOnScroll>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+          {hsioPillars.map(({ title, desc }, i) => (
+            <RevealOnScroll key={title} delay={i * 0.07}>
+              <div className="flex gap-4 p-6 rounded-2xl bg-ivory-50 border border-ivory-200 hover:border-sandstone-300 hover:shadow-luxury transition-all duration-300">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sandstone-100 border border-sandstone-200 flex items-center justify-center">
+                  <span className="text-sandstone-600 font-bold text-xs">{String(i + 1).padStart(2, '0')}</span>
+                </div>
+                <div>
+                  <h3 className="font-serif font-bold text-charcoal-800 mb-1">{title}</h3>
+                  <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            </RevealOnScroll>
+          ))}
+        </div>
+
+        <RevealOnScroll delay={0.2}>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link href="/hsi-os" className="btn btn-bronze">
+              See the Full Platform →
+            </Link>
+            <Link href="/demo" className="btn btn-outline-dark">
+              Request a Demo
+            </Link>
+          </div>
+        </RevealOnScroll>
+      </div>
+    </section>
+  )
+}
+
+/* ── 3. WHAT WE CREATE ───────────────────────────────────── */
 const propertyTypes = [
   {
     icon: '🏡',
