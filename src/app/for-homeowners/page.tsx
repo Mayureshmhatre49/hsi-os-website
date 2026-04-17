@@ -63,7 +63,7 @@ export default function ForHomeownersPage() {
       </section>
 
       {/* ── POSITIONING STATEMENT ─────────────────────────── */}
-      <section className="py-16 bg-charcoal-800">
+      <section className="section-py bg-charcoal-800">
         <div className="container-luxury max-w-3xl text-center">
           <RevealOnScroll>
             <p className="font-serif text-display-sm text-white leading-snug mb-4">
@@ -208,7 +208,7 @@ export default function ForHomeownersPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="section-py bg-sandstone-400 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

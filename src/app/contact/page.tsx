@@ -132,8 +132,8 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0 text-xl">
-                        💬
+                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
+                        <span className="font-bold text-[9px] tracking-widest text-sandstone-600">WA</span>
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">WhatsApp</div>
@@ -146,8 +146,8 @@ export default function ContactPage() {
                       href="mailto:hello@hsios.in"
                       className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-50 flex items-center justify-center flex-shrink-0 text-xl">
-                        ✉️
+                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
+                        <span className="font-bold text-[9px] tracking-widest text-sandstone-600">EM</span>
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">Email</div>
@@ -157,8 +157,8 @@ export default function ContactPage() {
                     </a>
 
                     <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-50 flex items-center justify-center flex-shrink-0 text-xl">
-                        📍
+                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
+                        <span className="font-bold text-[9px] tracking-widest text-sandstone-600">IN</span>
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">We Serve</div>
@@ -211,7 +211,9 @@ export default function ContactPage() {
 
                   {status === 'success' ? (
                     <div className="text-center py-16">
-                      <div className="text-6xl mb-6">🙏</div>
+                      <div className="w-16 h-16 rounded-2xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mx-auto mb-6">
+                        <span className="font-bold text-[11px] tracking-widest text-sandstone-600">OK</span>
+                      </div>
                       <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-3">
                         Thank You — We&apos;ll Be in Touch.
                       </h3>

@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-charcoal-800 text-center">
+      <section className="section-py bg-charcoal-800 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

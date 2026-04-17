@@ -240,31 +240,34 @@ function HowHSIOSWorksSection() {
           </div>
         </RevealOnScroll>
 
-        {/* Step flow */}
-        <div className="relative">
-          {/* Connector line — desktop */}
-          <div className="hidden lg:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sandstone-600/40 to-transparent" />
+        {/* Step flow — 4+4 two-row layout */}
+        <div className="space-y-4">
+          {[workflowSteps.slice(0, 4), workflowSteps.slice(4)].map((row, rowIdx) => (
+            <div key={rowIdx} className="relative">
+              {/* Row connector line */}
+              <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-sandstone-600/20 via-sandstone-500/40 to-sandstone-600/20 pointer-events-none" />
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {workflowSteps.map(({ step, desc }, i) => (
-              <RevealOnScroll key={step} delay={i * 0.07}>
-                <div className="relative flex flex-col items-start lg:items-center lg:text-center gap-3 p-5 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-500/40 hover:bg-white/8 transition-all duration-300">
-                  {/* Number badge */}
-                  <div className="w-10 h-10 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 flex items-center justify-center flex-shrink-0">
-                    <span className="font-serif font-bold text-sandstone-300 text-sm">{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-serif font-bold text-white text-base mb-1">{step}</h3>
-                    <p className="text-warmgray-400 text-xs leading-relaxed">{desc}</p>
-                  </div>
-                  {/* Arrow — desktop only, not on last */}
-                  {i < workflowSteps.length - 1 && (
-                    <span className="hidden lg:block absolute -right-2 top-9 text-sandstone-600/50 text-xs z-10">▶</span>
-                  )}
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {row.map(({ step, desc }, i) => {
+                  const globalIdx = rowIdx * 4 + i
+                  return (
+                    <RevealOnScroll key={step} delay={i * 0.08}>
+                      <div className="relative flex gap-4 p-6 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-500/30 hover:bg-white/8 transition-all duration-300">
+                        {/* Number */}
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-sandstone-400/15 border border-sandstone-400/25 flex items-center justify-center">
+                          <span className="font-serif font-bold text-sandstone-300 text-xs">{String(globalIdx + 1).padStart(2, '0')}</span>
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="font-serif font-bold text-white text-sm mb-1.5 leading-snug">{step}</h3>
+                          <p className="text-warmgray-500 text-xs leading-relaxed">{desc}</p>
+                        </div>
+                      </div>
+                    </RevealOnScroll>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
         </div>
 
         <RevealOnScroll delay={0.2}>
@@ -369,10 +372,10 @@ function WhyChooseUsSection() {
           </div>
         </RevealOnScroll>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {benefits.map(({ n, title, desc }, i) => (
-            <RevealOnScroll key={n} delay={i * 0.06}>
-              <div className="group p-7 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/8 hover:border-sandstone-400/30 transition-all duration-300">
+            <RevealOnScroll key={n} delay={i * 0.06} className="h-full">
+              <div className="group h-full p-7 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/8 hover:border-sandstone-400/30 transition-all duration-300">
                 <div className="font-serif text-5xl font-bold text-sandstone-600/30 mb-4 leading-none">
                   {n}
                 </div>
@@ -382,13 +385,13 @@ function WhyChooseUsSection() {
             </RevealOnScroll>
           ))}
 
-          {/* CTA card */}
-          <RevealOnScroll delay={0.42}>
+          {/* CTA card — same grid cell, same height */}
+          <RevealOnScroll delay={0.42} className="h-full">
             <Link
               href="/contact"
-              className="group flex flex-col items-start justify-between p-7 rounded-2xl
+              className="group flex flex-col justify-between h-full p-7 rounded-2xl
                          bg-sandstone-400 text-charcoal-900 hover:bg-sandstone-300
-                         transition-all duration-300 min-h-[180px]"
+                         transition-all duration-300"
             >
               <div className="font-serif text-xl font-bold leading-snug">
                 Ready to experience the difference?
@@ -578,7 +581,7 @@ function SustainabilitySection() {
 
       <div className="container-luxury relative z-10">
         <RevealOnScroll className="text-center mb-16 max-w-2xl mx-auto">
-          <div className="section-label justify-center text-sandstone-400">Sustainability Engine</div>
+          <div className="section-label text-sandstone-400">Sustainability Engine</div>
           <h2 className="font-serif text-display-lg text-white mb-5">
             Luxury Can Be{' '}
             <em className="not-italic text-sandstone-300">Responsible.</em>
@@ -948,7 +951,7 @@ function TestimonialsSection() {
 function FinalCTASection() {
   return (
     <section
-      className="relative py-32 overflow-hidden"
+      className="relative section-py overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #1C1C1E 0%, #3A3530 50%, #1C1C1E 100%)' }}
       aria-label="Book consultation"
     >
@@ -1175,7 +1178,7 @@ function DifferenceSection() {
 /* ── 11. FOUNDER QUOTE ───────────────────────────────────── */
 function FounderQuoteSection() {
   return (
-    <section className="py-24 bg-ivory-100 flex items-center justify-center text-center overflow-hidden">
+    <section className="section-py bg-ivory-100 flex items-center justify-center text-center overflow-hidden">
       <div className="container-luxury">
         <RevealOnScroll>
           <div className="max-w-4xl mx-auto">
