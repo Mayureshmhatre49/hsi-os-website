@@ -44,7 +44,7 @@ async function testEmail() {
     console.log(`✅ Message sent: ${info.messageId}`);
     console.log('Check your inbox!');
   } catch (error) {
-    console.error('\n❌ SMTP Error:');
+    console.error('\n❌ SMTP new Error:');
     console.error(error);
   }
 }
