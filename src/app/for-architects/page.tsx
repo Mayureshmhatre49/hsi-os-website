@@ -228,6 +228,29 @@ export default function ForArchitectsPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIAL ───────────────────────────────────── */}
+      <section className="py-20 bg-ivory-100">
+        <div className="container-luxury max-w-3xl">
+          <RevealOnScroll>
+            <div className="card-luxury bg-white p-10 text-center">
+              <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+              <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                I was sceptical about bringing in an execution partner — I thought it would compromise my design control.
+                It was the opposite. HSIOS™ was collaborative from day one. My specs were treated as non-negotiable,
+                and the conflict detection engine saved us from three expensive on-site disputes.
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">DK</div>
+                <div className="text-left">
+                  <div className="font-semibold text-charcoal-800 text-sm">Divya K.</div>
+                  <div className="text-xs text-warmgray-500 mt-0.5">Principal Designer · Pune</div>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="py-24 bg-sandstone-400 text-center">
         <RevealOnScroll>

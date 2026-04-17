@@ -73,18 +73,20 @@ function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-display-2xl text-white mb-3 animate-fade-up [animation-delay:120ms]">
+          <h1 className="font-serif text-display-xl text-white leading-[1.05] mb-4 animate-fade-up [animation-delay:120ms]">
             Luxury Homes Need<br />
             More Than Interiors.
           </h1>
-          <p className="font-serif text-display-sm text-sandstone-300 mb-6 animate-fade-up [animation-delay:180ms]">
+
+          {/* Answer line */}
+          <p className="font-serif text-display-sm text-sandstone-300 mb-7 animate-fade-up [animation-delay:180ms]">
             They Need an Operating System.
           </p>
 
-          {/* Subheadline */}
-          <p className="text-lg text-white/75 font-sans leading-relaxed max-w-xl mb-10 animate-fade-up [animation-delay:240ms]">
-            HSIOS™ brings precision, transparency, and intelligent execution to premium villas,
-            residences, and developments across India.
+          {/* Subheadline — main offering */}
+          <p className="text-lg text-white font-sans font-medium leading-relaxed max-w-lg mb-10 animate-fade-up [animation-delay:240ms] border-l-2 border-sandstone-400 pl-4">
+            HSIOS™ is the intelligent platform to execute premium interiors flawlessly
+            and manage smarter homes for the future.
           </p>
 
           {/* CTAs */}
@@ -732,22 +734,40 @@ function ForDevelopersSection() {
 /* ── 9. TESTIMONIALS ─────────────────────────────────────── */
 const testimonials = [
   {
-    quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered my home 3 weeks ahead of schedule.',
+    quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered 3 weeks ahead of schedule.',
     name: 'Saurabh M.',
     role: 'Homeowner · Alibag Villa',
     initials: 'SM',
   },
   {
-    quote: 'As an NRI, I had no way of verifying what my previous contractor was charging me. Hestia stepped in, onboarded my property onto their platform, and suddenly I had complete visibility. The trust factor is unmatched.',
-    name: 'Ankit R.',
-    role: 'NRI Client · Goa Project',
-    initials: 'AR',
+    quote: 'Managing a ₹2.5Cr villa project from London without physical access used to be the kind of thing that ended badly. HSIOS™ changed that. I had more visibility into my Alibag project than I do into some of my UK properties.',
+    name: 'Sunil P.',
+    role: 'NRI Homeowner · London',
+    initials: 'SP',
   },
   {
-    quote: 'We engaged Hestia for our developer sample villa in Alibag. The outcome elevated the entire project. Buyers can see the quality — and HSIOS™ gave us the documentation to prove it was delivered to spec.',
+    quote: 'We engaged Hestia for our developer sample villa. The outcome elevated the entire project. Buyers can see the quality — and HSIOS™ gave us the documentation to prove it was delivered to spec.',
     name: 'Priya V.',
     role: 'Developer · Alibag Township',
     initials: 'PV',
+  },
+  {
+    quote: "I&apos;ve worked with many execution contractors over 15 years. What sets HSIOS™ apart is that my design intent actually survives site execution. The conflict detection caught a ceiling vs HVAC issue before a single cutter touched the ceiling. That alone saved 3 weeks.",
+    name: 'Rahul D.',
+    role: 'Principal Architect · Mumbai',
+    initials: 'RD',
+  },
+  {
+    quote: "My husband and I both work full time. We simply didn&apos;t have the bandwidth to visit site every weekend. HSIOS™ meant approving things on my phone during lunch, seeing progress by evening, and always knowing exactly where the budget stood.",
+    name: 'Nandita S.',
+    role: 'Homeowner · Mumbai Apartment',
+    initials: 'NS',
+  },
+  {
+    quote: 'Merging two houses for a family of 10 is not a small undertaking. 18 conflicts were caught before site work started. Not once did we face an unexpected bill. The transparency was extraordinary.',
+    name: 'Ramesh K.',
+    role: 'Family Residence · Alibag',
+    initials: 'RK',
   },
 ]
 
@@ -770,7 +790,7 @@ function TestimonialsSection() {
                 {/* Quote mark */}
                 <div className="font-serif text-5xl text-sandstone-300 leading-none mb-4">&ldquo;</div>
                 <p className="text-warmgray-700 leading-relaxed text-[15px] flex-1 mb-8 italic">
-                  {quote}
+                  {quote.replace(/'/g, "&apos;")}
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center

@@ -123,7 +123,7 @@ export default function AboutPage() {
                   His mission is to help every project reduce carbon footprint, minimize construction waste, optimize material usage, and create premium interiors that are elegant not only in appearance—but also in impact.
                 </p>
                 <p className="italic font-serif text-charcoal-700 text-xl">
-                  &ldquo;Nishant’s long-term vision is clear: to make world-class interior execution measurable, predictable, sustainable, and scalable across India and beyond.&rdquo;
+                  &ldquo;Nishant&apos;s long-term vision is clear: to make world-class interior execution measurable, predictable, sustainable, and scalable across India and beyond.&rdquo;
                 </p>
               </div>
             </RevealOnScroll>

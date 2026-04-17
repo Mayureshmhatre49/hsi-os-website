@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/projects',         label: 'Projects' },
   { href: '/hsi-os',           label: 'HSIOS™' },
   { href: '/how-it-works',     label: 'How It Works' },
+  { href: '/pricing',          label: 'Pricing' },
   { href: '/sustainability',   label: 'Sustainability' },
   { href: '/insights',         label: 'Insights' },
   { href: '/about',            label: 'About' },
@@ -18,6 +19,7 @@ const solutionLinks = [
   { href: '/for-homeowners',  label: 'For Homeowners' },
   { href: '/for-developers',  label: 'For Developers' },
   { href: '/for-architects',  label: 'For Architects' },
+  { href: '/demo',            label: 'Request a Demo' },
 ]
 
 export default function Navbar() {
@@ -45,7 +47,7 @@ export default function Navbar() {
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   // Hero pages should start transparent; other pages start with bg
-  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/hsi-os', '/sustainability'].includes(pathname)
+  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/hsi-os', '/sustainability', '/pricing', '/demo'].includes(pathname)
   const transparent = isHeroPage && !scrolled && !menuOpen
 
   return (
@@ -54,7 +56,7 @@ export default function Navbar() {
         className={`
           fixed top-0 inset-x-0 z-50 transition-all duration-500
           ${transparent
-            ? 'bg-transparent'
+            ? 'bg-gradient-to-b from-charcoal-900/70 via-charcoal-900/30 to-transparent'
             : 'bg-ivory-50/95 backdrop-blur-sm shadow-luxury border-b border-ivory-200'
           }
         `}
@@ -106,7 +108,7 @@ export default function Navbar() {
                         ? 'text-white'
                         : 'text-sandstone-700 bg-sandstone-50'
                       : transparent
-                        ? 'text-white/80 hover:text-white hover:bg-white/10'
+                        ? 'text-white hover:text-white hover:bg-white/10'
                         : 'text-warmgray-700 hover:text-charcoal-800 hover:bg-ivory-200'
                     }
                   `}
@@ -133,7 +135,7 @@ export default function Navbar() {
                   ${solutionLinks.some(l => isActive(l.href))
                     ? transparent ? 'text-white' : 'text-sandstone-700 bg-sandstone-50'
                     : transparent
-                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      ? 'text-white hover:text-white hover:bg-white/10'
                       : 'text-warmgray-700 hover:text-charcoal-800 hover:bg-ivory-200'
                   }
                 `}

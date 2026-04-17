@@ -192,6 +192,29 @@ export default function ForDevelopersPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIAL ───────────────────────────────────── */}
+      <section className="py-20 bg-ivory-100">
+        <div className="container-luxury max-w-3xl">
+          <RevealOnScroll>
+            <div className="card-luxury bg-white p-10 text-center">
+              <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+              <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                We have a 24-unit development in Alibag. Getting consistent finish quality and documentation
+                across all units would have been impossible without HSIOS™. The reporting alone —
+                what we can show buyers — is worth the entire engagement.
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">RM</div>
+                <div className="text-left">
+                  <div className="font-semibold text-charcoal-800 text-sm">Rajesh M.</div>
+                  <div className="text-xs text-warmgray-500 mt-0.5">Developer · Alibag Township</div>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="py-24 bg-sandstone-400 text-center">
         <RevealOnScroll>

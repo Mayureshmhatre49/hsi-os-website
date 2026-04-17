@@ -24,7 +24,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; line-height: 1.5; }
 
-    /* Layout */
     .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
     .header h1 { font-size: 16px; font-weight: 700; color: var(--gold); letter-spacing: 0.05em; }
     .header p { font-size: 11px; color: var(--muted); margin-top: 2px; }
@@ -34,34 +33,31 @@
 
     .main { max-width: 1400px; margin: 0 auto; padding: 28px 32px; }
 
-    /* Stats bar */
-    .stats-bar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 28px; }
+    .stats-bar { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; margin-bottom: 28px; }
     .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
     .stat-card .val { font-size: 22px; font-weight: 700; color: var(--gold); }
     .stat-card .lbl { font-size: 10px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .stat-card.green .val { color: var(--green); }
+    .stat-card.blue .val { color: var(--blue); }
 
-    /* Grid */
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
     .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px; }
 
-    /* Cards */
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
     .card-header { padding: 14px 18px 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
     .card-header h2 { font-size: 12px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; }
     .card-header .url { font-size: 10px; color: var(--gold-dim); font-family: monospace; }
     .card-body { padding: 14px 18px; }
 
-    /* Section rows */
     .section-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
     .section-row:last-child { border-bottom: none; }
-    .section-row .icon { width: 20px; text-align: center; flex-shrink: 0; margin-top: 1px; }
+    .section-row .icon { width: 20px; text-align: center; flex-shrink: 0; margin-top: 1px; font-size: 12px; }
     .section-row .content { flex: 1; }
     .section-row .name { font-size: 12px; font-weight: 600; color: var(--text); }
     .section-row .desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
     .section-row .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
 
-    /* Tags */
     .tag { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; }
     .tag-green  { background: rgba(74,222,128,0.12); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
     .tag-yellow { background: rgba(250,204,21,0.12); color: var(--yellow); border: 1px solid rgba(250,204,21,0.2); }
@@ -71,7 +67,6 @@
     .tag-purple { background: rgba(192,132,252,0.12); color: var(--purple); border: 1px solid rgba(192,132,252,0.2); }
     .tag-muted  { background: rgba(136,136,136,0.1); color: var(--muted); border: 1px solid rgba(136,136,136,0.15); }
 
-    /* Philosophy checklist */
     .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); }
     .check-row:last-child { border-bottom: none; }
     .check-icon { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
@@ -83,23 +78,27 @@
     .check-row .check-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
     .check-row .check-where { font-size: 10px; color: var(--gold-dim); margin-top: 3px; font-style: italic; }
 
-    /* Section divider */
-    .section-title { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); margin: 24px 0 12px; padding-left: 2px; border-left: 2px solid var(--gold-dim); padding-left: 8px; }
+    .section-title { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); margin: 24px 0 12px; padding-left: 8px; border-left: 2px solid var(--gold-dim); }
 
-    /* Progress bar */
     .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-top: 8px; }
     .progress-fill { height: 100%; border-radius: 2px; }
 
-    /* Legend */
     .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
     .legend-item { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--muted); }
     .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
-    /* Last updated */
-    .footer { text-align: center; padding: 32px; font-size: 11px; color: var(--muted2); }
+    .gap-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .gap-row:last-child { border-bottom: none; }
+    .gap-badge { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+    .gap-done { background: rgba(74,222,128,0.12); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
+    .gap-open { background: rgba(250,204,21,0.12); color: var(--yellow); border: 1px solid rgba(250,204,21,0.2); }
+    .gap-row .gap-text { flex: 1; }
+    .gap-row .gap-title { font-size: 12px; font-weight: 600; color: var(--text); }
+    .gap-row .gap-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
     a { color: var(--gold); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .footer { text-align: center; padding: 32px; font-size: 11px; color: var(--muted2); }
   </style>
 </head>
 <body>
@@ -107,7 +106,7 @@
 <div class="header">
   <div>
     <h1>HSIOS™ — Website Content Dashboard</h1>
-    <p>hsios.in · Content audit, page map, and philosophy coverage tracker</p>
+    <p>hsios.in · Content audit, page map, philosophy coverage, and gap tracker</p>
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
     <span style="font-size:11px;color:var(--muted);">Last updated: April 2026</span>
@@ -119,43 +118,41 @@
 
   <!-- Stats -->
   <div class="stats-bar">
-    <div class="stat-card"><div class="val">24</div><div class="lbl">Total Pages</div></div>
-    <div class="stat-card"><div class="val">8</div><div class="lbl">Core Pages</div></div>
-    <div class="stat-card"><div class="val">7</div><div class="lbl">Blog Articles</div></div>
-    <div class="stat-card"><div class="val">4</div><div class="lbl">City SEO Pages</div></div>
+    <div class="stat-card"><div class="val">33</div><div class="lbl">Total Pages</div></div>
+    <div class="stat-card"><div class="val">12</div><div class="lbl">Core Pages</div></div>
+    <div class="stat-card"><div class="val">8</div><div class="lbl">Blog Articles</div></div>
+    <div class="stat-card"><div class="val">5</div><div class="lbl">City SEO Pages</div></div>
     <div class="stat-card"><div class="val">7</div><div class="lbl">HSIOS™ Modules</div></div>
     <div class="stat-card"><div class="val">9/9</div><div class="lbl">Philosophy Points</div></div>
+    <div class="stat-card green"><div class="val">8</div><div class="lbl">Testimonials (5 pages)</div></div>
+    <div class="stat-card green"><div class="val">5/6</div><div class="lbl">Gaps Resolved</div></div>
   </div>
 
   <!-- Legend -->
   <div class="legend">
     <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Fully covered</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> Partially covered</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> Partially covered / stub</div>
     <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Missing / not covered</div>
     <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> SEO / keyword targeting</div>
     <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div> Conversion element</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> New this session</div>
   </div>
 
   <!-- ─── CORE PAGES ─── -->
-  <div class="section-title">Core Pages</div>
+  <div class="section-title">Core Pages (12)</div>
   <div class="grid-3">
 
     <!-- Home -->
     <div class="card">
       <div class="card-header"><h2>🏠 Homepage</h2><span class="url">hsios.in/</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — OS positioning</div><div class="desc">"Luxury Homes Need More Than Interiors. They Need an OS."</div><div class="tags"><span class="tag tag-blue">Primary CTA</span><span class="tag tag-green">Stats row</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Why HSIOS Exists</div><div class="desc">8 pain-point grid + founder quote + CTA</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — OS positioning</div><div class="desc">"Luxury Homes Need More Than Interiors. They Need an OS." · stats row · primary CTA</div><div class="tags"><span class="tag tag-blue">CTA</span><span class="tag tag-green">Stats</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Why HSIOS Exists</div><div class="desc">Pain-point grid + founder quote</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
         <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Spaces We Transform</div><div class="desc">Villas · Apartments · Holiday Homes · Farmhouses · Penthouses · Hospitality</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Why Choose Us — 7 Reasons</div><div class="desc">Design-led · One team · Quality checkpoints · Timeline · Visibility · Less wastage · Better finish</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Powered by HSIOS™</div><div class="desc">6 modules with dashboard mockup</div><div class="tags"><span class="tag tag-blue">Demo CTA</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Sustainability Engine</div><div class="desc">Refuse · Reuse · Recycle · Reduce — 4 pillars</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Featured Project — Casa Frangipani</div><div class="desc">Alibag · 6 Bedrooms · Full Turnkey · On Time & On Budget</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hestia Villas Legacy</div><div class="desc">7+ villas, 2 states, 100% retention</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Who We Serve — 5 Personas</div><div class="desc">Homeowners · Villa Owners · Architects · Developers · PMC Teams</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">HSI vs Traditional — Comparison Table</div><div class="desc">Side-by-side differentiation</div><div class="tags"><span class="tag tag-blue">Conversion</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonials — 3 clients</div><div class="desc">Saurabh M. · Ankit R. · Priya V.</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Final CTA</div><div class="desc">Book Consultation + WhatsApp direct</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Powered by HSIOS™ — 6 Modules</div><div class="desc">With dashboard mockup and Demo CTA</div><div class="tags"><span class="tag tag-blue">Demo CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Sustainability + For Developers sections</div><div class="desc">4R pillars · Developer value proposition</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonials — 6 clients</div><div class="desc">Saurabh M. · Sunil P. · Priya V. · Rahul D. · Nandita S. · Ramesh K.</div><div class="tags"><span class="tag tag-purple">Expanded (was 3)</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Final CTA</div><div class="desc">"Ready for a Different Standard?" · Book Consultation + WhatsApp</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
         <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
@@ -164,33 +161,25 @@
     <div class="card">
       <div class="card-header"><h2>⚙️ HSIOS™ Platform</h2><span class="url">hsios.in/hsi-os</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — OS Positioning</div><div class="desc">Dashboard card mockup · 4 stats · Request Demo CTA</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">What is HSIOS — Split Section</div><div class="desc">6-point checklist incl. global standards + sustainability as built-in</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Stats Band</div><div class="desc">7+ · ₹100Cr · 100% · 0 surprises</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">7 Core Modules</div><div class="desc">Planning · Budget · Execution · Vendor · Dashboard · Conflict Detection · Ownership</div><div class="tags"><span class="tag tag-gold">Key feature</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Global Standards + Philosophy Section</div><div class="desc">6 international standards + Refuse/Reuse/Recycle/Reduce with no-cost-premium statement</div><div class="tags"><span class="tag tag-green">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — Dashboard mockup + Request Demo CTA</div><div class="desc">Above-fold animation fixed · 4 live stats</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">What is HSIOS — 6-point checklist</div><div class="desc">Incl. conflict detection, sustainability, global standards</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">7 Core Modules</div><div class="desc">Planning · Budget · Execution · Vendor · Dashboard · Conflict Detection · Ownership</div><div class="tags"><span class="tag tag-gold">Key</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Global Standards + Philosophy Section</div><div class="desc">6 international standards + Refuse/Reuse/Recycle/Reduce · no-cost-premium statement</div></div></div>
         <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Platform Preview — 4 Tabs</div><div class="desc">Command Centre · Portfolio Intelligence · Digital Twin · EIM Dashboard</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">For Who — Homeowners vs Developers</div><div class="desc">Split panel with tailored benefit lists</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">How We Work — 3 Models</div><div class="desc">End-to-End · Platform Only · Collaborative</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">5-Phase Process Timeline</div><div class="desc">Understanding → Planning → Execution → QA → Handover</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonials + Proof Card</div><div class="desc">Saurabh M. · Ankit R. + project outcomes card</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">FAQ — 7 Questions</div><div class="desc">Accordion component</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">SEO Content Block</div><div class="desc">Alibag & Mumbai keyword targeting</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">5-Phase Process + FAQ + Testimonials</div><div class="desc">Saurabh M. · Ankit R.</div></div></div>
         <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
 
-    <!-- About -->
+    <!-- Projects -->
     <div class="card">
-      <div class="card-header"><h2>👤 About</h2><span class="url">hsios.in/about</span></div>
+      <div class="card-header"><h2>🏗️ Projects</h2><span class="url">hsios.in/projects</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero</div><div class="desc">"Redefining Interior Execution for Premium Homes"</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Meet the Founder — Nishant Mhatre</div><div class="desc">Photo · Vision narrative · Sustainability framework</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Mission + Standards</div><div class="desc">Precision · Integrity · Sustainability · Innovation · Transparency · Long-term value</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Our Story</div><div class="desc">Born from real project experience · 7+ villas</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Key Positioning Quote</div><div class="desc">"Most luxury interior projects fail not because of bad design — but because of broken execution."</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Values</div><div class="desc">Precision · Transparency · Experience · Systems · Partnership · Responsible Luxury</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA → HSIOS™</div><div class="desc">Explore platform + Request consultation</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero + Stats Bar</div><div class="desc">7+ villas · 75+ conflicts resolved · 100% on budget · 0 surprises</div><div class="tags"><span class="tag tag-purple">Updated</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Project Grid — 7 cards with metrics</div><div class="desc">Each card now shows 3 execution metrics (conflicts detected, budget adherence, delivery)</div><div class="tags"><span class="tag tag-purple">New metrics</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Case Study Spotlight — 2 deep dives</div><div class="desc">Casa Frangipani (12 conflicts, 5 interventions) · Villa Awas (18 conflicts, structural merge)</div><div class="tags"><span class="tag tag-purple">New section</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">What We Learned — 4 insights</div><div class="desc">Coordination · Budget visibility · Homeowner transparency · Vendor management</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">"Let's Bring Precision to Your Project"</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
         <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
@@ -198,17 +187,32 @@
 
   <div class="grid-3">
 
-    <!-- Sustainability -->
+    <!-- Pricing -->
     <div class="card">
-      <div class="card-header"><h2>🌿 Sustainability</h2><span class="url">hsios.in/sustainability</span></div>
+      <div class="card-header"><h2>💰 Pricing</h2><span class="url">hsios.in/pricing</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Luxury Without Compromise"</div><div class="desc">No cost premium · No aesthetic compromise · Explicit statement</div><div class="tags"><span class="tag tag-green">Updated</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">4-Pillar Band</div><div class="desc">Refuse · Reuse · Recycle · Reduce icons</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Pillars in Detail</div><div class="desc">Each with description + 4 bullet points</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Capabilities</div><div class="desc">Materials · Natural Light · Ventilation · Transport Optimisation · Durability · Reporting</div><div class="tags"><span class="tag tag-green">Updated</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Myths vs Truth — 4 rows</div><div class="desc">Data-backed sustainability positioning</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Founder Statement</div><div class="desc">"Precision is the new luxury. Responsible precision is the future."</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA — "Premium Interiors. Responsible Outcomes."</div><div class="desc">Sustainability report mention</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Transparent by Design. No Hidden Costs."</div><div class="desc">Dark gradient · links to How It Works</div><div class="tags"><span class="tag tag-purple">New page</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Cost Drivers — 4 cards</div><div class="desc">Area & Scope · Finish Level · Location · Execution Complexity</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Investment Benchmarks — 3 tiers</div><div class="desc">Apartment ₹60L–₹2.5Cr · Villa ₹1.5Cr–₹8Cr+ (highlighted) · Developer custom</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">What's Always Included — 7 items</div><div class="desc">BOQ · Conflict detection · Budget dashboard · Progress docs · QA · Sustainability report · Handover pack</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">HSIOS™ vs Traditional — 6-point comparison</div><div class="desc">Pricing · Budget changes · Conflict detection · Progress · Vendor accountability · Documentation</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonial — Saurabh M.</div><div class="desc">"The HSIOS™ fee paid for itself before site work even started."</div><div class="tags"><span class="tag tag-blue">Social proof</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Pricing FAQ — 6 questions</div><div class="desc">Fee model · per-sq-ft scope · minimum project · designer collaboration · coastal premium · ROI framing</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA → Book Pricing Call / See Platform First</div><div class="desc">Links to /contact and /demo</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+
+    <!-- Demo -->
+    <div class="card">
+      <div class="card-header"><h2>🖥️ Request Demo</h2><span class="url">hsios.in/demo</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "See HSIOS™ Running on a Real Project"</div><div class="desc">Two-column: headline + live dashboard mockup (Casa Frangipani data)</div><div class="tags"><span class="tag tag-purple">New page</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">What You'll See — 6 modules</div><div class="desc">Budget dashboard · Conflict detection · Timeline · Vendor management · Progress docs · Sustainability report</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Who It's For — 3 audience tiles</div><div class="desc">Homeowners · Architects (highlighted) · Developers</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Demo Request Form</div><div class="desc">Name · Email · Phone · Role dropdown · Interest dropdown · Posts to /api/contact</div><div class="tags"><span class="tag tag-blue">Lead gen</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Demo FAQ — 4 questions</div><div class="desc">Sales call vs demo · no project details needed · scheduling · NRI time zones</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA — "Explore the Platform" / "View Pricing"</div><div class="desc">Links to /hsi-os and /pricing</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
         <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
@@ -217,26 +221,11 @@
     <div class="card">
       <div class="card-header"><h2>🏡 For Homeowners</h2><span class="url">hsios.in/for-homeowners</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Your Home. Your Vision. Your Control."</div><div class="desc">Book Consultation + See Our Process CTAs</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Positioning — "Build once. Build right."</div><div class="desc">Single sentence, no excess copy</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">4 Pain Points → HSIOS Fixes</div><div class="desc">Budget · Visibility · Vendor delays · Remote management</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Benefits</div><div class="desc">Visibility · Cost · Documentation · Quality · One team · NRI-ready</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">NRI Section</div><div class="desc">"Your India Villa. Managed From Anywhere." + 4 bullet points</div><div class="tags"><span class="tag tag-gold">SEO: NRI</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">Book + WhatsApp</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
-      </div>
-    </div>
-
-    <!-- For Developers -->
-    <div class="card">
-      <div class="card-header"><h2>🏗️ For Developers</h2><span class="url">hsios.in/for-developers</span></div>
-      <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Scale Luxury Execution Across Your Portfolio"</div><div class="desc">Discuss Development + Explore HSIOS CTAs</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Premium Buyers Expect More</div><div class="desc">Smart planning · Cleaner execution · Trustworthy delivery</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Developer Benefits</div><div class="desc">Standardised execution · Dashboard · Procurement · Quality docs · Buyer transparency · Faster handover</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">3 Use Cases</div><div class="desc">Sample Villa · Multi-Unit · Boutique Resort</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">HSIOS for Scale — 4 Platform Features</div><div class="desc">Unit dashboards · Portfolio overview · Cost benchmarking · Buyer portal</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">Schedule Call + WhatsApp</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — Image background</div><div class="desc">"Your Home. Your Vision. Zero Surprises."</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Pain Points → Solutions — 4 pairs</div><div class="desc">Budget overrun · Vendor chaos · No visibility · Quality gaps</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Benefits + NRI section</div><div class="desc">Remote management · live budget · quality checkpoints</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonial — Nandita S.</div><div class="desc">"...approving things on my phone during lunch..."</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">"Ready for a Different Experience?"</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
         <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
@@ -244,357 +233,405 @@
 
   <div class="grid-3">
 
+    <!-- For Developers -->
+    <div class="card">
+      <div class="card-header"><h2>🏢 For Developers</h2><span class="url">hsios.in/for-developers</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Deliver. Document. Differentiate."</div><div class="desc">Image background · developer positioning</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">4 Pain Points → HSIOS™ Solutions</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Benefits + 4 Platform cards</div><div class="desc">Sample villa · Multi-unit · Developer reporting · Documentation</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonial — Rajesh M.</div><div class="desc">"24-unit development...reporting alone is worth the engagement"</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">"Let's Discuss Your Development"</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+
     <!-- For Architects -->
     <div class="card">
       <div class="card-header"><h2>📐 For Architects</h2><span class="url">hsios.in/for-architects</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Design Intent. Flawlessly Executed."</div><div class="desc">Book Strategy Call + Explore HSIOS CTAs</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">4 Challenges → HSIOS Fixes</div><div class="desc">Design intent lost · Trade clashes · Vendor gaps · Client escalations</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Conflict Detection Callout</div><div class="desc">8-type conflict list · Live scan results mockup (6 items)</div><div class="tags"><span class="tag tag-green">Updated</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Benefits</div><div class="desc">Design fidelity · Conflict engine · Collaborative · Documentation · Client transparency · Quality checkpoints</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">3 Use Cases</div><div class="desc">Villa Coordination · Sample Flat · Apartment Renovation</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA — "Protect Your Design Intent."</div><div class="desc">Request Consultation + WhatsApp</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Design Intent. Flawlessly Executed."</div><div class="desc">Image background</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">4 Challenges → HSIOS™ solutions</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Conflict Detection Callout</div><div class="desc">8-item list · live scan mockup with 6 flagged/resolved items</div><div class="tags"><span class="tag tag-gold">Key differentiator</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Benefits + 3 Use Cases with images</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Testimonial — Divya K.</div><div class="desc">"...conflict detection saved us from three expensive on-site disputes"</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">"Protect Your Design Intent"</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+
+    <!-- Sustainability -->
+    <div class="card">
+      <div class="card-header"><h2>🌿 Sustainability</h2><span class="url">hsios.in/sustainability</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — "Luxury Without Compromise"</div><div class="desc">"Responsible execution is not a trade-off. It is the standard."</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">4R Framework — Refuse · Reuse · Recycle · Reduce</div><div class="desc">Each with bullet list of specifics</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">6 Capabilities</div><div class="desc">Smarter materials · Natural light · Ventilation · Optimised transport · Durable finishes · Sustainability reporting</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Sustainability Myths — 4 pairs</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Founder Quote + CTA</div><div class="desc">"Premium Interiors. Responsible Outcomes."</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+
+    <!-- About -->
+    <div class="card">
+      <div class="card-header"><h2>👤 About</h2><span class="url">hsios.in/about</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero</div><div class="desc">"About Hestia Smart Interiors — Vision, Values & Founder"</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Founder — Nishant Mhatre</div><div class="desc">Photo · Vision narrative · Sustainability framework</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Mission + 6 Values</div><div class="desc">Precision · Transparency · Experience · Systems · Partnership · Responsible Luxury</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Our Story + CTA → HSIOS™</div><div class="desc">"See it in action."</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
         <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
 
     <!-- How It Works -->
     <div class="card">
-      <div class="card-header"><h2>🔄 How It Works</h2><span class="url">hsios.in/how-it-works</span></div>
+      <div class="card-header"><h2>📋 How It Works</h2><span class="url">hsios.in/how-it-works</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — 5-Phase Process</div><div class="desc">Understanding → Planning → Execution → QA → Handover</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Phase Detail Cards</div><div class="desc">Each phase with activities and deliverables</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Why This Works</div><div class="desc">Methodology explanation</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">Book Consultation</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:95%;background:var(--green)"></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">5-Phase Process Timeline</div><div class="desc">Understanding → Planning & BOQ → Procurement → Execution → Handover</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Why This Works — 3 cards</div><div class="desc">Every decision documented · Every rupee tracked · Every milestone verified</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA → Book Consultation</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
 
-    <!-- Projects -->
+    <!-- Contact -->
     <div class="card">
-      <div class="card-header"><h2>🖼️ Projects</h2><span class="url">hsios.in/projects</span></div>
+      <div class="card-header"><h2>📬 Contact</h2><span class="url">hsios.in/contact</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Hero — Portfolio</div><div class="desc">"Our Work" — 7 completed projects</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Project Grid</div><div class="desc">Casa Frangipani · Bellissimo · Blue Haven · Serenity · Vayu + more</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">From Field to Platform</div><div class="desc">HSIOS™ origin story through real projects</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">CTA</div><div class="desc">Your Project Next</div><div class="tags"><span class="tag tag-blue">CTA</span></div></div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:95%;background:var(--green)"></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Private Consultation Form</div><div class="desc">Name · Email · Phone · Project type · Location · Budget · Description · Honeypot</div><div class="tags"><span class="tag tag-blue">Lead gen</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Contact channels</div><div class="desc">WhatsApp +91-8010234802 · hello@hsios.in</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">FAQ Quick Answers — 3 questions</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Trust note — no pressure, fit-first</div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
   </div>
 
-  <!-- ─── PHILOSOPHY COVERAGE ─── -->
-  <div class="section-title">Philosophy Coverage — HSIOS Core Principles</div>
+  <!-- ─── TESTIMONIALS MAP ─── -->
+  <div class="section-title">Testimonials Coverage (8 across 5 pages)</div>
   <div class="grid-2">
-
     <div class="card">
-      <div class="card-header"><h2>📋 Philosophy Checklist</h2><span style="font-size:10px;color:var(--muted)">From the HSIOS brand brief</span></div>
+      <div class="card-header"><h2>Homepage — 6 testimonials</h2><span class="url">hsios.in/</span></div>
       <div class="card-body">
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Sustainability as built-in intelligence — not an add-on</div>
-            <div class="check-sub">No cost premium. No aesthetic compromise.</div>
-            <div class="check-where">→ sustainability/hero · hsi-os/what-is-hsios · hsi-os/philosophy-section</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Upfront plan analysis before execution begins</div>
-            <div class="check-sub">Furniture flow, impractical layouts, space wastage, ventilation — flagged early</div>
-            <div class="check-where">→ hsi-os/module-01 · for-architects/conflict-section</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Comprehensive conflict detection — 8 types</div>
-            <div class="check-sub">Civil/electrical · Plumbing/furniture · HVAC/ceiling · Bathroom slopes · Shaft planning · Storage/circulation · Door swings · Staircase</div>
-            <div class="check-where">→ hsi-os/module-06 · for-architects/conflict-callout</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Carbon footprint reduction — practical methods</div>
-            <div class="check-sub">Alternate materials · Transport optimisation · Natural light · Ventilation · Circulation planning</div>
-            <div class="check-where">→ sustainability/capabilities · hsi-os/philosophy-section</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Refuse · Reuse · Recycle · Reduce — 4R framework</div>
-            <div class="check-sub">Full descriptions on 3 pages with practical applications</div>
-            <div class="check-where">→ hsi-os/philosophy · sustainability/pillars · homepage/sustainability · about/founder</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Global best practices — international standards</div>
-            <div class="check-sub">Ergonomics · Safety · Maintainability · Finish quality · Usability · Workflow efficiency</div>
-            <div class="check-where">→ hsi-os/global-standards-section (new section)</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Construction-stage fault detection</div>
-            <div class="check-sub">Wrong plumbing locations · Shaft planning · Ceiling depths · Staircase · Service access</div>
-            <div class="check-where">→ hsi-os/module-06 · for-architects/conflict-scan</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Long-term value creation</div>
-            <div class="check-sub">Durability · Lower lifetime waste · Future-ready homes · Ownership Mode</div>
-            <div class="check-where">→ hsi-os/module-07 · sustainability · homepage/who-we-serve</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">✓</div>
-          <div class="check-text">
-            <div class="check-title">Smarter interior ecosystem — combined intelligence</div>
-            <div class="check-sub">Planning + execution + sustainability in one decision-making platform</div>
-            <div class="check-where">→ hsi-os/what-is-hsios · homepage/hero + powered-by-hsios</div>
-          </div>
-        </div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Saurabh M.</div><div class="desc">Homeowner · Alibag Villa — "3 weeks ahead of schedule"</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Sunil P.</div><div class="desc">NRI · London — "more visibility than my UK properties"</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Priya V.</div><div class="desc">Developer · Alibag Township — "documentation to prove delivered to spec"</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Rahul D.</div><div class="desc">Principal Architect · Mumbai — "design intent survives site execution"</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Nandita S.</div><div class="desc">Homeowner · Mumbai Apartment — "approving on phone during lunch"</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Ramesh K.</div><div class="desc">Family Residence · Alibag — "18 conflicts caught, not once unexpected bill"</div></div></div>
       </div>
     </div>
-
-    <!-- HSIOS Modules Coverage -->
     <div class="card">
-      <div class="card-header"><h2>⚙️ HSIOS™ 7 Modules — Coverage Map</h2></div>
+      <div class="card-header"><h2>Page-Specific Testimonials</h2><span class="url">4 pages</span></div>
       <div class="card-body">
-        <div class="check-row">
-          <div class="check-icon check-yes">01</div>
-          <div class="check-text">
-            <div class="check-title">Project Planning Engine</div>
-            <div class="check-sub">Scope definition · Upfront layout analysis · Phase planning · Design change management · Trade sequencing</div>
-            <div class="check-where">→ hsi-os/modules · homepage/powered-by</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">02</div>
-          <div class="check-text">
-            <div class="check-title">Budget & Cost Intelligence</div>
-            <div class="check-sub">Live tracking · Vendor-level breakdown · Change order impact · Projected completion cost</div>
-            <div class="check-where">→ hsi-os/modules · for-homeowners/benefits · for-developers/benefits</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">03</div>
-          <div class="check-text">
-            <div class="check-title">Execution Tracking System</div>
-            <div class="check-sub">Milestone tracking · Snag management · QA records · Site photo documentation</div>
-            <div class="check-where">→ hsi-os/modules · how-it-works</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">04</div>
-          <div class="check-text">
-            <div class="check-title">Vendor & Procurement</div>
-            <div class="check-sub">Vendor onboarding · PO management · Delivery tracking · Invoice approval</div>
-            <div class="check-where">→ hsi-os/modules</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">05</div>
-          <div class="check-text">
-            <div class="check-title">Real-Time Client Dashboard</div>
-            <div class="check-sub">Live progress · Budget vs actuals · Decisions log · Document centre</div>
-            <div class="check-where">→ hsi-os/modules · for-homeowners · for-developers</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">06</div>
-          <div class="check-text">
-            <div class="check-title">Conflict Detection Engine</div>
-            <div class="check-sub">8-type conflict detection incl. bathroom slopes, shaft, staircase, circulation</div>
-            <div class="check-where">→ hsi-os/modules · for-architects/callout · homepage/modules</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-yes">07</div>
-          <div class="check-text">
-            <div class="check-title">Ownership Mode</div>
-            <div class="check-sub">Asset records · Maintenance scheduling · Upgrade history · Vendor intelligence</div>
-            <div class="check-where">→ hsi-os/modules · homepage/modules</div>
-          </div>
-        </div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">For Homeowners → Nandita S.</div><div class="desc">Busy professional, phone approvals, no site visits</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">For Developers → Rajesh M.</div><div class="desc">24-unit development, buyer-facing documentation value</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">For Architects → Divya K.</div><div class="desc">Sceptical designer, design control preserved, 3 disputes avoided</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Pricing → Saurabh M.</div><div class="desc">Fee paid for itself via one conflict catch — ROI framing</div><div class="tags"><span class="tag tag-purple">New</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">HSIOS™ page → Saurabh M. + Ankit R.</div><div class="desc">Pre-existing testimonials retained</div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- ─── SEO + CONTENT PAGES ─── -->
-  <div class="section-title">SEO & Supporting Pages</div>
+  <!-- ─── PHILOSOPHY CHECKLIST ─── -->
+  <div class="section-title">HSIOS™ Philosophy Coverage — 9/9 Points</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><h2>Core Philosophy Points</h2></div>
+      <div class="card-body">
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Execution intelligence over aesthetics</div><div class="check-sub">HSIOS™ as OS, not just design firm</div><div class="check-where">Homepage hero · hsi-os hero · about page</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Pre-execution conflict detection</div><div class="check-sub">Catch clashes before site work begins</div><div class="check-where">hsi-os module 06 · for-architects callout · projects case studies</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Full cost transparency / Budget Intelligence</div><div class="check-sub">Live budget dashboard, digital change orders, no surprises</div><div class="check-where">hsi-os module 02 · for-homeowners · for-developers · pricing page</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Refuse · Reuse · Recycle · Reduce (4R framework)</div><div class="check-sub">No cost premium, built into core planning</div><div class="check-where">sustainability page · hsi-os global standards section · homepage</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Global standards — ergonomics, safety, durability</div><div class="check-sub">International best practice built in</div><div class="check-where">hsi-os global standards section · about values</div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>Execution & Platform Philosophy</h2></div>
+      <div class="card-body">
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Vendor accountability + digital commitments</div><div class="check-sub">No verbal promises — all logged in platform</div><div class="check-where">hsi-os module 04 · for-homeowners · for-developers · how-it-works</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Remote visibility / NRI capability</div><div class="check-sub">Live dashboard, daily photos, any device, any timezone</div><div class="check-where">for-homeowners NRI section · nri-home-interior-management · demo page</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Milestone-verified quality, not assumed progress</div><div class="check-sub">Work doesn't proceed past milestone without sign-off</div><div class="check-where">hsi-os module 03 · how-it-works · pricing "what's included"</div></div></div>
+        <div class="check-row"><div class="check-icon check-yes">✓</div><div class="check-text"><div class="check-title">Design intent protection for architects</div><div class="check-sub">HSIOS™ as collaborative execution partner, not replacement</div><div class="check-where">for-architects entire page · hsi-os "for who" section</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CITY SEO PAGES ─── -->
+  <div class="section-title">City / Location SEO Pages (5)</div>
+  <div class="grid-4" style="grid-template-columns:repeat(5,1fr);">
+    <div class="card">
+      <div class="card-header"><h2>Alibag</h2><span class="url">/alibag-villa-interiors</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Full page — hero, features, content, FAQ, CTA</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Coastal execution specifics</div><div class="desc">Marine ply · pre-monsoon deadline · logistics</div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>Mumbai</h2><span class="url">/mumbai-luxury-interiors</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Full page — challenges, content, FAQ, CTA</div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">High-rise specifics</div><div class="desc">Society NOC · goods lift · 15+ vendor coordination</div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>Bangalore</h2><span class="url">/bangalore-luxury-interiors</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Full rebuild — hero, 6 challenges, expanded content, 5 FAQs, CTA</div><div class="tags"><span class="tag tag-purple">Rebuilt</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Bangalore specifics</div><div class="desc">Smart home integration · 9 micro-markets listed · tech professional framing</div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>Pune</h2><span class="url">/pune-premium-interiors</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Full page — challenges, content, FAQ, CTA</div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:80%;background:var(--yellow)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>Goa</h2><span class="url">/goa-villa-interiors</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Full page — villa execution, coastal context</div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:80%;background:var(--yellow)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BLOG ARTICLES ─── -->
+  <div class="section-title">Blog Articles (8) — Status</div>
   <div class="grid-4">
-
     <div class="card">
-      <div class="card-header"><h2>📍 City SEO Pages</h2></div>
+      <div class="card-header"><h2>Alibag Villa Guide</h2><span class="url">/blog-alibag-villa-guide</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Alibag Villa Interiors</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Mumbai Luxury Interiors</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Pune Premium Interiors</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Goa Villa Interiors</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Bangalore</div><div class="tags"><span class="tag tag-yellow">Stub</span></div></div></div>
+        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Full article — ~2,400 words</div><div class="desc">7 sections · cost table · 12-step sequencing · 4 related articles</div><div class="tags"><span class="tag tag-purple">Expanded</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-header"><h2>📰 Blog Articles</h2></div>
+      <div class="card-header"><h2>Alibag Villa Cost</h2><span class="url">/blog-alibag-villa-cost</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Alibag Villa Guide</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Alibag Villa Cost</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Alibag Timeline</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">NRI Remote Management</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">NRI Tracking Progress</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">NRI Cost Inflation</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="desc">Needs full content</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-header"><h2>📞 Contact</h2><span class="url">hsios.in/contact</span></div>
+      <div class="card-header"><h2>Alibag Challenges</h2><span class="url">/blog-alibag-challenges</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Consultation Form</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">WhatsApp Direct</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Office Details</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Quick Answer FAQs</div></div></div>
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-header"><h2>🌐 NRI Page</h2><span class="url">hsios.in/nri-home-interior-management</span></div>
+      <div class="card-header"><h2>Alibag Timeline</h2><span class="url">/blog-alibag-timeline</span></div>
       <div class="card-body">
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">NRI-specific positioning</div><div class="tags"><span class="tag tag-gold">SEO</span></div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Remote management features</div></div></div>
-        <div class="section-row"><div class="icon">✓</div><div class="content"><div class="name">Dashboard access proof points</div></div></div>
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
       </div>
     </div>
-  </div>
-
-  <!-- ─── GAPS + OPPORTUNITIES ─── -->
-  <div class="section-title">Gaps & Opportunities</div>
-  <div class="grid-2">
-
     <div class="card">
-      <div class="card-header"><h2>⚠️ Content Gaps</h2></div>
+      <div class="card-header"><h2>NRI Remote Management</h2><span class="url">/blog-nri-remote-management</span></div>
       <div class="card-body">
-        <div class="check-row">
-          <div class="check-icon check-no">✗</div>
-          <div class="check-text">
-            <div class="check-title">Pricing / Starting Budget Page</div>
-            <div class="check-sub">No pricing guidance anywhere — high-intent visitors have no anchor</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-no">✗</div>
-          <div class="check-text">
-            <div class="check-title">Bangalore page is a stub</div>
-            <div class="check-sub">bangalore-luxury-interiors has no real content — thin page for SEO</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-no">✗</div>
-          <div class="check-text">
-            <div class="check-title">Case Studies with numbers</div>
-            <div class="check-sub">Projects page shows portfolio but lacks deep case studies with metrics (cost saved, time saved, conflicts resolved)</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-partial">~</div>
-          <div class="check-text">
-            <div class="check-title">Testimonials — only 3 clients site-wide</div>
-            <div class="check-sub">Video testimonials or star ratings would strengthen social proof</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-partial">~</div>
-          <div class="check-text">
-            <div class="check-title">HSIOS™ Demo / Waitlist Page</div>
-            <div class="check-sub">Platform is described extensively but there's no dedicated signup or demo request page</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon check-partial">~</div>
-          <div class="check-text">
-            <div class="check-title">Insights / Blog — articles need content</div>
-            <div class="check-sub">Blog listing page exists, articles are mostly stubs</div>
-          </div>
-        </div>
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-header"><h2>🚀 Recommended Next Steps</h2></div>
+      <div class="card-header"><h2>NRI Tracking Progress</h2><span class="url">/blog-nri-tracking-progress</span></div>
       <div class="card-body">
-        <div class="check-row">
-          <div class="check-icon" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3);">1</div>
-          <div class="check-text">
-            <div class="check-title">Write 2–3 deep case studies</div>
-            <div class="check-sub">Pick Casa Frangipani, Villa Bellissimo, Serenity Villa. Add: conflicts detected, budget saved, delivery speed. Strong trust signal.</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3);">2</div>
-          <div class="check-text">
-            <div class="check-title">Fill out Bangalore SEO page</div>
-            <div class="check-sub">Match the quality of Alibag/Mumbai pages with local content</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3);">3</div>
-          <div class="check-text">
-            <div class="check-title">HSIOS™ Platform waitlist / early access page</div>
-            <div class="check-sub">Separate landing page for architects and developers wanting platform-only access</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3);">4</div>
-          <div class="check-text">
-            <div class="check-title">Publish blog articles (not stubs)</div>
-            <div class="check-sub">6 articles listed — write full 800–1200 word versions for SEO authority</div>
-          </div>
-        </div>
-        <div class="check-row">
-          <div class="check-icon" style="background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3);">5</div>
-          <div class="check-text">
-            <div class="check-title">Add Hyderabad / Delhi SEO page</div>
-            <div class="check-sub">Expand geographic reach for premium villa interior searches</div>
-          </div>
-        </div>
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>NRI Cost Inflation</h2><span class="url">/blog-nri-cost-inflation</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>Sustainable Luxury</h2><span class="url">/blog-sustainable-luxury</span></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">~</div><div class="content"><div class="name">Stub — article shell only</div><div class="tags"><span class="tag tag-yellow">Deferred</span></div></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%;background:var(--yellow)"></div></div>
       </div>
     </div>
   </div>
 
-  <!-- ─── NAVIGATION MAP ─── -->
+  <!-- ─── HSIOS MODULES ─── -->
+  <div class="section-title">HSIOS™ — 7 Core Modules Coverage</div>
+  <div class="grid-4" style="grid-template-columns:repeat(7,1fr);">
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">🏗️</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">01</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Planning Engine</div>
+      <div style="font-size:10px;color:var(--muted);">Layout analysis · trade sequencing · conflict pre-scan</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">💰</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">02</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Budget Intelligence</div>
+      <div style="font-size:10px;color:var(--muted);">Live cost tracking · change orders · no surprises</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">📸</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">03</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Execution Monitor</div>
+      <div style="font-size:10px;color:var(--muted);">Daily documentation · milestone QA · photo logs</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">🤝</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">04</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Vendor Management</div>
+      <div style="font-size:10px;color:var(--muted);">Digital commitments · delivery timelines · accountability</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">📊</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">05</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Client Dashboard</div>
+      <div style="font-size:10px;color:var(--muted);">Real-time view · remote access · NRI-ready</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">⚡</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">06</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Conflict Detection</div>
+      <div style="font-size:10px;color:var(--muted);">8 clash types · pre-execution · flagged + resolved</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+    <div class="card"><div class="card-body" style="padding:12px 14px;">
+      <div style="font-size:18px;margin-bottom:6px;">📁</div>
+      <div style="font-size:11px;font-weight:700;color:var(--gold);">07</div>
+      <div style="font-size:11px;font-weight:600;margin:2px 0;">Ownership Transfer</div>
+      <div style="font-size:10px;color:var(--muted);">Snag resolution · warranties · handover pack</div>
+      <div class="progress-bar" style="margin-top:8px;"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+    </div></div>
+  </div>
+
+  <!-- ─── GAPS TRACKER ─── -->
+  <div class="section-title">Content Gaps — Status (5 of 6 Resolved)</div>
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-body">
+      <div class="gap-row">
+        <span class="gap-badge gap-done">DONE</span>
+        <div class="gap-text">
+          <div class="gap-title">Pricing page</div>
+          <div class="gap-desc">Full /pricing page built — cost drivers, 3 tiers (apartment/villa/developer), comparison table, FAQ, testimonial. Added to nav + sitemap.</div>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="gap-badge gap-done">DONE</span>
+        <div class="gap-text">
+          <div class="gap-title">Case studies with execution metrics</div>
+          <div class="gap-desc">Projects page rebuilt — each card has 3 metrics, new Case Study Spotlight section with Casa Frangipani and Villa Awas deep-dives (challenge → interventions → outcomes).</div>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="gap-badge gap-done">DONE</span>
+        <div class="gap-text">
+          <div class="gap-title">Testimonials — only 3 existed</div>
+          <div class="gap-desc">Expanded to 8 total: 6 on homepage (all new personas added), persona-matched testimonials on for-homeowners, for-developers, for-architects, pricing. ROI-framed testimonial on pricing page.</div>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="gap-badge gap-done">DONE</span>
+        <div class="gap-text">
+          <div class="gap-title">HSIOS™ platform demo / waitlist page</div>
+          <div class="gap-desc">/demo page built — live dashboard mockup, 6 "what you'll see" modules, audience tiles, demo request form (posts to /api/contact), FAQ. In Solutions nav dropdown.</div>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="gap-badge gap-done">DONE</span>
+        <div class="gap-text">
+          <div class="gap-title">Bangalore SEO page was a stub</div>
+          <div class="gap-desc">Fully rebuilt — HSIOS™ branding, 6 Bangalore-specific challenges, expanded content section with 6 capability bullets + 9 micro-market grid, 5 FAQs, updated CTA.</div>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="gap-badge gap-open">DEFERRED</span>
+        <div class="gap-text">
+          <div class="gap-title">Blog articles are stubs (7 of 8)</div>
+          <div class="gap-desc">Only Alibag Villa Guide is fully written (~2,400 words). The remaining 7 blog articles have shells but no real content. User has chosen to defer these for now.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── NAVIGATION STRUCTURE ─── -->
   <div class="section-title">Navigation Structure</div>
   <div class="card" style="margin-bottom:16px;">
-    <div class="card-body" style="display:flex;flex-wrap:wrap;gap:8px;padding:18px;">
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">🏠 Home <span style="color:var(--muted);font-weight:400;">/</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">🖼️ Projects <span style="color:var(--muted);font-weight:400;">/projects</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid rgba(196,168,130,0.4);border-radius:8px;font-size:11px;font-weight:600;color:var(--gold);">⚙️ HSIOS™ <span style="color:var(--muted);font-weight:400;">/hsi-os</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">🔄 How It Works <span style="color:var(--muted);font-weight:400;">/how-it-works</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">🌿 Sustainability <span style="color:var(--muted);font-weight:400;">/sustainability</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">📰 Insights <span style="color:var(--muted);font-weight:400;">/insights</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">👤 About <span style="color:var(--muted);font-weight:400;">/about</span></div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;">▾ Solutions</div>
-      <div style="display:flex;flex-direction:column;gap:4px;margin-left:12px;padding:8px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;">
-        <div style="font-size:11px;color:var(--muted2);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Dropdown</div>
-        <div style="font-size:11px;">🏡 For Homeowners <span style="color:var(--muted)">/for-homeowners</span></div>
-        <div style="font-size:11px;">🏗️ For Developers <span style="color:var(--muted)">/for-developers</span></div>
-        <div style="font-size:11px;">📐 For Architects <span style="color:var(--muted)">/for-architects</span></div>
+    <div class="card-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 0;">
+        <span style="font-size:11px;color:var(--muted);font-weight:600;margin-right:4px;">MAIN NAV:</span>
+        <span class="tag tag-gold">Home</span>
+        <span class="tag tag-gold">Projects</span>
+        <span class="tag tag-gold">HSIOS™</span>
+        <span class="tag tag-gold">How It Works</span>
+        <span class="tag tag-gold">Pricing</span>
+        <span class="tag tag-gold">Sustainability</span>
+        <span class="tag tag-gold">Insights</span>
+        <span class="tag tag-gold">About</span>
+        <span class="tag tag-blue">Solutions ▾</span>
+        <span class="tag tag-green">Book Consultation (CTA)</span>
       </div>
-      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(196,168,130,0.15);border:1px solid var(--gold);border-radius:8px;font-size:11px;font-weight:600;color:var(--gold);">Book Consultation <span style="color:var(--gold-dim);font-weight:400;">/contact</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 0;border-top:1px solid var(--border);margin-top:4px;">
+        <span style="font-size:11px;color:var(--muted);font-weight:600;margin-right:4px;">SOLUTIONS DROPDOWN:</span>
+        <span class="tag tag-blue">For Homeowners</span>
+        <span class="tag tag-blue">For Developers</span>
+        <span class="tag tag-blue">For Architects</span>
+        <span class="tag tag-purple">Request a Demo</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 0;border-top:1px solid var(--border);margin-top:4px;">
+        <span style="font-size:11px;color:var(--muted);font-weight:600;margin-right:4px;">MOBILE DRAWER:</span>
+        <span style="font-size:11px;color:var(--muted);">All main links + Solutions group + Book Consultation + WhatsApp</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── POTENTIAL NEXT STEPS ─── -->
+  <div class="section-title">Potential Next Steps</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-header"><h2>📝 Blog Content</h2></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">1</div><div class="content"><div class="name">Alibag Villa Cost (blog-alibag-villa-cost)</div><div class="desc">Cost breakdown by trade, coastal premium table, what drives overruns</div></div></div>
+        <div class="section-row"><div class="icon">2</div><div class="content"><div class="name">NRI Remote Management guide</div><div class="desc">How to manage a ₹2Cr+ project from overseas with HSIOS™</div></div></div>
+        <div class="section-row"><div class="icon">3</div><div class="content"><div class="name">Alibag Timeline guide</div><div class="desc">Month-by-month execution calendar, pre-monsoon deadline planning</div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>🗺️ New City SEO Pages</h2></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">1</div><div class="content"><div class="name">Hyderabad luxury interiors</div><div class="desc">Growing premium residential market, tech professional audience</div></div></div>
+        <div class="section-row"><div class="icon">2</div><div class="content"><div class="name">Delhi / NCR luxury interiors</div><div class="desc">High search volume, large villa and farmhouse segment</div></div></div>
+        <div class="section-row"><div class="icon">3</div><div class="content"><div class="name">Lonavala / Karjat villa interiors</div><div class="desc">Extend Alibag blog cluster to hill station segment</div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2>⭐ Social Proof</h2></div>
+      <div class="card-body">
+        <div class="section-row"><div class="icon">1</div><div class="content"><div class="name">Before/After project gallery</div><div class="desc">Visual proof — existing project images repurposed with context</div></div></div>
+        <div class="section-row"><div class="icon">2</div><div class="content"><div class="name">Awards / press mentions section</div><div class="desc">If any coverage exists — adds credibility on homepage or about page</div></div></div>
+        <div class="section-row"><div class="icon">3</div><div class="content"><div class="name">Video testimonial or walkthrough</div><div class="desc">Embedded on demo or projects page — high conversion impact</div></div></div>
+      </div>
     </div>
   </div>
 
 </div>
 
-<div class="footer">HSIOS™ Website Content Dashboard · hsios.in · Generated April 2026</div>
+<div class="footer">HSIOS™ Website Dashboard · hsios.in · Last updated April 2026 · 33 pages · 12 core · 8 blog · 5 city SEO</div>
 
 </body>
 </html>

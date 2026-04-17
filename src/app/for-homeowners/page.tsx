@@ -182,6 +182,29 @@ export default function ForHomeownersPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIAL ───────────────────────────────────── */}
+      <section className="py-20 bg-ivory-100">
+        <div className="container-luxury max-w-3xl">
+          <RevealOnScroll>
+            <div className="card-luxury bg-white p-10 text-center">
+              <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+              <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                My husband and I both work full time. We simply didn&apos;t have the bandwidth to visit site every weekend.
+                HSIOS™ meant approving things on my phone during lunch, seeing progress by evening,
+                and always knowing exactly where the budget stood.
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">NS</div>
+                <div className="text-left">
+                  <div className="font-semibold text-charcoal-800 text-sm">Nandita S.</div>
+                  <div className="text-xs text-warmgray-500 mt-0.5">Homeowner · Mumbai Apartment</div>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="py-24 bg-sandstone-400 text-center">
         <RevealOnScroll>

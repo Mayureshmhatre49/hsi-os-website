@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/projects',                    priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/hsi-os',                      priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/how-it-works',               priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/pricing',                    priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: '/demo',                       priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/insights',                    priority: 0.8, changeFrequency: 'weekly' as const },
     { url: '/for-homeowners',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/for-developers',             priority: 0.8, changeFrequency: 'monthly' as const },
