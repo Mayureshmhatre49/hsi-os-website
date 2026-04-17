@@ -1,10 +1,11 @@
-import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCTA from '@/components/ui/StickyMobileCTA'
+import SkipToContent from '@/components/ui/SkipToContent'
+import WebVitals from '@/components/WebVitals'
 
 /* ── Self-hosted fonts via next/font/google ────────────────
    Fonts are downloaded at build time, self-hosted, and served
@@ -84,9 +85,9 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
 
-  verification: {
-    google: 'REPLACE_WITH_GOOGLE_SITE_VERIFICATION',
-  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  }),
 }
 
 export const viewport: Viewport = {
@@ -122,6 +123,8 @@ const localBusinessSchema = {
     { '@type': 'City', name: 'Pune' },
     { '@type': 'City', name: 'Goa' },
     { '@type': 'City', name: 'Bangalore' },
+    { '@type': 'City', name: 'Nashik' },
+    { '@type': 'City', name: 'Lonavala' },
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -157,9 +160,16 @@ const organizationSchema = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        {/* Performance: pre-connect to analytics origins */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+
         {/* JSON-LD Schemas */}
         <script
           type="application/ld+json"
@@ -169,26 +179,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        {/* GA4 — replace with your measurement ID */}
-        {process.env.NEXT_PUBLIC_GA4_ID && (
+
+        {/* GA4 */}
+        {ga4Id && (
           <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
-            />
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
             <script
               dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA4_ID}',{page_path:window.location.pathname});`,
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${ga4Id}',{page_path:window.location.pathname,send_page_view:true});`,
               }}
             />
           </>
         )}
       </head>
       <body className="bg-ivory-100 text-charcoal-800 font-sans antialiased">
+        <SkipToContent />
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <StickyMobileCTA />
+        <WebVitals />
       </body>
     </html>
   )

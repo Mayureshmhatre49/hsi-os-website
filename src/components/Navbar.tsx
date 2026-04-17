@@ -50,17 +50,34 @@ export default function Navbar() {
   // Close on route change
   useEffect(() => { setMenuOpen(false); setDropdownOpen(false) }, [pathname])
 
-  // Close dropdown on outside click
+  // Close dropdown on outside click or Escape key
   useEffect(() => {
     if (!dropdownOpen) return
-    const handler = (e: MouseEvent) => {
+    const handleClick = (e: MouseEvent) => {
       if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
         setDropdownOpen(false)
       }
     }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDropdownOpen(false)
+    }
+    document.addEventListener('mousedown', handleClick)
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('keydown', handleKey)
+    }
   }, [dropdownOpen])
+
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [menuOpen])
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
@@ -79,7 +96,7 @@ export default function Navbar() {
           }
         `}
       >
-        <nav className="container-luxury flex items-center justify-between h-16 gap-6">
+        <nav className="container-luxury flex items-center justify-between h-16 gap-6" aria-label="Main navigation">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
@@ -108,6 +125,7 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
+                  aria-current={isActive(href) ? 'page' : undefined}
                   className={`
                     relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap
                     ${isActive(href)
@@ -133,7 +151,8 @@ export default function Navbar() {
               <button
                 onClick={() => setDropdownOpen(v => !v)}
                 aria-expanded={dropdownOpen}
-                aria-haspopup="true"
+                aria-haspopup="listbox"
+                aria-controls="solutions-dropdown"
                 className={`
                   flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium
                   transition-all duration-200 whitespace-nowrap
@@ -152,11 +171,18 @@ export default function Navbar() {
               </button>
 
               {dropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-52 rounded-2xl bg-white border border-ivory-200 shadow-luxury overflow-hidden z-50">
+                <div
+                  id="solutions-dropdown"
+                  role="listbox"
+                  aria-label="Solutions"
+                  className="absolute top-full left-0 mt-2 w-52 rounded-2xl bg-white border border-ivory-200 shadow-luxury overflow-hidden z-50"
+                >
                   {solutionLinks.map(({ href, label }) => (
                     <Link
                       key={href}
                       href={href}
+                      role="option"
+                      aria-selected={isActive(href)}
                       className={`
                         block px-4 py-3 text-sm font-medium transition-colors
                         ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-100'}
@@ -189,8 +215,9 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMenuOpen(v => !v)}
-            aria-label="Toggle navigation"
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             className={`lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg transition-colors duration-200 ${transparent ? 'text-white' : 'text-charcoal-800'}`}
           >
             <span className={`block w-5 h-0.5 transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-2' : ''} ${transparent ? 'bg-white' : 'bg-charcoal-800'}`} />
@@ -202,6 +229,10 @@ export default function Navbar() {
 
       {/* Mobile Menu — full-screen on small phones, drawer on larger */}
       <div
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         {/* Backdrop */}
