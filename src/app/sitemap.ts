@@ -12,10 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/hsi-os',                      priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/how-it-works',               priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/pricing',                    priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: '/sustainability',             priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/demo',                       priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/insights',                    priority: 0.8, changeFrequency: 'weekly' as const },
     { url: '/for-homeowners',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/for-developers',             priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/for-architects',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/contact',                     priority: 0.9, changeFrequency: 'monthly' as const },
     // City / location pages
     { url: '/alibag-villa-interiors',     priority: 0.9, changeFrequency: 'monthly' as const },
@@ -23,7 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/pune-premium-interiors',     priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/goa-villa-interiors',        priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/bangalore-luxury-interiors', priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/nashik-villa-interiors',     priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/lonavala-villa-interiors',   priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/nri-home-interior-management', priority: 0.8, changeFrequency: 'monthly' as const },
+    // SEO keyword pages
+    { url: '/luxury-interior-execution-india',    priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: '/villa-interior-project-management',  priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: '/turnkey-home-interiors',             priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/second-home-interior-design',        priority: 0.8, changeFrequency: 'monthly' as const },
     // Blog posts
     { url: '/blog-alibag-villa-guide',     priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/blog-alibag-villa-cost',      priority: 0.7, changeFrequency: 'monthly' as const },
@@ -32,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/blog-nri-remote-management',  priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/blog-nri-tracking-progress',  priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/blog-nri-cost-inflation',     priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/blog-sustainable-luxury',     priority: 0.7, changeFrequency: 'monthly' as const },
   ]
 
   return staticRoutes.map(({ url, priority, changeFrequency }) => ({

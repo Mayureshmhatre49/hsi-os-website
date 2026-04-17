@@ -22,6 +22,8 @@ const footerLinks = {
     { href: '/pune-premium-interiors',        label: 'Pune' },
     { href: '/goa-villa-interiors',           label: 'Goa' },
     { href: '/bangalore-luxury-interiors',    label: 'Bangalore' },
+    { href: '/nashik-villa-interiors',        label: 'Nashik' },
+    { href: '/lonavala-villa-interiors',      label: 'Lonavala' },
     { href: '/nri-home-interior-management',  label: 'NRI Remote' },
   ],
 }
