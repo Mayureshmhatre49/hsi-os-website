@@ -4,12 +4,13 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-// Primary nav — 4 links only (logo = Home)
+// Primary nav — 5 links (logo = Home)
 const navLinks = [
-  { href: '/projects',   label: 'Projects' },
-  { href: '/hsi-os',     label: 'HSIOS™' },
-  { href: '/pricing',    label: 'Pricing' },
-  { href: '/about',      label: 'About' },
+  { href: '/projects',      label: 'Projects' },
+  { href: '/hsi-os',        label: 'HSIOS™' },
+  { href: '/sustainability', label: 'Sustainability' },
+  { href: '/pricing',       label: 'Pricing' },
+  { href: '/about',         label: 'About' },
 ]
 
 // Solutions dropdown
