@@ -20,6 +20,7 @@ export default function HomePage() {
       <HeroSection />
       <MarqueeTicker />
       <WhatIsHSIOSSection />
+      <HowHSIOSWorksSection />
       <WhyHSIOSExistsSection />
       <WhatWeCreateSection />
       <WhyChooseUsSection />
@@ -66,11 +67,16 @@ function HeroSection() {
       <div className="relative z-10 container-luxury pb-20 pt-40 w-full">
         <div className="max-w-3xl">
           {/* Label */}
-          <div className="flex items-center gap-3 mb-7 animate-fade-up">
-            <div className="w-7 h-px bg-sandstone-400" />
-            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-sandstone-300">
-              Hestia Smart Interiors — India&apos;s First Interior Operating System
-            </span>
+          <div className="flex flex-col gap-1.5 mb-7 animate-fade-up">
+            <div className="flex items-center gap-3">
+              <div className="w-7 h-px bg-sandstone-400" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-sandstone-300">
+                India&apos;s First Luxury Home Execution Operating System
+              </span>
+            </div>
+            <p className="pl-10 text-[11px] text-white/45 tracking-wide font-sans">
+              Delivered through premium turnkey interior execution services.
+            </p>
           </div>
 
           {/* Headline */}
@@ -85,9 +91,9 @@ function HeroSection() {
           </p>
 
           {/* Subheadline — main offering */}
-          <p className="text-lg text-white font-sans font-medium leading-relaxed max-w-lg mb-10 animate-fade-up [animation-delay:240ms] border-l-2 border-sandstone-400 pl-4">
-            HSIOS™ is the intelligent platform to execute premium interiors flawlessly
-            and manage smarter homes for the future.
+          <p className="text-lg text-white font-sans font-medium leading-relaxed max-w-xl mb-10 animate-fade-up [animation-delay:240ms] border-l-2 border-sandstone-400 pl-4">
+            HSIOS combines premium interior execution, budgeting intelligence, procurement control,
+            quality systems, and lifecycle home management — for villas, residences, and developers.
           </p>
 
           {/* CTAs */}
@@ -204,7 +210,78 @@ function WhatIsHSIOSSection() {
   )
 }
 
-/* ── 3. WHAT WE CREATE ───────────────────────────────────── */
+/* ── 3. HOW HSIOS WORKS ──────────────────────────────────── */
+const workflowSteps = [
+  { step: 'Plan',     desc: 'Scope, brief, and design intent locked into a single source of truth.' },
+  { step: 'Price',    desc: 'Transparent BOQ, market-benchmarked rates, and budget approval flows.' },
+  { step: 'Procure',  desc: 'Vendor vetting, material sourcing, and procurement tracking.' },
+  { step: 'Execute',  desc: 'Trade sequencing, site supervision, and real-time progress updates.' },
+  { step: 'Monitor',  desc: 'Quality audits, conflict resolution, and milestone sign-offs.' },
+  { step: 'Handover', desc: 'Defect-free handover with full documentation and warranties.' },
+  { step: 'Maintain', desc: 'Post-handover AMC, lifecycle management, and smart home support.' },
+]
+
+function HowHSIOSWorksSection() {
+  return (
+    <section className="section-py bg-charcoal-900 relative overflow-hidden" aria-label="How HSIOS works">
+      <div className="absolute inset-0 bg-gradient-to-br from-sandstone-900/20 to-transparent pointer-events-none" />
+      <div className="container-luxury relative z-10">
+        <RevealOnScroll>
+          <div className="max-w-2xl mb-16">
+            <div className="section-label text-sandstone-400">The Process</div>
+            <h2 className="font-serif text-display-lg text-white mb-4">
+              How HSIOS™ Works.
+            </h2>
+            <p className="text-warmgray-400 text-lg leading-relaxed">
+              Seven stages. One platform. Every decision logged, every rupee tracked,
+              every trade coordinated — from first brief to final handover.
+            </p>
+          </div>
+        </RevealOnScroll>
+
+        {/* Step flow */}
+        <div className="relative">
+          {/* Connector line — desktop */}
+          <div className="hidden lg:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sandstone-600/40 to-transparent" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+            {workflowSteps.map(({ step, desc }, i) => (
+              <RevealOnScroll key={step} delay={i * 0.07}>
+                <div className="relative flex flex-col items-start lg:items-center lg:text-center gap-3 p-5 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-500/40 hover:bg-white/8 transition-all duration-300">
+                  {/* Number badge */}
+                  <div className="w-10 h-10 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 flex items-center justify-center flex-shrink-0">
+                    <span className="font-serif font-bold text-sandstone-300 text-sm">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-white text-base mb-1">{step}</h3>
+                    <p className="text-warmgray-400 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                  {/* Arrow — desktop only, not on last */}
+                  {i < workflowSteps.length - 1 && (
+                    <span className="hidden lg:block absolute -right-2 top-9 text-sandstone-600/50 text-xs z-10">▶</span>
+                  )}
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+
+        <RevealOnScroll delay={0.2}>
+          <div className="mt-12 flex flex-wrap gap-4">
+            <Link href="/how-it-works" className="btn btn-bronze">
+              See the Full Process →
+            </Link>
+            <Link href="/demo" className="btn btn-outline-white">
+              Request a Demo
+            </Link>
+          </div>
+        </RevealOnScroll>
+      </div>
+    </section>
+  )
+}
+
+/* ── 4. WHAT WE CREATE ───────────────────────────────────── */
 const propertyTypes = [
   {
     icon: '🏡',
@@ -658,6 +735,14 @@ function FeaturedProjectSection() {
               <Link href="/projects" className="btn btn-outline-dark text-sm">
                 All Projects
               </Link>
+              <a
+                href="https://hestiavillas.in/homes/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline-dark text-sm"
+              >
+                More on Hestia Villas ↗
+              </a>
             </div>
           </RevealOnScroll>
         </div>
@@ -1157,15 +1242,36 @@ function FounderVisionSection() {
             <h2 className="font-serif text-display-lg text-white mb-8">
               Redefining <em className="not-italic text-sandstone-300">Premium Execution.</em>
             </h2>
-            <div className="space-y-6 text-warmgray-300 text-lg leading-relaxed">
+            <div className="space-y-5 text-warmgray-300 text-base leading-relaxed">
               <p>
-                Nishant Mhatre founded HSIOS with a bold vision—to reinvent premium interiors through technology, sustainability, and execution intelligence.
+                I am driven by a vision to merge Real Estate, Technology, and AI into future-ready
+                ecosystems — leveraging <span className="text-white font-medium">20+ years of international experience</span> to
+                create value for investors, businesses, and communities.
               </p>
               <p>
-                By embedding the principles of <span className="text-white font-medium italic">Refuse, Reuse, Recycle</span>, reducing carbon footprint, and minimizing waste, he is building a smarter future for luxury interior delivery.
+                After a decade driving large-scale telecom and digital transformation programs across
+                the USA, UK, Europe, Australia, and India, I transitioned into real estate
+                entrepreneurship — founding a premium villa brand that reimagines luxury living through
+                design, sustainability, and hospitality partnerships.
+              </p>
+              <ul className="space-y-3 mt-2">
+                {[
+                  'Designing investment-ready luxury villa communities powered by clean energy.',
+                  'Advising businesses on AI-driven digital transformation and intelligent automation.',
+                  'Mentoring early-stage startups on business models and investor pitches.',
+                ].map((point) => (
+                  <li key={point} className="flex gap-3 text-sm">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sandstone-400 flex-shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sandstone-300 font-serif italic text-base">
+                &ldquo;I thrive at the intersection of vision and execution — the next decade belongs
+                to entrepreneurs who can merge sustainability with intelligence.&rdquo;
               </p>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/about" className="btn btn-outline-white">
                 Read the Founder&apos;s Story →
               </Link>
