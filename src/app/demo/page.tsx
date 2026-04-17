@@ -325,31 +325,49 @@ export default function DemoPage() {
                     </p>
                   </div>
 
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
-                      <div className="w-10 h-10 rounded-xl bg-sandstone-50 flex items-center justify-center flex-shrink-0 text-xl">⏱️</div>
-                      <div>
-                        <div className="font-semibold text-charcoal-800 text-sm">30 Minutes</div>
-                        <div className="text-xs text-warmgray-500 mt-0.5">Live screen share — no slides</div>
+                  <div className="space-y-3">
+                    {[
+                      { code: '30M', title: '30 Minutes',        sub: 'Live screen share — no slides, no pitch deck' },
+                      { code: 'RP',  title: 'Real Project Data',  sub: 'Alibag villa — actual data, not a demo environment' },
+                      { code: 'Q&A', title: 'Open Q&A',           sub: 'Ask anything about the platform or process' },
+                    ].map(({ code, title, sub }) => (
+                      <div key={code} className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
+                        <div className="w-10 h-10 rounded-xl bg-sandstone-50 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
+                          <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-charcoal-800 text-sm">{title}</div>
+                          <div className="text-xs text-warmgray-500 mt-0.5">{sub}</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
-                      <div className="w-10 h-10 rounded-xl bg-sandstone-50 flex items-center justify-center flex-shrink-0 text-xl">🏠</div>
-                      <div>
-                        <div className="font-semibold text-charcoal-800 text-sm">Real Project Data</div>
-                        <div className="text-xs text-warmgray-500 mt-0.5">Alibag villa — not a staging environment</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
-                      <div className="w-10 h-10 rounded-xl bg-sandstone-50 flex items-center justify-center flex-shrink-0 text-xl">💬</div>
-                      <div>
-                        <div className="font-semibold text-charcoal-800 text-sm">Q&A Included</div>
-                        <div className="text-xs text-warmgray-500 mt-0.5">Ask anything about the platform or process</div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
+                  {/* Proof stats */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {[
+                      { val: '7+',   label: 'Villas Delivered' },
+                      { val: '12+',  label: 'Avg Conflicts Caught' },
+                      { val: '100%', label: 'Client Retention' },
+                    ].map(({ val, label }) => (
+                      <div key={label} className="p-4 rounded-xl bg-ivory-100 text-center">
+                        <div className="font-serif text-2xl font-bold text-sandstone-600 mb-0.5">{val}</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-wider text-warmgray-500 leading-snug">{label}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Testimonial */}
+                  <blockquote className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
+                    <p className="text-sm text-warmgray-700 leading-relaxed italic mb-3">
+                      &ldquo;I was sceptical. After the demo I understood immediately why every architect should see this before their next project.&rdquo;
+                    </p>
+                    <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600">
+                      Divya K. — Principal Architect · Mumbai
+                    </div>
+                  </blockquote>
+
+                  <div className="p-5 rounded-2xl bg-white border border-ivory-200">
                     <p className="text-sm text-warmgray-700 leading-relaxed">
                       <span className="font-semibold text-charcoal-800">No commitment required.</span>{' '}
                       The demo is purely to help you understand what HSIOS™ can do for your

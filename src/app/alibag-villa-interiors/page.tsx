@@ -3,13 +3,13 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'Alibag Villa Interiors — Coastal Execution by Hestia Smart Interiors',
+  title: 'Alibag Villa Interiors — Premium Turnkey Execution by HSIOS™',
   description:
-    'Premium villa interior execution in Alibag. HSI OS manages logistics, coastal material specs, monsoon scheduling and 15+ vendor coordination for luxury second homes.',
+    'Premium villa interior execution in Alibag. HSIOS™ manages coastal material specs, monsoon scheduling, 15+ vendor coordination, and complete cost transparency for luxury second homes.',
   alternates: { canonical: 'https://www.hsios.in/alibag-villa-interiors' },
   openGraph: {
-    title: 'Alibag Villa Interiors — Coastal Execution by Hestia Smart Interiors',
-    description: 'Premium villa interior execution in Alibag with total transparency powered by HSIOS™.',
+    title: 'Alibag Villa Interiors — Premium Turnkey Execution by HSIOS™',
+    description: 'Premium villa interior execution in Alibag — coastal expertise, flawless delivery, powered by HSIOS™.',
     url: 'https://www.hsios.in/alibag-villa-interiors',
   },
 }

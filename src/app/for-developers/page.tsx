@@ -4,19 +4,19 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'For Developers — Scale Premium Interiors Across Your Portfolio | HSI',
+  title: 'For Developers — Scalable Luxury Interior Execution Platform | HSIOS™',
   description:
-    'Standardise luxury interior execution across your entire portfolio. HSIOS™ delivers quality, consistency, and buyer transparency at any scale.',
+    'Standardise premium interior execution across your entire development portfolio. HSIOS™ delivers quality, consistency, procurement efficiency, and buyer transparency at any scale.',
   alternates: { canonical: 'https://www.hsios.in/for-developers' },
 }
 
 const developerBenefits = [
-  { icon: '📐', title: 'Standardised Execution',        desc: 'Repeatable execution templates across all units — consistent quality, every time.' },
-  { icon: '📊', title: 'Multi-Unit Dashboard',           desc: 'All units, all progress, one view. Progress, costs, and timelines across your entire portfolio.' },
-  { icon: '💰', title: 'Procurement Efficiency',         desc: 'Consolidated procurement across units reduces cost and eliminates duplication.' },
-  { icon: '🏆', title: 'Quality Documentation',          desc: 'Auditable quality records for every unit delivered — permanent and defensible.' },
-  { icon: '👥', title: 'Buyer Transparency',             desc: 'Give buyers real-time progress visibility as a sales differentiator. Premium execution, proven before handover.' },
-  { icon: '⚡', title: 'Faster Handover',                desc: 'Structured execution reduces rework and coordination delays — accelerating handover timelines.' },
+  { code: 'SE', title: 'Standardised Execution',        desc: 'Repeatable execution templates across all units — consistent quality, every unit, every time.' },
+  { code: 'MD', title: 'Multi-Unit Dashboard',           desc: 'All units, all progress, one view. Costs, timelines, and milestones across your entire portfolio.' },
+  { code: 'PE', title: 'Procurement Efficiency',         desc: 'Consolidated procurement across units reduces cost, eliminates duplication, and improves lead times.' },
+  { code: 'QD', title: 'Quality Documentation',          desc: 'Auditable quality records for every unit — permanent, defensible, and shareable with buyers.' },
+  { code: 'BT', title: 'Buyer Transparency',             desc: 'Give buyers real-time progress visibility as a sales differentiator. Premium execution, proven before handover.' },
+  { code: 'FH', title: 'Faster Handover',                desc: 'Structured trade sequencing and quality gates reduce rework — accelerating handover by weeks.' },
 ]
 
 const useCases = [
@@ -109,10 +109,12 @@ export default function ForDevelopersPage() {
           </RevealOnScroll>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {developerBenefits.map(({ icon, title, desc }, i) => (
+            {developerBenefits.map(({ code, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="text-4xl mb-5">{icon}</div>
+                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
+                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>

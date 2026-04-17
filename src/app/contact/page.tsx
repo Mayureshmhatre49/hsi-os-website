@@ -168,12 +168,36 @@ export default function ContactPage() {
                     </div>
                   </div>
 
+                  {/* Social proof stats */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {[
+                      { val: '7+',    label: 'Luxury Villas Delivered' },
+                      { val: '100%',  label: 'Client Retention' },
+                      { val: '0',     label: 'Execution Surprises' },
+                    ].map(({ val, label }) => (
+                      <div key={label} className="p-4 rounded-xl bg-ivory-100 text-center">
+                        <div className="font-serif text-2xl font-bold text-sandstone-600 mb-0.5">{val}</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-wider text-warmgray-500 leading-snug">{label}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Testimonial pull-quote */}
+                  <blockquote className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
+                    <p className="text-sm text-warmgray-700 leading-relaxed italic mb-3">
+                      &ldquo;The fee paid for itself before site work even started. Twelve conflicts caught in planning that would have cost three times the fee to fix on site.&rdquo;
+                    </p>
+                    <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600">
+                      Saurabh M. — Villa Owner · Alibag
+                    </div>
+                  </blockquote>
+
                   {/* Trust note */}
-                  <div className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
+                  <div className="p-5 rounded-2xl bg-white border border-ivory-200">
                     <p className="text-sm text-warmgray-700 leading-relaxed">
                       <span className="font-semibold text-charcoal-800">No pressure, no sales pitch.</span>{' '}
-                      Our first call is purely to understand your project and share whether HSI
-                      would be a good fit. We only take on projects where we can deliver genuine value.
+                      Our first call is purely to understand your project and confirm whether HSI
+                      is the right fit. We only take on projects where we can deliver genuine value.
                     </p>
                   </div>
                 </div>

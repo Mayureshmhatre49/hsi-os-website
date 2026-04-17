@@ -4,9 +4,9 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'For Architects — Design Intelligence & Execution Platform | HSIOS',
+  title: 'For Architects & Designers — Protect Design Intent with HSIOS™',
   description:
-    'HSIOS™ protects your design intent with conflict detection, execution visibility, and real-time documentation. Built for premium residential projects.',
+    'HSIOS™ protects your design vision with conflict detection, execution intelligence, and real-time documentation. Built for premium villa and residential projects across India.',
   alternates: { canonical: 'https://www.hsios.in/for-architects' },
 }
 
@@ -18,12 +18,12 @@ const challenges = [
 ]
 
 const benefits = [
-  { icon: '🎯', title: 'Design Fidelity Preserved',    desc: 'Every material spec, finish detail, and dimension is logged and enforced. What you designed is what gets built.' },
-  { icon: '⚡', title: 'Conflict Detection Engine',     desc: 'Plumbing, electrical, HVAC, cabinetry, and structural clashes are identified and resolved before site work begins.' },
-  { icon: '🤝', title: 'Collaborative by Design',       desc: 'HSIOS™ works alongside your team — not instead of it. You control design; we handle execution intelligence.' },
-  { icon: '📋', title: 'Better Site Documentation',     desc: 'Every RFI, change order, and site instruction is logged with timestamps. Full audit trail from day one to handover.' },
-  { icon: '📊', title: 'Client Transparency',           desc: 'Clients see live progress and budget tracking — reducing anxiety, improving trust, protecting your relationship.' },
-  { icon: '🏆', title: 'Quality at Every Checkpoint',  desc: 'Milestone-based inspections ensure each phase is delivered to spec before the next begins.' },
+  { code: 'DF', title: 'Design Fidelity Preserved',    desc: 'Every material spec, finish detail, and dimension is logged and enforced. What you designed is what gets built.' },
+  { code: 'CD', title: 'Conflict Detection Engine',     desc: 'Plumbing, electrical, HVAC, cabinetry, and structural clashes identified and resolved before site work begins.' },
+  { code: 'CB', title: 'Collaborative by Design',       desc: 'HSIOS™ works alongside your team — not instead of it. You control design; we handle execution intelligence.' },
+  { code: 'SD', title: 'Better Site Documentation',     desc: 'Every RFI, change order, and site instruction is logged with timestamps. Full audit trail from day one to handover.' },
+  { code: 'CT', title: 'Client Transparency',           desc: 'Clients see live progress and budget tracking — reducing anxiety, improving trust, protecting your relationship.' },
+  { code: 'QC', title: 'Quality at Every Checkpoint',  desc: 'Milestone-based inspections ensure each phase is delivered to spec before the next begins.' },
 ]
 
 const useCases = [
@@ -185,10 +185,12 @@ export default function ForArchitectsPage() {
             </h2>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map(({ icon, title, desc }, i) => (
+            {benefits.map(({ code, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="text-4xl mb-5">{icon}</div>
+                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
+                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>

@@ -212,13 +212,14 @@ function WhatIsHSIOSSection() {
 
 /* ── 3. HOW HSIOS WORKS ──────────────────────────────────── */
 const workflowSteps = [
-  { step: 'Plan',     desc: 'Scope, brief, and design intent locked into a single source of truth.' },
-  { step: 'Price',    desc: 'Transparent BOQ, market-benchmarked rates, and budget approval flows.' },
-  { step: 'Procure',  desc: 'Vendor vetting, material sourcing, and procurement tracking.' },
-  { step: 'Execute',  desc: 'Trade sequencing, site supervision, and real-time progress updates.' },
-  { step: 'Monitor',  desc: 'Quality audits, conflict resolution, and milestone sign-offs.' },
-  { step: 'Handover', desc: 'Defect-free handover with full documentation and warranties.' },
-  { step: 'Maintain', desc: 'Post-handover AMC, lifecycle management, and smart home support.' },
+  { step: 'Vision',   desc: 'Your aspirations, lifestyle brief, and project intent — captured and documented before any design begins.' },
+  { step: 'Plan',     desc: 'Scope, design coordination, and execution strategy locked into a single source of truth.' },
+  { step: 'Price',    desc: 'Transparent BOQ, market-benchmarked rates, and budget approval flows — no hidden costs.' },
+  { step: 'Procure',  desc: 'Vendor vetting, material sourcing, and procurement tracking with full audit trail.' },
+  { step: 'Build',    desc: 'Trade sequencing, site supervision, and real-time progress updates at every milestone.' },
+  { step: 'Monitor',  desc: 'Quality audits, conflict resolution, and sign-offs so nothing slips through.' },
+  { step: 'Handover', desc: 'Defect-free handover with complete documentation, warranties, and snag closure.' },
+  { step: 'Maintain', desc: 'Post-handover AMC, lifecycle management, and smart home support — your home, managed for life.' },
 ]
 
 function HowHSIOSWorksSection() {
@@ -233,8 +234,8 @@ function HowHSIOSWorksSection() {
               How HSIOS™ Works.
             </h2>
             <p className="text-warmgray-400 text-lg leading-relaxed">
-              Seven stages. One platform. Every decision logged, every rupee tracked,
-              every trade coordinated — from first brief to final handover.
+              Eight stages. One platform. Every decision logged, every rupee tracked,
+              every trade coordinated — from first vision to final handover and beyond.
             </p>
           </div>
         </RevealOnScroll>
@@ -244,7 +245,7 @@ function HowHSIOSWorksSection() {
           {/* Connector line — desktop */}
           <div className="hidden lg:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sandstone-600/40 to-transparent" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
             {workflowSteps.map(({ step, desc }, i) => (
               <RevealOnScroll key={step} delay={i * 0.07}>
                 <div className="relative flex flex-col items-start lg:items-center lg:text-center gap-3 p-5 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-500/40 hover:bg-white/8 transition-all duration-300">
@@ -337,13 +338,13 @@ function WhatWeCreateSection() {
 
 /* ── 3. WHY CHOOSE US ────────────────────────────────────── */
 const benefits = [
-  { n: '01', title: 'Design-Led Execution',   desc: 'Every decision honours the design intent. Execution and aesthetics are never in conflict.' },
-  { n: '02', title: 'One Accountable Team',   desc: 'No blame shifting between design, execution and vendor teams. One team. One responsibility.' },
-  { n: '03', title: 'Quality Checkpoints',    desc: 'Milestone-based quality inspections at every critical phase — documented and shared with you.' },
-  { n: '04', title: 'Timeline Discipline',    desc: 'Every project runs on a structured timeline. Delays are flagged — and resolved — before they compound.' },
-  { n: '05', title: 'Live Project Visibility', desc: 'Real-time dashboards give you complete visibility into progress, costs and upcoming decisions.' },
-  { n: '06', title: 'Less Wastage',           desc: 'Smarter procurement and HSI-OS waste tracking reduce material waste across every project.' },
-  { n: '07', title: 'Better Finish Quality',  desc: 'We do not compromise on finishes. Premium materials, premium craftsmen, premium outcome.' },
+  { n: '01', title: 'Design Fidelity',         desc: 'Every site decision is measured against the approved design. Execution never drifts from intent.' },
+  { n: '02', title: 'Single Accountability',   desc: 'One team owns the outcome — design, procurement, execution, and handover. No gaps, no blame-shifting.' },
+  { n: '03', title: 'Milestone Quality Gates', desc: 'Structured inspections at each critical phase, documented in HSIOS™ and shared with you in real time.' },
+  { n: '04', title: 'Timeline Governance',     desc: 'Every project runs on a binding schedule. Potential delays are surfaced and resolved before they compound.' },
+  { n: '05', title: 'Full Cost Transparency',  desc: 'Live budget dashboards. Every approval logged. No surprise invoices at handover.' },
+  { n: '06', title: 'Waste Intelligence',      desc: 'HSIOS™ procurement controls cut material over-ordering and site waste — saving cost and carbon.' },
+  { n: '07', title: 'Uncompromised Finish',    desc: 'Premium materials, vetted craftsmen, and snag-free handover. What you approved is what you receive.' },
 ]
 
 function WhyChooseUsSection() {
@@ -408,12 +409,12 @@ function WhyChooseUsSection() {
 
 /* ── 4. POWERED BY HSIOS™ ────────────────────────────────── */
 const modules = [
-  { icon: '🗂️', label: 'Intelligent Planning',        desc: 'Detect layout inefficiencies and space waste before money is spent.' },
-  { icon: '⚠️', label: 'Conflict Detection Engine',   desc: 'Resolve plumbing, electrical, and joinery clashes before site work begins.' },
-  { icon: '💰', label: 'Budget & Cost Intelligence',  desc: 'Live variance tracking and milestone-based cost transparency.' },
-  { icon: '🌿', label: 'Sustainability Intelligence', desc: 'Lower waste, smarter sourcing, reduced carbon — built in, not bolted on.' },
-  { icon: '⚡', label: 'Premium Execution System',    desc: 'Precision workmanship and timeline discipline at every stage.' },
-  { icon: '🏠', label: 'Ownership Mode',              desc: 'Asset records, maintenance planning, and vendor intelligence after handover.' },
+  { code: 'IP', label: 'Intelligent Planning',        desc: 'Detect layout inefficiencies and space conflicts before a single rupee is committed.' },
+  { code: 'CD', label: 'Conflict Detection Engine',   desc: 'Resolve plumbing, electrical, and joinery clashes in the model — not on the site.' },
+  { code: 'BC', label: 'Budget & Cost Intelligence',  desc: 'Live variance tracking, approval flows, and milestone-based cost transparency.' },
+  { code: 'SI', label: 'Sustainability Intelligence', desc: 'Waste reduction, smarter sourcing, and carbon tracking — built in from day one.' },
+  { code: 'PE', label: 'Premium Execution System',    desc: 'Trade sequencing, quality checkpoints, and timeline governance at every stage.' },
+  { code: 'OM', label: 'Ownership Mode',              desc: 'Asset records, maintenance scheduling, and vendor history — after handover for life.' },
 ]
 
 function PoweredByHSIOSSection() {
@@ -436,9 +437,11 @@ function PoweredByHSIOSSection() {
                 Purpose-built for premium residential interiors. Not a generic tool adapted — a platform that speaks the language of villa projects.
               </p>
               <div className="flex flex-col gap-4 mb-10">
-                {modules.map(({ icon, label, desc }) => (
+                {modules.map(({ code, label, desc }) => (
                   <div key={label} className="flex items-start gap-4 p-4 rounded-xl hover:bg-ivory-100 transition-colors">
-                    <span className="text-2xl flex-shrink-0 mt-0.5">{icon}</span>
+                    <div className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center">
+                      <span className="font-sans font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                    </div>
                     <div>
                       <div className="font-sans font-semibold text-charcoal-800 text-sm mb-0.5">{label}</div>
                       <div className="text-warmgray-500 text-sm leading-relaxed">{desc}</div>
@@ -543,25 +546,21 @@ function PoweredByHSIOSSection() {
 const sustainabilityPillars = [
   {
     word: 'Refuse',
-    icon: '🚫',
     title: 'Refuse Waste at Source',
     desc: 'Unnecessary materials, over-ordering, single-use site waste — rejected before procurement approval.',
   },
   {
     word: 'Reuse',
-    icon: '♻️',
     title: 'Reuse Wherever Meaningful',
     desc: 'Salvageable materials, premium fixtures, and structural elements are refurbished and reintegrated.',
   },
   {
     word: 'Recycle',
-    icon: '🌿',
     title: 'Recycle Responsibly',
     desc: 'Construction waste is segregated and routed to certified recyclers — with documented disposal records.',
   },
   {
     word: 'Reduce',
-    icon: '📉',
     title: 'Reduce Carbon Footprint',
     desc: 'Local vendor preference and consolidated deliveries lower the carbon cost of every project.',
   },
@@ -590,11 +589,10 @@ function SustainabilitySection() {
         </RevealOnScroll>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {sustainabilityPillars.map(({ word, icon, title, desc }, i) => (
+          {sustainabilityPillars.map(({ word, title, desc }, i) => (
             <RevealOnScroll key={word} delay={i * 0.1}>
               <div className="group p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/8 hover:border-sandstone-400/40 transition-all duration-400 text-center">
-                <div className="text-4xl mb-5 transition-transform duration-300 group-hover:scale-110">{icon}</div>
-                <div className="font-serif text-3xl font-bold text-sandstone-300 mb-3">{word}</div>
+                <div className="font-serif text-3xl font-bold text-sandstone-300 mb-3 group-hover:text-sandstone-200 transition-colors">{word}</div>
                 <h3 className="font-sans font-semibold text-white text-sm mb-3">{title}</h3>
                 <p className="text-warmgray-400 text-sm leading-relaxed">{desc}</p>
               </div>
@@ -1111,28 +1109,29 @@ function WhoWeServeSection() {
 
 /* ── NEW: TRADITIONAL VS HSIOS ───────────────────────────── */
 const comparison = [
-  { aspect: 'Approach',        traditional: 'Reactive',    hsios: 'Proactive' },
-  { aspect: 'Coordination',    traditional: 'Fragmented',  hsios: 'Integrated' },
-  { aspect: 'Decision-Making', traditional: 'Vendor-led',  hsios: 'Data-led' },
-  { aspect: 'Outcome',         traditional: 'Uncertain',   hsios: 'Predictable' },
-  { aspect: 'Cost Control',    traditional: 'Post-facto',  hsios: 'Real-time' },
-  { aspect: 'Sustainability',  traditional: 'Ignored',     hsios: 'Built-in' },
-  { aspect: 'Client Role',     traditional: 'Micromanager',hsios: 'Informed Owner' },
-  { aspect: 'After Handover',  traditional: 'Nothing',     hsios: 'Ownership Mode' },
+  { aspect: 'Approach',        traditional: 'Reactive — fix problems as they arise',   hsios: 'Proactive — prevent problems before they occur' },
+  { aspect: 'Coordination',    traditional: 'Fragmented across multiple vendors',       hsios: 'Integrated under one accountable team' },
+  { aspect: 'Decision-Making', traditional: 'Vendor-led, client left uninformed',       hsios: 'Data-led with client visibility at every step' },
+  { aspect: 'Cost Control',    traditional: 'Surprises at invoice stage',               hsios: 'Real-time budget dashboard, zero surprises' },
+  { aspect: 'Quality',         traditional: 'Inconsistent, no formal checkpoints',      hsios: 'Milestone gates with documented sign-offs' },
+  { aspect: 'Sustainability',  traditional: 'Rarely considered, waste untracked',       hsios: 'Built-in — tracked and reported by HSIOS™' },
+  { aspect: 'Client Experience', traditional: 'Stressful, constant follow-up required', hsios: 'Calm — full visibility, minimal intervention needed' },
+  { aspect: 'After Handover',  traditional: 'No support, no records retained',          hsios: 'Ownership Mode — managed for the life of the home' },
 ]
 
 function DifferenceSection() {
   return (
     <section className="section-py bg-ivory-200" aria-label="HSIOS difference">
       <div className="container-luxury">
-        <RevealOnScroll className="max-w-xl mb-16">
-          <div className="section-label">The Difference</div>
+        <RevealOnScroll className="max-w-2xl mb-16">
+          <div className="section-label">Why HSIOS™ is Different</div>
           <h2 className="font-serif text-display-lg text-charcoal-800">
-            Traditional Interior Approach{' '}
-            <span className="text-sandstone-600">vs HSIOS™.</span>
+            Traditional Execution{' '}
+            <span className="text-sandstone-600">vs the HSIOS™ Standard.</span>
           </h2>
-          <p className="text-warmgray-600 mt-4 leading-relaxed">
-            Precision is the new luxury.
+          <p className="text-warmgray-600 mt-4 text-lg leading-relaxed">
+            The gap between a beautiful design and a flawlessly delivered home is execution intelligence.
+            This is where HSIOS™ operates.
           </p>
         </RevealOnScroll>
 

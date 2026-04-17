@@ -11,24 +11,24 @@ export const metadata: Metadata = {
 
 const drivers = [
   {
-    icon: '📐',
+    code: 'AS',
     title: 'Area & Scope',
     desc: 'The size of the project — usable square footage and the number of rooms and wet areas — is the primary cost driver. A 5,000 sq ft villa has fundamentally different execution complexity than a 1,500 sq ft apartment.',
   },
   {
-    icon: '🪵',
+    code: 'FL',
     title: 'Finish Level',
     desc: 'Material grade — imported stone vs domestic, bespoke millwork vs modular, smart home integration vs standard electrical — is the second biggest variable. The same 3,000 sq ft can cost ₹80L or ₹2.5Cr depending on finish choices.',
   },
   {
-    icon: '📍',
+    code: 'LO',
     title: 'Location',
     desc: 'Coastal sites like Alibag carry a 15–25% material premium for weather-resistant specs. High-rise buildings in Mumbai and Bangalore add logistics and compliance costs. Goa and hill locations have their own supply chain constraints.',
   },
   {
-    icon: '🔩',
+    code: 'EC',
     title: 'Execution Complexity',
-    desc: 'The number of trades, the presence of smart home integration, structural modifications, custom joinery, or two-building merges significantly affects execution cost. Complexity is priced — and managed — explicitly.',
+    desc: 'The number of trades, smart home integration, structural modifications, custom joinery, or two-building merges all affect execution cost. Complexity is priced — and managed — explicitly.',
   },
 ]
 
@@ -93,13 +93,13 @@ const tiers = [
 ]
 
 const included = [
-  { icon: '📋', title: 'Full BOQ Before Execution Starts', desc: 'A complete Bill of Quantities with material specs and vendor rates — signed off before a single site visit begins.' },
-  { icon: '🔍', title: 'Conflict Detection Pre-Execution', desc: 'HVAC vs ceiling, plumbing vs millwork, structural vs layout — all clashes identified and resolved before site work begins.' },
-  { icon: '📊', title: 'Live Budget Dashboard', desc: 'Real-time cost tracking across every trade and line item. Every change order is logged and approved digitally before spend.' },
-  { icon: '📸', title: 'Daily Progress Documentation', desc: 'Milestone-tied progress photos and daily site logs — accessible from anywhere, no site visits required.' },
-  { icon: '✅', title: 'Quality Milestone Inspections', desc: 'No phase proceeds until the previous one is inspected and signed off. Every checkpoint is documented in HSIOS™.' },
-  { icon: '🌿', title: 'Sustainability Report', desc: 'Every project concludes with a full report — material sourcing, waste reduction, carbon estimates, and disposal records.' },
-  { icon: '📁', title: 'Handover Documentation Package', desc: 'Warranty records, vendor contacts, material specs, maintenance schedules — everything compiled and handed over at project close.' },
+  { code: 'BQ', title: 'Full BOQ Before Execution Starts', desc: 'A complete Bill of Quantities with material specs and vendor rates — signed off before a single site visit begins.' },
+  { code: 'CD', title: 'Conflict Detection Pre-Execution', desc: 'HVAC vs ceiling, plumbing vs millwork, structural vs layout — all clashes identified and resolved before site work begins.' },
+  { code: 'BD', title: 'Live Budget Dashboard', desc: 'Real-time cost tracking across every trade and line item. Every change order is logged and approved digitally before spend.' },
+  { code: 'PD', title: 'Daily Progress Documentation', desc: 'Milestone-tied progress photos and daily site logs — accessible from anywhere, no site visits required.' },
+  { code: 'QI', title: 'Quality Milestone Inspections', desc: 'No phase proceeds until the previous one is inspected and signed off. Every checkpoint is documented in HSIOS™.' },
+  { code: 'SR', title: 'Sustainability Report', desc: 'Every project concludes with a full report — material sourcing, waste reduction, carbon estimates, and disposal records.' },
+  { code: 'HD', title: 'Handover Documentation Package', desc: 'Warranty records, vendor contacts, material specs, maintenance schedules — everything compiled and handed over at project close.' },
 ]
 
 const comparisons = [
@@ -223,10 +223,12 @@ export default function PricingPage() {
             </p>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {drivers.map(({ icon, title, desc }, i) => (
+            {drivers.map(({ code, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="text-4xl mb-5">{icon}</div>
+                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
+                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>
@@ -330,10 +332,12 @@ export default function PricingPage() {
             </p>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
-            {included.map(({ icon, title, desc }, i) => (
+            {included.map(({ code, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="text-4xl mb-5">{icon}</div>
+                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
+                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>

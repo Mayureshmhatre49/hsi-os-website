@@ -3,13 +3,13 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'NRI Home Interior Management — Remote Execution by Hestia Smart Interiors',
+  title: 'NRI Home Interior Management — Build in India from Anywhere | HSIOS™',
   description:
-    'Complete interior execution management for Non-Resident Indians. HSI OS gives NRIs in Dubai, London and New York full project visibility, cost transparency and zero dependency on site visits.',
+    'Full interior execution management for NRIs building in India. HSIOS™ gives you real-time project visibility, cost transparency, and digital approvals — no site visits required.',
   alternates: { canonical: 'https://www.hsios.in/nri-home-interior-management' },
   openGraph: {
-    title: 'NRI Home Interior Management — Hestia Smart Interiors',
-    description: 'Build your Indian home from abroad with total transparency, powered by HSIOS™.',
+    title: 'NRI Home Interior Management — Build in India from Anywhere | HSIOS™',
+    description: 'Build your luxury Indian home from Dubai, London, or New York with total transparency — powered by HSIOS™.',
     url: 'https://www.hsios.in/nri-home-interior-management',
   },
 }

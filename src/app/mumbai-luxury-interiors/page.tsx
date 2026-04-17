@@ -3,13 +3,13 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'Mumbai Luxury Interiors — High-Rise Execution by Hestia Smart Interiors',
+  title: 'Mumbai Luxury Interiors — Premium Apartment & Penthouse Execution | HSIOS™',
   description:
-    'Premium interior execution for Mumbai apartments and penthouses. HSI OS navigates society rules, high-rise logistics and 15+ vendor coordination with total cost transparency.',
+    'Premium interior execution for Mumbai apartments, penthouses, and high-rises. HSIOS™ navigates society approvals, high-rise logistics, and vendor coordination with full cost transparency.',
   alternates: { canonical: 'https://www.hsios.in/mumbai-luxury-interiors' },
   openGraph: {
-    title: 'Mumbai Luxury Interiors — High-Rise Execution by Hestia Smart Interiors',
-    description: 'Premium interior execution for Mumbai luxury residences, powered by HSIOS™.',
+    title: 'Mumbai Luxury Interiors — Premium Apartment & Penthouse Execution | HSIOS™',
+    description: 'Premium interior execution for Mumbai luxury residences — society-compliant, fully transparent, powered by HSIOS™.',
     url: 'https://www.hsios.in/mumbai-luxury-interiors',
   },
 }

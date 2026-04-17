@@ -4,9 +4,9 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'For Homeowners — Complete Project Visibility & Control | HSI',
+  title: 'For Homeowners — Premium Interior Execution with Full Visibility | HSIOS™',
   description:
-    'Complete visibility, live cost tracking, and peace of mind for homeowners. Manage your villa project from anywhere in the world with HSIOS™.',
+    'Build your luxury villa or residence with complete cost clarity, real-time progress tracking, and zero execution surprises. HSIOS™ — India\'s first luxury home execution platform.',
   alternates: { canonical: 'https://www.hsios.in/for-homeowners' },
 }
 
@@ -18,12 +18,12 @@ const painPoints = [
 ]
 
 const benefits = [
-  { icon: '👁️', title: 'Complete Project Visibility',   desc: 'Phase-by-phase dashboards accessible from any device, anywhere.' },
-  { icon: '💰', title: 'Cost Clarity at Every Stage',   desc: 'Real-time budget tracking across every room, trade, and vendor. Approved spend and projected cost — always visible.' },
-  { icon: '📋', title: 'Every Decision Documented',     desc: 'No verbal agreements. Every change, approval, and instruction is logged in HSIOS™ — permanently.' },
-  { icon: '🏆', title: 'Quality You Can Verify',        desc: 'Photo-documented milestone inspections. Work only proceeds after sign-off.' },
-  { icon: '🤝', title: 'One Accountable Team',          desc: 'No blame-shifting. One team managing all vendors, trades, and coordination.' },
-  { icon: '📍', title: 'NRI-Ready Remote Management',   desc: 'Same visibility and control whether you\'re in Mumbai or Melbourne.' },
+  { code: 'PV', title: 'Complete Project Visibility',   desc: 'Phase-by-phase dashboards accessible from any device, anywhere in the world.' },
+  { code: 'CC', title: 'Cost Clarity at Every Stage',   desc: 'Real-time budget tracking across every room, trade, and vendor. Approved spend and projected cost — always visible.' },
+  { code: 'DD', title: 'Every Decision Documented',     desc: 'No verbal agreements. Every change, approval, and instruction is logged in HSIOS™ — permanently.' },
+  { code: 'QV', title: 'Quality You Can Verify',        desc: 'Photo-documented milestone inspections. Work only proceeds after your sign-off.' },
+  { code: 'OT', title: 'One Accountable Team',          desc: 'No blame-shifting between vendors. One team owns the outcome from brief to handover.' },
+  { code: 'NR', title: 'NRI-Ready Remote Management',   desc: 'Same visibility and control whether you are in Mumbai, London, or Melbourne.' },
 ]
 
 export default function ForHomeownersPage() {
@@ -121,10 +121,12 @@ export default function ForHomeownersPage() {
           </RevealOnScroll>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map(({ icon, title, desc }, i) => (
+            {benefits.map(({ code, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="text-4xl mb-5">{icon}</div>
+                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
+                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>
