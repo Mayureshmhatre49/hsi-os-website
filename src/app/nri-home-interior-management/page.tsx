@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
@@ -84,14 +85,17 @@ export default function NriHomeInteriorManagementPage() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-charcoal-900" />
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              'radial-gradient(ellipse 50% 60% at 70% 40%, #C4935A22 0%, transparent 65%), radial-gradient(ellipse 40% 40% at 20% 60%, #A0785022 0%, transparent 60%)',
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src="/hestia-villa-bellissimo.jpg"
+            alt="NRI home interior management — luxury villa execution from anywhere in the world"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-800/50 to-charcoal-900/20" />
+        </div>
         <div className="container-luxury relative z-10">
           <RevealOnScroll>
             <div className="max-w-3xl">

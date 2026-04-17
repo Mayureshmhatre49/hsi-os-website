@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
@@ -80,14 +81,17 @@ export default function GoaVillaInteriorsPage() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-charcoal-900" />
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              'radial-gradient(ellipse 60% 60% at 60% 40%, #6B955533 0%, transparent 70%)',
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src="/hestia-villa-blue-haven.jpg"
+            alt="Luxury Goa villa interiors by Hestia Smart Interiors"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-800/50 to-charcoal-900/20" />
+        </div>
         <div className="container-luxury relative z-10">
           <RevealOnScroll>
             <div className="max-w-3xl">

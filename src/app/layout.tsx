@@ -93,6 +93,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#FAF7F2',
+  viewportFit: 'cover',
 }
 
 /* ── JSON-LD Schemas ───────────────────────────────────────── */
