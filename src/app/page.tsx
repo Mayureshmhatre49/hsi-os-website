@@ -101,8 +101,8 @@ function HeroSection() {
             <Link href="/contact" className="btn btn-bronze text-base px-8 py-4">
               Book Private Consultation
             </Link>
-            <Link href="/projects" className="btn btn-outline-white text-base px-8 py-4">
-              Explore Projects
+            <Link href="/hsi-os" className="btn btn-outline-white text-base px-8 py-4">
+              Explore HSIOS™
             </Link>
           </div>
         </div>
@@ -167,14 +167,14 @@ function WhatIsHSIOSSection() {
           <div className="max-w-3xl mb-4">
             <div className="section-label">What Is HSIOS™?</div>
             <h2 className="font-serif text-display-lg text-charcoal-800 mb-5">
-              A Premium Interior Execution Platform.{' '}
-              <em className="not-italic text-sandstone-600">Not a Design Firm. Not a Contractor.</em>
+              The Operating System{' '}
+              <em className="not-italic text-sandstone-600">Behind Exceptional Homes.</em>
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed max-w-2xl">
-              HSIOS™ is the operating system behind your home — combining project management,
+              HSIOS™ is a unified execution platform — combining project management,
               procurement intelligence, quality systems, budget transparency, conflict detection,
-              and post-handover lifecycle support into one unified platform. We don&apos;t just
-              design beautiful spaces. We ensure they get built the way they were designed.
+              and post-handover lifecycle support. We don&apos;t just design beautiful spaces.
+              We ensure they get built exactly the way they were designed.
             </p>
           </div>
         </RevealOnScroll>
@@ -283,42 +283,12 @@ function HowHSIOSWorksSection() {
 
 /* ── 4. WHAT WE CREATE ───────────────────────────────────── */
 const propertyTypes = [
-  {
-    icon: '🏡',
-    title: 'Luxury Villas',
-    desc: 'Full-scale villa interiors — every room, every detail, every material sourced with care.',
-    href: '/projects',
-  },
-  {
-    icon: '🏙️',
-    title: 'Premium Apartments',
-    desc: 'High-end residences in Mumbai and Pune, executed with the same rigor as a villa project.',
-    href: '/for-homeowners',
-  },
-  {
-    icon: '🌿',
-    title: 'Holiday Homes',
-    desc: 'Coastal and hill-station retreats that balance luxury with the natural environment.',
-    href: '/alibag-villa-interiors',
-  },
-  {
-    icon: '🏕️',
-    title: 'Farmhouses',
-    desc: 'Rural estates with premium interiors that respect the character and scale of the land.',
-    href: '/projects',
-  },
-  {
-    icon: '🌇',
-    title: 'Penthouses',
-    desc: 'Sky-high residences where every surface and finishing reflects the elevation of the address.',
-    href: '/mumbai-luxury-interiors',
-  },
-  {
-    icon: '🏨',
-    title: 'Boutique Hospitality',
-    desc: 'Small resorts, boutique stays and developer sample villas executed at hospitality grade.',
-    href: '/for-developers',
-  },
+  { title: 'Luxury Villas',        desc: 'Full-scale villa interiors — every room, every detail, every material sourced and placed with precision.', href: '/projects' },
+  { title: 'Premium Apartments',   desc: 'High-end urban residences executed with the same rigor, systems, and finish standards as a villa project.', href: '/for-homeowners' },
+  { title: 'Holiday Homes',        desc: 'Coastal and hill-station retreats that balance premium material quality with natural environment sensitivity.', href: '/alibag-villa-interiors' },
+  { title: 'Farmhouses',           desc: 'Rural estates with premium interiors that respect the character, scale, and landscape of the land.', href: '/projects' },
+  { title: 'Penthouses',           desc: 'Sky-high residences where every surface, finish, and detail reflects the elevation of the address.', href: '/mumbai-luxury-interiors' },
+  { title: 'Boutique Hospitality', desc: 'Developer sample villas, boutique stays, and small resorts executed to hospitality-grade standards.', href: '/for-developers' },
 ]
 
 function WhatWeCreateSection() {
@@ -327,24 +297,24 @@ function WhatWeCreateSection() {
       <div className="container-luxury">
         <RevealOnScroll>
           <div className="max-w-2xl mb-16">
-            <div className="section-label">Spaces We Transform</div>
+            <div className="section-label">Spaces We Execute</div>
             <h2 className="font-serif text-display-lg text-charcoal-800 mb-5">
-              We Design Spaces That{' '}
-              <em className="not-italic text-sandstone-600">Define Lives.</em>
+              Every Project Type.{' '}
+              <em className="not-italic text-sandstone-600">One Standard of Precision.</em>
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed">
-              From Alibag coastal villas to Mumbai penthouses — every project is executed
-              as a singular, carefully managed work of craft.
+              From Alibag coastal villas to Mumbai penthouses — every project is governed
+              by the same HSIOS™ execution framework.
             </p>
           </div>
         </RevealOnScroll>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {propertyTypes.map(({ icon, title, desc, href }, i) => (
+          {propertyTypes.map(({ title, desc, href }, i) => (
             <RevealOnScroll key={title} delay={i * 0.08}>
               <Link href={href} className="group block card-warm p-8 h-full">
-                <div className="text-4xl mb-5 transition-transform duration-300 group-hover:scale-110 origin-left">
-                  {icon}
+                <div className="font-serif text-4xl font-bold text-sandstone-200 mb-5 leading-none group-hover:text-sandstone-300 transition-colors">
+                  {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-3 group-hover:text-sandstone-700 transition-colors">
                   {title}
@@ -711,10 +681,10 @@ function FeaturedProjectSection() {
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { label: 'Scope',      value: 'Full Turnkey Interior' },
-                { label: 'Location',   value: 'Alibag, Maharashtra' },
-                { label: 'Type',       value: '6-Bedroom Villa' },
-                { label: 'Delivered',  value: 'On Time & On Budget' },
+                { label: 'Scope',               value: 'Full Turnkey Interior' },
+                { label: 'Location',             value: 'Alibag, Maharashtra' },
+                { label: 'HSIOS™ Conflicts Caught', value: '12 Pre-Execution' },
+                { label: 'Delivered',            value: '3 Weeks Ahead of Schedule' },
               ].map(({ label, value }) => (
                 <div key={label} className="p-4 rounded-xl bg-ivory-200">
                   <div className="text-xs font-semibold uppercase tracking-widest text-sandstone-600 mb-1">{label}</div>
@@ -1097,11 +1067,11 @@ function WhyHSIOSExistsSection() {
 
 /* ── NEW: WHO WE SERVE ───────────────────────────────────── */
 const personas = [
-  { icon: '🏡', title: 'Premium Homeowners',          desc: 'Build once. Build right. Complete visibility, cost clarity and peace of mind from brief to handover.', href: '/for-homeowners' },
-  { icon: '🏗️', title: 'Villa Owners During Construction', desc: 'Prevent irreversible mistakes before they happen. Catch conflicts and cost overruns in planning, not on site.', href: '/for-homeowners' },
-  { icon: '📐', title: 'Architects & Interior Designers', desc: 'Protect design vision through intelligent execution. Fewer clashes. Better collaboration. Design fidelity preserved.', href: '/for-architects' },
-  { icon: '🏢', title: 'Developers',                  desc: 'Deliver premium projects with better margins, stronger buyer trust and faster handover timelines.', href: '/for-developers' },
-  { icon: '📋', title: 'PMC & Project Teams',          desc: 'Operate with one clear source of truth. All vendors, trades and milestones in a single intelligent system.', href: '/hsi-os' },
+  { mark: 'HO', title: 'Premium Homeowners',              desc: 'Build once. Build right. Complete visibility, cost clarity and peace of mind from brief to handover.', href: '/for-homeowners' },
+  { mark: 'VO', title: 'Villa Owners in Construction',    desc: 'Catch conflicts and cost overruns in planning, not mid-site. Prevent irreversible mistakes before they compound.', href: '/for-homeowners' },
+  { mark: 'AR', title: 'Architects & Designers',          desc: 'Protect design vision through intelligent execution. Fewer clashes. Better collaboration. Design fidelity preserved.', href: '/for-architects' },
+  { mark: 'DE', title: 'Developers',                      desc: 'Deliver premium projects with better margins, stronger buyer trust and demonstrably faster handover timelines.', href: '/for-developers' },
+  { mark: 'NR', title: 'NRI Homeowners',                  desc: 'Full project oversight from anywhere in the world. Real-time updates, zero dependency on being on-site.', href: '/nri-home-interior-management' },
 ]
 
 function WhoWeServeSection() {
@@ -1111,20 +1081,23 @@ function WhoWeServeSection() {
         <RevealOnScroll className="max-w-xl mb-16">
           <div className="section-label">Who We Serve</div>
           <h2 className="font-serif text-display-lg text-charcoal-800">
-            Built for Every Role in{' '}
-            <span className="text-sandstone-600">Premium Living.</span>
+            Every Client.{' '}
+            <span className="text-sandstone-600">One Standard.</span>
           </h2>
           <p className="text-warmgray-600 mt-4 leading-relaxed">
-            Because premium clients value peace of mind, smarter investments, better finishes,
-            transparent execution, and future-ready homes.
+            Whether you are building, renovating, or investing — HSIOS™ brings the same
+            execution discipline to every project and every role.
           </p>
         </RevealOnScroll>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-          {personas.map(({ icon, title, desc, href }, i) => (
+          {personas.map(({ mark, title, desc, href }, i) => (
             <RevealOnScroll key={title} delay={i * 0.07}>
               <Link href={href} className="group block p-7 rounded-2xl bg-white border border-ivory-300
-                hover:border-sandstone-300 hover:shadow-card transition-all duration-300 h-full">
-                <div className="text-4xl mb-4 transition-transform duration-300 group-hover:scale-110 origin-left">{icon}</div>
+                hover:border-sandstone-300 hover:shadow-luxury transition-all duration-300 h-full">
+                <div className="w-10 h-10 rounded-lg bg-sandstone-50 border border-sandstone-200 flex items-center justify-center mb-5
+                  group-hover:bg-sandstone-100 transition-colors">
+                  <span className="font-sans font-bold text-[10px] tracking-widest text-sandstone-600">{mark}</span>
+                </div>
                 <h3 className="font-serif font-bold text-charcoal-800 text-sm mb-2 group-hover:text-sandstone-700 transition-colors leading-snug">{title}</h3>
                 <p className="text-warmgray-500 text-xs leading-relaxed">{desc}</p>
               </Link>

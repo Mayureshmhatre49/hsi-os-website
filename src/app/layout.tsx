@@ -4,6 +4,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import StickyMobileCTA from '@/components/ui/StickyMobileCTA'
 
 /* ── Self-hosted fonts via next/font/google ────────────────
    Fonts are downloaded at build time, self-hosted, and served
@@ -186,6 +187,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   )
