@@ -1,6 +1,4 @@
 const nodemailer = require('nodemailer');
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '.env.local') });
 
 async function testEmail() {
   const smtpUser = process.env.SMTP_USER;
