@@ -84,8 +84,8 @@ function HeroSection() {
 
           {/* Value prop */}
           <p className="text-lg text-white/85 font-sans leading-relaxed max-w-xl mb-3 animate-fade-up [animation-delay:220ms] border-l-2 border-sandstone-400 pl-4">
-            HSIOS™ combines premium interior execution, budget intelligence, procurement control,
-            quality systems, and lifecycle home management — for villas, residences, and developers.
+            Your home delivered exactly as designed — on budget, on schedule, without surprises.
+            Every decision documented, every rupee tracked, every trade held accountable.
           </p>
 
           {/* Budget qualifier */}
@@ -106,6 +106,9 @@ function HeroSection() {
             >
               WhatsApp to Discuss
             </a>
+            <Link href="/projects" className="text-sm font-semibold text-sandstone-300 hover:text-white transition-colors underline-offset-4 hover:underline">
+              See Our Work →
+            </Link>
           </div>
         </div>
 
@@ -114,8 +117,8 @@ function HeroSection() {
           {[
             { value: '7+',      label: 'Luxury Villas — On Budget' },
             { value: '₹100Cr+', label: 'Projects Managed' },
-            { value: '100%',    label: 'Client Retention Rate' },
-            { value: '0',       label: 'Cost Overruns Delivered' },
+            { value: '75+',     label: 'Trade Conflicts Resolved Pre-Execution' },
+            { value: '0',       label: 'Cost Overruns. Every Project on Budget.' },
           ].map(({ value, label }) => (
             <div key={label}>
               <div className="font-serif text-4xl font-bold text-sandstone-300 mb-1">{value}</div>
@@ -123,6 +126,9 @@ function HeroSection() {
             </div>
           ))}
         </div>
+        <p className="mt-5 text-xs font-medium text-sandstone-400/70 tracking-wide animate-fade-up [animation-delay:480ms]">
+          Currently accepting 3 new engagements this quarter
+        </p>
       </div>
 
       {/* Scroll indicator */}
@@ -180,7 +186,7 @@ function ProblemSection() {
                   key={point}
                   className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/8 hover:bg-white/8 transition-colors duration-300"
                 >
-                  <span className="w-5 h-5 rounded-full bg-red-500/15 border border-red-500/20 flex items-center justify-center text-red-400 text-xs flex-shrink-0 mt-0.5">✗</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-2 block" />
                   <span className="text-warmgray-300 text-sm leading-snug">{point}</span>
                 </div>
               ))}
@@ -197,12 +203,12 @@ function ProblemSection() {
 
 /* ── 3. COMPARISON TABLE ─────────────────────────────────── */
 const comparison = [
+  { aspect: 'After Handover',    traditional: 'No support, no records retained',                  hsios: 'Ownership Mode — your home managed for life' },
   { aspect: 'Approach',          traditional: 'Reactive — fix problems as they arise',           hsios: 'Proactive — prevent problems before they occur' },
-  { aspect: 'Coordination',      traditional: 'Fragmented across multiple vendors',               hsios: 'Integrated under one accountable team' },
   { aspect: 'Cost Control',      traditional: 'Surprise invoices at handover',                    hsios: 'Real-time budget dashboard, zero surprises' },
+  { aspect: 'Coordination',      traditional: 'Fragmented across multiple vendors',               hsios: 'Integrated under one accountable team' },
   { aspect: 'Quality',           traditional: 'No formal checkpoints — inconsistent finish',      hsios: 'Milestone quality gates with documented sign-offs' },
   { aspect: 'Client Visibility', traditional: 'Chaotic WhatsApp updates, if at all',              hsios: 'Daily progress dashboard — check from anywhere' },
-  { aspect: 'After Handover',    traditional: 'No support, no records retained',                  hsios: 'Ownership Mode — your home managed for life' },
 ]
 
 function ComparisonSection() {
@@ -347,14 +353,22 @@ function WhatIsHSIOSSection() {
 
 /* ── 5. HOW HSIOS WORKS ──────────────────────────────────── */
 const workflowSteps = [
-  { step: 'Vision',   desc: 'Your aspirations and lifestyle brief — captured and documented before any design begins.' },
-  { step: 'Plan',     desc: 'Scope, design coordination, and execution strategy locked into a single source of truth.' },
-  { step: 'Price',    desc: 'Transparent BOQ, market-benchmarked rates, and budget approval flows — no hidden costs.' },
-  { step: 'Procure',  desc: 'Vendor vetting, material sourcing, and procurement tracking with full audit trail.' },
-  { step: 'Build',    desc: 'Trade sequencing, site supervision, and real-time progress updates at every milestone.' },
-  { step: 'Monitor',  desc: 'Quality audits, conflict resolution, and sign-offs so nothing slips through.' },
-  { step: 'Handover', desc: 'Defect-free handover with complete documentation, warranties, and snag closure.' },
-  { step: 'Maintain', desc: 'Post-handover AMC, lifecycle management, and smart home support — managed for life.' },
+  {
+    step: 'You get clarity before commitment',
+    desc: 'Full BOQ, conflict detection, and material specs locked before a single trade quote is accepted. You know the cost before you commit.',
+  },
+  {
+    step: 'Your design survives site execution',
+    desc: 'Every decision measured against approved drawings. Trade sequences planned so the build matches the vision — not a site-adapted compromise.',
+  },
+  {
+    step: 'Every rupee is visible, always',
+    desc: 'Live dashboard. Approved change orders. Zero surprise invoices. You know what it costs before it happens — every time.',
+  },
+  {
+    step: 'Your home is managed for life',
+    desc: 'Defect-free handover with full documentation, warranties, and AMC. HSIOS™ stays with your home long after the last trade leaves.',
+  },
 ]
 
 function HowHSIOSWorksSection() {
@@ -367,38 +381,33 @@ function HowHSIOSWorksSection() {
           <div className="max-w-2xl mb-16">
             <div className="section-label text-sandstone-400">The Process</div>
             <h2 className="font-serif text-display-lg text-white mb-4">
-              Eight Stages. One Platform.
+              Four Moments That<br />
+              <em className="not-italic text-sandstone-300">Define Every Project.</em>
             </h2>
             <p className="text-warmgray-400 text-lg leading-relaxed">
-              Every decision logged, every rupee tracked, every trade coordinated —
-              from first vision to final handover and beyond.
+              Not eight abstract stages — four concrete outcomes that separate a project
+              that delivers from one that disappoints.
             </p>
           </div>
         </RevealOnScroll>
 
-        {/* 4+4 two-row layout */}
-        <div className="space-y-4">
-          {[workflowSteps.slice(0, 4), workflowSteps.slice(4)].map((row, rowIdx) => (
-            <div key={rowIdx} className="relative">
-              <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-sandstone-600/20 via-sandstone-500/40 to-sandstone-600/20 pointer-events-none" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {row.map(({ step, desc }, i) => {
-                  const globalIdx = rowIdx * 4 + i
-                  return (
-                    <div key={step} className="relative flex gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-sandstone-500/30 hover:bg-white/8 transition-all duration-300">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-sandstone-400/15 border border-sandstone-400/25 flex items-center justify-center">
-                        <span className="font-serif font-bold text-sandstone-300 text-xs">{String(globalIdx + 1).padStart(2, '0')}</span>
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="font-serif font-bold text-white text-sm mb-1.5 leading-snug">{step}</h3>
-                        <p className="text-warmgray-500 text-xs leading-relaxed">{desc}</p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          ))}
+        <div className="relative">
+          <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-sandstone-600/20 via-sandstone-500/40 to-sandstone-600/20 pointer-events-none" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {workflowSteps.map(({ step, desc }, i) => (
+              <RevealOnScroll key={step} delay={i * 0.07}>
+                <div className="relative flex gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-sandstone-500/30 hover:bg-white/8 transition-all duration-300 h-full">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-sandstone-400/15 border border-sandstone-400/25 flex items-center justify-center">
+                    <span className="font-serif font-bold text-sandstone-300 text-xs">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-serif font-bold text-white text-sm mb-1.5 leading-snug">{step}</h3>
+                    <p className="text-warmgray-500 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
         </div>
 
         <RevealOnScroll delay={0.1}>

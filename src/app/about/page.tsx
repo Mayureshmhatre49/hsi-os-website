@@ -1,22 +1,44 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Target, Eye, Building2, Settings, Users, Leaf } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'About Hestia Smart Interiors — Vision, Values & Founder',
+  title: 'About Hestia Smart Interiors — Leadership Team, Vision & Values',
   description:
-    'Hestia Smart Interiors was built to change how premium homes are executed. Meet our founder, values, and the vision behind HSIOS™.',
+    'Meet the leadership team behind Hestia Smart Interiors — Nishant Mhatre (Founder & CEO), Sanjay Joshi (Co-founder & CTO), and Vishal Patil (COO) — and the vision behind HSIOS™.',
   alternates: { canonical: 'https://www.hsios.in/about' },
 }
 
 const values = [
-  { icon: '🎯', title: 'Precision First',         desc: 'Interior execution demands precision at every step. We built HSIOS™ to eliminate guesswork entirely.' },
-  { icon: '🔍', title: 'Radical Transparency',    desc: 'Homeowners and developers deserve to know exactly where their project stands — always.' },
-  { icon: '🏗️', title: 'Ground-Level Experience', desc: 'HSIOS™ is built on real learnings from premium villa projects. Not theory — practice.' },
-  { icon: '⚙️', title: 'Systems Thinking',        desc: 'Interior projects are complex systems. We treat them that way — with structured workflows and data.' },
-  { icon: '🤝', title: 'Partnership Mindset',     desc: 'We work alongside homeowners, developers and vendors — not above them. Success is shared.' },
-  { icon: '🌿', title: 'Responsible Luxury',      desc: 'Premium outcomes should not come at the cost of the environment. Sustainability is built into every project.' },
+  { Icon: Target,    title: 'Precision First',         desc: 'Interior execution demands precision at every step. We built HSIOS™ to eliminate guesswork entirely.' },
+  { Icon: Eye,       title: 'Radical Transparency',    desc: 'Homeowners and developers deserve to know exactly where their project stands — always.' },
+  { Icon: Building2, title: 'Ground-Level Experience', desc: 'HSIOS™ is built on real learnings from premium villa projects. Not theory — practice.' },
+  { Icon: Settings,  title: 'Systems Thinking',        desc: 'Interior projects are complex systems. We treat them that way — with structured workflows and data.' },
+  { Icon: Users,     title: 'Partnership Mindset',     desc: 'We work alongside homeowners, developers and vendors — not above them. Success is shared.' },
+  { Icon: Leaf,      title: 'Responsible Luxury',      desc: 'Premium outcomes should not come at the cost of the environment. Sustainability is built into every project.' },
+]
+
+const nishantFocus = [
+  'Investment-ready luxury villa communities powered by clean energy',
+  'AI-driven digital transformation advisory',
+  'Mentoring early-stage startups on growth & investor readiness',
+  'Bridging real estate, technology and AI at scale',
+]
+
+const sanjayFocus = [
+  'Technology Roadmap & Platform Strategy',
+  'Data-driven Execution Systems',
+  'Enterprise Architecture & Consulting',
+  'Corporate Training & Change Management',
+]
+
+const vishalFocus = [
+  'Site Execution & Quality Control',
+  'Contractor & Vendor Coordination',
+  'Statutory Compliance & Safety',
+  'Execution Risk Management',
 ]
 
 export default function AboutPage() {
@@ -55,12 +77,12 @@ export default function AboutPage() {
       <section className="section-py bg-white overflow-hidden" aria-label="Meet our founder">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-12 gap-16 items-start">
-            
-            {/* Founder Image Column */}
+
+            {/* Founder Image */}
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-sandstone-100 rounded-[2.5rem] -rotate-2" />
-                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+              <div className="relative mx-4">
+                <div className="absolute -inset-3 bg-sandstone-100 rounded-[2rem] -rotate-1 opacity-80" />
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
                   <Image
                     src="/nishant-mhatre.jpg"
                     alt="Nishant Mhatre — Founder of Hestia Smart Interiors"
@@ -68,63 +90,230 @@ export default function AboutPage() {
                     className="object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-700"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/40 via-transparent to-transparent opacity-60" />
-                  {/* Decorative corner elements */}
-                  <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-sandstone-400/30" />
-                  <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-sandstone-400/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/50 via-transparent to-transparent" />
+                  <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-sandstone-400/40" />
+                  <div className="absolute bottom-6 left-6 w-10 h-10 border-b-2 border-l-2 border-sandstone-400/40" />
                 </div>
               </div>
             </RevealOnScroll>
 
-            {/* Founder Narrative Column */}
+            {/* Founder Content */}
             <RevealOnScroll className="lg:col-span-7" delay={0.1}>
-              <div className="section-label">The Vision Behind HSI</div>
-              <h2 className="font-serif text-display-md text-charcoal-800 mb-8 mt-2">
-                Redefining the Future of <em className="not-italic text-sandstone-600">Interior Execution.</em>
+              <div className="section-label">Founder & CEO</div>
+              <h2 className="font-serif text-display-md text-charcoal-800 mb-1 mt-2">
+                Nishant Mhatre
               </h2>
-              
-              <div className="space-y-6 text-warmgray-600 leading-relaxed text-lg">
+              <p className="text-sandstone-600 font-semibold text-base mb-8 leading-relaxed">
+                Founder & CEO, Hestia Smart Interiors &nbsp;·&nbsp; Managing Partner, Hestia Villas
+              </p>
+
+              <div className="space-y-5 text-warmgray-600 leading-relaxed text-lg">
                 <p className="font-medium text-charcoal-800">
-                  Nishant Mhatre is a visionary entrepreneur committed to redefining premium interiors through technology, operational excellence, and sustainability.
+                  Driven by a vision to merge Real Estate, Technology, and AI into future-ready ecosystems — with 20+ years of international experience creating value for investors, businesses, and communities.
                 </p>
                 <p>
-                  As the founder of HSIOS, he believes the future of interior execution must go beyond aesthetics and timelines—it must also create smarter, cleaner, and more responsible spaces.
+                  After a decade of driving large-scale telecom and digital transformation programs across the USA, UK, Europe, Australia, New Zealand, and India, Nishant transitioned into real estate entrepreneurship — founding a premium villa brand that reimagines luxury living through design, sustainability, and hospitality partnerships.
                 </p>
                 <p>
-                  Through years of experience in luxury residential and villa projects, Nishant identified recurring industry challenges: fragmented execution, avoidable delays, material wastage, poor coordination, and limited accountability.
-                </p>
-                <p>
-                  This vision led to the creation of HSIOS: an intelligent Interior Operating System built to bring precision, transparency, and sustainability into every stage of the project lifecycle.
+                  He identified a persistent gap in premium residential execution: fragmented workflows, avoidable delays, material wastage, and limited accountability. This led to the creation of HSIOS™ — an intelligent Interior Operating System built to bring precision, transparency, and sustainability into every stage of the project lifecycle.
                 </p>
               </div>
 
-              {/* Sustainability Framework Sub-section */}
-              <div className="mt-12 p-8 rounded-3xl bg-ivory-100 border border-ivory-200">
-                <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-6 flex items-center gap-3">
-                  <span className="text-2xl">🌿</span>
-                  The Sustainability Framework
-                </h3>
-                <div className="grid gap-6">
+              {/* Focus Areas */}
+              <div className="mt-10 grid sm:grid-cols-2 gap-3">
+                {nishantFocus.map((label) => (
+                  <div key={label} className="flex items-start gap-3 p-4 rounded-xl bg-ivory-100 border border-ivory-200">
+                    <span className="text-sandstone-500 font-bold shrink-0 mt-0.5">—</span>
+                    <p className="text-sm text-warmgray-600 leading-snug">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 pl-6 border-l-2 border-sandstone-300">
+                <p className="italic font-serif text-charcoal-700 text-xl leading-relaxed">
+                  &ldquo;The next decade belongs to entrepreneurs who can merge sustainability with intelligence — and I&apos;m committed to leading that change.&rdquo;
+                </p>
+                <p className="mt-3 text-sm text-warmgray-500 font-semibold tracking-wide uppercase not-italic">
+                  — Nishant Mhatre, Founder
+                </p>
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEAM INTRO DIVIDER ─────────────────────────────── */}
+      <div className="bg-charcoal-800 py-16">
+        <div className="container-luxury">
+          <RevealOnScroll>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <div>
+                <div className="section-label text-sandstone-400">The Team</div>
+                <h2 className="font-serif text-display-md text-white mt-2">
+                  Led by <em className="not-italic text-sandstone-300">Experience.</em>
+                </h2>
+              </div>
+              <p className="text-warmgray-400 text-base max-w-sm leading-relaxed sm:text-right">
+                Decades of combined expertise across technology, execution, and operations — united by one goal: flawless premium interior delivery.
+              </p>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </div>
+
+      {/* ── SANJAY JOSHI ───────────────────────────────────── */}
+      <section className="section-py bg-ivory-100 overflow-hidden" aria-label="Sanjay Joshi — Co-founder & CTO">
+        <div className="container-luxury">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+
+            {/* Photo */}
+            <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
+              <div className="relative mx-4">
+                <div className="absolute -inset-3 bg-white rounded-[2rem] -rotate-1 shadow-sm" />
+                <div className="relative rounded-[1.5rem] overflow-hidden shadow-2xl">
+                  <Image
+                    src="/sanjay-joshi.jpg"
+                    alt="Sanjay Joshi — Co-founder & CTO, Hestia Smart Interiors"
+                    width={734}
+                    height={1080}
+                    className="w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-700 block"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/50 via-transparent to-transparent" />
+                  <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-sandstone-400/40" />
+                  <div className="absolute bottom-6 left-6 w-10 h-10 border-b-2 border-l-2 border-sandstone-400/40" />
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            {/* Content */}
+            <RevealOnScroll className="lg:col-span-7" delay={0.1}>
+              <div className="section-label">Co-founder & CTO</div>
+              <h2 className="font-serif text-display-md text-charcoal-800 mb-1 mt-2">
+                Sanjay Joshi
+              </h2>
+              <p className="text-sandstone-600 font-semibold text-base mb-8 leading-relaxed">
+                Chief Technology & Platform Officer, Hestia Smart Interiors
+              </p>
+
+              <div className="space-y-5 text-warmgray-600 leading-relaxed text-lg">
+                <p className="font-medium text-charcoal-800">
+                  20+ years translating complex enterprise technology into practical, business-ready systems.
+                </p>
+                <p>
+                  Sanjay owns HSI&apos;s technology roadmap and platform strategy — designing the digital systems that connect design, execution, vendors, and clients in real time, enabling data-driven decisions and process standardisation across every project.
+                </p>
+                <p>
+                  An entrepreneur, management consultant, and corporate trainer, Sanjay has advised organisations across IT, manufacturing, agriculture, and direct selling. He has an uncanny ability to convert complex technical concepts into clear, actionable frameworks — a quality that directly shapes how HSIOS™ is built and communicated.
+                </p>
+              </div>
+
+              {/* Focus Areas */}
+              <div className="mt-10 grid sm:grid-cols-2 gap-3">
+                {sanjayFocus.map((label) => (
+                  <div key={label} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-ivory-200">
+                    <span className="text-sandstone-500 font-bold shrink-0 mt-0.5">—</span>
+                    <p className="text-sm text-warmgray-600 leading-snug">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Career Highlights */}
+              <div className="mt-10">
+                <p className="text-xs font-semibold text-charcoal-700 uppercase tracking-widest mb-5">Career Highlights</p>
+                <div className="space-y-4 border-l-2 border-sandstone-200 pl-5">
                   {[
-                    { title: 'Refuse', desc: 'Unnecessary consumption, wasteful materials, and inefficient processes.' },
-                    { title: 'Reuse', desc: 'Existing assets, salvageable materials, and components wherever possible.' },
-                    { title: 'Recycle', desc: 'Responsibly through structured disposal and circular material practices.' },
+                    { role: 'CTO', org: 'Ellora Systems' },
+                    { role: 'Co-Founder', org: 'Boston Byte LLC' },
+                    { role: 'Technology Leadership', org: 'Tata Consultancy Services & Infodat' },
+                    { role: 'Mechanical Engineer · MBA · MA Economics', org: 'Member, ISPI' },
                   ].map((item) => (
-                    <div key={item.title} className="flex gap-4">
-                      <div className="font-serif text-sandstone-600 font-bold italic w-16 pt-0.5">{item.title}</div>
-                      <div className="text-sm text-warmgray-600 flex-1">{item.desc}</div>
+                    <div key={item.org}>
+                      <p className="text-sm font-semibold text-charcoal-700">{item.role}</p>
+                      <p className="text-sm text-warmgray-500">{item.org}</p>
                     </div>
                   ))}
                 </div>
               </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
 
-              <div className="mt-12 space-y-6 text-warmgray-600 leading-relaxed">
+      {/* ── THIN DIVIDER ───────────────────────────────────── */}
+      <div className="bg-sandstone-400 h-px w-full" />
+
+      {/* ── VISHAL PATIL ───────────────────────────────────── */}
+      <section className="section-py bg-white overflow-hidden" aria-label="Vishal Patil — COO">
+        <div className="container-luxury">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+
+            {/* Photo */}
+            <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
+              <div className="relative mx-4">
+                <div className="absolute -inset-3 bg-ivory-100 rounded-[2rem] rotate-1 shadow-sm" />
+                <div className="relative rounded-[1.5rem] overflow-hidden shadow-2xl">
+                  <Image
+                    src="/vishal-patil.png"
+                    alt="Vishal Patil — COO, Hestia Smart Interiors"
+                    width={734}
+                    height={1080}
+                    className="w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-700 block"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/50 via-transparent to-transparent" />
+                  <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-sandstone-400/40" />
+                  <div className="absolute bottom-6 left-6 w-10 h-10 border-b-2 border-l-2 border-sandstone-400/40" />
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            {/* Content */}
+            <RevealOnScroll className="lg:col-span-7" delay={0.1}>
+              <div className="section-label">COO</div>
+              <h2 className="font-serif text-display-md text-charcoal-800 mb-1 mt-2">
+                Vishal Patil
+              </h2>
+              <p className="text-sandstone-600 font-semibold text-base mb-8 leading-relaxed">
+                Head — Project Execution & Operations, Hestia Smart Interiors
+              </p>
+
+              <div className="space-y-5 text-warmgray-600 leading-relaxed text-lg">
+                <p className="font-medium text-charcoal-800">
+                  24+ years of execution leadership delivering complex interior projects at scale.
+                </p>
                 <p>
-                  His mission is to help every project reduce carbon footprint, minimize construction waste, optimize material usage, and create premium interiors that are elegant not only in appearance—but also in impact.
+                  Vishal leads site execution, contractor coordination, and quality control — ensuring every HSI project is delivered on time, on budget, and exactly as designed. His remit covers statutory compliance, safety governance, and execution risk management across all active projects.
                 </p>
-                <p className="italic font-serif text-charcoal-700 text-xl">
-                  &ldquo;Nishant&apos;s long-term vision is clear: to make world-class interior execution measurable, predictable, sustainable, and scalable across India and beyond.&rdquo;
+                <p>
+                  With senior leadership experience at globally recognised organisations, Vishal brings institutional rigour and operational discipline to premium residential interiors — translating design intent into flawless on-ground reality.
                 </p>
+              </div>
+
+              {/* Focus Areas */}
+              <div className="mt-10 grid sm:grid-cols-2 gap-3">
+                {vishalFocus.map((label) => (
+                  <div key={label} className="flex items-start gap-3 p-4 rounded-xl bg-ivory-100 border border-ivory-200">
+                    <span className="text-sandstone-500 font-bold shrink-0 mt-0.5">—</span>
+                    <p className="text-sm text-warmgray-600 leading-snug">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Career Highlights */}
+              <div className="mt-10">
+                <p className="text-xs font-semibold text-charcoal-700 uppercase tracking-widest mb-5">Career Highlights</p>
+                <div className="space-y-4 border-l-2 border-sandstone-200 pl-5">
+                  {[
+                    { role: 'Senior Leadership', org: 'WeWork India' },
+                    { role: 'Operations Leadership', org: 'Morgan Stanley' },
+                    { role: 'Operations Leadership', org: 'Royal Bank of Scotland' },
+                    { role: 'Facilities & Operations', org: 'Sodexo (Pfizer)' },
+                  ].map((item) => (
+                    <div key={item.org}>
+                      <p className="text-sm font-semibold text-charcoal-700">{item.role}</p>
+                      <p className="text-sm text-warmgray-500">{item.org}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </RevealOnScroll>
           </div>
@@ -151,7 +340,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4 mt-2">
                 {['Precision','Integrity','Sustainability','Innovation','Transparency','Long-term value creation'].map((standard, i) => (
                   <div key={standard} className="flex items-center gap-3 p-4 rounded-xl bg-white/10 border border-white/15">
-                    <span className="font-serif text-2xl font-bold text-white/20 leading-none">{String(i + 1).padStart(2,'0')}</span>
+                    <span className="font-serif text-2xl font-bold text-white/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
                     <span className="font-semibold text-white text-sm">{standard}</span>
                   </div>
                 ))}
@@ -234,10 +423,12 @@ export default function AboutPage() {
             </h2>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map(({ icon, title, desc }, i) => (
+            {values.map(({ Icon, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.08}>
                 <div className="card-warm p-8 h-full">
-                  <div className="text-3xl mb-4">{icon}</div>
+                  <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600 mb-5">
+                    <Icon size={18} strokeWidth={1.75} />
+                  </div>
                   <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>

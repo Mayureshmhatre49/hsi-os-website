@@ -184,7 +184,7 @@ export default function DemoPage() {
                   <div className="p-5 space-y-4">
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        ['Budget', '₹3.2Cr', '✓ On Track'],
+                        ['Budget', '₹3.2Cr', 'On Track'],
                         ['Conflicts', '12 Found', '12 Resolved'],
                         ['Timeline', '68%', '↑ On Schedule'],
                       ].map(([l, v, s]) => (
@@ -215,7 +215,7 @@ export default function DemoPage() {
                         <div key={String(t)} className="flex items-center gap-3">
                           <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold flex-shrink-0
                             ${done ? 'bg-sandstone-400 text-white' : live ? 'bg-green-400/20 border border-green-400' : 'border border-white/20'}`}>
-                            {done ? '✓' : live ? <span className="w-1.5 h-1.5 rounded-full bg-green-400 block" /> : ''}
+                            {done ? <span className="w-1.5 h-1.5 rounded-full bg-white block" /> : live ? <span className="w-1.5 h-1.5 rounded-full bg-green-400 block" /> : ''}
                           </div>
                           <span className={`text-xs ${done ? 'text-warmgray-300 line-through' : live ? 'text-white font-semibold' : 'text-warmgray-500'}`}>{t}</span>
                           <span className={`ml-auto text-[9px] font-bold px-1.5 py-0.5 rounded
@@ -225,7 +225,7 @@ export default function DemoPage() {
                     </div>
                     {/* Conflict mini-scan */}
                     <div className="border-t border-white/8 pt-4">
-                      <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-400 mb-3">◆ Conflict Scan — Pre-Execution</div>
+                      <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-400 mb-3">Conflict Scan — Pre-Execution</div>
                       {[
                         ['HVAC vs false ceiling depth', 'Resolved'],
                         ['Plumbing vs kitchen island', 'Resolved'],
@@ -385,7 +385,9 @@ export default function DemoPage() {
 
                   {status === 'success' ? (
                     <div className="text-center py-16">
-                      <div className="text-6xl mb-6">✓</div>
+                      <div className="w-16 h-16 rounded-2xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mx-auto mb-6">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-sandstone-600"><path d="M20 6L9 17l-5-5"/></svg>
+                      </div>
                       <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-3">
                         Demo Request Received.
                       </h3>

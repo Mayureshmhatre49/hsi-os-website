@@ -98,11 +98,11 @@ export default function ForArchitectsPage() {
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="grid sm:grid-cols-2 gap-6 p-7 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 transition-all duration-300">
                   <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm">✗</div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-2 block" />
                     <p className="text-warmgray-700 font-medium leading-snug">{title}</p>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-sandstone-50 border border-sandstone-200 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm text-sandstone-600">✓</div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-2 block" />
                     <p className="text-warmgray-600 text-sm leading-relaxed">{solution}</p>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export default function ForArchitectsPage() {
                   'Staircase geometry and structural conflicts',
                 ].map(item => (
                   <li key={item} className="flex items-center gap-3 text-sm text-warmgray-200">
-                    <span className="w-5 h-5 rounded-full bg-sandstone-500/20 flex items-center justify-center flex-shrink-0 text-sandstone-400 text-xs">✓</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sandstone-400 flex-shrink-0 mt-2 block" />
                     {item}
                   </li>
                 ))}
@@ -147,7 +147,7 @@ export default function ForArchitectsPage() {
 
             <RevealOnScroll delay={0.1}>
               <div className="bg-charcoal-900 rounded-2xl border border-white/10 p-8">
-                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-6">◆ CONFLICT SCAN RESULTS</div>
+                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-6">Conflict Scan Results</div>
                 {[
                   { clash: 'HVAC duct vs false ceiling depth',  severity: 'High',   status: 'Resolved', statusClr: 'text-green-400 bg-green-400/10' },
                   { clash: 'Plumbing vs kitchen island',        severity: 'High',   status: 'Resolved', statusClr: 'text-green-400 bg-green-400/10' },

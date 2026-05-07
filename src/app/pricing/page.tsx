@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { FileText, Zap, BarChart2, Eye, CheckSquare, Leaf, Archive, Maximize2, Layers, MapPin, GitBranch } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
@@ -11,22 +12,22 @@ export const metadata: Metadata = {
 
 const drivers = [
   {
-    code: 'AS',
+    Icon: Maximize2,
     title: 'Area & Scope',
     desc: 'The size of the project — usable square footage and the number of rooms and wet areas — is the primary cost driver. A 5,000 sq ft villa has fundamentally different execution complexity than a 1,500 sq ft apartment.',
   },
   {
-    code: 'FL',
+    Icon: Layers,
     title: 'Finish Level',
     desc: 'Material grade — imported stone vs domestic, bespoke millwork vs modular, smart home integration vs standard electrical — is the second biggest variable. The same 3,000 sq ft can cost ₹80L or ₹2.5Cr depending on finish choices.',
   },
   {
-    code: 'LO',
+    Icon: MapPin,
     title: 'Location',
     desc: 'Coastal sites like Alibag carry a 15–25% material premium for weather-resistant specs. High-rise buildings in Mumbai and Bangalore add logistics and compliance costs. Goa and hill locations have their own supply chain constraints.',
   },
   {
-    code: 'EC',
+    Icon: GitBranch,
     title: 'Execution Complexity',
     desc: 'The number of trades, smart home integration, structural modifications, custom joinery, or two-building merges all affect execution cost. Complexity is priced — and managed — explicitly.',
   },
@@ -93,13 +94,13 @@ const tiers = [
 ]
 
 const included = [
-  { code: 'BQ', title: 'Full BOQ Before Execution Starts', desc: 'A complete Bill of Quantities with material specs and vendor rates — signed off before a single site visit begins.' },
-  { code: 'CD', title: 'Conflict Detection Pre-Execution', desc: 'HVAC vs ceiling, plumbing vs millwork, structural vs layout — all clashes identified and resolved before site work begins.' },
-  { code: 'BD', title: 'Live Budget Dashboard', desc: 'Real-time cost tracking across every trade and line item. Every change order is logged and approved digitally before spend.' },
-  { code: 'PD', title: 'Daily Progress Documentation', desc: 'Milestone-tied progress photos and daily site logs — accessible from anywhere, no site visits required.' },
-  { code: 'QI', title: 'Quality Milestone Inspections', desc: 'No phase proceeds until the previous one is inspected and signed off. Every checkpoint is documented in HSIOS™.' },
-  { code: 'SR', title: 'Sustainability Report', desc: 'Every project concludes with a full report — material sourcing, waste reduction, carbon estimates, and disposal records.' },
-  { code: 'HD', title: 'Handover Documentation Package', desc: 'Warranty records, vendor contacts, material specs, maintenance schedules — everything compiled and handed over at project close.' },
+  { Icon: FileText,    title: 'Full BOQ Before Execution Starts', desc: 'A complete Bill of Quantities with material specs and vendor rates — signed off before a single site visit begins.' },
+  { Icon: Zap,         title: 'Conflict Detection Pre-Execution', desc: 'HVAC vs ceiling, plumbing vs millwork, structural vs layout — all clashes identified and resolved before site work begins.' },
+  { Icon: BarChart2,   title: 'Live Budget Dashboard', desc: 'Real-time cost tracking across every trade and line item. Every change order is logged and approved digitally before spend.' },
+  { Icon: Eye,         title: 'Daily Progress Documentation', desc: 'Milestone-tied progress photos and daily site logs — accessible from anywhere, no site visits required.' },
+  { Icon: CheckSquare, title: 'Quality Milestone Inspections', desc: 'No phase proceeds until the previous one is inspected and signed off. Every checkpoint is documented in HSIOS™.' },
+  { Icon: Leaf,        title: 'Sustainability Report', desc: 'Every project concludes with a full report — material sourcing, waste reduction, carbon estimates, and disposal records.' },
+  { Icon: Archive,     title: 'Handover Documentation Package', desc: 'Warranty records, vendor contacts, material specs, maintenance schedules — everything compiled and handed over at project close.' },
 ]
 
 const comparisons = [
@@ -223,11 +224,11 @@ export default function PricingPage() {
             </p>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {drivers.map(({ code, title, desc }, i) => (
+            {drivers.map(({ Icon, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
-                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5 text-sandstone-600">
+                    <Icon size={18} strokeWidth={1.75} />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
@@ -235,6 +236,38 @@ export default function PricingPage() {
               </RevealOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── QUICK ANSWER ──────────────────────────────────── */}
+      <section className="py-10 bg-sandstone-50 border-y border-sandstone-200">
+        <div className="container-luxury max-w-4xl">
+          <RevealOnScroll>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
+              <div className="flex-shrink-0">
+                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-1">Quick Answer</div>
+                <div className="font-serif text-3xl font-bold text-charcoal-800">₹1.5Cr – 3.5Cr</div>
+                <div className="text-sm text-warmgray-500 mt-0.5">typical 4,000 sq ft Alibag villa</div>
+              </div>
+              <div className="w-px h-12 bg-sandstone-300 hidden sm:block" />
+              <div className="grid sm:grid-cols-3 gap-5 flex-1">
+                {[
+                  { label: 'Premium Apartment', value: '₹60L – ₹2.5Cr', note: 'Mumbai · Pune · Bangalore' },
+                  { label: 'Villa & Bungalow',  value: '₹1.5Cr – ₹8Cr+', note: 'Alibag · Goa · Karjat' },
+                  { label: 'Developer Project', value: 'Custom',          note: 'Discussed at engagement' },
+                ].map(({ label, value, note }) => (
+                  <div key={label}>
+                    <div className="text-xs font-semibold text-warmgray-500 mb-0.5">{label}</div>
+                    <div className="font-serif font-bold text-charcoal-800">{value}</div>
+                    <div className="text-xs text-warmgray-400">{note}</div>
+                  </div>
+                ))}
+              </div>
+              <Link href="/contact" className="btn btn-bronze text-sm flex-shrink-0">
+                Get My Estimate →
+              </Link>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -291,7 +324,7 @@ export default function PricingPage() {
                   <ul className="space-y-2.5 mb-8 flex-1">
                     {includes.map(item => (
                       <li key={item} className={`flex items-start gap-2.5 text-sm ${highlight ? 'text-white/85' : 'text-warmgray-300'}`}>
-                        <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-xs ${highlight ? 'bg-white/20 text-white' : 'bg-sandstone-500/20 text-sandstone-400'}`}>✓</span>
+                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 block ${highlight ? 'bg-white/60' : 'bg-sandstone-400'}`} />
                         {item}
                       </li>
                     ))}
@@ -332,11 +365,11 @@ export default function PricingPage() {
             </p>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
-            {included.map(({ code, title, desc }, i) => (
+            {included.map(({ Icon, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
-                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5 text-sandstone-600">
+                    <Icon size={18} strokeWidth={1.75} />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
@@ -372,11 +405,11 @@ export default function PricingPage() {
                   <div className="grid grid-cols-3 gap-4 bg-white border border-ivory-300 rounded-2xl p-6 items-start">
                     <div className="font-semibold text-sm text-charcoal-800">{point}</div>
                     <div className="flex items-start gap-2.5 text-sm text-warmgray-500">
-                      <span className="w-5 h-5 rounded-full bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 text-xs mt-0.5">✗</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-2 block" />
                       {traditional}
                     </div>
                     <div className="flex items-start gap-2.5 text-sm text-warmgray-700 font-medium">
-                      <span className="w-5 h-5 rounded-full bg-sandstone-50 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600 text-xs mt-0.5">✓</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-2 block" />
                       {hsi}
                     </div>
                   </div>

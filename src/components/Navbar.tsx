@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 // Primary nav — 5 links (logo = Home)
 const navLinks = [
   { href: '/projects',      label: 'Projects' },
-  { href: '/hsi-os',        label: 'HSIOS™' },
+  { href: '/hsi-os',        label: 'Platform' },
   { href: '/sustainability', label: 'Sustainability' },
   { href: '/pricing',       label: 'Pricing' },
   { href: '/about',         label: 'About' },
@@ -24,9 +24,8 @@ const solutionLinks = [
 
 // Mobile-only extras (not in primary bar)
 const mobileExtras = [
-  { href: '/how-it-works',   label: 'How It Works' },
-  { href: '/sustainability',  label: 'Sustainability' },
-  { href: '/insights',        label: 'Insights' },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/insights',     label: 'Insights' },
 ]
 
 export default function Navbar() {

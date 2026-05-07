@@ -25,7 +25,7 @@
   --font-sans:  var(--font-inter), system-ui, -apple-system, sans-serif;
 
   /* Layout */
-  --section-py:    clamp(5rem, 8vw, 9rem);
+  --section-py:    clamp(3.5rem, 5.5vw, 6rem);
   --container-px:  clamp(1.5rem, 5vw, 5rem);
   --max-w:         1200px;
 

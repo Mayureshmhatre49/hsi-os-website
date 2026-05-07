@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
+import { MessageCircle, Mail, MapPin, CheckCircle2 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 const projectTypes = [
@@ -132,8 +133,8 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
-                        <span className="font-bold text-[9px] tracking-widest text-sandstone-600">WA</span>
+                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
+                        <MessageCircle size={18} strokeWidth={1.75} />
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">WhatsApp</div>
@@ -146,8 +147,8 @@ export default function ContactPage() {
                       href="mailto:hello@hsios.in"
                       className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
-                        <span className="font-bold text-[9px] tracking-widest text-sandstone-600">EM</span>
+                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
+                        <Mail size={18} strokeWidth={1.75} />
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">Email</div>
@@ -157,8 +158,8 @@ export default function ContactPage() {
                     </a>
 
                     <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0">
-                        <span className="font-bold text-[9px] tracking-widest text-sandstone-600">IN</span>
+                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
+                        <MapPin size={18} strokeWidth={1.75} />
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">We Serve</div>
@@ -211,8 +212,8 @@ export default function ContactPage() {
 
                   {status === 'success' ? (
                     <div className="text-center py-16">
-                      <div className="w-16 h-16 rounded-2xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mx-auto mb-6">
-                        <span className="font-bold text-[11px] tracking-widest text-sandstone-600">OK</span>
+                      <div className="w-16 h-16 rounded-2xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mx-auto mb-6 text-sandstone-600">
+                        <CheckCircle2 size={28} strokeWidth={1.5} />
                       </div>
                       <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-3">
                         Thank You — We&apos;ll Be in Touch.
@@ -236,7 +237,7 @@ export default function ContactPage() {
                         Tell Us About Your Project
                       </h2>
                       <p className="text-warmgray-500 text-sm mb-8">
-                        All fields marked * are required. Your information is kept strictly private.
+                        Fields marked * are required — we&apos;ll call you back within 24 hours. Your information is kept strictly private.
                       </p>
 
                       {/* Honeypot — hidden from humans */}
@@ -263,37 +264,37 @@ export default function ContactPage() {
                           />
                         </div>
 
-                        {/* Email */}
-                        <div>
-                          <label htmlFor="email" className="form-label">Email Address *</label>
-                          <input
-                            id="email" type="email" name="email"
-                            value={form.email} onChange={handleChange}
-                            placeholder="hello@example.com"
-                            required className="form-input"
-                          />
-                        </div>
-
                         {/* Phone */}
                         <div>
-                          <label htmlFor="phone" className="form-label">Phone / WhatsApp</label>
+                          <label htmlFor="phone" className="form-label">Phone / WhatsApp *</label>
                           <input
                             id="phone" type="tel" name="phone"
                             value={form.phone} onChange={handleChange}
                             placeholder="+91 98765 43210"
+                            required className="form-input"
+                          />
+                        </div>
+
+                        {/* Email */}
+                        <div>
+                          <label htmlFor="email" className="form-label">Email Address</label>
+                          <input
+                            id="email" type="email" name="email"
+                            value={form.email} onChange={handleChange}
+                            placeholder="hello@example.com"
                             className="form-input"
                           />
                         </div>
 
                         {/* Project Type */}
                         <div>
-                          <label htmlFor="projectType" className="form-label">Project Type *</label>
+                          <label htmlFor="projectType" className="form-label">Project Type</label>
                           <select
                             id="projectType" name="projectType"
                             value={form.projectType} onChange={handleChange}
-                            required className="form-input"
+                            className="form-input"
                           >
-                            <option value="">Select project type</option>
+                            <option value="">Select project type (optional)</option>
                             {projectTypes.map((t) => (
                               <option key={t} value={t}>{t}</option>
                             ))}
@@ -302,13 +303,13 @@ export default function ContactPage() {
 
                         {/* Location */}
                         <div>
-                          <label htmlFor="location" className="form-label">Project Location *</label>
+                          <label htmlFor="location" className="form-label">Project Location</label>
                           <select
                             id="location" name="location"
                             value={form.location} onChange={handleChange}
-                            required className="form-input"
+                            className="form-input"
                           >
-                            <option value="">Select location</option>
+                            <option value="">Select location (optional)</option>
                             {locations.map((l) => (
                               <option key={l} value={l}>{l}</option>
                             ))}
@@ -357,7 +358,7 @@ export default function ContactPage() {
                           disabled={status === 'sending'}
                           className="btn btn-bronze disabled:opacity-60 disabled:cursor-not-allowed text-base px-10 py-4"
                         >
-                          {status === 'sending' ? 'Sending…' : 'Send Enquiry →'}
+                          {status === 'sending' ? 'Sending…' : 'Request a Call Back →'}
                         </button>
                         <p className="text-xs text-warmgray-400 self-center">
                           By submitting, you agree that HSI may contact you about your enquiry.

@@ -92,15 +92,11 @@ export default function ForHomeownersPage() {
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="grid sm:grid-cols-2 gap-6 p-7 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 transition-all duration-300">
                   <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm">
-                      ✗
-                    </div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-2 block" />
                     <p className="text-warmgray-700 font-medium leading-snug">{title}</p>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-sandstone-50 border border-sandstone-200 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm text-sandstone-600">
-                      ✓
-                    </div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-2 block" />
                     <p className="text-warmgray-600 text-sm leading-relaxed">{solution}</p>
                   </div>
                 </div>

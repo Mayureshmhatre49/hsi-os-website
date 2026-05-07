@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import {
+  LayoutDashboard, DollarSign, Activity, Package, Monitor, Zap, Home,
+  Armchair, ShieldCheck, Wrench, Award, Users, Ruler,
+  BarChart2, RefreshCcw, Leaf, TrendingDown,
+} from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import MarqueeTicker from '@/components/ui/MarqueeTicker'
 import PlatformPreview from '@/components/ui/PlatformPreview'
@@ -13,9 +18,13 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.hsios.in/hsi-os' },
 }
 
+const StatusDot = ({ done, live }: { done?: boolean; live?: boolean }) => (
+  <span className={`inline-block w-1.5 h-1.5 rounded-full flex-shrink-0 ${done ? 'bg-green-500' : live ? 'bg-sandstone-400' : 'bg-warmgray-300'}`} />
+)
+
 const modules = [
   {
-    n: '01', icon: '🗂️',
+    n: '01', Icon: LayoutDashboard,
     title: 'Project Planning Engine',
     desc: 'Analyse plans before execution begins — identifying poor furniture flow, impractical layouts, space wastage, and ventilation mistakes when corrections are still easy and economical.',
     features: ['Scope definition & BOQ', 'Upfront layout and flow analysis', 'Phase-based milestone planning', 'Design change management', 'Trade sequencing and coordination'],
@@ -33,7 +42,7 @@ const modules = [
     ),
   },
   {
-    n: '02', icon: '💰',
+    n: '02', Icon: DollarSign,
     title: 'Budget & Cost Intelligence',
     desc: 'Live cost tracking across every room, trade and vendor. Variance alerts. Real-time budget dashboards. The end of financial surprises.',
     features: ['Real-time spend tracking', 'Vendor-level cost breakdown', 'Change order impact analysis', 'Projected completion cost'],
@@ -54,39 +63,47 @@ const modules = [
     ),
   },
   {
-    n: '03', icon: '⚡',
+    n: '03', Icon: Activity,
     title: 'Execution Tracking System',
     desc: 'Real-time progress monitoring across all teams, trades and site activities. Milestone tracking. Snag management. Quality inspection logs.',
     features: ['Milestone progress tracking', 'Snag management', 'Quality inspection records', 'Site photo documentation'],
     ui: (
-      <div className="mt-4 space-y-1.5">
-        {[['✓ Planning complete','text-green-600'],['✓ Budgeting locked','text-green-600'],['● Execution — Live','text-sandstone-600'],['○ QA Pending','text-warmgray-400']].map(([t,c]) => (
-          <div key={t} className={`text-xs font-medium ${c}`}>{t}</div>
+      <div className="mt-4 space-y-2">
+        {[
+          { label: 'Planning complete', done: true },
+          { label: 'Budgeting locked', done: true },
+          { label: 'Execution — Live', live: true },
+          { label: 'QA Pending', done: false },
+        ].map(({ label, done, live }) => (
+          <div key={label} className="flex items-center gap-2.5 text-xs font-medium">
+            <StatusDot done={done} live={live} />
+            <span className={done ? 'text-green-600 line-through' : live ? 'text-sandstone-600 font-semibold' : 'text-warmgray-400'}>{label}</span>
+          </div>
         ))}
       </div>
     ),
   },
   {
-    n: '04', icon: '🔗',
+    n: '04', Icon: Package,
     title: 'Vendor & Procurement',
     desc: 'Streamlined vendor coordination, purchase orders, delivery schedules and approval workflows. Every vendor relationship structured and accountable.',
     features: ['Vendor onboarding & rating', 'PO management', 'Delivery tracking', 'Invoice approval workflow'],
     ui: (
       <div className="mt-4 grid grid-cols-2 gap-1.5">
-        {[['Electrician','bg-green-100 text-green-700'],['Carpenter','bg-green-100 text-green-700'],['Plumber','bg-yellow-100 text-yellow-700'],['Flooring','bg-sandstone-100 text-sandstone-700']].map(([v,c]) => (
+        {[['Electrician','bg-green-50 text-green-700 border border-green-100'],['Carpenter','bg-green-50 text-green-700 border border-green-100'],['Plumber','bg-sandstone-50 text-sandstone-700 border border-sandstone-100'],['Flooring','bg-ivory-200 text-charcoal-600 border border-ivory-300']].map(([v,c]) => (
           <div key={v} className={`text-[10px] font-semibold px-2 py-1.5 rounded-md ${c}`}>{v}</div>
         ))}
       </div>
     ),
   },
   {
-    n: '05', icon: '📊',
+    n: '05', Icon: Monitor,
     title: 'Real-Time Client Dashboard',
     desc: 'Elegant dashboards giving homeowners and developer clients instant visibility. Progress, costs, decisions — all in one place, always current.',
     features: ['Live progress overview', 'Budget vs actuals', 'Key decisions log', 'Document centre'],
   },
   {
-    n: '06', icon: '⚠️',
+    n: '06', Icon: Zap,
     title: 'Conflict Detection Engine',
     desc: 'Identify clashes between trades before site work begins — when corrections are still easy and economical. Resolving these digitally saves time, cost, rework, and frustration.',
     features: [
@@ -100,21 +117,24 @@ const modules = [
       'Structural vs interior wall alignment',
     ],
     ui: (
-      <div className="mt-4 space-y-1.5">
+      <div className="mt-4 space-y-2">
         {[
-          ['⚠ Poor furniture flow in living area', 'text-yellow-600'],
-          ['✗ Plumbing vs kitchen island clash', 'text-red-500'],
-          ['✗ HVAC duct vs false ceiling depth', 'text-red-500'],
-          ['✓ Door swing conflicts — resolved', 'text-green-600'],
-          ['✓ Bathroom slope — corrected upfront', 'text-green-600'],
-        ].map(([t, c]) => (
-          <div key={String(t)} className={`text-xs font-medium ${c}`}>{String(t)}</div>
+          { label: 'Poor furniture flow in living area', type: 'warn' },
+          { label: 'Plumbing vs kitchen island clash', type: 'error' },
+          { label: 'HVAC duct vs false ceiling depth', type: 'error' },
+          { label: 'Door swing conflicts — resolved', type: 'ok' },
+          { label: 'Bathroom slope — corrected upfront', type: 'ok' },
+        ].map(({ label, type }) => (
+          <div key={label} className="flex items-center gap-2 text-xs font-medium">
+            <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${type === 'ok' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-yellow-500'}`} />
+            <span className={type === 'ok' ? 'text-green-600' : type === 'error' ? 'text-red-500' : 'text-yellow-600'}>{label}</span>
+          </div>
         ))}
       </div>
     ),
   },
   {
-    n: '07', icon: '🏠',
+    n: '07', Icon: Home,
     title: 'Ownership Mode',
     desc: 'Your home should become smarter after handover. HSIOS™ ownership systems help manage asset records, maintenance planning, upgrade history and vendor intelligence for the life of your home.',
     features: ['Asset & material records', 'Maintenance schedule planning', 'Upgrade history tracking', 'Vendor intelligence log'],
@@ -130,21 +150,21 @@ const modules = [
 
 const howWeWork = [
   {
-    n: '01', clr: 'border-sandstone-400', num: 'text-sandstone-500', tag: 'bg-sandstone-100 text-sandstone-700',
+    n: '01', clr: 'border-sandstone-400', num: 'text-sandstone-500', tag: 'bg-sandstone-100/20 text-sandstone-300 border border-sandstone-400/30',
     title: 'End-to-End Execution Partner',
     desc: 'HSI manages your complete interior execution — from planning and design coordination to on-site delivery — fully powered by HSIOS™.',
     features: ['Dedicated execution team', 'Full HSIOS™ platform access', 'Weekly client reporting'],
     tagLabel: 'Service + Platform',
   },
   {
-    n: '02', clr: 'border-purple-400', num: 'text-purple-500', tag: 'bg-purple-100 text-purple-700',
+    n: '02', clr: 'border-warmgray-400', num: 'text-warmgray-400', tag: 'bg-white/10 text-warmgray-300 border border-white/20',
     title: 'Platform-Enabled Execution',
     desc: 'Use HSIOS™ as a standalone platform. Architects, designers, and developers manage their own projects with full structure and transparency.',
     features: ['Full platform access', 'Your team, our system', 'Onboarding + training'],
     tagLabel: 'Platform Only',
   },
   {
-    n: '03', clr: 'border-blue-400', num: 'text-blue-500', tag: 'bg-blue-100 text-blue-700',
+    n: '03', clr: 'border-ivory-400', num: 'text-ivory-300', tag: 'bg-white/5 text-warmgray-300 border border-white/15',
     title: 'Works with Your Existing Team',
     desc: 'Retain your architect — HSIOS™ manages the execution layer, tracking progress and maintaining full accountability alongside your design team.',
     features: ['Collaborative by design', 'Design-execution bridge', 'Shared visibility layer'],
@@ -153,11 +173,11 @@ const howWeWork = [
 ]
 
 const processSteps = [
-  { n: 1, title: 'Project Understanding', desc: 'Goals, brief & scope definition', chip: '📋 Brief locked',   active: true },
-  { n: 2, title: 'Planning & Budgeting',  desc: 'Timeline, BOQ & cost structure',    chip: '💰 BOQ approved'                },
-  { n: 3, title: 'Execution & Monitoring',desc: 'Real-time site tracking & vendor management', chip: '● Live now', live: true },
-  { n: 4, title: 'QA & Compliance',       desc: 'Quality checks, snag lists & sign-off', chip: '✓ Snag-free'               },
-  { n: 5, title: 'Delivery & Handover',   desc: 'Final handover & documentation',    chip: '🏠 Keys delivered'              },
+  { n: 1, title: 'Project Understanding', desc: 'Goals, brief & scope definition', chip: 'Brief locked',   active: true },
+  { n: 2, title: 'Planning & Budgeting',  desc: 'Timeline, BOQ & cost structure',  chip: 'BOQ approved'                  },
+  { n: 3, title: 'Execution & Monitoring',desc: 'Real-time site tracking & vendor management', chip: 'Live now', live: true },
+  { n: 4, title: 'QA & Compliance',       desc: 'Quality checks, snag lists & sign-off', chip: 'Snag-free'                },
+  { n: 5, title: 'Delivery & Handover',   desc: 'Final handover & documentation',  chip: 'Keys delivered'                },
 ]
 
 const testimonials = [
@@ -250,7 +270,7 @@ export default function HSIOSPage() {
                         <div key={String(t)} className="flex items-center gap-3">
                           <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold flex-shrink-0
                             ${done ? 'bg-sandstone-400 text-white' : live ? 'bg-green-400/20 border border-green-400' : 'border border-white/20'}`}>
-                            {done ? '✓' : live ? <span className="w-1.5 h-1.5 rounded-full bg-green-400 block" /> : ''}
+                            {done ? <span className="w-1.5 h-1.5 rounded-full bg-white block" /> : live ? <span className="w-1.5 h-1.5 rounded-full bg-green-400 block" /> : ''}
                           </div>
                           <span className={`text-xs ${done ? 'text-warmgray-300 line-through' : live ? 'text-white font-semibold' : 'text-warmgray-500'}`}>{t}</span>
                           <span className={`ml-auto text-[9px] font-bold px-1.5 py-0.5 rounded
@@ -322,7 +342,9 @@ export default function HSIOSPage() {
                   />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-luxury px-4 py-3 flex items-center gap-3 border border-ivory-200">
-                  <span className="text-2xl">📊</span>
+                  <div className="w-8 h-8 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600">
+                    <BarChart2 size={15} strokeWidth={1.75} />
+                  </div>
                   <div>
                     <div className="font-serif text-lg font-bold text-charcoal-800">₹100Cr+</div>
                     <div className="text-xs text-warmgray-500">Managed on HSIOS™</div>
@@ -342,7 +364,7 @@ export default function HSIOSPage() {
               { val: '7+',    label: 'Premium villa interiors delivered across Alibag', trend: '↑ Growing' },
               { val: '₹100Cr',label: 'Execution value managed live on HSIOS™',         trend: '↑ Active' },
               { val: '100%',  label: 'Cost transparency on every active project',       trend: '↑ Always' },
-              { val: '0',     label: 'Execution surprises on completed projects',       trend: '✓ Zero',  green: true },
+              { val: '0',     label: 'Execution surprises on completed projects',       trend: 'Zero',    green: true },
             ].map(({ val, label, trend, green }) => (
               <RevealOnScroll key={val} className="px-8 py-2 text-center">
                 <div className="font-serif text-4xl font-bold text-white mb-2">{val}</div>
@@ -369,12 +391,14 @@ export default function HSIOSPage() {
           </RevealOnScroll>
 
           <div className="space-y-6">
-            {modules.map(({ n, icon, title, desc, features, ui }, i) => (
+            {modules.map(({ n, Icon, title, desc, features, ui }, i) => (
               <RevealOnScroll key={n} delay={i * 0.06}>
                 <div className="group grid md:grid-cols-3 gap-8 p-8 rounded-3xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-luxury transition-all duration-300">
                   <div className="md:col-span-2">
                     <div className="flex items-center gap-4 mb-5">
-                      <span className="text-3xl">{icon}</span>
+                      <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600 flex-shrink-0">
+                        <Icon size={18} strokeWidth={1.75} />
+                      </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600">Module {n}</div>
                         <h3 className="font-serif text-xl font-bold text-charcoal-800">{title}</h3>
@@ -421,15 +445,17 @@ export default function HSIOSPage() {
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon: '🪑', label: 'Ergonomics', desc: 'Human-centred space planning and furniture sizing' },
-                  { icon: '🔒', label: 'Safety', desc: 'Structural, electrical, and fire safety standards' },
-                  { icon: '⚙️', label: 'Maintainability', desc: 'Service access, panel placement, and longevity' },
-                  { icon: '🏅', label: 'Finish Quality', desc: 'Premium grade execution benchmarks at every stage' },
-                  { icon: '♿', label: 'Usability', desc: 'Universal design, clearances, and accessibility' },
-                  { icon: '📐', label: 'Workflow', desc: 'Efficient kitchen, bathroom, and circulation flow' },
-                ].map(({ icon, label, desc }) => (
+                  { Icon: Armchair,    label: 'Ergonomics',     desc: 'Human-centred space planning and furniture sizing' },
+                  { Icon: ShieldCheck, label: 'Safety',         desc: 'Structural, electrical, and fire safety standards' },
+                  { Icon: Wrench,      label: 'Maintainability',desc: 'Service access, panel placement, and longevity' },
+                  { Icon: Award,       label: 'Finish Quality', desc: 'Premium grade execution benchmarks at every stage' },
+                  { Icon: Users,       label: 'Usability',      desc: 'Universal design, clearances, and accessibility' },
+                  { Icon: Ruler,       label: 'Workflow',       desc: 'Efficient kitchen, bathroom, and circulation flow' },
+                ].map(({ Icon: StdIcon, label, desc }) => (
                   <div key={label} className="p-4 rounded-xl bg-white/5 border border-white/8 hover:bg-white/8 hover:border-sandstone-400/30 transition-all duration-300">
-                    <div className="text-xl mb-2">{icon}</div>
+                    <div className="w-7 h-7 flex items-center justify-center text-sandstone-400 mb-2">
+                      <StdIcon size={16} strokeWidth={1.5} />
+                    </div>
                     <div className="text-sm font-semibold text-white mb-1">{label}</div>
                     <div className="text-xs text-warmgray-400 leading-snug">{desc}</div>
                   </div>
@@ -449,13 +475,15 @@ export default function HSIOSPage() {
               </p>
               <div className="space-y-4">
                 {[
-                  { word: 'Refuse', icon: '🚫', desc: 'Unnecessary materials, wasteful designs, and inefficient decisions — rejected before they enter the plan.' },
-                  { word: 'Reuse', icon: '♻️', desc: 'Existing assets, salvageable materials, and adaptable design elements — retained and integrated.' },
-                  { word: 'Recycle', icon: '🌿', desc: 'Responsible material planning and waste reduction — tracked and documented through every phase.' },
-                  { word: 'Reduce', icon: '📉', desc: 'Alternate low-impact materials, optimised transport, better natural light and ventilation — smaller footprint, greater long-term value.' },
-                ].map(({ word, icon, desc }) => (
+                  { word: 'Refuse',  PhilIcon: Zap,          desc: 'Unnecessary materials, wasteful designs, and inefficient decisions — rejected before they enter the plan.' },
+                  { word: 'Reuse',   PhilIcon: RefreshCcw,   desc: 'Existing assets, salvageable materials, and adaptable design elements — retained and integrated.' },
+                  { word: 'Recycle', PhilIcon: Leaf,         desc: 'Responsible material planning and waste reduction — tracked and documented through every phase.' },
+                  { word: 'Reduce',  PhilIcon: TrendingDown, desc: 'Alternate low-impact materials, optimised transport, better natural light and ventilation — smaller footprint, greater long-term value.' },
+                ].map(({ word, PhilIcon, desc }) => (
                   <div key={word} className="flex gap-4 p-5 rounded-2xl bg-white/5 border border-white/8">
-                    <div className="text-2xl flex-shrink-0">{icon}</div>
+                    <div className="w-9 h-9 rounded-lg bg-sandstone-400/20 flex items-center justify-center text-sandstone-300 flex-shrink-0">
+                      <PhilIcon size={16} strokeWidth={1.5} />
+                    </div>
                     <div>
                       <div className="font-serif font-bold text-sandstone-300 mb-1">{word}</div>
                       <div className="text-sm text-warmgray-400 leading-relaxed">{desc}</div>
@@ -514,7 +542,7 @@ export default function HSIOSPage() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {['Real-time cost dashboard — no surprises','Live progress tracking from your phone','End-to-end execution with full accountability'].map(item => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-warmgray-700">
-                      <span className="w-5 h-5 rounded-full bg-sandstone-400/20 text-sandstone-600 flex items-center justify-center text-xs font-bold flex-shrink-0">✓</span>
+                      <span className="w-5 h-5 rounded-full bg-sandstone-400/20 flex items-center justify-center flex-shrink-0"><span className="w-1.5 h-1.5 rounded-full bg-sandstone-600 block" /></span>
                       {item}
                     </li>
                   ))}
@@ -537,7 +565,7 @@ export default function HSIOSPage() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {['Consistent quality across all residences','Portfolio-level execution intelligence','Use as service partner or standalone platform'].map(item => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-warmgray-200">
-                      <span className="w-5 h-5 rounded-full bg-sandstone-400/20 text-sandstone-400 flex items-center justify-center text-xs font-bold flex-shrink-0">✓</span>
+                      <span className="w-5 h-5 rounded-full bg-sandstone-400/20 flex items-center justify-center flex-shrink-0"><span className="w-1.5 h-1.5 rounded-full bg-sandstone-400 block" /></span>
                       {item}
                     </li>
                   ))}
@@ -570,7 +598,11 @@ export default function HSIOSPage() {
                   <h3 className="font-serif text-lg font-bold text-white mb-3">{title}</h3>
                   <p className="text-warmgray-400 text-sm leading-relaxed mb-5 flex-1">{desc}</p>
                   <ul className="space-y-1.5 mb-5">
-                    {features.map(f => <li key={f} className="text-xs text-warmgray-300">✓ {f}</li>)}
+                    {features.map(f => (
+                      <li key={f} className="flex items-center gap-2 text-xs text-warmgray-300">
+                        <span className="w-1 h-1 rounded-full bg-sandstone-400/60 shrink-0" />{f}
+                      </li>
+                    ))}
                   </ul>
                   <span className={`text-xs font-bold px-3 py-1.5 rounded-full w-fit ${tag}`}>{tagLabel}</span>
                 </div>
@@ -660,10 +692,10 @@ export default function HSIOSPage() {
             {/* Proof card */}
             <RevealOnScroll delay={0.08}>
               <div className="bg-charcoal-900 rounded-2xl border border-sandstone-400/20 p-8">
-                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-5">◆ Project Outcomes</div>
+                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-5">Project Outcomes</div>
                 {['Delivered 3 weeks early','₹0 cost overrun','100% transparent spend','Full OS dashboard access'].map((item, i) => (
-                  <div key={item} className={`flex items-center gap-3 py-3 border-b border-white/6 last:border-0`}>
-                    <span className={i < 3 ? 'text-green-400' : 'text-sandstone-400'}>{i < 3 ? '✓' : '◆'}</span>
+                  <div key={item} className="flex items-center gap-3 py-3 border-b border-white/6 last:border-0">
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${i < 3 ? 'bg-green-400' : 'bg-sandstone-400'}`} />
                     <span className="text-warmgray-200 text-sm">{item}</span>
                   </div>
                 ))}

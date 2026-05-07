@@ -318,7 +318,7 @@ export default function ProjectsPage() {
                       <ul className="space-y-2.5 mb-8">
                         {interventions.map(item => (
                           <li key={item} className="flex items-start gap-3 text-sm text-warmgray-200">
-                            <span className="w-5 h-5 rounded-full bg-sandstone-500/20 flex items-center justify-center flex-shrink-0 text-sandstone-400 text-xs mt-0.5">✓</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-sandstone-400 flex-shrink-0 mt-2 block" />
                             {item}
                           </li>
                         ))}
