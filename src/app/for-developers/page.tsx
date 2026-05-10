@@ -44,7 +44,7 @@ const useCases = [
   {
     title: 'Multi-Unit Luxury Development',
     desc: 'Delivering 10, 20 or 50 premium residences with consistent interior quality requires a system. HSIOS™ is that system — tracking every unit, every phase, every rupee.',
-    image: '/hestia-villa-blue-haven.jpg',
+    image: '/projects-casa-frangipani-3.jpg',
   },
   {
     title: 'Boutique Resort Interiors',
@@ -62,11 +62,12 @@ export default async function ForDevelopersPage() {
       <section className="relative min-h-[100svh] flex items-end pb-24 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/developer-solutions-hero.jpg"
+            src="/projects-casa-frangipani-2.jpg"
             alt="Luxury developer project — Hestia Smart Interiors"
             fill
             className="object-cover"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/92 via-charcoal-800/50 to-charcoal-900/25" />

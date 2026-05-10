@@ -187,7 +187,7 @@ export default async function ForHomeownersPage() {
           <RevealOnScroll delay={0.15}>
             <div className="relative rounded-4xl overflow-hidden aspect-square">
               <Image
-                src="/hestia-villa-vayu.jpg"
+                src="/projects-casa-frangipani-3.jpg"
                 alt="NRI villa management — Hestia Smart Interiors"
                 fill
                 className="object-cover"

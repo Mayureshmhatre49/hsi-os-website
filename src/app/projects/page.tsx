@@ -17,7 +17,7 @@ const projects = [
     name: 'Casa Frangipani',
     location: 'Alibag',
     tag: '6 Bedrooms',
-    image: '/hestia-casa-frangipani.jpg',
+    image: '/projects-casa-frangipani-1.jpg',
     desc: 'A complete end-to-end 6-bedroom villa in Alibag — bespoke interiors, documented accountability, and complex multi-trade coordination across 6,500 sq ft.',
     href: '/projects/casa-frangipani',
     featured: true,
@@ -112,7 +112,7 @@ const spotlights = [
   {
     name: 'Casa Frangipani',
     location: 'Alibag · 6 Bedrooms · Complete Execution',
-    image: '/hestia-casa-frangipani.jpg',
+    image: '/projects-casa-frangipani-1.jpg',
     href: 'https://hestiavillas.in/case_study/casa-frangipani-rent-and-buy/',
     challenge: 'A 6-bedroom complete execution villa demanding precise coordination across civil, plumbing, HVAC, electrical, carpentry, and finishing trades — simultaneously. Over 6,500 sq ft of premium space with zero margin for rework.',
     interventions: [
@@ -193,6 +193,7 @@ export default async function ProjectsPage() {
             fill
             className="object-cover opacity-30"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-charcoal-900/50" />

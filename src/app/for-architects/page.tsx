@@ -45,7 +45,7 @@ const useCases = [
   {
     title: 'Luxury Villa Coordination',
     desc: 'Manage complex multi-trade villa projects with complete design-to-execution coordination. HSIOS™ bridges the gap between your design drawings and what happens on site.',
-    image: '/hestia-villa-blue-haven.jpg',
+    image: '/casa-frangipani-7a4576.jpg',
   },
   {
     title: 'Developer Sample Flat Delivery',
@@ -68,11 +68,12 @@ export default async function ForArchitectsPage() {
       <section className="relative min-h-[100svh] flex items-end pb-24 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hestia-villa-vayu.jpg"
+            src="/projects-casa-frangipani-1.jpg"
             alt="Premium interior execution for architects — HSIOS"
             fill
             className="object-cover"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/92 via-charcoal-800/50 to-charcoal-900/25" />

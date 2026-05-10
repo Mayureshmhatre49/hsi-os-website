@@ -98,11 +98,12 @@ export default async function SecondHomeInteriorDesignPage() {
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hestia-villa-blue-haven.jpg"
+            src="/casa-frangipani-7a4576.jpg"
             alt="Second home and holiday villa interior execution by Hestia Smart Interiors"
             fill
             className="object-cover"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-800/50 to-charcoal-900/20" />

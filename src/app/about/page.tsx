@@ -74,7 +74,7 @@ const vishalSchema = {
   name: 'Vishal Patil',
   jobTitle: 'COO',
   worksFor: { '@id': 'https://www.hsios.in/#business' },
-  image: 'https://www.hsios.in/vishal-patil.png',
+  image: 'https://www.hsios.in/vishal-patil.jpg',
   description:
     'COO of Hestia Smart Interiors overseeing site execution, quality control, vendor coordination, and statutory compliance across premium projects.',
   url: 'https://www.hsios.in/about',
@@ -105,11 +105,12 @@ export default async function AboutPage() {
       <section className="relative py-40 bg-charcoal-800 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hestia-villa-vayu.jpg"
+            src="/projects-casa-frangipani-1.jpg"
             alt="Hestia Smart Interiors — premium villa execution"
             fill
             className="object-cover opacity-25"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-charcoal-900/60" />
@@ -312,7 +313,7 @@ export default async function AboutPage() {
                 <div className="absolute -inset-3 bg-ivory-100 rounded-[2rem] rotate-1 shadow-sm" />
                 <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
                   <Image
-                    src="/vishal-patil.png"
+                    src="/vishal-patil.jpg"
                     alt="Vishal Patil — COO, Hestia Smart Interiors"
                     fill
                     className="object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-700"
@@ -441,7 +442,7 @@ export default async function AboutPage() {
             <RevealOnScroll delay={0.15}>
               <div className="relative rounded-4xl overflow-hidden aspect-[4/3]">
                 <Image
-                  src="/casa-frangipani-7a4576.jpg"
+                  src="/projects-casa-frangipani-3.jpg"
                   alt="Hestia Smart Interiors — project execution"
                   fill
                   className="object-cover"

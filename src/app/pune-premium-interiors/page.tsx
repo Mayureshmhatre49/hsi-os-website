@@ -86,11 +86,12 @@ export default async function PunePremiumInteriorsPage() {
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hestia-villa-vayu.jpg"
+            src="/projects-casa-frangipani-2.jpg"
             alt="Premium luxury interiors in Pune by Hestia Smart Interiors"
             fill
             className="object-cover"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-800/50 to-charcoal-900/20" />

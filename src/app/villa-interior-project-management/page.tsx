@@ -94,6 +94,7 @@ export default async function VillaInteriorProjectManagementPage() {
             fill
             className="object-cover"
             priority
+            quality={85}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-800/50 to-charcoal-900/20" />
