@@ -135,7 +135,7 @@ export default async function AboutPage() {
         <div className="container-luxury">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-            {/* Founder Image */}
+            {/* Founder Image + Pull-Quote */}
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
               <div className="relative mx-4">
                 <div className="absolute -inset-3 bg-sandstone-100 rounded-[2rem] -rotate-1 opacity-80" />
@@ -152,6 +152,16 @@ export default async function AboutPage() {
                   <div className="absolute bottom-6 left-6 w-10 h-10 border-b-2 border-l-2 border-sandstone-400/40" />
                 </div>
               </div>
+
+              {/* Pull-quote — placed directly below the founder portrait */}
+              <figure className="mt-8 pl-6 mx-4 border-l-2 border-sandstone-300">
+                <blockquote className="italic font-serif text-charcoal-700 text-xl leading-relaxed">
+                  &ldquo;The next decade belongs to entrepreneurs who can merge sustainability with intelligence — and I&apos;m committed to leading that change.&rdquo;
+                </blockquote>
+                <figcaption className="mt-3 text-sm text-warmgray-500 font-semibold tracking-wide uppercase not-italic">
+                  — Nishant Mhatre, Founder
+                </figcaption>
+              </figure>
             </RevealOnScroll>
 
             {/* Founder Content */}
@@ -186,14 +196,6 @@ export default async function AboutPage() {
                 ))}
               </div>
 
-              <div className="mt-10 pl-6 border-l-2 border-sandstone-300">
-                <p className="italic font-serif text-charcoal-700 text-xl leading-relaxed">
-                  &ldquo;The next decade belongs to entrepreneurs who can merge sustainability with intelligence — and I&apos;m committed to leading that change.&rdquo;
-                </p>
-                <p className="mt-3 text-sm text-warmgray-500 font-semibold tracking-wide uppercase not-italic">
-                  — Nishant Mhatre, Founder
-                </p>
-              </div>
             </RevealOnScroll>
           </div>
         </div>
