@@ -1,22 +1,38 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Repeat2, LayoutDashboard, ShoppingBag, ClipboardList, Eye, Zap } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'For Developers — Scalable Luxury Interior Execution Platform | HSIOS™',
+  title: 'For Developers — Scalable Luxury Interior Execution Platform',
   description:
     'Standardise premium interior execution across your entire development portfolio. HSIOS™ delivers quality, consistency, procurement efficiency, and buyer transparency at any scale.',
-  alternates: { canonical: 'https://www.hsios.in/for-developers' },
+  alternates: getAlternates('/for-developers'),
 }
 
+const serviceData = serviceSchema({
+  name: 'Scalable Luxury Interior Execution for Real Estate Developers',
+  description:
+    'HSIOS™ standardises premium interior execution across multi-unit developments — consistent quality, procurement efficiency, and buyer transparency at any scale.',
+  url: 'https://www.hsios.in/for-developers',
+  areaServed: ['India'],
+})
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'For Developers', url: 'https://www.hsios.in/for-developers' },
+])
+
 const developerBenefits = [
-  { code: 'SE', title: 'Standardised Execution',        desc: 'Repeatable execution templates across all units — consistent quality, every unit, every time.' },
-  { code: 'MD', title: 'Multi-Unit Dashboard',           desc: 'All units, all progress, one view. Costs, timelines, and milestones across your entire portfolio.' },
-  { code: 'PE', title: 'Procurement Efficiency',         desc: 'Consolidated procurement across units reduces cost, eliminates duplication, and improves lead times.' },
-  { code: 'QD', title: 'Quality Documentation',          desc: 'Auditable quality records for every unit — permanent, defensible, and shareable with buyers.' },
-  { code: 'BT', title: 'Buyer Transparency',             desc: 'Give buyers real-time progress visibility as a sales differentiator. Premium execution, proven before handover.' },
-  { code: 'FH', title: 'Faster Handover',                desc: 'Structured trade sequencing and quality gates reduce rework — accelerating handover by weeks.' },
+  { Icon: Repeat2,         title: 'Standardised Execution',  desc: 'Repeatable execution templates across all units — consistent quality, every unit, every time.' },
+  { Icon: LayoutDashboard, title: 'Multi-Unit Dashboard',    desc: 'All units, all progress, one view. Costs, timelines, and milestones across your entire portfolio.' },
+  { Icon: ShoppingBag,     title: 'Procurement Efficiency',  desc: 'Consolidated procurement across units reduces cost, eliminates duplication, and improves lead times.' },
+  { Icon: ClipboardList,   title: 'Quality Documentation',   desc: 'Auditable quality records for every unit — milestone-verified, permanently documented, and shareable with buyers.' },
+  { Icon: Eye,             title: 'Buyer Transparency',      desc: 'Give buyers real-time progress visibility as a sales differentiator. Premium execution, proven before handover.' },
+  { Icon: Zap,             title: 'Faster Handover',         desc: 'Structured trade sequencing and quality gates reduce rework — accelerating handover by weeks.' },
 ]
 
 const useCases = [
@@ -32,16 +48,18 @@ const useCases = [
   },
   {
     title: 'Boutique Resort Interiors',
-    desc: 'Boutique hospitality demands a level of finish and consistency that standard execution cannot guarantee. HSI brings luxury hotel-grade execution discipline to every room.',
+    desc: 'Boutique hospitality demands finish consistency that standard execution rarely achieves. HSIOS™ brings structured trade sequencing and milestone-verified quality to every room — at every price point.',
     image: '/hestia-serenity-villa.jpg',
   },
 ]
 
-export default function ForDevelopersPage() {
+export default async function ForDevelopersPage() {
   return (
     <>
+      <JsonLd data={[serviceData, breadcrumbSchema]} />
+
       {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-end pb-20 overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-end pb-24 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/developer-solutions-hero.jpg"
@@ -82,11 +100,11 @@ export default function ForDevelopersPage() {
                 Premium Buyers Expect More Than Square Feet.
               </p>
               <p className="text-warmgray-300 text-lg leading-relaxed">
-                Smart planning, cleaner execution, and trustworthy delivery. HSIOS™ helps you deliver differentiated premium residences that meet — and exceed — these expectations.
+                Discerning buyers read execution quality before they read the brochure. HSIOS™ gives you a documented, verified execution record — a material sales differentiator at the point of handover.
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
-              {['Smart planning','Better sustainability','Cleaner execution','Trustworthy delivery','Functional luxury'].map((item, i) => (
+              {['Structured execution','Material responsibility','Milestone verification','Documented accountability','Buyer-visible progress'].map((item, i) => (
                 <div key={item} className="p-4 rounded-xl bg-white/8 border border-white/10 text-center">
                   <div className="font-serif text-3xl font-bold text-sandstone-400/30 leading-none mb-2">{String(i+1).padStart(2,'0')}</div>
                   <div className="text-xs font-semibold text-warmgray-200 leading-snug">{item}</div>
@@ -100,7 +118,7 @@ export default function ForDevelopersPage() {
       {/* ── DEVELOPER BENEFITS ────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">What HSI Delivers for Developers</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               Consistent Quality.<br />
@@ -109,11 +127,11 @@ export default function ForDevelopersPage() {
           </RevealOnScroll>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {developerBenefits.map(({ code, title, desc }, i) => (
+            {developerBenefits.map(({ Icon, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
-                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                  <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600 mb-5">
+                    <Icon size={18} strokeWidth={1.75} />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
@@ -127,7 +145,7 @@ export default function ForDevelopersPage() {
       {/* ── USE CASES ─────────────────────────────────────── */}
       <section className="section-py bg-ivory-200">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Use Cases</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               Built for Every Stage of{' '}
@@ -138,7 +156,7 @@ export default function ForDevelopersPage() {
           <div className="space-y-8">
             {useCases.map(({ title, desc, image }, i) => (
               <RevealOnScroll key={title} delay={i * 0.08}>
-                <div className={`grid lg:grid-cols-2 gap-12 items-center rounded-4xl overflow-hidden bg-white border border-ivory-300 ${i % 2 === 1 ? '' : ''}`}>
+                <div className={`grid lg:grid-cols-2 gap-0 items-center rounded-4xl overflow-hidden bg-white border border-ivory-300 ${i % 2 === 1 ? '' : ''}`}>
                   <div className={`relative aspect-[16/9] lg:aspect-auto lg:min-h-[320px] ${i % 2 === 1 ? 'lg:order-last' : ''}`}>
                     <Image
                       src={image}
@@ -148,7 +166,7 @@ export default function ForDevelopersPage() {
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="p-10">
+                  <div className="p-6 lg:p-10">
                     <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-3">
                       Use Case {String(i + 1).padStart(2, '0')}
                     </div>
@@ -168,7 +186,7 @@ export default function ForDevelopersPage() {
       {/* ── HSIOS FOR DEVELOPERS ──────────────────────────── */}
       <section className="section-py bg-charcoal-800 text-white">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-2xl mb-16">
+          <RevealOnScroll className="max-w-2xl mb-10 lg:mb-16">
             <div className="section-label text-sandstone-400">HSIOS™ for Scale</div>
             <h2 className="font-serif text-display-lg text-white">
               The Platform Behind<br />
@@ -198,7 +216,7 @@ export default function ForDevelopersPage() {
       <section className="py-20 bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
-            <div className="card-luxury bg-white p-10 text-center">
+            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
               <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
               <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
                 We have a 24-unit development in Alibag. Getting consistent finish quality and documentation

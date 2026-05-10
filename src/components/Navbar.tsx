@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 // Primary nav — 5 links (logo = Home)
 const navLinks = [
   { href: '/projects',      label: 'Projects' },
-  { href: '/hsi-os',        label: 'Platform' },
+  { href: '/hsi-os',        label: 'HSIOS™' },
   { href: '/sustainability', label: 'Sustainability' },
   { href: '/pricing',       label: 'Pricing' },
   { href: '/about',         label: 'About' },
@@ -15,11 +15,13 @@ const navLinks = [
 
 // Solutions dropdown
 const solutionLinks = [
-  { href: '/for-homeowners',              label: 'For Homeowners' },
-  { href: '/for-developers',              label: 'For Developers' },
-  { href: '/for-architects',              label: 'For Architects' },
-  { href: '/nri-home-interior-management', label: 'NRI Remote Build' },
-  { href: '/demo',                        label: 'Request a Demo' },
+  { href: '/for-homeowners',               label: 'For Homeowners',   external: false },
+  { href: '/for-developers',               label: 'For Developers',    external: false },
+  { href: '/for-architects',               label: 'For Architects',    external: false },
+  { href: '/commercial-interiors',         label: 'Commercial Spaces', external: false },
+  { href: '/nri-home-interior-management', label: 'NRI Remote Build',  external: false },
+  { href: 'https://os.hsios.in/',          label: 'Try HSIOS™ →',      external: true  },
+  { href: '/demo',                         label: 'Request a Demo',    external: false },
 ]
 
 // Mobile-only extras (not in primary bar)
@@ -81,7 +83,7 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
-  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/hsi-os', '/sustainability', '/pricing', '/demo'].includes(pathname)
+  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo'].includes(pathname)
   const transparent = isHeroPage && !scrolled && !menuOpen
 
   return (
@@ -176,27 +178,51 @@ export default function Navbar() {
                   aria-label="Solutions"
                   className="absolute top-full left-0 mt-2 w-52 rounded-2xl bg-white border border-ivory-200 shadow-luxury overflow-hidden z-50"
                 >
-                  {solutionLinks.map(({ href, label }) => (
-                    <Link
-                      key={href}
-                      href={href}
-                      role="option"
-                      aria-selected={isActive(href)}
-                      className={`
-                        block px-4 py-3 text-sm font-medium transition-colors
-                        ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-100'}
-                      `}
-                    >
-                      {label}
-                    </Link>
-                  ))}
+                  {solutionLinks.map(({ href, label, external }) =>
+                    external ? (
+                      <a
+                        key={href}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${label.replace(/[→]/g, '').trim()} (opens in new tab)`}
+                        className="block px-4 py-3 text-sm font-medium transition-colors text-sandstone-700 bg-sandstone-50 hover:bg-sandstone-100 border-t border-ivory-200"
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={href}
+                        href={href}
+                        role="option"
+                        aria-selected={isActive(href)}
+                        className={`
+                          block px-4 py-3 text-sm font-medium transition-colors
+                          ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-100'}
+                        `}
+                      >
+                        {label}
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </li>
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <a
+              href="https://os.hsios.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Try the HSIOS platform (opens in new tab)"
+              className={`text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+                transparent ? 'text-white/80 hover:text-white' : 'text-sandstone-700 hover:text-sandstone-800'
+              }`}
+            >
+              Try Platform →
+            </a>
             <Link
               href="/contact"
               className={`
@@ -264,11 +290,24 @@ export default function Navbar() {
             {/* Solutions */}
             <div className="pt-4 border-t border-ivory-200 mt-2 space-y-1">
               <div className="px-4 pb-2 text-[11px] font-bold tracking-widest uppercase text-warmgray-400">Solutions</div>
-              {solutionLinks.map(({ href, label }) => (
-                <Link key={href} href={href} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-200'}`}>
-                  {label}
-                </Link>
-              ))}
+              {solutionLinks.map(({ href, label, external }) =>
+                external ? (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${label.replace(/[→]/g, '').trim()} (opens in new tab)`}
+                    className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors text-sandstone-700 bg-sandstone-50 hover:bg-sandstone-100"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link key={href} href={href} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-200'}`}>
+                    {label}
+                  </Link>
+                )
+              )}
             </div>
 
             {/* More links */}
@@ -284,7 +323,16 @@ export default function Navbar() {
 
           {/* CTAs */}
           <div className="px-4 py-5 border-t border-ivory-200 space-y-3" style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}>
-            <Link href="/contact" className="btn btn-bronze w-full justify-center text-sm">Book Consultation</Link>
+            <a
+              href="https://os.hsios.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Try the HSIOS platform (opens in new tab)"
+              className="btn btn-bronze w-full justify-center text-sm"
+            >
+              Try HSIOS™ Platform →
+            </a>
+            <Link href="/contact" className="btn btn-outline-dark w-full justify-center text-sm">Book Consultation</Link>
             <a
               href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project"
               target="_blank"

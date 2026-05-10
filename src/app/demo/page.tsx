@@ -161,6 +161,17 @@ export default function DemoPage() {
                 <a href="#request-demo" className="btn btn-bronze">Request Your Demo</a>
                 <Link href="/hsi-os" className="btn btn-outline-white">Platform Overview</Link>
               </div>
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <p className="text-warmgray-500 text-sm mb-3">Already ready to use the platform?</p>
+                <a
+                  href="https://os.hsios.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sandstone-400 hover:text-sandstone-300 font-medium text-sm transition-colors"
+                >
+                  Access HSIOS™ directly →
+                </a>
+              </div>
             </div>
 
             {/* Right — dashboard mockup */}
@@ -552,15 +563,22 @@ export default function DemoPage() {
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">
-              Not Ready for a Demo Yet?
+              Ready to Use the Platform?
             </h2>
             <p className="text-warmgray-300 leading-relaxed mb-8">
-              Start with the platform overview — how HSIOS™ works, what each module does,
-              and what it means for your project.
+              Access HSIOS™ directly — or start with the platform overview to understand
+              what each module does and how it applies to your project.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/hsi-os" className="btn btn-bronze">Explore the Platform →</Link>
-              <Link href="/pricing" className="btn btn-outline-white">View Pricing</Link>
+              <a
+                href="https://os.hsios.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-bronze"
+              >
+                Try HSIOS™ →
+              </a>
+              <Link href="/hsi-os" className="btn btn-outline-white">Platform Overview</Link>
             </div>
           </div>
         </RevealOnScroll>

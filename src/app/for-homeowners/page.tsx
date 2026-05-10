@@ -2,13 +2,28 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'For Homeowners — Premium Interior Execution with Full Visibility | HSIOS™',
+  title: 'For Homeowners — Premium Interior Execution with Full Visibility',
   description:
     'Build your luxury villa or residence with complete cost clarity, real-time progress tracking, and zero execution surprises. HSIOS™ — India\'s first luxury home execution platform.',
-  alternates: { canonical: 'https://www.hsios.in/for-homeowners' },
+  alternates: getAlternates('/for-homeowners'),
 }
+
+const serviceData = serviceSchema({
+  name: 'Luxury Home Interior Execution for Homeowners',
+  description:
+    'Complete interior execution for luxury villas and premium residences — full cost clarity, real-time progress tracking, and zero execution surprises powered by HSIOS™.',
+  url: 'https://www.hsios.in/for-homeowners',
+  areaServed: ['India'],
+})
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'For Homeowners', url: 'https://www.hsios.in/for-homeowners' },
+])
 
 const painPoints = [
   { title: 'Budget overrun discovered at handover',       solution: 'Live tracking — every rupee visible, every day.' },
@@ -26,11 +41,13 @@ const benefits = [
   { code: 'NR', title: 'NRI-Ready Remote Management',   desc: 'Same visibility and control whether you are in Mumbai, London, or Melbourne.' },
 ]
 
-export default function ForHomeownersPage() {
+export default async function ForHomeownersPage() {
   return (
     <>
+      <JsonLd data={[serviceData, breadcrumbSchema]} />
+
       {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-end pb-20 overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-end pb-24 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/hestia-villa-bellissimo.jpg"
@@ -67,10 +84,10 @@ export default function ForHomeownersPage() {
         <div className="container-luxury max-w-3xl text-center">
           <RevealOnScroll>
             <p className="font-serif text-display-sm text-white leading-snug mb-4">
-              Build once. Build right.
+              You have invested in a vision. We make certain it is the home you receive.
             </p>
             <p className="text-warmgray-300 text-lg leading-relaxed">
-              HSIOS™ ends endless rework, budget drift, and vendor dependency. You get clarity, structure, and results.
+              HSIOS™ eliminates rework, budget drift, and the accountability gaps that define most premium projects. Clarity at every stage, from brief to handover.
             </p>
           </RevealOnScroll>
         </div>
@@ -79,11 +96,11 @@ export default function ForHomeownersPage() {
       {/* ── PAIN POINTS ───────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
-            <div className="section-label">The Problems We Solve</div>
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
+            <div className="section-label">The Problems We Eliminate</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
-              Sound Familiar?<br />
-              <span className="text-sandstone-600">Here is How HSI Fixes It.</span>
+              Every Problem Has a<br />
+              <span className="text-sandstone-600">Documented Answer in HSIOS™.</span>
             </h2>
           </RevealOnScroll>
 
@@ -109,10 +126,11 @@ export default function ForHomeownersPage() {
       {/* ── BENEFITS ──────────────────────────────────────── */}
       <section className="section-py bg-ivory-200">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
-            <div className="section-label">What You Get</div>
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
+            <div className="section-label">What Every HSI Project Delivers</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
-              The Standard You Deserve.
+              Six Commitments.<br />
+              <span className="text-sandstone-600">All of Them Documented.</span>
             </h2>
           </RevealOnScroll>
 
@@ -134,7 +152,7 @@ export default function ForHomeownersPage() {
 
       {/* ── NRI CALLOUT ───────────────────────────────────── */}
       <section className="section-py bg-charcoal-800 text-white">
-        <div className="container-luxury grid lg:grid-cols-2 gap-16 items-center">
+        <div className="container-luxury grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <RevealOnScroll>
             <div className="section-label text-sandstone-400">NRI Homeowners</div>
             <h2 className="font-serif text-display-md text-white mb-6">
@@ -184,7 +202,7 @@ export default function ForHomeownersPage() {
       <section className="py-20 bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
-            <div className="card-luxury bg-white p-10 text-center">
+            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
               <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
               <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
                 My husband and I both work full time. We simply didn&apos;t have the bandwidth to visit site every weekend.
@@ -208,10 +226,10 @@ export default function ForHomeownersPage() {
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">
-              Ready for a Different Experience?
+              Start the Conversation.
             </h2>
             <p className="text-white/80 leading-relaxed mb-8">
-              Tell us about your project — we&apos;ll show you what complete control looks like.
+              Tell us about your project. We will show you exactly how HSIOS™ applies to your scope, timeline, and investment — before you commit to anything.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn bg-white text-charcoal-800 hover:bg-ivory-100">

@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Villa Interiors in Nashik — Vineyard Estate & Weekend Home Execution | HSIOS™',
+  title: 'Villa Interiors in Nashik — Vineyard Estate & Weekend Home Execution',
   description:
     'Premium villa interior execution in Nashik. HSIOS™ manages vineyard estates, weekend homes, and farmhouses across Nashik with transparent cost tracking, multi-trade coordination, and remote owner dashboards.',
-  alternates: { canonical: 'https://www.hsios.in/nashik-villa-interiors' },
+  alternates: getAlternates('/nashik-villa-interiors'),
   openGraph: {
-    title: 'Villa Interiors in Nashik — HSIOS™ | Hestia Smart Interiors',
+    title: 'Villa Interiors in Nashik — HSIOS™',
     description: 'Luxury villa execution for Nashik vineyard estates and weekend homes, powered by HSIOS™.',
     url: 'https://www.hsios.in/nashik-villa-interiors',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
 
@@ -61,7 +64,7 @@ const faqs = [
   },
 ]
 
-export default function NashikVillaInteriorsPage() {
+export default async function NashikVillaInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -74,10 +77,10 @@ export default function NashikVillaInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Nashik Villa Interiors', url: 'https://www.hsios.in/nashik-villa-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

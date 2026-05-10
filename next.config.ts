@@ -1,30 +1,17 @@
 import type { NextConfig } from 'next'
 
-const ContentSecurityPolicy = [
-  "default-src 'self'",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
-  "style-src 'self' 'unsafe-inline'",
-  "font-src 'self' data:",
-  "img-src 'self' data: https: blob:",
-  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
-  "frame-src 'none'",
-  "frame-ancestors 'none'",
-  "form-action 'self'",
-  "base-uri 'self'",
-  "object-src 'none'",
-  "upgrade-insecure-requests",
-].join('; ')
-
+/*
+ * CSP is set dynamically per-request in src/middleware.ts (nonce-based in production).
+ * Only static non-CSP security headers are defined here.
+ */
 const securityHeaders = [
-  { key: 'X-DNS-Prefetch-Control',    value: 'on' },
-  { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
-  { key: 'X-Frame-Options',           value: 'DENY' },
-  { key: 'X-Content-Type-Options',    value: 'nosniff' },
-  { key: 'X-XSS-Protection',          value: '1; mode=block' },
-  { key: 'Referrer-Policy',           value: 'strict-origin-when-cross-origin' },
-  { key: 'Permissions-Policy',        value: 'camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()' },
-  { key: 'Content-Security-Policy',   value: ContentSecurityPolicy },
-  { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
+  { key: 'X-DNS-Prefetch-Control',       value: 'on' },
+  { key: 'Strict-Transport-Security',    value: 'max-age=63072000; includeSubDomains; preload' },
+  { key: 'X-Frame-Options',              value: 'DENY' },
+  { key: 'X-Content-Type-Options',       value: 'nosniff' },
+  { key: 'Referrer-Policy',              value: 'strict-origin-when-cross-origin' },
+  { key: 'Permissions-Policy',           value: 'camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()' },
+  { key: 'Cross-Origin-Opener-Policy',   value: 'same-origin-allow-popups' },
   { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
 ]
 
@@ -62,7 +49,7 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    optimizePackageImports: ['framer-motion'],
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
   async headers() {
@@ -80,7 +67,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/index.html', destination: '/', permanent: true },
-      { source: '/sitemap.xml', destination: '/sitemap.xml', permanent: false },
       ...legacyPages.map((slug) => ({
         source: `/${slug}.html`,
         destination: `/${slug}`,

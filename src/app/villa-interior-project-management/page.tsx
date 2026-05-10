@@ -2,12 +2,17 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Villa Interior Project Management — HSIOS™ | Hestia Smart Interiors',
+  title: 'Villa Interior Project Management — HSIOS™',
   description:
     'Professional villa interior project management across India. HSIOS™ provides structured execution, live progress tracking, multi-trade coordination, and digital change approvals for luxury villas — Goa, Alibag, Lonavala, and beyond.',
-  alternates: { canonical: 'https://www.hsios.in/villa-interior-project-management' },
+  /*
+   * Canonical-merged with /luxury-interior-execution-india to consolidate
+   * keyword authority across overlapping nationwide execution pages.
+   */
+  alternates: { canonical: 'https://www.hsios.in/luxury-interior-execution-india' },
   openGraph: {
     title: 'Villa Interior Project Management — HSIOS™',
     description: 'Technology-driven villa interior project management across India, powered by HSIOS™.',
@@ -65,7 +70,7 @@ const faqs = [
   },
 ]
 
-export default function VillaInteriorProjectManagementPage() {
+export default async function VillaInteriorProjectManagementPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,10 +83,7 @@ export default function VillaInteriorProjectManagementPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
@@ -241,7 +243,7 @@ export default function VillaInteriorProjectManagementPage() {
             <div className="section-label text-sandstone-400 mb-4">Start Your Villa</div>
             <h2 className="font-serif text-display-md text-white mb-5">
               Your Villa. Managed Precisely.{' '}
-              <span className="text-sandstone-400">Delivered Flawlessly.</span>
+              <span className="text-sandstone-400">Delivered Exactly as Designed.</span>
             </h2>
             <p className="text-warmgray-400 leading-relaxed mb-8">
               No more contractor chaos. No more cost surprises. A completed luxury villa

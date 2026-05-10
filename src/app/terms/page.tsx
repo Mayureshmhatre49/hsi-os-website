@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Hestia Smart Interiors',
+  title: 'Terms of Service',
   description: 'Terms of Service for Hestia Smart Interiors and HSIOS™ — the terms governing use of our website and services.',
   alternates: { canonical: 'https://www.hsios.in/terms' },
   robots: { index: false },

@@ -212,7 +212,7 @@ function DigitalTwin() {
                 <div style={{ fontSize: 9, fontWeight: 700, color: '#C9A84C', letterSpacing: '0.08em', marginBottom: 6 }}>DIGITAL TWIN</div>
                 <div style={{ fontSize: 8, color: 'rgba(240,236,231,0.4)' }}>AD PROJECT</div>
               </div>
-              {[[40,42,0],[60,65,0.4],[30,72,0.8]].map(([t,l,d]) => (
+              {[[40,42],[60,65],[30,72]].map(([t,l]) => (
                 <div key={`${t}-${l}`} style={{ position: 'absolute', top: `${t}%`, left: `${l}%`, width: 8, height: 8, borderRadius: '50%', background: '#C9A84C', boxShadow: '0 0 8px #C9A84C', opacity: 0.8 }} />
               ))}
             </div>

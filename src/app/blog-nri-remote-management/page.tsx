@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Remote Interior Project Management: What NRIs Need to Know — HSI OS',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogNriRemoteManagementPage() {
+export default async function BlogNriRemoteManagementPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -28,10 +29,7 @@ export default function BlogNriRemoteManagementPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
+      <JsonLd data={articleSchema} />
 
       {/* ── ARTICLE HERO ── */}
       <section className="pt-40 pb-16 bg-charcoal-900">

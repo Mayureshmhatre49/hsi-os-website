@@ -15,9 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/sustainability',             priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/demo',                       priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/insights',                    priority: 0.8, changeFrequency: 'weekly' as const },
+    { url: '/insights/designer-vs-execution-firm', priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/projects/casa-frangipani',    priority: 0.85, changeFrequency: 'monthly' as const },
     { url: '/for-homeowners',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/for-developers',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/for-architects',             priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/commercial-interiors',       priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/contact',                     priority: 0.9, changeFrequency: 'monthly' as const },
     // City / location pages
     { url: '/alibag-villa-interiors',     priority: 0.9, changeFrequency: 'monthly' as const },

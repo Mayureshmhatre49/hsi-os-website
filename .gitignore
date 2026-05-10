@@ -29,6 +29,11 @@ Archieve/
 out/
 node_modules/
 npm-debug.log*
+*.tsbuildinfo
+
+# Local debug / one-off scripts
+bg-verify.mjs
+sustain-screenshots/
 
 # Environment secrets — NEVER commit
 .env.local

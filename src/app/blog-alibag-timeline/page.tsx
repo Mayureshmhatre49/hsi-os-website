@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Alibag Villa Interior: What to Expect from Start to Finish — HSI OS',
@@ -53,7 +54,7 @@ const phases = [
   },
 ]
 
-export default function BlogAlibagTimelinePage() {
+export default async function BlogAlibagTimelinePage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -66,10 +67,7 @@ export default function BlogAlibagTimelinePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
+      <JsonLd data={articleSchema} />
 
       {/* ── ARTICLE HERO ── */}
       <section className="pt-40 pb-16 bg-charcoal-900">

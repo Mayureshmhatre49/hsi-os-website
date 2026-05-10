@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Mumbai Luxury Interiors — Premium Apartment & Penthouse Execution | HSIOS™',
+  title: 'Mumbai Luxury Interiors — Apartments & Penthouses',
   description:
     'Premium interior execution for Mumbai apartments, penthouses, and high-rises. HSIOS™ navigates society approvals, high-rise logistics, and vendor coordination with full cost transparency.',
-  alternates: { canonical: 'https://www.hsios.in/mumbai-luxury-interiors' },
+  alternates: getAlternates('/mumbai-luxury-interiors'),
   openGraph: {
-    title: 'Mumbai Luxury Interiors — Premium Apartment & Penthouse Execution | HSIOS™',
+    title: 'Mumbai Luxury Interiors — Apartments & Penthouses',
     description: 'Premium interior execution for Mumbai luxury residences — society-compliant, fully transparent, powered by HSIOS™.',
     url: 'https://www.hsios.in/mumbai-luxury-interiors',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
 
@@ -61,7 +64,7 @@ const challenges = [
   },
 ]
 
-export default function MumbaiLuxuryInteriorsPage() {
+export default async function MumbaiLuxuryInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -74,10 +77,10 @@ export default function MumbaiLuxuryInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Mumbai Luxury Interiors', url: 'https://www.hsios.in/mumbai-luxury-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

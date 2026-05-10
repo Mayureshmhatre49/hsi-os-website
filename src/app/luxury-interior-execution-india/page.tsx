@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Luxury Interior Execution Company in India — HSIOS™ | Hestia Smart Interiors',
+  title: 'Luxury Interior Execution Company in India — HSIOS™',
   description:
     'India\'s leading luxury interior execution company. HSIOS™ brings structured project management, live cost tracking, and multi-trade coordination to premium villas and residences across Mumbai, Bangalore, Pune, and Goa.',
   alternates: { canonical: 'https://www.hsios.in/luxury-interior-execution-india' },
@@ -65,7 +66,7 @@ const faqs = [
   },
 ]
 
-export default function LuxuryInteriorExecutionIndiaPage() {
+export default async function LuxuryInteriorExecutionIndiaPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,10 +79,7 @@ export default function LuxuryInteriorExecutionIndiaPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
@@ -277,7 +275,7 @@ export default function LuxuryInteriorExecutionIndiaPage() {
           <RevealOnScroll>
             <div className="section-label text-white/70 mb-4">Ready to Execute?</div>
             <h2 className="font-serif text-display-md text-white mb-5">
-              India&apos;s Finest Homes Deserve Flawless Execution.
+              India&apos;s Finest Homes Deserve Documented Execution.
             </h2>
             <p className="text-white/80 leading-relaxed mb-8">
               Structured delivery. Complete cost transparency. A finished home that matches

@@ -5,13 +5,13 @@ const items = [
   'Build Once. Build Right.',
   'Where Luxury Meets Logic.',
   'Powered by HSIOS™',
-  'Intelligent Planning. Flawless Execution.',
+  'Intelligent Planning. Documented Execution.',
   'Sustainability Without Compromise.',
   'The Future of Premium Interiors.',
   'Alibag · Mumbai · Pune · Goa · Beyond.',
 ]
 
-// Duplicate for seamless CSS loop
+// Duplicated so the CSS marquee loops without a visible reset
 const doubled = [...items, ...items]
 
 export default function MarqueeTicker() {

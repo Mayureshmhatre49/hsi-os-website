@@ -2,12 +2,18 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Premium Turnkey Home Interiors — HSIOS™ | Hestia Smart Interiors',
+  title: 'Premium Turnkey Home Interiors — HSIOS™',
   description:
     'Premium turnkey home interior execution across India. HSIOS™ manages design coordination, procurement, multi-trade execution, and handover — one accountable partner, one finished home.',
-  alternates: { canonical: 'https://www.hsios.in/turnkey-home-interiors' },
+  /*
+   * Canonical-merged with /luxury-interior-execution-india to consolidate
+   * keyword authority across overlapping nationwide execution pages.
+   * The page stays accessible; Google should attribute ranking signals to the canonical.
+   */
+  alternates: { canonical: 'https://www.hsios.in/luxury-interior-execution-india' },
   openGraph: {
     title: 'Premium Turnkey Home Interiors — HSIOS™',
     description: 'True turnkey luxury interior execution — one partner, zero chaos, from drawings to handover.',
@@ -65,7 +71,7 @@ const faqs = [
   },
 ]
 
-export default function TurnkeyHomeInteriorsPage() {
+export default async function TurnkeyHomeInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,10 +84,7 @@ export default function TurnkeyHomeInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

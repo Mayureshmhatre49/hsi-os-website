@@ -2,15 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Alibag Villa Interiors — Premium Turnkey Execution by HSIOS™',
+  title: 'Alibag Villa Interiors — Premium Interior Execution by HSIOS™',
   description:
     'Premium villa interior execution in Alibag. HSIOS™ manages coastal material specs, monsoon scheduling, 15+ vendor coordination, and complete cost transparency for luxury second homes.',
-  alternates: { canonical: 'https://www.hsios.in/alibag-villa-interiors' },
+  alternates: {
+    ...getAlternates('/alibag-villa-interiors'),
+  },
   openGraph: {
-    title: 'Alibag Villa Interiors — Premium Turnkey Execution by HSIOS™',
-    description: 'Premium villa interior execution in Alibag — coastal expertise, flawless delivery, powered by HSIOS™.',
+    title: 'Alibag Villa Interiors — Premium Interior Execution by HSIOS™',
+    description: 'Premium villa interior execution in Alibag — coastal material expertise, milestone-verified delivery, powered by HSIOS™.',
     url: 'https://www.hsios.in/alibag-villa-interiors',
   },
 }
@@ -61,7 +65,7 @@ const challenges = [
   },
 ]
 
-export default function AlibagVillaInteriorsPage() {
+export default async function AlibagVillaInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -74,10 +78,10 @@ export default function AlibagVillaInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Alibag Villa Interiors', url: 'https://www.hsios.in/alibag-villa-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
@@ -162,7 +166,7 @@ export default function AlibagVillaInteriorsPage() {
             <p className="text-warmgray-600 leading-relaxed mb-6">
               Alibag is no longer just a weekend getaway — it has matured into a premier destination
               for primary and secondary luxury residences. But many homeowners face a rude awakening
-              when execution begins. The gap between a stunning 3D render and the on-ground reality
+              when execution begins. The gap between a considered 3D render and the on-ground reality
               of a coastal, semi-remote site is vast.
             </p>
             <p className="text-warmgray-600 leading-relaxed mb-10">

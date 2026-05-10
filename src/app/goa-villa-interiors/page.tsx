@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Goa Villa Interiors — Luxury Holiday Home Execution by Hestia Smart Interiors',
   description:
     'Premium villa interior execution in Goa. HSI OS brings transparent project management, real-time cost tracking and precise timelines to luxury holiday homes — managed remotely.',
-  alternates: { canonical: 'https://www.hsios.in/goa-villa-interiors' },
+  alternates: getAlternates('/goa-villa-interiors'),
   openGraph: {
     title: 'Goa Villa Interiors — Hestia Smart Interiors',
     description: 'Luxury Goa villa execution with total transparency, powered by HSIOS™.',
     url: 'https://www.hsios.in/goa-villa-interiors',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
 
@@ -61,7 +64,7 @@ const challenges = [
   },
 ]
 
-export default function GoaVillaInteriorsPage() {
+export default async function GoaVillaInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -74,10 +77,10 @@ export default function GoaVillaInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Goa Villa Interiors', url: 'https://www.hsios.in/goa-villa-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
@@ -167,7 +170,7 @@ export default function GoaVillaInteriorsPage() {
               predictable execution nearly impossible without a rigid system in place.
             </p>
             <p className="text-warmgray-600 leading-relaxed">
-              HSI OS is that system. We bring military-grade structure to coastal execution —
+              HSI OS is that system. We bring execution intelligence built for coastal complexity —
               allowing homeowners based in Mumbai, Delhi or abroad to build in Goa without the
               anxiety of the unknown. Every rupee spent is audited. Every day of work is logged.
               Every change must pass through your digital approval funnel.

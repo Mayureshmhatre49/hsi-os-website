@@ -6,7 +6,7 @@ import { MessageCircle, Mail, MapPin, CheckCircle2 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 const projectTypes = [
-  'Villa — Full Turnkey Interior',
+  'Villa — Complete End-to-End Interior',
   'Premium Apartment',
   'Holiday Home / Farmhouse',
   'Luxury Renovation',
@@ -88,7 +88,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="py-32 bg-charcoal-800">
+      <section className="py-20 md:py-32 bg-charcoal-800">
         <div className="container-luxury">
           <RevealOnScroll>
             <div className="max-w-xl">
@@ -109,7 +109,7 @@ export default function ContactPage() {
       {/* ── CONTACT LAYOUT ────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-5 gap-16">
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
 
             {/* Info Column */}
             <div className="lg:col-span-2">
@@ -208,7 +208,7 @@ export default function ContactPage() {
             {/* Form Column */}
             <div className="lg:col-span-3">
               <RevealOnScroll delay={0.1}>
-                <div className="bg-white rounded-4xl p-10 border border-ivory-300 shadow-luxury">
+                <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-ivory-300 shadow-luxury">
 
                   {status === 'success' ? (
                     <div className="text-center py-16">

@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Villa Interiors in Lonavala & Karjat — Hill Retreat Execution | HSIOS™',
+  title: 'Villa Interiors in Lonavala & Karjat — Hill Retreat Execution',
   description:
     'Premium villa interior execution in Lonavala, Khandala, and Karjat. HSIOS™ manages luxury hill retreat builds with transparent cost tracking, remote owner dashboards, and multi-trade coordination.',
-  alternates: { canonical: 'https://www.hsios.in/lonavala-villa-interiors' },
+  alternates: getAlternates('/lonavala-villa-interiors'),
   openGraph: {
-    title: 'Villa Interiors in Lonavala & Karjat — HSIOS™ | Hestia Smart Interiors',
+    title: 'Villa Interiors in Lonavala & Karjat — HSIOS™',
     description: 'Luxury hill retreat execution in Lonavala and Karjat, powered by HSIOS™.',
     url: 'https://www.hsios.in/lonavala-villa-interiors',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
 
@@ -65,7 +68,7 @@ const faqs = [
   },
 ]
 
-export default function LonavalaVillaInteriorsPage() {
+export default async function LonavalaVillaInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,10 +81,10 @@ export default function LonavalaVillaInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Lonavala Villa Interiors', url: 'https://www.hsios.in/lonavala-villa-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

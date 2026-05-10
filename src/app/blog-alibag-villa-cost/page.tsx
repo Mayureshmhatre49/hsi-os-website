@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'How Much Does a Villa Interior Cost in Alibag? — HSI OS',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogAlibagVillaCostPage() {
+export default async function BlogAlibagVillaCostPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -28,10 +29,7 @@ export default function BlogAlibagVillaCostPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
+      <JsonLd data={articleSchema} />
 
       {/* ── ARTICLE HERO ── */}
       <section className="pt-40 pb-16 bg-charcoal-900">

@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Case Studies & Projects — Luxury Villa Interiors by HSIOS™ | Hestia Smart Interiors',
+  title: 'Case Studies & Projects — Luxury Villa Interiors by HSIOS™',
   description:
     'See how HSIOS™ delivered 7 premium villa interiors with zero budget overruns — conflicts detected pre-execution, real-time budget tracking, and full documentation from start to handover.',
-  alternates: { canonical: 'https://www.hsios.in/projects' },
+  alternates: getAlternates('/projects'),
 }
 
 const projects = [
@@ -16,8 +18,8 @@ const projects = [
     location: 'Alibag',
     tag: '6 Bedrooms',
     image: '/hestia-casa-frangipani.jpg',
-    desc: 'A full-turnkey 6-bedroom villa in Alibag — bespoke interiors, complete privacy, and complex multi-trade coordination across 6,500 sq ft.',
-    href: 'https://hestiavillas.in/case_study/casa-frangipani-rent-and-buy/',
+    desc: 'A complete end-to-end 6-bedroom villa in Alibag — bespoke interiors, documented accountability, and complex multi-trade coordination across 6,500 sq ft.',
+    href: '/projects/casa-frangipani',
     featured: true,
     metrics: [
       { label: 'Conflicts Detected Pre-Execution', value: '12' },
@@ -95,7 +97,7 @@ const projects = [
     location: 'Alibag',
     tag: 'Family Residence',
     image: '/hestia-villa-awas.jpg',
-    desc: 'Two existing houses merged into one seamless family residence for 10 — the most structurally complex project in the Hestia portfolio.',
+    desc: 'Two existing houses merged into one unified family residence for 10 — the most structurally complex project in the Hestia portfolio.',
     href: 'https://hestiavillas.in/case_study/villa-awas/',
     featured: true,
     metrics: [
@@ -109,10 +111,10 @@ const projects = [
 const spotlights = [
   {
     name: 'Casa Frangipani',
-    location: 'Alibag · 6 Bedrooms · Full Turnkey',
+    location: 'Alibag · 6 Bedrooms · Complete Execution',
     image: '/hestia-casa-frangipani.jpg',
     href: 'https://hestiavillas.in/case_study/casa-frangipani-rent-and-buy/',
-    challenge: 'A 6-bedroom full-turnkey villa demanding precise coordination across civil, plumbing, HVAC, electrical, carpentry, and finishing trades — simultaneously. Over 6,500 sq ft of premium space with zero margin for rework.',
+    challenge: 'A 6-bedroom complete execution villa demanding precise coordination across civil, plumbing, HVAC, electrical, carpentry, and finishing trades — simultaneously. Over 6,500 sq ft of premium space with zero margin for rework.',
     interventions: [
       'HVAC duct routing vs false ceiling depth — flagged and re-routed before site work',
       'Plumbing vs kitchen island conflict — resolved at planning stage, saving 3+ weeks',
@@ -137,14 +139,14 @@ const spotlights = [
       'Structural wall alignment mapped across both buildings — 6 critical conflicts identified',
       'Legacy plumbing rerouted to unified system before finishes began',
       'Electrical grid unification planned and sequenced to avoid double-work',
-      'Shared wall and ceiling details redesigned to conceal the join seamlessly',
+      'Shared wall and ceiling details redesigned to conceal the join precisely',
       'Material sourcing consolidated across both structures to maintain finish consistency',
     ],
     outcomes: [
       { value: '18', label: 'Conflicts Detected Pre-Execution' },
       { value: '6', label: 'Structural Clashes Resolved' },
       { value: '100%', label: 'Budget Adherence' },
-      { value: '1', label: 'Seamless Family Residence' },
+      { value: '1', label: 'Unified Family Residence' },
     ],
   },
 ]
@@ -156,9 +158,32 @@ const learnings = [
   { n: '04', title: 'Vendor Management is the Hidden Bottleneck', desc: 'Procurement delays and vendor misalignment are the most underestimated risk in interior execution. HSIOS™ addresses this directly.' },
 ]
 
-export default function ProjectsPage() {
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Hestia Smart Interiors — Luxury Villa Portfolio',
+  description: 'Premium villa interior projects delivered by Hestia Smart Interiors using HSIOS™',
+  url: 'https://www.hsios.in/projects',
+  numberOfItems: projects.length,
+  itemListElement: projects.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: p.name,
+    description: p.desc,
+    url: p.href ?? 'https://www.hsios.in/projects',
+  })),
+}
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'Projects', url: 'https://www.hsios.in/projects' },
+])
+
+export default async function ProjectsPage() {
   return (
     <>
+      <JsonLd data={[itemListSchema, breadcrumbSchema]} />
+
       {/* ── PAGE HERO ─────────────────────────────────────── */}
       <section className="relative py-40 bg-charcoal-800 overflow-hidden">
         <div className="absolute inset-0">
@@ -177,8 +202,8 @@ export default function ProjectsPage() {
             <div className="max-w-2xl">
               <div className="section-label text-sandstone-400">Our Work</div>
               <h1 className="font-serif text-display-xl text-white mb-6">
-                Built on Real<br />
-                <em className="not-italic text-sandstone-300">Project Experience.</em>
+                Premium Villa Interior<br />
+                <em className="not-italic text-sandstone-300">Case Studies, Delivered.</em>
               </h1>
               <p className="text-warmgray-300 text-lg leading-relaxed">
                 Every feature of HSIOS™ was forged through the real-world challenges of premium villa execution.
@@ -217,17 +242,11 @@ export default function ProjectsPage() {
           </RevealOnScroll>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map(({ name, location, tag, image, desc, href, featured, metrics }, i) => (
-              <RevealOnScroll key={name} delay={i * 0.07}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`
-                    group card-luxury block
-                    ${featured ? 'ring-1 ring-sandstone-400/40' : ''}
-                  `}
-                >
+            {projects.map(({ name, location, tag, image, desc, href, featured, metrics }, i) => {
+              const isInternal = href.startsWith('/')
+              const cardClassName = 'group card-luxury flex h-full flex-col'
+              const inner = (
+                <>
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={image}
@@ -243,7 +262,7 @@ export default function ProjectsPage() {
                       </div>
                     )}
                   </div>
-                  <div className="p-7">
+                  <div className="p-7 flex flex-1 flex-col">
                     <div className="text-xs font-semibold tracking-widest uppercase text-sandstone-600 mb-2">
                       {location} · {tag}
                     </div>
@@ -251,12 +270,12 @@ export default function ProjectsPage() {
                       {name}
                     </h3>
                     <p className="text-warmgray-600 text-sm leading-relaxed mb-5">{desc}</p>
-                    {/* Metrics strip */}
-                    <div className="grid grid-cols-3 gap-2 mb-5 pt-4 border-t border-ivory-300">
+                    {/* Metrics strip — pushed to bottom; min-h on labels keeps the row's baseline even */}
+                    <div className="grid grid-cols-3 gap-2 mb-5 pt-4 border-t border-ivory-300 mt-auto">
                       {metrics.map(({ label, value }) => (
                         <div key={label} className="text-center">
                           <div className="font-serif text-lg font-bold text-sandstone-600">{value}</div>
-                          <div className="text-[10px] leading-tight text-warmgray-500 mt-0.5">{label}</div>
+                          <div className="text-[10px] leading-tight text-warmgray-500 mt-0.5 min-h-[2.5em]">{label}</div>
                         </div>
                       ))}
                     </div>
@@ -267,9 +286,20 @@ export default function ProjectsPage() {
                       </svg>
                     </span>
                   </div>
-                </a>
-              </RevealOnScroll>
-            ))}
+                </>
+              )
+              return (
+                <RevealOnScroll key={name} delay={i * 0.07} className="h-full">
+                  {isInternal ? (
+                    <Link href={href} className={cardClassName}>{inner}</Link>
+                  ) : (
+                    <a href={href} target="_blank" rel="noopener noreferrer" className={cardClassName}>
+                      {inner}
+                    </a>
+                  )}
+                </RevealOnScroll>
+              )
+            })}
           </div>
         </div>
       </section>

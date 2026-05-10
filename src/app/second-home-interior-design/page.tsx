@@ -2,12 +2,17 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Second Home & Holiday Home Interior Design — Execution by HSIOS™',
   description:
     'Premium interior execution for second homes and holiday villas across India. HSIOS™ manages Goa beach houses, hill retreat builds, and weekend homes with remote owner dashboards, transparent costs, and zero site visit dependence.',
-  alternates: { canonical: 'https://www.hsios.in/second-home-interior-design' },
+  /*
+   * Canonical-merged with /luxury-interior-execution-india to consolidate
+   * keyword authority across overlapping nationwide execution pages.
+   */
+  alternates: { canonical: 'https://www.hsios.in/luxury-interior-execution-india' },
   openGraph: {
     title: 'Second Home & Holiday Home Interior Design — HSIOS™',
     description: 'Luxury second home and holiday villa execution across India — managed remotely, delivered precisely.',
@@ -74,7 +79,7 @@ const faqs = [
   },
 ]
 
-export default function SecondHomeInteriorDesignPage() {
+export default async function SecondHomeInteriorDesignPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -87,10 +92,7 @@ export default function SecondHomeInteriorDesignPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

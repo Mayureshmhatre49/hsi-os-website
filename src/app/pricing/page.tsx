@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, Zap, BarChart2, Eye, CheckSquare, Leaf, Archive, Maximize2, Layers, MapPin, GitBranch } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Transparent Project Investment | HSIOS™ | Hestia Smart Interiors',
+  title: 'Pricing — Transparent Project Investment',
   description:
     'Understand what drives luxury interior project investment in India. HSIOS™ offers structured, transparent pricing with no hidden costs — from villa execution to premium apartment fitouts.',
-  alternates: { canonical: 'https://www.hsios.in/pricing' },
+  alternates: getAlternates('/pricing'),
 }
 
 const drivers = [
@@ -163,7 +165,16 @@ const faqs = [
   },
 ]
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.hsios.in' },
+      { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.hsios.in/pricing' },
+    ],
+  }
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -176,14 +187,11 @@ export default function PricingPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumbSchema]} />
 
       {/* ── HERO ──────────────────────────────────────────── */}
       <section
-        className="relative py-40 overflow-hidden"
+        className="relative py-24 md:py-40 overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #3A3530 0%, #1C1C1E 100%)' }}
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-bronze-700/10 rounded-full blur-3xl pointer-events-none" />
@@ -212,7 +220,7 @@ export default function PricingPage() {
       {/* ── WHAT DRIVES COST ──────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Cost Drivers</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               What Determines Your<br />
@@ -274,7 +282,7 @@ export default function PricingPage() {
       {/* ── INVESTMENT TIERS ──────────────────────────────── */}
       <section className="section-py bg-charcoal-800">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label text-sandstone-400">Investment Benchmarks</div>
             <h2 className="font-serif text-display-lg text-white">
               What Projects Typically<br />
@@ -353,7 +361,7 @@ export default function PricingPage() {
       {/* ── WHAT'S ALWAYS INCLUDED ────────────────────────── */}
       <section className="section-py bg-ivory-200">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Every Project. Every Time.</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               What HSIOS™ Delivers<br />
@@ -383,7 +391,7 @@ export default function PricingPage() {
       {/* ── COMPARISON ────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Why It Matters</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               HSIOS™ vs a Traditional<br />
@@ -392,8 +400,8 @@ export default function PricingPage() {
           </RevealOnScroll>
 
           <div className="max-w-4xl">
-            {/* Header */}
-            <div className="grid grid-cols-3 gap-4 mb-3 px-6">
+            {/* Desktop header — hidden on mobile */}
+            <div className="hidden sm:grid grid-cols-3 gap-4 mb-3 px-6">
               <div className="text-xs font-bold tracking-widest uppercase text-warmgray-500" />
               <div className="text-xs font-bold tracking-widest uppercase text-warmgray-500 text-center">Traditional Contractor</div>
               <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 text-center">HSIOS™</div>
@@ -402,15 +410,39 @@ export default function PricingPage() {
             <div className="space-y-3">
               {comparisons.map(({ point, traditional, hsi }, i) => (
                 <RevealOnScroll key={point} delay={i * 0.05}>
-                  <div className="grid grid-cols-3 gap-4 bg-white border border-ivory-300 rounded-2xl p-6 items-start">
-                    <div className="font-semibold text-sm text-charcoal-800">{point}</div>
-                    <div className="flex items-start gap-2.5 text-sm text-warmgray-500">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-2 block" />
-                      {traditional}
+                  {/* Desktop: 3-col | Mobile: stacked */}
+                  <div className="bg-white border border-ivory-300 rounded-2xl overflow-hidden">
+                    {/* Point label — full width on mobile, col-1 on desktop */}
+                    <div className="px-5 py-3 bg-ivory-50 border-b border-ivory-200 sm:hidden">
+                      <span className="font-semibold text-sm text-charcoal-800">{point}</span>
                     </div>
-                    <div className="flex items-start gap-2.5 text-sm text-warmgray-700 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-2 block" />
-                      {hsi}
+                    <div className="hidden sm:grid grid-cols-3 gap-4 p-6 items-start">
+                      <div className="font-semibold text-sm text-charcoal-800">{point}</div>
+                      <div className="flex items-start gap-2.5 text-sm text-warmgray-500">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-2 block" />
+                        {traditional}
+                      </div>
+                      <div className="flex items-start gap-2.5 text-sm text-warmgray-700 font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-2 block" />
+                        {hsi}
+                      </div>
+                    </div>
+                    {/* Mobile: side-by-side before/after */}
+                    <div className="grid grid-cols-2 divide-x divide-ivory-200 sm:hidden">
+                      <div className="p-4">
+                        <div className="text-[10px] font-bold tracking-widest uppercase text-warmgray-400 mb-1.5">Traditional</div>
+                        <div className="flex items-start gap-2 text-xs text-warmgray-500 leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5 block" />
+                          {traditional}
+                        </div>
+                      </div>
+                      <div className="p-4 bg-sandstone-50/40">
+                        <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600 mb-1.5">HSIOS™</div>
+                        <div className="flex items-start gap-2 text-xs text-warmgray-700 font-medium leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-1.5 block" />
+                          {hsi}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </RevealOnScroll>
@@ -424,7 +456,7 @@ export default function PricingPage() {
       <section className="py-20 bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
-            <div className="card-luxury bg-white p-10 text-center">
+            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
               <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
               <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
                 The HSIOS™ fee paid for itself before site work even started. One conflict they caught —
@@ -446,7 +478,7 @@ export default function PricingPage() {
       {/* ── FAQ ───────────────────────────────────────────── */}
       <section className="section-py bg-charcoal-800">
         <div className="container-luxury max-w-3xl">
-          <RevealOnScroll className="mb-16">
+          <RevealOnScroll className="mb-10 lg:mb-16">
             <div className="section-label text-sandstone-400">Pricing FAQ</div>
             <h2 className="font-serif text-display-lg text-white">
               Common Pricing<br />
@@ -479,7 +511,7 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn bg-white text-charcoal-800 hover:bg-ivory-100">Book a Pricing Call</Link>
-              <Link href="/demo" className="btn btn-outline-white">See the Platform First</Link>
+              <a href="https://os.hsios.in/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-white">Try the Platform →</a>
             </div>
           </div>
         </RevealOnScroll>

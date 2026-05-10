@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
+import { getAlternates, breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Insights — Execution Intelligence for Premium Interiors | HSI',
+  title: 'Insights — Execution Intelligence for Premium Interiors',
   description:
     'Field notes, guides and thought leadership on luxury interior execution in India. Deep dives on Alibag villa interiors, NRI remote management and cost transparency.',
-  alternates: { canonical: 'https://www.hsios.in/insights' },
+  alternates: getAlternates('/insights'),
 }
 
 const posts = [
@@ -17,6 +19,13 @@ const posts = [
     excerpt: 'Everything you need to know about weather-proofing, material selection, and executing a premium coastal home without delays or surprises.',
     readTime: '12 min read',
     featured: true,
+  },
+  {
+    slug: 'insights/designer-vs-execution-firm',
+    category: 'Pillar Guide · Hiring Decisions',
+    title: 'Interior Designer vs Execution Firm — What\'s the Difference?',
+    excerpt: 'Most luxury home projects fail not in design but in the gap between what was drawn and what was built. A working guide to when to hire which.',
+    readTime: '8 min read',
   },
   {
     slug: 'blog-sustainable-luxury',
@@ -72,8 +81,29 @@ const posts = [
 export default function InsightsPage() {
   const [featured, ...rest] = posts
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'HSIOS™ Insights — Execution Intelligence for Premium Interiors',
+    description: 'Guides and field notes on luxury interior execution in India.',
+    url: 'https://www.hsios.in/insights',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://www.hsios.in/${p.slug}`,
+      name: p.title,
+    })),
+  }
+
+  const breadcrumbSchema = breadcrumb([
+    { name: 'Home', url: 'https://www.hsios.in' },
+    { name: 'Insights', url: 'https://www.hsios.in/insights' },
+  ])
+
   return (
     <>
+      <JsonLd data={[itemListSchema, breadcrumbSchema]} />
       {/* ── HERO ──────────────────────────────────────────── */}
       <section className="py-32 bg-charcoal-800">
         <div className="container-luxury">

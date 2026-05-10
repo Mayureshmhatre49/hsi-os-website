@@ -2,18 +2,34 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'NRI Home Interior Management — Build in India from Anywhere | HSIOS™',
+  title: 'NRI Home Interior Management — Build in India from Anywhere',
   description:
     'Full interior execution management for NRIs building in India. HSIOS™ gives you real-time project visibility, cost transparency, and digital approvals — no site visits required.',
-  alternates: { canonical: 'https://www.hsios.in/nri-home-interior-management' },
+  alternates: getAlternates('/nri-home-interior-management'),
   openGraph: {
-    title: 'NRI Home Interior Management — Build in India from Anywhere | HSIOS™',
+    title: 'NRI Home Interior Management — Build in India from Anywhere',
     description: 'Build your luxury Indian home from Dubai, London, or New York with total transparency — powered by HSIOS™.',
     url: 'https://www.hsios.in/nri-home-interior-management',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
+
+const serviceData = serviceSchema({
+  name: 'NRI Remote Interior Management — Build in India from Anywhere',
+  description:
+    'Complete interior execution management for NRI homeowners. Real-time project visibility, cost transparency, and digital approvals — no site visits required, powered by HSIOS™.',
+  url: 'https://www.hsios.in/nri-home-interior-management',
+  areaServed: ['India', 'United Kingdom', 'United States', 'Australia', 'Singapore', 'United Arab Emirates'],
+})
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'NRI Home Management', url: 'https://www.hsios.in/nri-home-interior-management' },
+])
 
 const faqs = [
   {
@@ -65,7 +81,7 @@ const painPoints = [
   },
 ]
 
-export default function NriHomeInteriorManagementPage() {
+export default async function NriHomeInteriorManagementPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,10 +94,7 @@ export default function NriHomeInteriorManagementPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, serviceData, breadcrumbSchema]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
@@ -161,11 +174,11 @@ export default function NriHomeInteriorManagementPage() {
         <div className="container-luxury max-w-4xl">
           <RevealOnScroll>
             <h2 className="font-serif text-display-md text-charcoal-900 mb-6">
-              A New Standard for Remote Builds
+              Four Thousand Miles Is Not a Barrier.<br />
+              <span className="text-sandstone-600">It Is a Dashboard.</span>
             </h2>
             <p className="text-warmgray-600 leading-relaxed mb-8">
-              HSI OS completely redefines how NRIs engage with their projects. Instead of
-              unstructured communication, you get absolute execution intelligence.
+              HSIOS™ gives NRI homeowners structured execution intelligence — not WhatsApp updates. Every day, every rupee, and every decision is documented and accessible from anywhere in the world.
             </p>
           </RevealOnScroll>
           <div className="space-y-8">
@@ -232,12 +245,11 @@ export default function NriHomeInteriorManagementPage() {
           <RevealOnScroll>
             <div className="section-label text-sandstone-400 mb-4">For NRIs</div>
             <h2 className="font-serif text-display-lg text-white mb-6">
-              Your Indian Home Deserves{' '}
-              <span className="text-sandstone-400">More Than Hope</span>
+              Your Investment. Your Vision.<br />
+              <span className="text-sandstone-400">Your Control — From Anywhere.</span>
             </h2>
             <p className="text-warmgray-400 mb-8">
-              You are investing millions. The execution layer should match that investment. Plug into
-              a digital execution engine — not a contractor&apos;s WhatsApp.
+              You are investing significantly. The execution layer should match that investment — structured, documented, and fully visible to you, regardless of where you are in the world.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a

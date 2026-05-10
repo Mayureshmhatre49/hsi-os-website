@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Luxury Interiors in Bangalore — Smart Execution by HSIOS™ | Hestia Smart Interiors',
+  title: 'Luxury Interiors in Bangalore — Smart Execution by HSIOS™',
   description:
     'Premium interior execution for Bangalore villas, apartments, and tech-enabled homes. HSIOS™ handles multi-trade coordination, smart home integration, and live budget tracking — Whitefield, Koramangala, Indiranagar.',
-  alternates: { canonical: 'https://www.hsios.in/bangalore-luxury-interiors' },
+  alternates: getAlternates('/bangalore-luxury-interiors'),
   openGraph: {
     title: 'Luxury Interiors in Bangalore — Smart Execution by HSIOS™',
     description: 'Modern, tech-enabled premium interior execution for Bangalore residences, powered by HSIOS™.',
     url: 'https://www.hsios.in/bangalore-luxury-interiors',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
 
@@ -34,7 +37,7 @@ const challenges = [
   },
   {
     title: 'Multi-Trade Orchestration',
-    desc: 'Interior designers, HVAC consultants, acoustic engineers, home automation vendors, stone installers, carpenters — all sequenced so the final product is flawless and no trade stalls waiting on another.',
+    desc: 'Interior designers, HVAC consultants, acoustic engineers, home automation vendors, stone installers, carpenters — all sequenced so the final product is milestone-verified and no trade stalls waiting on another.',
   },
   {
     title: 'Digital Change Order Workflow',
@@ -65,7 +68,7 @@ const faqs = [
   },
 ]
 
-export default function BangaloreLuxuryInteriorsPage() {
+export default async function BangaloreLuxuryInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,10 +81,10 @@ export default function BangaloreLuxuryInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Bangalore Luxury Interiors', url: 'https://www.hsios.in/bangalore-luxury-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

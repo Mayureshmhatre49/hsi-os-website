@@ -1,17 +1,21 @@
 import Link from 'next/link'
 
-const footerLinks = {
+type FooterLink = { href: string; label: string; external?: boolean }
+
+const footerLinks: Record<string, FooterLink[]> = {
   Platform: [
-    { href: '/hsi-os',       label: 'HSIOS™ Platform' },
-    { href: '/how-it-works', label: 'How It Works' },
-    { href: '/projects',     label: 'Projects' },
-    { href: '/insights',     label: 'Insights' },
-    { href: '/contact',      label: 'Request Consultation' },
+    { href: 'https://os.hsios.in/', label: 'Try HSIOS™ →',    external: true },
+    { href: '/hsi-os',              label: 'Platform Overview' },
+    { href: '/how-it-works',        label: 'How It Works' },
+    { href: '/projects',            label: 'Projects' },
+    { href: '/insights',            label: 'Insights' },
+    { href: '/contact',             label: 'Request Consultation' },
   ],
   Solutions: [
     { href: '/for-homeowners',               label: 'For Homeowners' },
     { href: '/for-developers',               label: 'For Developers' },
     { href: '/for-architects',               label: 'For Architects' },
+    { href: '/commercial-interiors',         label: 'Commercial Spaces' },
     { href: '/nri-home-interior-management', label: 'NRI Remote Build' },
     { href: '/demo',                         label: 'Request a Demo' },
     { href: '/about',                        label: 'Our Story' },
@@ -47,8 +51,8 @@ export default function Footer() {
             </Link>
 
             <p className="text-warmgray-300 text-sm leading-relaxed max-w-xs mb-8">
-              Luxury turnkey interiors for villas, premium homes and holiday properties —
-              delivered with precision, transparency and responsibility through HSIOS™.
+              Precision interior execution for luxury villas, premium homes and holiday properties —
+              delivered with total transparency and documented accountability through HSIOS™.
             </p>
 
             {/* Contact */}
@@ -93,7 +97,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/hestia-smart-interiors"
+                href="https://www.linkedin.com/company/hestiasmartinteriors"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -112,11 +116,23 @@ export default function Footer() {
             <div key={heading}>
               <h4 className="text-xs font-semibold tracking-[0.14em] uppercase text-sandstone-400 mb-5">{heading}</h4>
               <ul className="space-y-3">
-                {links.map(({ href, label }) => (
+                {links.map(({ href, label, external }) => (
                   <li key={href}>
-                    <Link href={href} className="text-sm text-warmgray-400 hover:text-white transition-colors duration-200">
-                      {label}
-                    </Link>
+                    {external ? (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${label.replace(/[→]/g, '').trim()} (opens in new tab)`}
+                        className="text-sm text-sandstone-400 hover:text-sandstone-300 transition-colors duration-200 font-medium"
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <Link href={href} className="text-sm text-warmgray-400 hover:text-white transition-colors duration-200">
+                        {label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

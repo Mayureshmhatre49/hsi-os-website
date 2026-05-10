@@ -2,13 +2,28 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'For Architects & Designers — Protect Design Intent with HSIOS™',
   description:
     'HSIOS™ protects your design vision with conflict detection, execution intelligence, and real-time documentation. Built for premium villa and residential projects across India.',
-  alternates: { canonical: 'https://www.hsios.in/for-architects' },
+  alternates: getAlternates('/for-architects'),
 }
+
+const serviceData = serviceSchema({
+  name: 'Interior Execution Partner for Architects & Designers',
+  description:
+    'HSIOS™ works alongside architects to protect design intent — conflict detection, precision documentation, and execution intelligence from drawing board to handover.',
+  url: 'https://www.hsios.in/for-architects',
+  areaServed: ['India'],
+})
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'For Architects', url: 'https://www.hsios.in/for-architects' },
+])
 
 const challenges = [
   { title: 'Design intent lost in execution',          solution: 'HSIOS™ creates a shared digital record of every decision — site execution matches your specification exactly.' },
@@ -34,7 +49,7 @@ const useCases = [
   },
   {
     title: 'Developer Sample Flat Delivery',
-    desc: 'Your sample flat is the first impression of an entire development. HSIOS™ ensures it is delivered exactly to your specification — documented and defensible.',
+    desc: 'Your sample flat is the first impression of an entire development. HSIOS™ ensures it is delivered exactly to your specification — documented and repeatable.',
     image: '/hestia-villa-bellissimo.jpg',
   },
   {
@@ -44,11 +59,13 @@ const useCases = [
   },
 ]
 
-export default function ForArchitectsPage() {
+export default async function ForArchitectsPage() {
   return (
     <>
+      <JsonLd data={[serviceData, breadcrumbSchema]} />
+
       {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-end pb-20 overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-end pb-24 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/hestia-villa-vayu.jpg"
@@ -65,11 +82,11 @@ export default function ForArchitectsPage() {
             <div className="max-w-2xl">
               <div className="section-label text-sandstone-400">For Architects &amp; Designers</div>
               <h1 className="font-serif text-display-xl text-white mb-4">
-                Design Intent.<br />
-                <em className="not-italic text-sandstone-300">Flawlessly Executed.</em>
+                Your Design Survives<br />
+                <em className="not-italic text-sandstone-300">Every Site Decision.</em>
               </h1>
               <p className="font-serif text-lg text-sandstone-200 mb-4">
-                For architects who refuse to let their vision be lost on site.
+                That is our commitment to every architect we work with.
               </p>
               <p className="text-warmgray-200 text-lg leading-relaxed mb-8">
                 HSIOS™ is built with conflict detection, precision documentation, and execution intelligence — so your design survives the journey from drawing board to handover.
@@ -86,7 +103,7 @@ export default function ForArchitectsPage() {
       {/* ── CHALLENGES WE SOLVE ───────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">The Problems We Solve</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               What Every Architect<br />
@@ -115,7 +132,7 @@ export default function ForArchitectsPage() {
       {/* ── CONFLICT DETECTION CALLOUT ────────────────────── */}
       <section className="section-py bg-charcoal-800">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <RevealOnScroll>
               <div className="section-label text-sandstone-400">Conflict Detection Engine</div>
               <h2 className="font-serif text-display-md text-white mb-6">
@@ -177,11 +194,11 @@ export default function ForArchitectsPage() {
       {/* ── BENEFITS ──────────────────────────────────────── */}
       <section className="section-py bg-ivory-200">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">What HSIOS™ Delivers for Architects</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
-              Better Execution.<br />
-              <span className="text-sandstone-600">Better Outcomes.</span>
+              Six Capabilities.<br />
+              <span className="text-sandstone-600">All Protecting Your Intent.</span>
             </h2>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -203,7 +220,7 @@ export default function ForArchitectsPage() {
       {/* ── USE CASES ─────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Project Types</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               Built for Every Stage of{' '}
@@ -217,7 +234,7 @@ export default function ForArchitectsPage() {
                   <div className={`relative aspect-[16/9] lg:aspect-auto lg:min-h-[300px] ${i % 2 === 1 ? 'lg:order-last' : ''}`}>
                     <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                   </div>
-                  <div className="p-10">
+                  <div className="p-6 lg:p-10">
                     <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-3">Use Case {String(i + 1).padStart(2,'0')}</div>
                     <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">{title}</h3>
                     <p className="text-warmgray-600 leading-relaxed mb-6">{desc}</p>
@@ -234,7 +251,7 @@ export default function ForArchitectsPage() {
       <section className="py-20 bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
-            <div className="card-luxury bg-white p-10 text-center">
+            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
               <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
               <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
                 I was sceptical about bringing in an execution partner — I thought it would compromise my design control.

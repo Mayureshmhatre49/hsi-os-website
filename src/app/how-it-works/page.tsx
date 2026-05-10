@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { FileText, DollarSign, CalendarCheck } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'How It Works — The HSI Execution Process | Hestia Smart Interiors',
+  title: 'How It Works — The HSI Execution Process',
   description:
     'A structured, phase-by-phase approach to luxury interior execution. From project understanding to handover — here is exactly how HSI and HSIOS™ work.',
-  alternates: { canonical: 'https://www.hsios.in/how-it-works' },
+  alternates: getAlternates('/how-it-works'),
 }
 
 const phases = [
@@ -52,11 +55,39 @@ const phases = [
   },
 ]
 
-export default function HowItWorksPage() {
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How Hestia Smart Interiors Executes Your Luxury Interior Project',
+  description:
+    'A structured, phase-by-phase approach to premium interior execution — from project brief to handover, powered by HSIOS™.',
+  totalTime: 'PT8W',
+  estimatedCost: {
+    '@type': 'MonetaryAmount',
+    currency: 'INR',
+    minValue: '2500000',
+  },
+  step: phases.map((p) => ({
+    '@type': 'HowToStep',
+    name: p.title,
+    text: p.desc,
+    url: `https://www.hsios.in/how-it-works#phase-${p.n}`,
+    itemListElement: p.tasks.map((t) => ({ '@type': 'HowToDirection', text: t })),
+  })),
+}
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'How It Works', url: 'https://www.hsios.in/how-it-works' },
+])
+
+export default async function HowItWorksPage() {
   return (
     <>
+      <JsonLd data={[howToSchema, breadcrumbSchema]} />
+
       {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="py-32 bg-charcoal-800">
+      <section className="py-20 md:py-32 bg-charcoal-800">
         <div className="container-luxury">
           <RevealOnScroll>
             <div className="max-w-2xl">
@@ -133,7 +164,7 @@ export default function HowItWorksPage() {
       {/* ── WHY THIS WORKS ────────────────────────────────── */}
       <section className="section-py bg-ivory-200">
         <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
+          <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Why This Works</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               Structure Eliminates{' '}
@@ -142,13 +173,15 @@ export default function HowItWorksPage() {
           </RevealOnScroll>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { icon: '📋', title: 'Every Decision is Documented', desc: 'No verbal agreements. Every change, approval and decision is logged in HSIOS™ and visible to all stakeholders.' },
-              { icon: '💰', title: 'Every Rupee is Tracked', desc: 'Real-time cost visibility across every trade, vendor and line item. Surprises are identified — and resolved — before they become problems.' },
-              { icon: '📅', title: 'Every Milestone is Verified', desc: 'Work does not proceed past a milestone until the previous one passes a quality check. Progress is earned, not assumed.' },
-            ].map(({ icon, title, desc }) => (
+              { Icon: FileText,      title: 'Every Decision is Documented', desc: 'No verbal agreements. Every change, approval and decision is logged in HSIOS™ and visible to all stakeholders.' },
+              { Icon: DollarSign,    title: 'Every Rupee is Tracked', desc: 'Real-time cost visibility across every trade, vendor and line item. Surprises are identified — and resolved — before they become problems.' },
+              { Icon: CalendarCheck, title: 'Every Milestone is Verified', desc: 'Work does not proceed past a milestone until the previous one passes a quality check. Progress is earned, not assumed.' },
+            ].map(({ Icon, title, desc }) => (
               <RevealOnScroll key={title}>
                 <div className="card-warm p-8">
-                  <div className="text-4xl mb-5">{icon}</div>
+                  <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600 mb-5">
+                    <Icon size={18} strokeWidth={1.75} />
+                  </div>
                   <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
                 </div>
@@ -163,10 +196,11 @@ export default function HowItWorksPage() {
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">
-              Ready to Begin?
+              See the Process Applied<br />
+              <span className="text-sandstone-300">to Your Project.</span>
             </h2>
             <p className="text-warmgray-300 leading-relaxed mb-8">
-              Let us walk you through how this process would work for your specific project.
+              Book a private consultation. We will walk through each phase in relation to your specific scope, timeline, and investment.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn btn-bronze">Book Consultation →</Link>

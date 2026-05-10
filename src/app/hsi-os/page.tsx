@@ -8,14 +8,55 @@ import {
 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import MarqueeTicker from '@/components/ui/MarqueeTicker'
+import { JsonLd } from '@/lib/JsonLd'
 import PlatformPreview from '@/components/ui/PlatformPreview'
 import FAQAccordion from '@/components/ui/FAQAccordion'
+import { getAlternates } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'HSIOS™ Platform — The Operating System for Luxury Interior Execution',
   description:
     'HSIOS™ is purpose-built software for premium residential interior execution. Manage planning, budgeting, vendor coordination and real-time tracking in one unified platform.',
-  alternates: { canonical: 'https://www.hsios.in/hsi-os' },
+  alternates: getAlternates('/hsi-os'),
+}
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'HSIOS™',
+  alternateName: 'Hestia Smart Interior OS',
+  applicationCategory: 'BusinessApplication',
+  applicationSubCategory: 'Project Management',
+  operatingSystem: 'Web, iOS, Android',
+  url: 'https://www.hsios.in/hsi-os',
+  description:
+    'Purpose-built operating system for luxury interior execution — planning, budgeting, vendor management, conflict detection, and real-time client visibility in one platform.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'INR',
+    description: 'Included with all Hestia Smart Interiors project engagements',
+  },
+  creator: { '@id': 'https://www.hsios.in/#business' },
+  featureList: [
+    'Real-time project dashboard',
+    'Budget tracking and cost management',
+    'Vendor management and coordination',
+    'Conflict detection engine',
+    'Quality checkpoint management',
+    'NRI-friendly client portal',
+    'Audit trail and documentation',
+    'Multi-unit portfolio management',
+  ],
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.hsios.in' },
+    { '@type': 'ListItem', position: 2, name: 'HSIOS™ Platform', item: 'https://www.hsios.in/hsi-os' },
+  ],
 }
 
 const StatusDot = ({ done, live }: { done?: boolean; live?: boolean }) => (
@@ -180,23 +221,12 @@ const processSteps = [
   { n: 5, title: 'Delivery & Handover',   desc: 'Final handover & documentation',  chip: 'Keys delivered'                },
 ]
 
-const testimonials = [
-  {
-    initial: 'S', name: 'Saurabh M.', role: 'Homeowner · Alibag Villa',
-    quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSI OS gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered my home 3 weeks ahead of schedule.',
-    highlight: '3 weeks ahead of schedule.',
-    outcomes: ['Delivered 3 weeks early', '₹0 cost overrun', '100% transparent spend', 'Full OS dashboard access'],
-  },
-  {
-    initial: 'A', name: 'Ankit R.', role: 'NRI Client · Goa Project',
-    quote: 'As an NRI, I had no way of verifying what my previous contractor was charging me. HSI stepped in, onboarded my property, and suddenly I had complete visibility. The trust factor is unmatched.',
-    highlight: 'complete visibility.',
-  },
-]
 
-export default function HSIOSPage() {
+export default async function HSIOSPage() {
   return (
     <>
+      <JsonLd data={[softwareSchema, breadcrumbSchema]} />
+
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-charcoal-800">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-bronze-700/10 rounded-full blur-3xl pointer-events-none" />
@@ -212,13 +242,18 @@ export default function HSIOSPage() {
                 for <em className="not-italic text-sandstone-300">Premium Interiors.</em>
               </h1>
               <p className="text-warmgray-300 text-lg leading-relaxed mb-8 max-w-xl">
-                HSIOS™ brings military-grade execution intelligence to luxury villa and residential
-                interiors — real-time cost tracking, vendor coordination, and complete transparency
-                for every rupee and every day of your project.
+                HSIOS™ is execution intelligence built specifically for premium interiors — real-time cost tracking, trade sequencing, conflict detection, and complete project transparency for every rupee and every day of your engagement.
               </p>
               <div className="flex flex-wrap gap-4 mb-10">
-                <Link href="/contact" className="btn btn-bronze">Request a Demo →</Link>
-                <Link href="/how-it-works" className="btn btn-outline-white">See How It Works</Link>
+                <a
+                  href="https://os.hsios.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-bronze"
+                >
+                  Try HSIOS™ →
+                </a>
+                <Link href="/contact" className="btn btn-outline-white">Request a Demo</Link>
               </div>
               <div className="flex flex-wrap gap-8">
                 {[['7+','Premium Villas'],['₹100Cr+','Execution Value'],['100%','Cost Transparency'],['0','Surprises']].map(([v,l]) => (
@@ -326,7 +361,14 @@ export default function HSIOSPage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact" className="btn btn-bronze">Explore the Platform →</Link>
+              <a
+                href="https://os.hsios.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-bronze"
+              >
+                Access the Platform →
+              </a>
             </RevealOnScroll>
 
             <RevealOnScroll delay={0.1}>
@@ -532,7 +574,7 @@ export default function HSIOSPage() {
               <div className="rounded-3xl bg-ivory-100 border border-ivory-300 p-10 h-full flex flex-col">
                 <div className="section-label mb-6">For Homeowners</div>
                 <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">
-                  Your Dream Home,<br />
+                  The Home You Envisioned,<br />
                   <em className="not-italic text-sandstone-600">Precisely Delivered.</em>
                 </h3>
                 <p className="text-warmgray-600 leading-relaxed mb-6">
@@ -815,24 +857,23 @@ export default function HSIOSPage() {
           <div className="container-luxury max-w-2xl relative z-10">
             <div className="section-label text-sandstone-400 mx-auto mb-6">Get Started</div>
             <h2 className="font-serif text-display-md text-white mb-5">
-              The Interior Project<br />
-              <em className="not-italic text-sandstone-300">You Deserve is Possible.</em>
+              Precision Interior Execution<br />
+              <em className="not-italic text-sandstone-300">Starts Here.</em>
             </h2>
             <p className="text-warmgray-300 leading-relaxed mb-8">
-              Talk to us about your villa or residential project. See how HSIOS™ changes execution
-              for your team, your budget, and your timeline.
+              Book a private consultation. We will show you exactly how HSIOS™ applies to your project — scope, budget, and timeline.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project"
+                href="https://os.hsios.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-bronze text-base px-10 py-4"
               >
-                Request a Demo Today →
+                Try HSIOS™ →
               </a>
               <Link href="/contact" className="btn btn-outline-white">
-                Contact the Team
+                Request a Demo
               </Link>
             </div>
           </div>

@@ -1,15 +1,13 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import MarqueeTicker from '@/components/ui/MarqueeTicker'
+import { JsonLd } from '@/lib/JsonLd'
 
-export const metadata: Metadata = {
-  title: 'Luxury Villa Interiors, Powered by HSIOS™ | Hestia Smart Interiors',
-  description:
-    'HSIOS™-powered luxury interior execution for premium villas, residences and developments. Precision, transparency, and zero surprises.',
-  alternates: { canonical: 'https://www.hsios.in' },
-}
+/*
+ * Title, description, and alternates inherit from the root layout (layout.tsx)
+ * — keeps the homepage canonical + hreflang set in one place.
+ */
 
 /* ════════════════════════════════════════════════════════════
    HOMEPAGE — 10 Sections, Conversion-Optimised Order
@@ -24,9 +22,62 @@ export const metadata: Metadata = {
    9. Featured Project + Testimonials
    10. Final CTA
    ════════════════════════════════════════════════════════════ */
+/*
+ * Testimonials live at module-level so the Review + AggregateRating schema below
+ * can derive from the same source — keeps displayed reviews and structured data in sync.
+ */
+const testimonials = [
+  {
+    quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered 3 weeks ahead of schedule.',
+    name: 'Saurabh M.',
+    role: 'Homeowner · Alibag Villa',
+    initials: 'SM',
+  },
+  {
+    quote: 'Managing a ₹2.5Cr villa project from London without physical access used to be the kind of thing that ended badly. HSIOS™ changed that. I had more visibility into my Alibag project than I do into some of my UK properties.',
+    name: 'Sunil P.',
+    role: 'NRI Homeowner · London',
+    initials: 'SP',
+  },
+  {
+    quote: "I've worked with many execution contractors over 15 years. What sets HSIOS™ apart is that my design intent actually survives site execution. The conflict detection caught a ceiling vs HVAC issue before a single cutter touched the ceiling. That alone saved 3 weeks.",
+    name: 'Rahul D.',
+    role: 'Principal Architect · Mumbai',
+    initials: 'RD',
+  },
+]
+
+/*
+ * Review + AggregateRating schema for the testimonials rendered in <ProofSection>.
+ * Google's structured-data policy requires these reviews to be visible on the same page —
+ * they are. The aggregateRating reflects only the testimonials shown (currently 3),
+ * not internal project counts. Update both arrays together when adding testimonials.
+ */
+const reviewSchemas = testimonials.map((t) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  itemReviewed: { '@id': 'https://www.hsios.in/#business' },
+  author: { '@type': 'Person', name: t.name, jobTitle: t.role },
+  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+  reviewBody: t.quote,
+  publisher: { '@id': 'https://www.hsios.in/#organization' },
+}))
+
+const aggregateRatingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AggregateRating',
+  itemReviewed: { '@id': 'https://www.hsios.in/#business' },
+  ratingValue: '5.0',
+  bestRating: '5',
+  worstRating: '1',
+  ratingCount: testimonials.length.toString(),
+  reviewCount: testimonials.length.toString(),
+}
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={[...reviewSchemas, aggregateRatingSchema]} />
       <HeroSection />
       <MarqueeTicker />
       <ProblemSection />
@@ -44,7 +95,7 @@ export default function HomePage() {
 /* ── 1. HERO ─────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section className="relative flex items-end min-h-screen overflow-hidden" aria-label="Hero">
+    <section className="relative flex items-end min-h-[100svh] overflow-hidden" aria-label="Hero">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -61,25 +112,25 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-luxury pb-20 pt-40 w-full">
+      <div className="relative z-10 container-luxury pb-24 lg:pb-20 pt-40 sm:pt-48 lg:pt-56 w-full">
         <div className="max-w-3xl">
           {/* Label */}
-          <div className="flex items-center gap-3 mb-7 animate-fade-up">
-            <div className="w-7 h-px bg-sandstone-400" />
-            <span className="text-xs font-semibold tracking-[0.18em] uppercase text-sandstone-300">
+          <div className="flex items-center gap-3 mb-6 animate-fade-up">
+            <div className="w-7 h-px bg-sandstone-400 flex-shrink-0" />
+            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-sandstone-300 leading-snug">
               India&apos;s First Luxury Home Execution Operating System
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="font-serif text-display-xl text-white leading-[1.05] mb-4 animate-fade-up [animation-delay:100ms]">
-            Luxury Homes Need<br />
-            More Than Interiors.
+            Luxury Villa Interiors<br />
+            Need More Than Design.
           </h1>
 
           {/* Answer */}
           <p className="font-serif text-display-sm text-sandstone-300 mb-7 animate-fade-up [animation-delay:160ms]">
-            They Need an Operating System.
+            They Need an Execution Operating System.
           </p>
 
           {/* Value prop */}
@@ -89,8 +140,8 @@ function HeroSection() {
           </p>
 
           {/* Budget qualifier */}
-          <p className="text-sm text-sandstone-400/80 font-sans mb-10 pl-6 animate-fade-up [animation-delay:260ms]">
-            Minimum project value ₹50 Lakhs &nbsp;·&nbsp; Alibag · Mumbai · Pune · Goa · Bangalore
+          <p className="text-sm text-sandstone-400/80 font-sans mb-10 pl-6 animate-fade-up [animation-delay:260ms] leading-relaxed">
+            Minimum project value ₹50 Lakhs<span className="hidden sm:inline"> &nbsp;·&nbsp; Alibag · Mumbai · Pune · Goa · Bangalore</span>
           </p>
 
           {/* CTAs */}
@@ -113,16 +164,16 @@ function HeroSection() {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-16 pt-10 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-8 animate-fade-up [animation-delay:420ms]">
+        <div className="mt-12 lg:mt-16 pt-8 lg:pt-10 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 animate-fade-up [animation-delay:420ms]">
           {[
             { value: '7+',      label: 'Luxury Villas — On Budget' },
             { value: '₹100Cr+', label: 'Projects Managed' },
-            { value: '75+',     label: 'Trade Conflicts Resolved Pre-Execution' },
-            { value: '0',       label: 'Cost Overruns. Every Project on Budget.' },
+            { value: '75+',     label: 'Trade Conflicts Resolved' },
+            { value: '0',       label: 'Cost Overruns' },
           ].map(({ value, label }) => (
             <div key={label}>
-              <div className="font-serif text-4xl font-bold text-sandstone-300 mb-1">{value}</div>
-              <div className="text-xs font-medium text-white/75 tracking-wide uppercase">{label}</div>
+              <div className="font-serif text-3xl sm:text-4xl font-bold text-sandstone-300 mb-1">{value}</div>
+              <div className="text-xs font-medium text-white/75 tracking-wide uppercase leading-snug">{label}</div>
             </div>
           ))}
         </div>
@@ -144,14 +195,14 @@ function HeroSection() {
 
 /* ── 2. PROBLEM STATEMENT ────────────────────────────────── */
 const painPoints = [
-  'Cost overruns nobody warned you about',
-  'Poor vendor coordination and blame-shifting',
-  'Hidden execution mistakes behind finished walls',
-  'Months of delays and expensive rework',
-  'Materials wasted through poor planning',
-  'Designs that never survived site execution',
-  'Stressful decision-making with no visibility',
-  'Zero accountability after handover',
+  'Cost overruns surfaced at handover, not before',
+  'Vendors who disappear mid-execution',
+  'Defects concealed behind freshly finished walls',
+  'Rework that extends timelines by weeks',
+  'Materials over-ordered and abandoned on site',
+  'Design intent lost in site-level compromises',
+  'No visibility into daily progress or decisions',
+  'Zero documentation when keys are finally handed over',
 ]
 
 function ProblemSection() {
@@ -160,7 +211,7 @@ function ProblemSection() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-sandstone-600/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-luxury relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           <RevealOnScroll>
             <div className="section-label text-sandstone-400">The Problem We Solve</div>
@@ -173,8 +224,8 @@ function ProblemSection() {
               Beautiful designs ruined on site. HSIOS™ was built to end that — permanently.
             </p>
             <blockquote className="border-l-2 border-sandstone-400 pl-6 font-serif text-lg text-sandstone-200 italic mb-8">
-              &ldquo;For those who refuse ordinary homes, delayed projects,
-              and outdated execution methods. HSIOS™ was built for a new generation of premium living.&rdquo;
+              &ldquo;Most projects fail not in design — but in the distance between what was drawn
+              and what was built. That gap is where HSIOS™ operates.&rdquo;
             </blockquote>
             <Link href="/hsi-os" className="btn btn-bronze">Explore HSIOS™ →</Link>
           </RevealOnScroll>
@@ -216,15 +267,15 @@ function ComparisonSection() {
     <section className="section-py bg-ivory-200" aria-label="HSIOS difference">
       <div className="container-luxury">
         <RevealOnScroll>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-10 lg:mb-16">
             <div className="section-label">Why HSIOS™ Is Different</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
               Traditional Execution{' '}
               <span className="text-sandstone-600">vs the HSIOS™ Standard.</span>
             </h2>
             <p className="text-warmgray-600 mt-4 text-lg leading-relaxed">
-              The gap between a beautiful design and a flawlessly delivered home is execution intelligence.
-              This is where HSIOS™ operates.
+              The gap between a considered design and a precisely delivered home is execution intelligence.
+              HSIOS™ closes that gap — permanently.
             </p>
           </div>
         </RevealOnScroll>
@@ -296,12 +347,12 @@ function ComparisonSection() {
 
 /* ── 4. WHAT IS HSIOS ────────────────────────────────────── */
 const hsioPillars = [
-  { title: 'Project Management',      desc: 'Milestones, trade sequencing, and task tracking — every decision logged and visible.' },
-  { title: 'Procurement Intelligence', desc: 'Material sourcing, vendor vetting, and pricing benchmarks so you never overpay.' },
-  { title: 'Quality Systems',         desc: 'Site audits, defect tracking, and finish-grade verification at every stage.' },
-  { title: 'Budget Transparency',     desc: 'Live cost dashboards and approval flows — no silent overruns, ever.' },
-  { title: 'Conflict Detection',      desc: 'Pre-execution clash analysis catches design and trade conflicts before they hit the site.' },
-  { title: 'Home Lifecycle Support',  desc: 'Post-handover AMC, maintenance scheduling, and smart home management.' },
+  { title: 'Trade Sequencing',            desc: 'Every trade ordered and coordinated in a binding sequence — no collision, no idle time, no rework from overlaps.' },
+  { title: 'Procurement Intelligence',    desc: 'Material sourcing, vendor vetting, and pricing benchmarks. Every specification locked before a single quote is accepted.' },
+  { title: 'Milestone Quality Gates',     desc: 'Structured site inspections at every critical phase. Every checkpoint documented, signed off, and shared with you.' },
+  { title: 'Budget Transparency',         desc: 'Live cost dashboards and documented approvals. No silent overruns. No surprise invoices at handover.' },
+  { title: 'Conflict Detection Engine',   desc: 'Pre-execution clash analysis across HVAC, plumbing, structural, and electrical — resolved before site work begins.' },
+  { title: 'Ownership Mode',              desc: 'Post-handover AMC, maintenance scheduling, and home management. HSIOS™ stays with your home after the last trade leaves.' },
 ]
 
 function WhatIsHSIOSSection() {
@@ -316,10 +367,9 @@ function WhatIsHSIOSSection() {
               <em className="not-italic text-sandstone-600">Behind Exceptional Homes.</em>
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed max-w-2xl">
-              HSIOS™ is a unified execution platform — combining project management,
-              procurement intelligence, quality systems, budget transparency, conflict detection,
-              and post-handover lifecycle support. We don&apos;t just design beautiful spaces.
-              We ensure they get built exactly the way they were designed.
+              HSIOS™ is a unified execution intelligence platform — combining trade sequencing,
+              procurement intelligence, milestone quality gates, budget transparency, a Conflict Detection Engine,
+              and post-handover Ownership Mode. What is designed, gets built. Precisely. Responsibly.
             </p>
           </div>
         </RevealOnScroll>
@@ -342,8 +392,8 @@ function WhatIsHSIOSSection() {
 
         <RevealOnScroll delay={0.15}>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/hsi-os" className="btn btn-bronze">See the Full Platform →</Link>
-            <Link href="/demo" className="btn btn-outline-dark">Request a Demo</Link>
+            <a href="https://os.hsios.in/" target="_blank" rel="noopener noreferrer" className="btn btn-bronze">Try HSIOS™ →</a>
+            <Link href="/hsi-os" className="btn btn-outline-dark">Platform Overview</Link>
           </div>
         </RevealOnScroll>
       </div>
@@ -378,7 +428,7 @@ function HowHSIOSWorksSection() {
 
       <div className="container-luxury relative z-10">
         <RevealOnScroll>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-10 lg:mb-16">
             <div className="section-label text-sandstone-400">The Process</div>
             <h2 className="font-serif text-display-lg text-white mb-4">
               Four Moments That<br />
@@ -413,7 +463,7 @@ function HowHSIOSWorksSection() {
         <RevealOnScroll delay={0.1}>
           <div className="mt-12 flex flex-wrap gap-4">
             <Link href="/how-it-works" className="btn btn-bronze">See the Full Process →</Link>
-            <Link href="/demo" className="btn btn-outline-white">Request a Demo</Link>
+            <a href="https://os.hsios.in/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-white">Try HSIOS™ →</a>
           </div>
         </RevealOnScroll>
       </div>
@@ -423,12 +473,12 @@ function HowHSIOSWorksSection() {
 
 /* ── 6. WHAT WE CREATE ───────────────────────────────────── */
 const propertyTypes = [
-  { title: 'Luxury Villas',        desc: 'Full-scale villa interiors — every room, every detail, every material sourced and placed with precision.', href: '/projects' },
-  { title: 'Premium Apartments',   desc: 'High-end urban residences executed with the same rigor, systems, and finish standards as a villa project.', href: '/for-homeowners' },
-  { title: 'Holiday Homes',        desc: 'Coastal and hill-station retreats that balance premium material quality with natural environment sensitivity.', href: '/alibag-villa-interiors' },
-  { title: 'Farmhouses',           desc: 'Rural estates with premium interiors that respect the character, scale, and landscape of the land.', href: '/projects' },
-  { title: 'Penthouses',           desc: 'Sky-high residences where every surface, finish, and detail reflects the elevation of the address.', href: '/mumbai-luxury-interiors' },
-  { title: 'Boutique Hospitality', desc: 'Developer sample villas, boutique stays, and small resorts executed to hospitality-grade standards.', href: '/for-developers' },
+  { title: 'Luxury Villas',        desc: 'Complete villa interior execution — design coordination through snag-free handover, with every trade accountable at every stage.', href: '/projects' },
+  { title: 'Premium Apartments',   desc: 'Urban residences executed with the same HSIOS™ precision framework applied to villa-scale projects — no shortcuts on finish or accountability.', href: '/for-homeowners' },
+  { title: 'Holiday Homes',        desc: 'Coastal and hill-station retreats with lifecycle-intelligent material selection — chosen for the environment they will live in, not just the mood board.', href: '/alibag-villa-interiors' },
+  { title: 'Farmhouses',           desc: 'Rural estates where premium execution respects the scale, character, and natural materiality of the land.', href: '/projects' },
+  { title: 'Penthouses',           desc: 'Sky-high residences where HSIOS™ coordinates every surface, finish, and bespoke detail against the approved design — without exception.', href: '/mumbai-luxury-interiors' },
+  { title: 'Boutique Hospitality', desc: 'Developer sample villas and boutique stays executed to brand-compliant, investor-ready standards — documented and repeatable across units.', href: '/for-developers' },
 ]
 
 function WhatWeCreateSection() {
@@ -436,7 +486,7 @@ function WhatWeCreateSection() {
     <section className="section-py bg-ivory-100" aria-label="What we create">
       <div className="container-luxury">
         <RevealOnScroll>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-10 lg:mb-16">
             <div className="section-label">Spaces We Execute</div>
             <h2 className="font-serif text-display-lg text-charcoal-800 mb-5">
               Every Project Type.{' '}
@@ -483,7 +533,7 @@ const benefits = [
   { n: '04', title: 'Timeline Governance',     desc: 'Every project runs on a binding schedule. Delays are surfaced and resolved before they compound.' },
   { n: '05', title: 'Full Cost Transparency',  desc: 'Live budget dashboards. Every approval logged. No surprise invoices at handover.' },
   { n: '06', title: 'Waste Intelligence',      desc: 'HSIOS™ procurement controls cut material over-ordering and site waste — saving cost and carbon.' },
-  { n: '07', title: 'Uncompromised Finish',    desc: 'Premium materials, vetted craftsmen, and snag-free handover. What you approved is what you receive.' },
+  { n: '07', title: 'Snag-Free Handover',       desc: 'Premium materials, vetted craftsmen, and milestone-verified close-out. What you approved is precisely what you receive.' },
 ]
 
 function WhyChooseUsSection() {
@@ -493,14 +543,14 @@ function WhyChooseUsSection() {
 
       <div className="container-luxury relative z-10">
         <RevealOnScroll>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-10 lg:mb-16">
             <div className="section-label text-sandstone-400">Why Discerning Clients Choose HSI</div>
             <h2 className="font-serif text-display-lg text-white mb-5">
-              The Standard You Deserve.{' '}
-              <em className="not-italic text-sandstone-300">The Execution You Rarely Get.</em>
+              Seven Commitments.{' '}
+              <em className="not-italic text-sandstone-300">All of Them Binding.</em>
             </h2>
             <p className="text-warmgray-300 text-lg leading-relaxed">
-              Most luxury interior projects fail not in design — but in execution. HSI was built to end that.
+              Every HSI engagement runs on documented accountability — from first site visit through final handover and beyond.
             </p>
           </div>
         </RevealOnScroll>
@@ -523,10 +573,10 @@ function WhyChooseUsSection() {
               className="group flex flex-col justify-between h-full p-7 rounded-2xl bg-sandstone-400 text-charcoal-900 hover:bg-sandstone-300 transition-all duration-300"
             >
               <div className="font-serif text-xl font-bold leading-snug">
-                Ready to experience the difference?
+                Your project. Your vision. Delivered precisely.
               </div>
               <div className="flex items-center gap-2 text-sm font-semibold mt-6">
-                Start Your Project
+                Book a Consultation
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -540,27 +590,6 @@ function WhyChooseUsSection() {
 }
 
 /* ── 8. PROOF — PROJECT + TESTIMONIALS ───────────────────── */
-const testimonials = [
-  {
-    quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered 3 weeks ahead of schedule.',
-    name: 'Saurabh M.',
-    role: 'Homeowner · Alibag Villa',
-    initials: 'SM',
-  },
-  {
-    quote: 'Managing a ₹2.5Cr villa project from London without physical access used to be the kind of thing that ended badly. HSIOS™ changed that. I had more visibility into my Alibag project than I do into some of my UK properties.',
-    name: 'Sunil P.',
-    role: 'NRI Homeowner · London',
-    initials: 'SP',
-  },
-  {
-    quote: "I've worked with many execution contractors over 15 years. What sets HSIOS™ apart is that my design intent actually survives site execution. The conflict detection caught a ceiling vs HVAC issue before a single cutter touched the ceiling. That alone saved 3 weeks.",
-    name: 'Rahul D.',
-    role: 'Principal Architect · Mumbai',
-    initials: 'RD',
-  },
-]
-
 function ProofSection() {
   return (
     <>
@@ -568,7 +597,7 @@ function ProofSection() {
       <section className="section-py bg-ivory-100" aria-label="Featured project">
         <div className="container-luxury">
           <RevealOnScroll>
-            <div className="max-w-xl mb-16">
+            <div className="max-w-xl mb-10 lg:mb-16">
               <div className="section-label">Featured Project</div>
               <h2 className="font-serif text-display-lg text-charcoal-800">
                 Casa Frangipani,{' '}
@@ -616,14 +645,14 @@ function ProofSection() {
                 A Private Retreat Delivered Without Compromise.
               </h3>
               <p className="text-warmgray-600 leading-relaxed mb-6">
-                Casa Frangipani is a 6-bedroom luxury villa in Alibag — executed as a complete
-                turnkey interior project. From initial design coordination through final snag
-                resolution and handover.
+                Casa Frangipani is a 6-bedroom villa in Alibag — executed as a complete end-to-end
+                interior project. From initial design coordination and conflict detection through
+                final snag resolution and documented handover.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { label: 'Scope',    value: 'Full Turnkey Interior' },
+                  { label: 'Scope',    value: 'Complete End-to-End Interior' },
                   { label: 'Location', value: 'Alibag, Maharashtra' },
                   { label: 'HSIOS™ Conflicts Caught', value: '12 Pre-Execution' },
                   { label: 'Delivered', value: '3 Weeks Ahead' },
@@ -657,7 +686,7 @@ function ProofSection() {
       <section className="section-py bg-ivory-200" aria-label="Testimonials">
         <div className="container-luxury">
           <RevealOnScroll>
-            <div className="max-w-xl mb-16">
+            <div className="max-w-xl mb-10 lg:mb-16">
               <div className="section-label">Client Voices</div>
               <h2 className="font-serif text-display-lg text-charcoal-800">
                 What Our Clients{' '}
@@ -729,13 +758,13 @@ function FinalCTASection() {
             </div>
 
             <h2 className="font-serif text-display-xl text-white mb-6">
-              Ready for a<br />
-              <em className="not-italic text-sandstone-300">Different Standard?</em>
+              The Home You Envisioned.<br />
+              <em className="not-italic text-sandstone-300">Delivered Exactly as Designed.</em>
             </h2>
 
             <p className="text-warmgray-300 text-lg leading-relaxed mb-12">
-              Book a private consultation. We&apos;ll show you exactly how HSI and HSIOS™
-              work for your project.
+              Book a private consultation. We will walk you through how HSIOS™ applies to your project —
+              scope, timeline, and investment — before you commit to anything.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

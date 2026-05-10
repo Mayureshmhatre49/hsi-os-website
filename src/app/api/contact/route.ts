@@ -1,15 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-/* ── Rate limiting — simple in-memory store ────────────────
-   For production at scale, replace with Redis or Upstash.
+/* ── Rate limiting ─────────────────────────────────────────
+   In-memory — sufficient for single-process PM2 deployment.
+   Max 10 000 tracked IPs to prevent unbounded memory growth.
    ─────────────────────────────────────────────────────────── */
 const rateLimitMap = new Map<string, { count: number; reset: number }>()
-const RATE_LIMIT = 3     // max requests
-const WINDOW_MS  = 60_000 // per 60 seconds
+const RATE_LIMIT  = 3
+const WINDOW_MS   = 60_000
+const MAP_CEILING = 10_000
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now()
+
+  // Periodic cleanup: evict expired entries when map is large
+  if (rateLimitMap.size >= MAP_CEILING) {
+    for (const [key, val] of rateLimitMap) {
+      if (now > val.reset) rateLimitMap.delete(key)
+    }
+  }
+
   const entry = rateLimitMap.get(ip)
   if (!entry || now > entry.reset) {
     rateLimitMap.set(ip, { count: 1, reset: now + WINDOW_MS })
@@ -20,19 +30,61 @@ function isRateLimited(ip: string): boolean {
   return false
 }
 
+/* ── Origin validation ─────────────────────────────────────
+   Reject requests not originating from our own domain.
+   ─────────────────────────────────────────────────────────── */
+const ALLOWED_ORIGINS = new Set([
+  'https://www.hsios.in',
+  'https://hsios.in',
+  ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:3000', 'http://localhost:3001'] : []),
+])
+
+function isAllowedOrigin(req: NextRequest): boolean {
+  const origin = req.headers.get('origin')
+  // Some browsers omit Origin on same-origin POSTs — fall back to Referer.
+  if (!origin) {
+    const referer = req.headers.get('referer')
+    if (!referer) return false // No origin signals → reject (curl, server-to-server bots)
+    try {
+      return ALLOWED_ORIGINS.has(new URL(referer).origin)
+    } catch {
+      return false
+    }
+  }
+  return ALLOWED_ORIGINS.has(origin)
+}
+
 /* ── Input validation ──────────────────────────────────── */
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
-function sanitize(str: unknown): string {
+/* Strips '<', '>', and CRLF — safe for fields embedded in email headers. */
+function sanitizeLine(str: unknown): string {
+  if (typeof str !== 'string') return ''
+  return str.replace(/[<>\r\n]/g, '').trim().slice(0, 2000)
+}
+
+/* Strips '<' and '>' but preserves newlines — for the multi-line message body. */
+function sanitizeBody(str: unknown): string {
   if (typeof str !== 'string') return ''
   return str.replace(/[<>]/g, '').trim().slice(0, 2000)
 }
 
 export async function POST(req: NextRequest) {
+  /* Origin check — block cross-site form submissions */
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ error: 'Forbidden.' }, { status: 403 })
+  }
+
+  /* Content-Type guard */
+  const ct = req.headers.get('content-type') ?? ''
+  if (!ct.includes('application/json')) {
+    return NextResponse.json({ error: 'Unsupported media type.' }, { status: 415 })
+  }
+
   /* Rate limit by IP */
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'unknown'
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
   if (isRateLimited(ip)) {
     return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
   }
@@ -50,14 +102,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true })
   }
 
-  /* Sanitize inputs */
-  const name        = sanitize(body.name)
-  const email       = sanitize(body.email)
-  const phone       = sanitize(body.phone)
-  const projectType = sanitize(body.projectType)
-  const location    = sanitize(body.location)
-  const budget      = sanitize(body.budget)
-  const message     = sanitize(body.message)
+  /* Sanitize inputs — single-line fields strip CRLF to block header injection */
+  const name        = sanitizeLine(body.name)
+  const email       = sanitizeLine(body.email)
+  const phone       = sanitizeLine(body.phone)
+  const projectType = sanitizeLine(body.projectType)
+  const location    = sanitizeLine(body.location)
+  const budget      = sanitizeLine(body.budget)
+  const message     = sanitizeBody(body.message)
 
   /* Validate required fields */
   if (!name || !email || !projectType || !location || !message) {
@@ -178,7 +230,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true })
   } catch (err) {
-    console.error('[Contact API] SMTP error:', err)
+    const message = err instanceof Error ? err.message : 'unknown'
+    console.error(`[Contact API] SMTP error — ${message}`)
     return NextResponse.json({ error: 'Failed to send message. Please try again.' }, { status: 500 })
   }
 }

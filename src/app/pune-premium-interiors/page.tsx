@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Premium Interiors in Pune — Villa & Apartment Execution by Hestia Smart Interiors',
   description:
     'Premium interior execution for apartments, villas and penthouses in Pune. HSI OS brings transparency and structure to luxury projects in Koregaon Park, Kalyani Nagar and beyond.',
-  alternates: { canonical: 'https://www.hsios.in/pune-premium-interiors' },
+  alternates: getAlternates('/pune-premium-interiors'),
   openGraph: {
     title: 'Premium Interiors in Pune — Hestia Smart Interiors',
     description: "Technology-driven interior execution for Pune's luxury residences, powered by HSIOS™.",
     url: 'https://www.hsios.in/pune-premium-interiors',
+    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
   },
 }
 
@@ -61,7 +64,7 @@ const features = [
   },
 ]
 
-export default function PunePremiumInteriorsPage() {
+export default async function PunePremiumInteriorsPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -74,10 +77,10 @@ export default function PunePremiumInteriorsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={[faqSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Pune Premium Interiors', url: 'https://www.hsios.in/pune-premium-interiors' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">

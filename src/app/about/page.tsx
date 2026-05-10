@@ -3,12 +3,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Target, Eye, Building2, Settings, Users, Leaf } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'About Hestia Smart Interiors — Leadership Team, Vision & Values',
   description:
     'Meet the leadership team behind Hestia Smart Interiors — Nishant Mhatre (Founder & CEO), Sanjay Joshi (Co-founder & CTO), and Vishal Patil (COO) — and the vision behind HSIOS™.',
-  alternates: { canonical: 'https://www.hsios.in/about' },
+  alternates: getAlternates('/about'),
 }
 
 const values = [
@@ -41,9 +43,64 @@ const vishalFocus = [
   'Execution Risk Management',
 ]
 
-export default function AboutPage() {
+const nishantSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Nishant Mhatre',
+  jobTitle: 'Founder & CEO',
+  worksFor: { '@id': 'https://www.hsios.in/#business' },
+  image: 'https://www.hsios.in/nishant-mhatre.jpg',
+  description:
+    'Founder & CEO of Hestia Smart Interiors with 20+ years of international experience in real estate, technology, and AI-driven digital transformation.',
+  url: 'https://www.hsios.in/about',
+  knowsAbout: ['Luxury Real Estate', 'AI & Digital Transformation', 'Interior Execution', 'Startup Mentoring'],
+}
+
+const sanjaySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Sanjay Joshi',
+  jobTitle: 'Co-founder & CTO',
+  worksFor: { '@id': 'https://www.hsios.in/#business' },
+  image: 'https://www.hsios.in/sanjay-joshi.jpg',
+  description:
+    'Co-founder & CTO of Hestia Smart Interiors with 20+ years in enterprise technology, platform strategy, and data-driven execution systems.',
+  url: 'https://www.hsios.in/about',
+}
+
+const vishalSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Vishal Patil',
+  jobTitle: 'COO',
+  worksFor: { '@id': 'https://www.hsios.in/#business' },
+  image: 'https://www.hsios.in/vishal-patil.png',
+  description:
+    'COO of Hestia Smart Interiors overseeing site execution, quality control, vendor coordination, and statutory compliance across premium projects.',
+  url: 'https://www.hsios.in/about',
+}
+
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Hestia Smart Interiors',
+  url: 'https://www.hsios.in/about',
+  description:
+    'Learn about the leadership team, vision, and values behind Hestia Smart Interiors and the HSIOS™ platform.',
+  publisher: { '@id': 'https://www.hsios.in/#business' },
+  mainEntity: { '@id': 'https://www.hsios.in/#business' },
+}
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in' },
+  { name: 'About', url: 'https://www.hsios.in/about' },
+])
+
+export default async function AboutPage() {
   return (
     <>
+      <JsonLd data={[nishantSchema, sanjaySchema, vishalSchema, aboutPageSchema, breadcrumbSchema]} />
+
       {/* ── PAGE HERO ─────────────────────────────────────── */}
       <section className="relative py-40 bg-charcoal-800 overflow-hidden">
         <div className="absolute inset-0">
@@ -62,11 +119,11 @@ export default function AboutPage() {
             <div className="max-w-2xl">
               <div className="section-label text-sandstone-400">About HSI</div>
               <h1 className="font-serif text-display-xl text-white mb-6">
-                Redefining Interior Execution<br />
-                for <em className="not-italic text-sandstone-300">Premium Homes.</em>
+                The Execution Intelligence<br />
+                <em className="not-italic text-sandstone-300">Behind Premium Homes.</em>
               </h1>
               <p className="text-warmgray-300 text-lg leading-relaxed">
-                A new standard for how luxury interiors are planned, executed and delivered.
+                Built from real project experience. Engineered to ensure what is designed, gets built — precisely and responsibly.
               </p>
             </div>
           </RevealOnScroll>
@@ -76,7 +133,7 @@ export default function AboutPage() {
       {/* ── MEET THE FOUNDER ───────────────────────────────── */}
       <section className="section-py bg-white overflow-hidden" aria-label="Meet our founder">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
             {/* Founder Image */}
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
@@ -154,7 +211,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <p className="text-warmgray-400 text-base max-w-sm leading-relaxed sm:text-right">
-                Decades of combined expertise across technology, execution, and operations — united by one goal: flawless premium interior delivery.
+                Decades of combined expertise across technology, execution, and operations — united by one goal: precision interior delivery with documented accountability.
               </p>
             </div>
           </RevealOnScroll>
@@ -164,19 +221,19 @@ export default function AboutPage() {
       {/* ── SANJAY JOSHI ───────────────────────────────────── */}
       <section className="section-py bg-ivory-100 overflow-hidden" aria-label="Sanjay Joshi — Co-founder & CTO">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
             {/* Photo */}
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
               <div className="relative mx-4">
                 <div className="absolute -inset-3 bg-white rounded-[2rem] -rotate-1 shadow-sm" />
-                <div className="relative rounded-[1.5rem] overflow-hidden shadow-2xl">
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
                   <Image
                     src="/sanjay-joshi.jpg"
                     alt="Sanjay Joshi — Co-founder & CTO, Hestia Smart Interiors"
-                    width={734}
-                    height={1080}
-                    className="w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-700 block"
+                    fill
+                    className="object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/50 via-transparent to-transparent" />
                   <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-sandstone-400/40" />
@@ -245,19 +302,19 @@ export default function AboutPage() {
       {/* ── VISHAL PATIL ───────────────────────────────────── */}
       <section className="section-py bg-white overflow-hidden" aria-label="Vishal Patil — COO">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
             {/* Photo */}
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
               <div className="relative mx-4">
                 <div className="absolute -inset-3 bg-ivory-100 rounded-[2rem] rotate-1 shadow-sm" />
-                <div className="relative rounded-[1.5rem] overflow-hidden shadow-2xl">
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
                   <Image
                     src="/vishal-patil.png"
                     alt="Vishal Patil — COO, Hestia Smart Interiors"
-                    width={734}
-                    height={1080}
-                    className="w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-700 block"
+                    fill
+                    className="object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/50 via-transparent to-transparent" />
                   <div className="absolute top-6 right-6 w-10 h-10 border-t-2 border-r-2 border-sandstone-400/40" />
@@ -284,7 +341,7 @@ export default function AboutPage() {
                   Vishal leads site execution, contractor coordination, and quality control — ensuring every HSI project is delivered on time, on budget, and exactly as designed. His remit covers statutory compliance, safety governance, and execution risk management across all active projects.
                 </p>
                 <p>
-                  With senior leadership experience at globally recognised organisations, Vishal brings institutional rigour and operational discipline to premium residential interiors — translating design intent into flawless on-ground reality.
+                  With senior leadership experience at globally recognised organisations, Vishal brings institutional rigour and operational discipline to premium residential interiors — translating design intent into precisely executed on-ground reality.
                 </p>
               </div>
 
@@ -323,7 +380,7 @@ export default function AboutPage() {
       {/* ── MISSION & STANDARDS ───────────────────────────── */}
       <section className="section-py bg-sandstone-400">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <RevealOnScroll>
               <div className="section-label text-white/60">Our Mission</div>
               <h2 className="font-serif text-display-md text-white mb-6">
@@ -338,7 +395,7 @@ export default function AboutPage() {
             <RevealOnScroll delay={0.1}>
               <div className="section-label text-white/60">Our Standards</div>
               <div className="grid grid-cols-2 gap-4 mt-2">
-                {['Precision','Integrity','Sustainability','Innovation','Transparency','Long-term value creation'].map((standard, i) => (
+                {['Precision Execution','Documented Accountability','Lifecycle Sustainability','Earned Completion','Radical Transparency','Responsible Luxury'].map((standard, i) => (
                   <div key={standard} className="flex items-center gap-3 p-4 rounded-xl bg-white/10 border border-white/15">
                     <span className="font-serif text-2xl font-bold text-white/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
                     <span className="font-semibold text-white text-sm">{standard}</span>
@@ -353,7 +410,7 @@ export default function AboutPage() {
       {/* ── OUR STORY ─────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <RevealOnScroll>
               <div className="section-label">Our Story</div>
               <h2 className="font-serif text-display-md text-charcoal-800 mb-6">
@@ -361,8 +418,7 @@ export default function AboutPage() {
                 <span className="text-sandstone-600">Project Experience.</span>
               </h2>
               <p className="text-warmgray-600 leading-relaxed mb-5 text-lg">
-                Hestia Smart Interiors was created with a simple but powerful vision — to bring
-                structure, clarity and intelligence to premium residential interior projects.
+                Hestia Smart Interiors was created to answer one specific problem: why do premium residential projects — with large budgets and considered designs — so consistently fail in execution?
               </p>
               <p className="text-warmgray-600 leading-relaxed mb-5">
                 Luxury interiors today involve multiple stakeholders, evolving designs and complex
@@ -383,7 +439,7 @@ export default function AboutPage() {
             <RevealOnScroll delay={0.15}>
               <div className="relative rounded-4xl overflow-hidden aspect-[4/3]">
                 <Image
-                  src="/hestia-casa-frangipani.jpg"
+                  src="/casa-frangipani-7a4576.jpg"
                   alt="Hestia Smart Interiors — project execution"
                   fill
                   className="object-cover"
@@ -402,7 +458,7 @@ export default function AboutPage() {
         <RevealOnScroll>
           <div className="container-luxury text-center">
             <p className="font-serif text-display-sm text-white max-w-3xl mx-auto leading-snug">
-              &ldquo;Most luxury interior projects in India fail not because of bad design —
+              &ldquo;Most premium interior projects fail not because of bad design —
               but because of broken execution. We built HSIOS™ to end that.&rdquo;
             </p>
             <p className="mt-6 text-white/70 text-sm font-semibold tracking-wider uppercase">
