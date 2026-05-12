@@ -35,9 +35,9 @@ const testimonials = [
   },
   {
     quote: 'Managing a ₹2.5Cr villa interior project from Hong Kong without physical access became very smooth thanks to HSIOS™. I had more visibility into my Alibag project than I do into some of my HK properties.',
-    name: 'Sunil P.',
+    name: 'Niket Murdeshwar',
     role: 'NRI Homeowner · Hong Kong',
-    initials: 'SP',
+    initials: 'NM',
   },
   {
     quote: "I've worked with many execution contractors over 15 years. What sets HSIOS™ apart is that my design intent actually survives site execution. The conflict detection caught a ceiling vs HVAC issue before a single cutter touched the ceiling. That alone saved 3 weeks.",
