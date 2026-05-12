@@ -29,14 +29,14 @@ import { JsonLd } from '@/lib/JsonLd'
 const testimonials = [
   {
     quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered 3 weeks ahead of schedule.',
-    name: 'Saurabh M.',
+    name: 'Abhishek Bajoria',
     role: 'Homeowner · Alibag Villa',
-    initials: 'SM',
+    initials: 'AB',
   },
   {
-    quote: 'Managing a ₹2.5Cr villa project from London without physical access used to be the kind of thing that ended badly. HSIOS™ changed that. I had more visibility into my Alibag project than I do into some of my UK properties.',
+    quote: 'Managing a ₹2.5Cr villa interior project from Hong Kong without physical access became very smooth thanks to HSIOS™. I had more visibility into my Alibag project than I do into some of my HK properties.',
     name: 'Sunil P.',
-    role: 'NRI Homeowner · London',
+    role: 'NRI Homeowner · Hong Kong',
     initials: 'SP',
   },
   {

@@ -464,9 +464,9 @@ export default async function PricingPage() {
                 on-site than the entire management fee. That&apos;s the real value proposition.
               </p>
               <div className="flex items-center justify-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">SM</div>
+                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">AB</div>
                 <div className="text-left">
-                  <div className="font-semibold text-charcoal-800 text-sm">Saurabh M.</div>
+                  <div className="font-semibold text-charcoal-800 text-sm">Abhishek Bajoria</div>
                   <div className="text-xs text-warmgray-500 mt-0.5">Homeowner · Alibag Villa</div>
                 </div>
               </div>

@@ -723,9 +723,9 @@ export default async function HSIOSPage() {
                   <strong className="text-white">3 weeks ahead of schedule.</strong>
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-sandstone-400/20 text-sandstone-400 flex items-center justify-center font-bold text-sm">S</div>
+                  <div className="w-8 h-8 rounded-full bg-sandstone-400/20 text-sandstone-400 flex items-center justify-center font-bold text-sm">A</div>
                   <div>
-                    <div className="text-white text-sm font-semibold">Saurabh M.</div>
+                    <div className="text-white text-sm font-semibold">Abhishek Bajoria</div>
                     <div className="text-warmgray-500 text-xs">Homeowner · Alibag Villa</div>
                   </div>
                 </div>

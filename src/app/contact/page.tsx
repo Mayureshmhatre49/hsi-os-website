@@ -189,7 +189,7 @@ export default function ContactPage() {
                       &ldquo;The fee paid for itself before site work even started. Twelve conflicts caught in planning that would have cost three times the fee to fix on site.&rdquo;
                     </p>
                     <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600">
-                      Saurabh M. — Villa Owner · Alibag
+                      Abhishek Bajoria — Villa Owner · Alibag
                     </div>
                   </blockquote>
 
