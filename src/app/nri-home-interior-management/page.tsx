@@ -216,6 +216,62 @@ export default async function NriHomeInteriorManagementPage() {
         </div>
       </section>
 
+      {/* ── INSIDE THE NRI PORTAL — concrete platform features ── */}
+      <section className="py-24 bg-charcoal-800">
+        <div className="container-luxury">
+          <RevealOnScroll className="max-w-2xl mb-12">
+            <div className="section-label text-sandstone-400">Inside the NRI Portal</div>
+            <h2 className="font-serif text-display-lg text-white mt-3 mb-5">
+              Built for{' '}
+              <em className="not-italic text-sandstone-300">absentee ownership.</em>
+            </h2>
+            <p className="text-warmgray-300 text-lg leading-relaxed">
+              Five concrete features that make HSIOS™ different from a contractor with a WhatsApp
+              account. Each is shipping today.
+            </p>
+          </RevealOnScroll>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Secure OTP Login',
+                desc: 'No password sharing across family members. Time-bound OTP via email or WhatsApp every session. Rate-limited so credentials can\'t be brute-forced. Built for clients who can\'t risk a leaked password.',
+              },
+              {
+                title: 'Daily Photo Timeline',
+                desc: 'Site photos captured against the master schedule, not chosen by the contractor. Each photo tied to a milestone, with EXIF preserved for verification. View the build from London or Singapore as if you were on-site.',
+              },
+              {
+                title: 'Activity Log',
+                desc: 'Every material upgrade approved. Every change order signed. Every snag logged and resolved. Cursor-paginated, exportable, auditable from any device — the same way you\'d expect a brokerage statement.',
+              },
+              {
+                title: 'Aggregated Data View',
+                desc: 'You see project progress, budget bands, and component status — never raw vendor invoices or internal markups. Privacy-by-design: even AI prompts cannot extract financials you weren\'t shown.',
+              },
+              {
+                title: 'Multi-Device Dashboard',
+                desc: 'Mobile, tablet, desktop. Same view, same data, same approvals. Sign off a change order from a Dubai airport. Verify a milestone from a Sydney living room. No app install required.',
+              },
+              {
+                title: 'Real-time Updates',
+                desc: 'Status changes push to your device the moment the supervisor logs them on-site. No "I\'ll check tomorrow." The dashboard is the source of truth, and it\'s never more than seconds out of date.',
+              },
+            ].map(({ title, desc }, i) => (
+              <RevealOnScroll key={title} delay={i * 0.05}>
+                <div className="h-full p-7 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-400/40 transition-colors">
+                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-400 mb-3">
+                    {`Feature 0${i + 1}`}
+                  </div>
+                  <h3 className="font-serif text-xl text-white mb-3 leading-snug">{title}</h3>
+                  <p className="text-warmgray-300 text-sm leading-relaxed">{desc}</p>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-24 bg-sandstone-50">
         <div className="container-luxury max-w-3xl">

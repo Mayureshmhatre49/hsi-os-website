@@ -345,6 +345,106 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
+      {/* ── CARBON STORY ENGINE ───────────────────────────────── */}
+      <section className="section-py bg-ivory-200">
+        <div className="container-luxury">
+          <RevealOnScroll className="max-w-3xl mb-12">
+            <div className="section-label">Carbon Story Engine</div>
+            <h2 className="font-serif text-display-lg text-charcoal-800 mt-2 mb-6">
+              Carbon savings, translated into{' '}
+              <em className="not-italic text-sandstone-600">terms that matter.</em>
+            </h2>
+            <p className="text-warmgray-600 text-lg leading-relaxed">
+              Every BOQ item is scored against a verified material carbon profile. Savings versus
+              the baseline material are tracked at project level and converted into units anyone
+              can grasp — trees absorbed, kilometres driven, flights avoided, household electricity.
+              Numbers your family understands. Numbers a sustainability report can defend.
+            </p>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <div className="rounded-3xl bg-white border border-ivory-300 p-8 sm:p-10 shadow-luxury">
+              <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-stretch">
+                {/* Hero metric — trees */}
+                <div className="lg:col-span-2 bg-sandstone-50 border border-sandstone-200 rounded-2xl p-7 flex flex-col justify-between">
+                  <div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-3">
+                      Example · A 2,400 kg CO₂e saving
+                    </div>
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="font-serif text-6xl sm:text-7xl font-bold text-sandstone-700 leading-none">114</span>
+                      <span className="text-warmgray-600 text-sm font-semibold">trees absorbing CO₂ for one year</span>
+                    </div>
+                    <p className="text-xs text-warmgray-500 leading-relaxed">
+                      Based on 21 kg CO₂e absorbed per mature tree per year. The savings calculation is anchored
+                      in the Indian grid emissions factor of 0.82 kg CO₂e per kWh.
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-5 border-t border-sandstone-200">
+                    <div className="text-[11px] text-warmgray-500 leading-snug">
+                      Carbon savings calculated per project against material baselines. Numbers shown are
+                      illustrative of premium villa execution, not a guarantee.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Three sub-metrics */}
+                <div className="lg:col-span-3 grid sm:grid-cols-3 gap-5">
+                  {[
+                    {
+                      value: '~11,400',
+                      unit: 'km',
+                      label: 'Car kilometres avoided',
+                      factor: '0.21 kg CO₂e / km driven',
+                    },
+                    {
+                      value: '~9,400',
+                      unit: 'km',
+                      label: 'Flight kilometres avoided',
+                      factor: '0.255 kg CO₂e / km flown',
+                    },
+                    {
+                      value: '~2,930',
+                      unit: 'kWh',
+                      label: 'Grid electricity offset',
+                      factor: '0.82 kg CO₂e / kWh · India grid',
+                    },
+                  ].map(({ value, unit, label, factor }) => (
+                    <div key={label} className="border border-ivory-300 rounded-2xl p-6 flex flex-col">
+                      <div className="flex items-baseline gap-1.5 mb-3">
+                        <span className="font-serif text-3xl font-bold text-charcoal-800 leading-none">{value}</span>
+                        <span className="text-xs font-semibold text-warmgray-500 uppercase tracking-wider">{unit}</span>
+                      </div>
+                      <div className="text-sm font-semibold text-charcoal-800 mb-3 leading-snug">{label}</div>
+                      <div className="text-[11px] text-warmgray-500 mt-auto leading-relaxed">{factor}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-10 pt-8 border-t border-ivory-200 grid md:grid-cols-3 gap-6 text-sm text-warmgray-600 leading-relaxed">
+                <div>
+                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">How it works</div>
+                  Every line item in your BOQ is matched to a verified material carbon profile. The platform
+                  computes <em className="not-italic font-semibold text-charcoal-800">carbonUsed vs carbonBaseline</em>{' '}
+                  for the same component built traditionally.
+                </div>
+                <div>
+                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">What you see</div>
+                  Per-project carbon scorecard, top offenders, lower-carbon alternatives with cost delta,
+                  and the Story Engine narrative you can share with family, lenders, or auditors.
+                </div>
+                <div>
+                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">What it isn&apos;t</div>
+                  Not a carbon-neutral claim. Not a green-building shortcut. A measurement framework that
+                  makes carbon visible — and overridable, with the override recorded for your report.
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ── MATERIAL INTELLIGENCE ─────────────────────────────── */}
       <section className="section-py bg-charcoal-800">
         <div className="container-luxury">

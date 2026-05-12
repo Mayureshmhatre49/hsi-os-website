@@ -470,6 +470,98 @@ export default async function HSIOSPage() {
         </div>
       </section>
 
+      {/* ── INSIDE THE PLATFORM — 6 named capability modules ────────── */}
+      <section className="section-py bg-white border-t border-ivory-200">
+        <div className="container-luxury">
+          <RevealOnScroll className="max-w-3xl mb-14">
+            <div className="section-label">Inside the Platform</div>
+            <h2 className="font-serif text-display-lg text-charcoal-800 mt-2 mb-5">
+              Six engines.{' '}
+              <em className="not-italic text-sandstone-600">One execution layer.</em>
+            </h2>
+            <p className="text-warmgray-600 text-lg leading-relaxed">
+              Each capability is a working module — not a roadmap promise. The numbers below reflect
+              the platform as it currently ships.
+            </p>
+          </RevealOnScroll>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-7">
+            {[
+              {
+                tag: 'Module 01',
+                title: 'Digital Twin',
+                metric: '5',
+                metricLabel: 'modes',
+                desc: 'Five canvases over the same hierarchy: Structural tree, Floor Plan with draggable rooms, 4D Timeline scrubber, Isometric stack, and MEP Clash overlay. Decisions tab consults the Decision Engine when you click any component.',
+                bullets: ['Structural · Floor Plan · 4D · Isometric · MEP', 'Undo/redo room positioning with API-persisted state', 'Valid IFC4 export, generated in-browser'],
+              },
+              {
+                tag: 'Module 02',
+                title: 'AI Design Validation',
+                metric: '26',
+                metricLabel: 'rules',
+                desc: 'A 26-rule engine across five categories — Material, Climate, Ventilation, Luxury Standards, Execution — backed by a Gemini AI reasoning layer that only fires when CRITICAL or HIGH findings are present. Tokens spent on what matters.',
+                bullets: ['Material grade · climate-zone fit · wet-area pairings', 'Per-room area, ceiling height, ventilation, automation', 'Weighted risk score 0–100 with remediation plan'],
+              },
+              {
+                tag: 'Module 03',
+                title: 'Decision Engine',
+                metric: '5',
+                metricLabel: 'objectives',
+                desc: 'Multi-objective decision scoring — learning confidence (35%), pattern type weight (22%), cost stress (22%), delay stress (13%), carbon stress (8%). Every recommendation includes a concrete next-step action, not just a warning.',
+                bullets: ['Time-decayed confidence (90-day half-life)', 'Auto outcome tracking across BOQ · PO · Execution · QA', 'Action Recommendation Engine returns the next step'],
+              },
+              {
+                tag: 'Module 04',
+                title: 'QA Checklist Framework',
+                metric: '104',
+                metricLabel: 'checkpoints',
+                desc: '12 execution phases. 104 items. 31 auto-evaluated (numeric/boolean rules against the project state). 73 require named human sign-off. Per-phase compliance scores. Photographic proof attached at every gate.',
+                bullets: ['Phase 0 Pre-Plinth → Phase 11 Handover', 'Auto vs manual evaluation by item type', 'Auditable sign-off chain — no informal approvals'],
+              },
+              {
+                tag: 'Module 05',
+                title: 'Sustainability Score',
+                metric: '6',
+                metricLabel: 'dimensions',
+                desc: 'A weighted score across six dimensions: Carbon 35% · Circularity 20% · Energy 15% · IEQ 12% · Water 10% · Durability 8%. Benchmarked against HSI-internal and IGBC-equivalent frameworks. Advisory only — never gates your project.',
+                bullets: ['Per-item, per-room, and per-project scoring', 'Lifecycle cost projection over 30 years', 'Override workflow recorded for project reporting'],
+              },
+              {
+                tag: 'Module 06',
+                title: 'Carbon Story Engine',
+                metric: '4',
+                metricLabel: 'metrics',
+                desc: 'Carbon savings translated into terms a non-engineer understands — trees absorbed, car kilometres avoided, flight kilometres avoided, household kWh. Anchored to the Indian grid emissions factor (0.82 kg CO₂e / kWh).',
+                bullets: ['21 kg / tree / year absorption factor', '0.21 kg / km car · 0.255 kg / km flight', 'HSI Excellence Certified · Approved · Compliant labels'],
+              },
+            ].map(({ tag, title, metric, metricLabel, desc, bullets }, i) => (
+              <RevealOnScroll key={title} delay={i * 0.05}>
+                <div className="h-full p-7 lg:p-8 rounded-2xl bg-ivory-50 border border-ivory-200 hover:border-sandstone-300 hover:shadow-luxury transition-all duration-300">
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-600">{tag}</div>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="font-serif text-3xl font-bold text-sandstone-700 leading-none">{metric}</span>
+                      <span className="text-[10px] font-semibold text-warmgray-500 uppercase tracking-wider">{metricLabel}</span>
+                    </div>
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-3">{title}</h3>
+                  <p className="text-warmgray-600 text-sm leading-relaxed mb-5">{desc}</p>
+                  <ul className="space-y-2">
+                    {bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-3 text-xs text-warmgray-600 leading-snug">
+                        <span className="w-1 h-1 rounded-full bg-sandstone-400 flex-shrink-0 mt-1.5" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── GLOBAL STANDARDS + PHILOSOPHY ────────────────────────────── */}
       <section className="section-py bg-charcoal-800">
         <div className="container-luxury">

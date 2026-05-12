@@ -20,6 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/for-homeowners',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/for-developers',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/for-architects',             priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/for-bim-managers',            priority: 0.75, changeFrequency: 'monthly' as const },
+    { url: '/for-sustainability-experts',  priority: 0.75, changeFrequency: 'monthly' as const },
+    { url: '/security',                    priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/commercial-interiors',       priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/contact',                     priority: 0.9, changeFrequency: 'monthly' as const },
     // City / location pages

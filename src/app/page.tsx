@@ -390,7 +390,37 @@ function WhatIsHSIOSSection() {
           ))}
         </div>
 
-        <RevealOnScroll delay={0.15}>
+        {/* ── HSIOS™ By the Numbers — quantified proof points ── */}
+        <RevealOnScroll delay={0.18}>
+          <div className="mt-14 rounded-3xl bg-charcoal-800 p-8 sm:p-10 lg:p-12">
+            <div className="max-w-2xl mb-8">
+              <div className="text-xs font-bold tracking-[0.18em] uppercase text-sandstone-400 mb-3">What That Looks Like</div>
+              <h3 className="font-serif text-2xl sm:text-3xl text-white leading-snug">
+                Execution intelligence,{' '}
+                <em className="not-italic text-sandstone-300">measured.</em>
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {[
+                { value: '5', unit: 'modes',       label: 'Digital Twin Views',     sub: 'Structural · Floor Plan · 4D Timeline · Isometric · MEP Clash' },
+                { value: '26', unit: 'rules',     label: 'Design Validation Checks', sub: 'Material · Climate · Ventilation · Luxury · Execution' },
+                { value: '104', unit: 'items',   label: 'QA Checkpoints',           sub: 'Across 12 execution phases · Photographic proof per gate' },
+                { value: '6', unit: 'dimensions', label: 'Sustainability Score',     sub: 'Carbon · Circularity · Energy · IEQ · Water · Durability' },
+              ].map(({ value, unit, label, sub }) => (
+                <div key={label} className="border-t border-white/10 pt-5">
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="font-serif text-4xl sm:text-5xl font-bold text-sandstone-300 leading-none">{value}</span>
+                    <span className="text-xs font-medium text-warmgray-400 uppercase tracking-widest">{unit}</span>
+                  </div>
+                  <div className="text-sm font-semibold text-white mb-2">{label}</div>
+                  <div className="text-xs text-warmgray-400 leading-relaxed">{sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll delay={0.22}>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href="https://os.hsios.in/" target="_blank" rel="noopener noreferrer" className="btn btn-bronze">Try HSIOS™ →</a>
             <Link href="/hsi-os" className="btn btn-outline-dark">Platform Overview</Link>
