@@ -92,7 +92,7 @@ export default function Navbar() {
         className={`
           fixed top-0 inset-x-0 z-50 transition-all duration-500
           ${transparent
-            ? 'bg-gradient-to-b from-charcoal-900/70 via-charcoal-900/30 to-transparent'
+            ? 'bg-gradient-to-b from-charcoal-900/85 via-charcoal-900/70 to-charcoal-900/50 backdrop-blur-sm'
             : 'bg-ivory-50/96 backdrop-blur-md shadow-luxury border-b border-ivory-200'
           }
         `}
