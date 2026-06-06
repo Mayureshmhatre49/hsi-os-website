@@ -12,6 +12,8 @@ import { JsonLd } from '@/lib/JsonLd'
 import PlatformPreview from '@/components/ui/PlatformPreview'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 import { getAlternates } from '@/lib/seo'
+import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
+import EngagementModels from '@/components/ui/EngagementModels'
 
 export const metadata: Metadata = {
   title: 'HSIOS™ Platform — The Operating System for Luxury Interior Execution',
@@ -710,6 +712,12 @@ export default async function HSIOSPage() {
           </div>
         </div>
       </section>
+
+      {/* ── EXECUTION DISCIPLINES ──────────────────────────────────────────── */}
+      <ExecutionDisciplines variant="full" showCTA={true} context="hsi-os" />
+
+      {/* ── ENGAGEMENT MODELS — Platform-only vs Managed ───────────────────── */}
+      <EngagementModels emphasis="platform" />
 
       {/* ── HOW WE WORK ───────────────────────────────────────────────── */}
       <section className="section-py bg-charcoal-800">

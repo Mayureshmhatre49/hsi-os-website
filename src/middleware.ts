@@ -43,9 +43,10 @@ export function middleware(request: NextRequest) {
     "upgrade-insecure-requests",
   ].join('; ')
 
-  // Forward nonce to server components via request header
+  // Forward nonce + pathname to server components via request header
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-nonce', nonce)
+  requestHeaders.set('x-pathname', request.nextUrl.pathname)
 
   const response = NextResponse.next({
     request: { headers: requestHeaders },

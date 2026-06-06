@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, Zap, BarChart2, Eye, CheckSquare, Leaf, Archive, Maximize2, Layers, MapPin, GitBranch } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import EngagementModels from '@/components/ui/EngagementModels'
 import { getAlternates } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 

@@ -4,6 +4,8 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
+import EngagementModels from '@/components/ui/EngagementModels'
 
 export const metadata: Metadata = {
   title: 'For Architects & Designers — Protect Design Intent with HSIOS™',
@@ -218,7 +220,13 @@ export default async function ForArchitectsPage() {
         </div>
       </section>
 
-      {/* ── USE CASES ─────────────────────────────────────── */}
+      {/* ── EXECUTION DISCIPLINES ────────────────────────────────── */}
+      <ExecutionDisciplines variant="compact" showCTA={true} context="for-architects" />
+
+      {/* ── ENGAGEMENT MODELS — Platform emphasis for design teams ── */}
+      <EngagementModels emphasis="platform" />
+
+      {/* ── USE CASES ───────────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
           <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">

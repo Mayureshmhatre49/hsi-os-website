@@ -17,10 +17,13 @@ export async function JsonLd({ data }: { data: Schema | Schema[] }) {
   return (
     <>
       {items.map((item, i) => (
+        // suppressHydrationWarning: React 19 strips `nonce` from the client DOM for
+        // security, so the server (nonce set) and client (nonce stripped) trees diverge.
         <script
           key={i}
           nonce={nonce}
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             // Escape '<' so a stray '</script>' in dynamic data can't break out of the tag
             __html: JSON.stringify(item).replace(/</g, '\\u003c'),

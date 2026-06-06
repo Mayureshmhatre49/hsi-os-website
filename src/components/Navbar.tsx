@@ -83,7 +83,7 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
-  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo'].includes(pathname)
+  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo', '/alibaug-villa'].includes(pathname)
   const transparent = isHeroPage && !scrolled && !menuOpen
 
   return (
@@ -92,7 +92,7 @@ export default function Navbar() {
         className={`
           fixed top-0 inset-x-0 z-50 transition-all duration-500
           ${transparent
-            ? 'bg-gradient-to-b from-charcoal-900/85 via-charcoal-900/70 to-charcoal-900/50 backdrop-blur-sm'
+            ? 'bg-charcoal-900/80 backdrop-blur-md'
             : 'bg-ivory-50/96 backdrop-blur-md shadow-luxury border-b border-ivory-200'
           }
         `}

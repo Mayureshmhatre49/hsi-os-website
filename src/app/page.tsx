@@ -3,6 +3,8 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import MarqueeTicker from '@/components/ui/MarqueeTicker'
 import { JsonLd } from '@/lib/JsonLd'
+import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
+import EngagementModels from '@/components/ui/EngagementModels'
 
 /*
  * Title, description, and alternates inherit from the root layout (layout.tsx)
@@ -10,7 +12,7 @@ import { JsonLd } from '@/lib/JsonLd'
  */
 
 /* ════════════════════════════════════════════════════════════
-   HOMEPAGE — 10 Sections, Conversion-Optimised Order
+   HOMEPAGE — 11 Sections, Conversion-Optimised Order
    1. Hero
    2. MarqueeTicker
    3. Problem Statement (Why HSIOS Exists)
@@ -18,9 +20,11 @@ import { JsonLd } from '@/lib/JsonLd'
    5. What Is HSIOS
    6. How It Works
    7. What We Create
-   8. Why Choose Us
-   9. Featured Project + Testimonials
-   10. Final CTA
+   8. Execution Disciplines (On-Ground Capability)
+   9. Engagement Models (Platform-Only vs Managed Execution)
+   10. Why Choose Us
+   11. Featured Project + Testimonials
+   12. Final CTA
    ════════════════════════════════════════════════════════════ */
 /*
  * Testimonials live at module-level so the Review + AggregateRating schema below
@@ -85,6 +89,8 @@ export default function HomePage() {
       <WhatIsHSIOSSection />
       <HowHSIOSWorksSection />
       <WhatWeCreateSection />
+      <ExecutionDisciplines variant="full" showCTA={true} context="homepage" />
+      <EngagementModels emphasis="neutral" />
       <WhyChooseUsSection />
       <ProofSection />
       <FinalCTASection />

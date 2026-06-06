@@ -234,8 +234,14 @@ const websiteSchema = {
 /* JSON.stringify with '<' escaped so a future stray '</script>' can't break out of the tag. */
 const ldJson = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c')
 
+// Routes that suppress the site Navbar, Footer, and StickyMobileCTA
+const LANDING_ROUTES = ['/alibaug-villa']
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const nonce = (await headers()).get('x-nonce') ?? ''
+  const hdrs = await headers()
+  const nonce = hdrs.get('x-nonce') ?? ''
+  const pathname = hdrs.get('x-pathname') ?? ''
+  const isLanding = LANDING_ROUTES.some(r => pathname === r)
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID
 
   return (
@@ -252,29 +258,40 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
 
-        {/* JSON-LD Schemas — nonce required for nonce-based CSP in production */}
+        {/* JSON-LD Schemas — nonce required for nonce-based CSP in production.
+            suppressHydrationWarning: React 19 strips `nonce` from the client DOM,
+            so SSR (has nonce) and client (no nonce) diverge — accepted pattern. */}
         <script
           nonce={nonce}
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: ldJson(localBusinessSchema) }}
         />
         <script
           nonce={nonce}
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: ldJson(organizationSchema) }}
         />
         <script
           nonce={nonce}
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: ldJson(websiteSchema) }}
         />
 
         {/* GA4 */}
         {ga4Id && (
           <>
-            <script nonce={nonce} async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
             <script
               nonce={nonce}
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+              suppressHydrationWarning
+            />
+            <script
+              nonce={nonce}
+              suppressHydrationWarning
               dangerouslySetInnerHTML={{
                 __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${ga4Id}',{page_path:window.location.pathname,send_page_view:true});`,
               }}
@@ -283,11 +300,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         )}
       </head>
       <body className="bg-ivory-100 text-charcoal-800 font-sans antialiased">
-        <SkipToContent />
-        <Navbar />
+        {!isLanding && <SkipToContent />}
+        {!isLanding && <Navbar />}
         <main id="main-content">{children}</main>
-        <Footer />
-        <StickyMobileCTA />
+        {!isLanding && <Footer />}
+        {!isLanding && <StickyMobileCTA />}
         <WebVitals />
       </body>
     </html>

@@ -4,6 +4,8 @@ import { FileText, DollarSign, CalendarCheck } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
+import EngagementModels from '@/components/ui/EngagementModels'
 
 export const metadata: Metadata = {
   title: 'How It Works — The HSI Execution Process',
@@ -191,7 +193,13 @@ export default async function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────── */}
+      {/* ── EXECUTION DISCIPLINES ────────────────────────────────── */}
+      <ExecutionDisciplines variant="full" showCTA={false} context="how-it-works" />
+
+      {/* ── ENGAGEMENT MODELS — Platform-only vs Managed ──────────── */}
+      <EngagementModels emphasis="neutral" />
+
+      {/* ── CTA ───────────────────────────────────────────────── */}
       <section className="section-py bg-charcoal-800 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">

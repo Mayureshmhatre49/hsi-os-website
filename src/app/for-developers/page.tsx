@@ -5,6 +5,8 @@ import { Repeat2, LayoutDashboard, ShoppingBag, ClipboardList, Eye, Zap } from '
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
+import EngagementModels from '@/components/ui/EngagementModels'
 
 export const metadata: Metadata = {
   title: 'For Developers — Scalable Luxury Interior Execution Platform',
@@ -213,7 +215,13 @@ export default async function ForDevelopersPage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIAL ───────────────────────────────────── */}
+      {/* ── EXECUTION DISCIPLINES ────────────────────────────────── */}
+      <ExecutionDisciplines variant="compact" showCTA={true} context="for-developers" />
+
+      {/* ── ENGAGEMENT MODELS — Managed execution for multi-unit ──── */}
+      <EngagementModels emphasis="managed" />
+
+      {/* ── TESTIMONIAL ───────────────────────────────────────────── */}
       <section className="py-20 bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
