@@ -66,16 +66,16 @@ function LandingNav() {
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
       dark
-        ? 'bg-charcoal-900/80 backdrop-blur-md'
-        : 'bg-ivory-50/96 backdrop-blur-md shadow-luxury border-b border-ivory-200'
+        ? 'bg-charcoal-900/95 backdrop-blur-md border-b border-white/10'
+        : 'bg-ivory-50 backdrop-blur-md shadow-luxury border-b border-ivory-200'
     }`}>
       <div className="container-luxury flex items-center justify-between h-16 gap-4">
         {/* Logo */}
         <div className="flex items-center gap-2.5 flex-shrink-0">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold tracking-wider transition-colors duration-300 ${dark ? 'bg-white/20 text-white' : 'bg-sandstone-400 text-white'}`}>H</div>
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold tracking-wider transition-colors duration-300 ${dark ? 'bg-white/25 text-white' : 'bg-sandstone-400 text-white'}`}>H</div>
           <div className="hidden sm:block">
             <div className={`font-serif font-bold text-sm leading-none transition-colors duration-300 ${dark ? 'text-white' : 'text-charcoal-800'}`}>Hestia Villas</div>
-            <div className={`text-[9px] font-semibold tracking-[0.16em] uppercase mt-0.5 transition-colors duration-300 ${dark ? 'text-white/50' : 'text-sandstone-600'}`}>Powered by HSI OS</div>
+            <div className={`text-[9px] font-semibold tracking-[0.16em] uppercase mt-0.5 transition-colors duration-300 ${dark ? 'text-white/75' : 'text-sandstone-600'}`}>Powered by HSI OS</div>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ function LandingNav() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             href="tel:+918010234802"
-            className={`hidden md:flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${dark ? 'text-white/75 hover:text-white' : 'text-charcoal-700 hover:text-charcoal-900'}`}
+            className={`hidden md:flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${dark ? 'text-white/90 hover:text-white' : 'text-charcoal-700 hover:text-charcoal-900'}`}
           >
             <Phone size={13} strokeWidth={2} />
             <span className="hidden lg:inline">+91-8010234802</span>
@@ -279,7 +279,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900/70 via-charcoal-900/30 to-transparent" />
 
       {/* Content */}
-      <div className="container-luxury relative z-10 pb-16 md:pb-24">
+      <div className="container-luxury relative z-10 pt-12 pb-16 md:pb-24">
         <div className="max-w-3xl">
           {/* Eyebrow */}
           <motion.div
@@ -299,7 +299,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease }}
-            className="font-serif text-display-xl text-white leading-[1.04] tracking-tight mb-5"
+            className="font-serif text-display-xl text-white leading-[1.08] tracking-tight mb-5"
           >
             Monsoon-Proof Delivery.<br />
             <em className="not-italic text-sandstone-300">Zero Rework.</em><br />
@@ -905,48 +905,56 @@ function AlibaugTimelineSection() {
         {/* Timeline grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {phases.map(({ phase, duration, icon: Icon, color, tasks, highlight }, i) => {
-            const colorMap = {
-              sandstone: 'bg-sandstone-100 border-sandstone-300 text-sandstone-700',
-              bronze: 'bg-amber-100 border-amber-300 text-amber-700',
-              green: 'bg-green-100 border-green-300 text-green-700',
-              teal: 'bg-teal-100 border-teal-300 text-teal-700',
-            }
+            // One accent color per phase, used only as thin signals (top bar,
+            // icon, number) on otherwise neutral white cards. Pastel fills
+            // would clash with the page's luxury charcoal/serif aesthetic.
+            const accent = {
+              sandstone: { bar: 'bg-sandstone-500', text: 'text-sandstone-600', ring: 'ring-sandstone-200' },
+              bronze:    { bar: 'bg-amber-600',     text: 'text-amber-700',     ring: 'ring-amber-200' },
+              green:     { bar: 'bg-emerald-600',   text: 'text-emerald-700',   ring: 'ring-emerald-200' },
+              teal:      { bar: 'bg-teal-600',      text: 'text-teal-700',      ring: 'ring-teal-200' },
+            }[color as 'sandstone' | 'bronze' | 'green' | 'teal']
 
             return (
               <FadeUp key={phase} delay={i * 0.08}>
-                <div className={`border-2 rounded-3xl p-6 relative ${colorMap[color as keyof typeof colorMap]}`}>
-                  {/* Phase number */}
-                  <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-white border-2 border-current flex items-center justify-center font-serif font-bold text-sm">
-                    {i + 1}
+                <div className="group relative h-full flex flex-col rounded-3xl bg-white border border-charcoal-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  {/* Thin accent bar at top — the only saturated color on the card */}
+                  <div className={`h-1 w-full ${accent.bar}`} />
+
+                  <div className="flex flex-col flex-1 p-7">
+                    {/* Phase number + icon row */}
+                    <div className="flex items-center justify-between mb-5">
+                      <div className={`w-9 h-9 rounded-full bg-white ring-1 ${accent.ring} flex items-center justify-center font-serif text-sm ${accent.text}`}>
+                        {i + 1}
+                      </div>
+                      <Icon size={20} strokeWidth={1.5} className={accent.text} />
+                    </div>
+
+                    {/* Phase name */}
+                    <h3 className="font-serif text-xl text-charcoal-800 leading-tight mb-1">{phase}</h3>
+                    <div className={`text-xs font-medium tracking-wide ${accent.text} mb-5`}>{duration}</div>
+
+                    {/* Tasks — clean check-bullet, equal vertical rhythm */}
+                    <ul className="space-y-2.5 mb-6 text-[13.5px] leading-snug text-warmgray-700 flex-1">
+                      {tasks.map((task) => (
+                        <li key={task} className="flex gap-2.5">
+                          <Check size={14} className={`${accent.text} mt-0.5 shrink-0`} strokeWidth={2.25} />
+                          <span>{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Highlight — soft divider, serif italic label */}
+                    <div className="pt-4 border-t border-charcoal-100 mt-auto">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-warmgray-500 mb-1">Key point</div>
+                      <div className="font-serif text-[13.5px] italic text-charcoal-800 leading-snug">{highlight}</div>
+                    </div>
                   </div>
 
-                  {/* Icon */}
-                  <Icon size={24} className="mb-4 opacity-70" strokeWidth={1.5} />
-
-                  {/* Phase name */}
-                  <h3 className="font-serif text-xl font-bold mb-1">{phase}</h3>
-                  <div className="text-sm font-semibold opacity-75 mb-4">{duration}</div>
-
-                  {/* Tasks */}
-                  <ul className="space-y-2 mb-4 text-sm">
-                    {tasks.map((task) => (
-                      <li key={task} className="flex gap-2 opacity-80">
-                        <span className="text-lg leading-none">•</span>
-                        <span>{task}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Highlight */}
-                  <div className="pt-4 border-t-2 border-current/20">
-                    <div className="text-xs font-bold opacity-70 uppercase tracking-wider">Key Point</div>
-                    <div className="text-sm font-semibold mt-1">{highlight}</div>
-                  </div>
-
-                  {/* Connector arrow */}
+                  {/* Connector arrow — subtle, neutral, aligned to card body center */}
                   {i < phases.length - 1 && (
-                    <div className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10">
-                      <ArrowRight size={20} className="text-charcoal-400" />
+                    <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-charcoal-200 items-center justify-center">
+                      <ArrowRight size={14} className="text-charcoal-400" strokeWidth={1.75} />
                     </div>
                   )}
                 </div>
