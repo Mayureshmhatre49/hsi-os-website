@@ -299,11 +299,11 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease }}
-            className="font-serif text-display-xl text-white leading-[1.08] tracking-tight mb-5"
+            className="font-serif text-white leading-[1.08] tracking-tight mb-5"
           >
-            Monsoon-Proof Delivery.<br />
-            <em className="not-italic text-sandstone-300">Zero Rework.</em><br />
-            Coastal Mastery.
+            <span className="text-display-lg">Monsoon-Proof Delivery.</span><br />
+            <em className="not-italic text-sandstone-300 text-display-xl">Zero Rework.</em><br />
+            <span className="text-display-xl">Coastal Mastery.</span>
           </motion.h1>
 
           {/* Services line */}
