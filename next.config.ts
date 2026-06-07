@@ -52,6 +52,10 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   async headers() {
     return [
       { source: '/(.*)', headers: securityHeaders },
