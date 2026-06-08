@@ -340,8 +340,9 @@ function HeroSection() {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="text-white/70 text-lg leading-relaxed max-w-xl mb-9"
           >
-            One integrated ecosystem designed for discerning homeowners in Alibaug —
-            powered by proprietary execution intelligence unavailable elsewhere.
+            One integrated ecosystem designed for discerning homeowners in Alibaug.
+            Powered by <span className="text-white font-semibold">HSIOS™</span> —
+            the interior execution operating system that eliminates guesswork.
           </motion.p>
 
           {/* CTAs */}
@@ -456,6 +457,7 @@ function WhyAlibaugSection() {
               </h2>
               <p className="text-warmgray-600 text-lg leading-relaxed mb-12 max-w-lg">
                 A rare convergence of coastline, climate, and quiet — ninety minutes from the city, an entire world away from it.
+                Built with <span className="text-charcoal-800 font-semibold">HSIOS™</span> precision execution.
               </p>
             </FadeUp>
 
@@ -601,9 +603,9 @@ function ProblemSection() {
               <Shield size={20} className="text-sandstone-400" strokeWidth={1.75} />
             </div>
             <div>
-              <div className="text-white font-semibold mb-1">There is a better way.</div>
+              <div className="text-white font-semibold mb-1">There is a better way. It's called HSIOS™.</div>
               <div className="text-warmgray-300 text-sm leading-relaxed">
-                Hestia reimagined the entire delivery model — not just one part of it.
+                Every Hestia project runs on HSIOS™ — the operating system that eliminates guesswork, ensures accountability, and delivers precision execution.
               </div>
             </div>
             <a href="#difference" className="sm:ml-auto flex-shrink-0 text-sandstone-400 text-sm font-medium flex items-center gap-2 hover:text-sandstone-300 transition-colors">
@@ -897,7 +899,7 @@ function AlibaugTimelineSection() {
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed">
               From GFC finalization to post-handover ownership, every phase is engineered
-              around monsoon windows, not despite them. Here's exactly how we do it.
+              around monsoon windows, not despite them. <span className="text-charcoal-800 font-semibold">HSIOS™</span> powers each step.
             </p>
           </div>
         </FadeUp>
@@ -2537,7 +2539,7 @@ function FinalCtaSection() {
               </h2>
               <p className="text-warmgray-400 text-lg leading-relaxed mb-8">
                 Every remarkable home begins with a conversation. Not a sales pitch. Not a brochure.
-                A real discussion about your vision, your constraints, and what is possible.
+                A real discussion about your vision, your constraints, and what <span className="text-sandstone-300 font-semibold">HSIOS™</span> makes possible.
               </p>
             </FadeUp>
 
