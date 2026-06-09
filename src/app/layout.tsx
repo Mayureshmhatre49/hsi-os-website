@@ -235,7 +235,7 @@ const websiteSchema = {
 const ldJson = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c')
 
 // Routes that suppress the site Navbar, Footer, and StickyMobileCTA
-const LANDING_ROUTES = ['/alibaug-villa']
+const LANDING_ROUTES = ['/alibaug-villa', '/enquiry']
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const hdrs = await headers()

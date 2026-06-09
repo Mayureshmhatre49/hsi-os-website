@@ -83,7 +83,7 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
-  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo', '/alibaug-villa'].includes(pathname)
+  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo', '/alibaug-villa', '/enquiry'].includes(pathname)
   const transparent = isHeroPage && !scrolled && !menuOpen
 
   return (

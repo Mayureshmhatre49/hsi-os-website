@@ -300,6 +300,7 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease }}
             className="font-serif text-white leading-[1.08] tracking-tight mb-5"
+            suppressHydrationWarning
           >
             <span className="text-display-lg">Monsoon-Proof Delivery.</span><br />
             <em className="not-italic text-sandstone-300 text-display-xl">Zero Rework.</em><br />
@@ -369,7 +370,7 @@ function HeroSection() {
             className="flex flex-wrap gap-x-7 gap-y-2.5 pt-6 border-t border-white/12"
           >
             {[
-              { label: '₹1 Cr+ Minimum Project Scope', Icon: IndianRupee },
+              { label: '1 Cr+ Minimum Project Scope', Icon: IndianRupee },
               { label: 'End-To-End Accountability', Icon: Shield },
               { label: 'Digital Twin Enabled', Icon: Database },
               { label: 'Powered By HSI OS', Icon: Zap },
