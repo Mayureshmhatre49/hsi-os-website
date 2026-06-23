@@ -163,6 +163,7 @@ export async function POST(req: NextRequest) {
   const budget          = sanitizeLine(body.budget)
   const timeline        = sanitizeLine(body.timeline)
   const source          = sanitizeLine(body.source) || 'website'
+  const referralCode    = sanitizeLine(body.referralCode) || null
   
   // Extract and sanitize multi-select services array
   const rawServices     = Array.isArray(body.serviceInterest) ? body.serviceInterest : []
@@ -185,19 +186,38 @@ export async function POST(req: NextRequest) {
      ────────────────────────────────────────────────────────── */
   
   // 1. SUPABASE DATABASE HOOK
-  /*
   try {
-    const { createClient } = await import('@supabase/supabase-js')
-    const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_ANON_KEY!)
-    await supabase.from('leads').insert([{
-      name, email, phone, project_type: projectType, location, budget, timeline,
-      services: serviceInterest, source, lead_score: scoring.score,
-      created_at: new Date().toISOString()
+    const { supabaseAdmin } = await import('@/lib/supabase')
+
+    // Resolve partner from referral code if present
+    let referralPartnerId: string | null = null
+    if (referralCode) {
+      const { data: link } = await supabaseAdmin
+        .from('referral_links')
+        .select('partner_id, is_active')
+        .eq('code', referralCode)
+        .single()
+      if (link?.is_active) referralPartnerId = link.partner_id
+    }
+
+    await supabaseAdmin.from('leads').insert([{
+      name,
+      email: email || null,
+      phone,
+      project_type: projectType,
+      location,
+      budget,
+      timeline,
+      services: serviceInterest,
+      source,
+      lead_score: scoring.score,
+      referral_code: referralCode,
+      referral_partner_id: referralPartnerId,
+      status: 'NEW',
     }])
   } catch (err) {
     console.error('[Supabase Save Error]', err)
   }
-  */
 
   // 2. ZOHO CRM INTEGRATION HOOK
   /*
@@ -357,7 +377,8 @@ export async function POST(req: NextRequest) {
       <div class="field">
         <div class="label">Attribution Channel</div>
         <div class="value">
-          <strong>Source QR/URL:</strong> <span style="font-family: monospace; font-size: 13px; background: #FAF7F2; padding: 2px 6px; border-radius: 4px;">${source}</span>
+          <strong>Source:</strong> <span style="font-family: monospace; font-size: 13px; background: #FAF7F2; padding: 2px 6px; border-radius: 4px;">${source}</span>
+          ${referralCode ? `<br><strong>Referral Code:</strong> <span style="font-family: monospace; font-size: 13px; background: #FAF7F2; padding: 2px 6px; border-radius: 4px; color: #8B6B35;">${referralCode}</span>` : ''}
         </div>
       </div>
 

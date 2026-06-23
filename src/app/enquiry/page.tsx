@@ -26,6 +26,7 @@ interface LeadData {
   timeline: TimelineType | ''
   serviceInterest: ServiceType[]
   source: string
+  referralCode: string | null
 }
 
 const initialLeadData: LeadData = {
@@ -38,6 +39,7 @@ const initialLeadData: LeadData = {
   timeline: '',
   serviceInterest: [],
   source: 'website',
+  referralCode: null,
 }
 
 // Left sidebar branding highlights from attached reference
@@ -70,12 +72,15 @@ function EnquiryFunnel() {
   // Validation states for step 2
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({})
 
-  // Capture URL source parameter
+  // Capture URL source and referral params
   useEffect(() => {
     const sourceParam = searchParams.get('source')
-    if (sourceParam) {
-      setFormData(prev => ({ ...prev, source: sourceParam }))
-    }
+    const refParam    = searchParams.get('ref')
+    setFormData(prev => ({
+      ...prev,
+      ...(sourceParam ? { source: sourceParam } : {}),
+      ...(refParam    ? { referralCode: refParam, source: `referral:${refParam}` } : {}),
+    }))
   }, [searchParams])
 
   // Handle single selection input

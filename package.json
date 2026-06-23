@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
+    "qrcode": "^1.5.4",
     "framer-motion": "^12.6.3",
     "lucide-react": "^1.14.0",
     "next": "^15.3.0",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^22.14.1",
     "@types/nodemailer": "^8.0.0",
+    "@types/qrcode": "^1.5.5",
     "@types/react": "^19.1.1",
     "@types/react-dom": "^19.1.1",
     "autoprefixer": "^10.4.21",
