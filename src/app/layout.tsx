@@ -235,13 +235,16 @@ const websiteSchema = {
 const ldJson = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c')
 
 // Routes that suppress the site Navbar, Footer, and StickyMobileCTA
-const LANDING_ROUTES = ['/alibaug-villa', '/enquiry']
+const SHELL_EXEMPT_EXACT    = ['/alibaug-villa', '/enquiry']
+const SHELL_EXEMPT_PREFIXES = ['/admin', '/partner']
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const hdrs = await headers()
   const nonce = hdrs.get('x-nonce') ?? ''
   const pathname = hdrs.get('x-pathname') ?? ''
-  const isLanding = LANDING_ROUTES.some(r => pathname === r)
+  const isLanding =
+    SHELL_EXEMPT_EXACT.some(r => pathname === r) ||
+    SHELL_EXEMPT_PREFIXES.some(p => pathname.startsWith(p))
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID
 
   return (
