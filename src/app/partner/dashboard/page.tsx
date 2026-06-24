@@ -15,8 +15,8 @@ const STATUS_LABELS: Record<string, string> = {
 }
 
 interface Lead {
-  id: string; name: string; phone: string; project_type: string
-  location: string; budget: string; status: string; lead_score: number; created_at: string
+  id: string; name: string; project_type: string
+  location: string; budget: string; status: string; created_at: string
 }
 interface PartnerInfo {
   name: string; email: string

@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
 
   const { data: leads, error: leadsErr } = await supabaseAdmin
     .from('leads')
-    .select('id, name, phone, project_type, location, budget, status, lead_score, created_at')
+    .select('id, name, project_type, location, budget, status, created_at')
     .eq('referral_partner_id', partnerId)
     .order('created_at', { ascending: false })
 

@@ -16,7 +16,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   // Verify this lead belongs to the partner before returning
   const { data: lead, error: leadErr } = await supabaseAdmin
     .from('leads')
-    .select('id, name, project_type, location, budget, timeline, status, lead_score, created_at, referral_partner_id')
+    .select('id, name, project_type, location, budget, timeline, status, created_at, referral_partner_id')
     .eq('id', id)
     .single()
 

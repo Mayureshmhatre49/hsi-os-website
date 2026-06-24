@@ -18,7 +18,7 @@ const STATUS_LABELS: Record<string, string> = {
 
 interface Lead {
   id: string; name: string; project_type: string; location: string
-  budget: string; timeline: string; status: string; lead_score: number; created_at: string
+  budget: string; timeline: string; status: string; created_at: string
 }
 interface HistoryEntry { new_status: string; note: string | null; created_at: string }
 interface Comment { comment: string; created_by: string; created_at: string }
