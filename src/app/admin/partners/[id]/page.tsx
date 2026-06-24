@@ -62,7 +62,7 @@ export default function PartnerDetailPage() {
             <ArrowLeft size={18} />
           </Link>
           <div>
-            <h1 className="font-serif text-xl font-bold text-charcoal-800">{partner.name}</h1>
+            <h1 className="text-xl font-bold text-charcoal-800">{partner.name}</h1>
             <p className="text-xs text-warmgray-500">{partner.email} · {partner.phone}</p>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function PartnerDetailPage() {
             { label: 'Est. Earnings',  value: `₹${totalEarnings.toLocaleString('en-IN')}` },
           ].map(({ label, value }) => (
             <div key={label} className="bg-white rounded-2xl border border-ivory-300 p-5">
-              <div className="font-serif text-2xl font-bold text-charcoal-800">{value}</div>
+              <div className="text-2xl font-bold text-charcoal-800">{value}</div>
               <div className="text-xs text-warmgray-500 mt-1">{label}</div>
             </div>
           ))}
@@ -82,7 +82,7 @@ export default function PartnerDetailPage() {
 
         {link && (
           <div className="bg-white rounded-2xl border border-ivory-300 p-6 space-y-5">
-            <h2 className="font-serif text-base font-bold text-charcoal-800">Referral Assets</h2>
+            <h2 className="text-base font-bold text-charcoal-800">Referral Assets</h2>
             <div>
               <div className="form-label mb-1">Referral URL</div>
               <div className="flex items-center gap-2">
@@ -115,7 +115,7 @@ export default function PartnerDetailPage() {
 
         <div className="bg-white rounded-2xl border border-ivory-300">
           <div className="px-6 py-4 border-b border-ivory-200">
-            <h2 className="font-serif text-base font-bold text-charcoal-800">Leads from this Partner</h2>
+            <h2 className="text-base font-bold text-charcoal-800">Leads from this Partner</h2>
           </div>
           <div className="divide-y divide-ivory-100">
             {leads.map(lead => (

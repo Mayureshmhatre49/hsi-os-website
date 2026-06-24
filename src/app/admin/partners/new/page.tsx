@@ -58,7 +58,7 @@ export default function NewPartnerPage() {
             <button onClick={() => router.push('/admin/partners')} className="text-warmgray-500 hover:text-charcoal-800">
               <ArrowLeft size={18} />
             </button>
-            <h1 className="font-serif text-xl font-bold text-charcoal-800">Partner Created</h1>
+            <h1 className="text-xl font-bold text-charcoal-800">Partner Created</h1>
           </div>
 
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-sm text-green-800 font-semibold">
@@ -124,7 +124,7 @@ export default function NewPartnerPage() {
             <ArrowLeft size={18} />
           </Link>
           <div>
-            <h1 className="font-serif text-xl font-bold text-charcoal-800">New Partner</h1>
+            <h1 className="text-xl font-bold text-charcoal-800">New Partner</h1>
             <p className="text-xs text-warmgray-500 mt-0.5">A unique referral link + QR will be generated automatically.</p>
           </div>
         </div>

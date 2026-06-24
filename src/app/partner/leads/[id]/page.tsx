@@ -54,7 +54,7 @@ export default function PartnerLeadDetailPage() {
           </Link>
           <div className="flex-1">
             <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="font-serif text-xl font-bold text-charcoal-800">{lead.name}</h1>
+              <h1 className="text-xl font-bold text-charcoal-800">{lead.name}</h1>
               <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${STATUS_COLORS[lead.status]}`}>
                 {STATUS_LABELS[lead.status]}
               </span>
@@ -66,7 +66,7 @@ export default function PartnerLeadDetailPage() {
         </div>
 
         <div className="bg-white rounded-2xl border border-ivory-300 p-5 space-y-3">
-          <h2 className="font-serif text-sm font-bold text-charcoal-800">Project Details</h2>
+          <h2 className="text-sm font-bold text-charcoal-800">Project Details</h2>
           {[
             ['Project Type', lead.project_type],
             ['Location',     lead.location],
@@ -81,7 +81,7 @@ export default function PartnerLeadDetailPage() {
         </div>
 
         <div className="bg-white rounded-2xl border border-ivory-300 p-6 space-y-4">
-          <h2 className="font-serif text-base font-bold text-charcoal-800">Activity</h2>
+          <h2 className="text-base font-bold text-charcoal-800">Activity</h2>
           <p className="text-xs text-warmgray-400">Status updates and notes from the HSI team.</p>
 
           <div className="space-y-3">

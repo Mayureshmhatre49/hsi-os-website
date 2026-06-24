@@ -43,7 +43,7 @@ export default function AdminLeadsPage() {
     <AdminShell>
       <div className="space-y-6">
         <div>
-          <h1 className="font-serif text-2xl font-bold text-charcoal-800">Leads</h1>
+          <h1 className="text-2xl font-bold text-charcoal-800">Leads</h1>
           <p className="text-xs text-warmgray-500 mt-1">{leads.length} total leads</p>
         </div>
 

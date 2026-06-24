@@ -97,7 +97,7 @@ export default function LeadDetailPage() {
           </Link>
           <div className="flex-1">
             <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="font-serif text-xl font-bold text-charcoal-800">{lead.name}</h1>
+              <h1 className="text-xl font-bold text-charcoal-800">{lead.name}</h1>
               <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${STATUS_COLORS[lead.status]}`}>
                 {STATUS_LABELS[lead.status]}
               </span>
@@ -115,7 +115,7 @@ export default function LeadDetailPage() {
         <div className="grid sm:grid-cols-2 gap-4">
           {/* Lead info */}
           <div className="bg-white rounded-2xl border border-ivory-300 p-5 space-y-3">
-            <h2 className="font-serif text-sm font-bold text-charcoal-800">Project Details</h2>
+            <h2 className="text-sm font-bold text-charcoal-800">Project Details</h2>
             {[
               ['Type',     lead.project_type],
               ['Location', lead.location],
@@ -145,7 +145,7 @@ export default function LeadDetailPage() {
           <div className="space-y-4">
             {lead.referral_partners && (
               <div className="bg-sandstone-50 border border-sandstone-200 rounded-2xl p-5">
-                <h2 className="font-serif text-sm font-bold text-charcoal-800 mb-2">Referred By</h2>
+                <h2 className="text-sm font-bold text-charcoal-800 mb-2">Referred By</h2>
                 <div className="text-sm font-semibold text-charcoal-800">{lead.referral_partners.name}</div>
                 <div className="text-xs text-warmgray-500">{lead.referral_partners.email}</div>
                 <div className="text-xs text-warmgray-500">{lead.referral_partners.phone}</div>
@@ -159,7 +159,7 @@ export default function LeadDetailPage() {
             )}
 
             <div className="bg-white rounded-2xl border border-ivory-300 p-5 space-y-3">
-              <h2 className="font-serif text-sm font-bold text-charcoal-800">Update Status</h2>
+              <h2 className="text-sm font-bold text-charcoal-800">Update Status</h2>
               <select
                 value={newStatus}
                 onChange={e => setNewStatus(e.target.value)}
@@ -190,7 +190,7 @@ export default function LeadDetailPage() {
 
         {/* Timeline + Comments */}
         <div className="bg-white rounded-2xl border border-ivory-300 p-6 space-y-6">
-          <h2 className="font-serif text-base font-bold text-charcoal-800">Timeline & Comments</h2>
+          <h2 className="text-base font-bold text-charcoal-800">Timeline & Comments</h2>
 
           <div className="space-y-3">
             {history.map((h, i) => (

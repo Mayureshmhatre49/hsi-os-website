@@ -38,10 +38,10 @@ export default function PartnerLoginPage() {
     <div className="min-h-screen bg-charcoal-800 flex items-center justify-center p-6">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-luxury-lg p-8">
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 rounded-xl bg-sandstone-400 flex items-center justify-center mb-4 text-white font-bold text-lg font-serif">
+          <div className="w-12 h-12 rounded-xl bg-sandstone-400 flex items-center justify-center mb-4 text-white font-bold text-lg">
             H
           </div>
-          <h1 className="font-serif text-2xl font-bold text-charcoal-800">Partner Portal</h1>
+          <h1 className="text-2xl font-bold text-charcoal-800">Partner Portal</h1>
           <p className="text-xs text-warmgray-500 mt-1">Hestia Smart Interiors</p>
         </div>
 

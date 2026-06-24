@@ -53,7 +53,7 @@ export default function PartnerDashboardPage() {
     <PartnerShell>
       <div className="space-y-6">
         <div>
-          <h1 className="font-serif text-2xl font-bold text-charcoal-800">My Leads</h1>
+          <h1 className="text-2xl font-bold text-charcoal-800">My Leads</h1>
           <p className="text-xs text-warmgray-500 mt-1">Welcome, {partner?.name}</p>
         </div>
 
@@ -65,7 +65,7 @@ export default function PartnerDashboardPage() {
             { label: 'Est. Earnings', value: `₹${estEarnings.toLocaleString('en-IN')}` },
           ].map(({ label, value }) => (
             <div key={label} className="bg-white rounded-2xl border border-ivory-300 p-5">
-              <div className="font-serif text-2xl font-bold text-charcoal-800">{value}</div>
+              <div className="text-2xl font-bold text-charcoal-800">{value}</div>
               <div className="text-xs text-warmgray-500 mt-1">{label}</div>
             </div>
           ))}
@@ -91,7 +91,7 @@ export default function PartnerDashboardPage() {
         {/* Leads table */}
         <div className="bg-white rounded-2xl border border-ivory-300">
           <div className="px-6 py-4 border-b border-ivory-200 flex items-center justify-between">
-            <h2 className="font-serif text-base font-bold text-charcoal-800">All My Leads</h2>
+            <h2 className="text-base font-bold text-charcoal-800">All My Leads</h2>
             <TrendingUp size={16} className="text-warmgray-400" />
           </div>
           <div className="divide-y divide-ivory-100">

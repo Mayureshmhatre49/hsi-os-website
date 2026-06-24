@@ -55,7 +55,7 @@ export default function AdminDashboardPage() {
     <AdminShell>
       <div className="space-y-8">
         <div>
-          <h1 className="font-serif text-2xl font-bold text-charcoal-800">Dashboard</h1>
+          <h1 className="text-2xl font-bold text-charcoal-800">Dashboard</h1>
           <p className="text-xs text-warmgray-500 mt-1">Referral program overview</p>
         </div>
 
@@ -69,7 +69,7 @@ export default function AdminDashboardPage() {
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-white rounded-2xl border border-ivory-300 p-5">
               <Icon size={18} className={`${color} mb-3`} strokeWidth={1.5} />
-              <div className="font-serif text-3xl font-bold text-charcoal-800">{value}</div>
+              <div className="text-3xl font-bold text-charcoal-800">{value}</div>
               <div className="text-xs text-warmgray-500 mt-1">{label}</div>
             </div>
           ))}
@@ -77,7 +77,7 @@ export default function AdminDashboardPage() {
 
         {/* Status breakdown */}
         <div className="bg-white rounded-2xl border border-ivory-300 p-6">
-          <h2 className="font-serif text-base font-bold text-charcoal-800 mb-4">Lead Pipeline</h2>
+          <h2 className="text-base font-bold text-charcoal-800 mb-4">Lead Pipeline</h2>
           <div className="flex flex-wrap gap-3">
             {['NEW', 'CONTACTED', 'SITE_VISIT', 'CONVERTED', 'LOST'].map(s => (
               <span key={s} className={`px-3 py-1.5 rounded-full text-xs font-bold ${STATUS_COLORS[s]}`}>
@@ -90,7 +90,7 @@ export default function AdminDashboardPage() {
         {/* Recent leads */}
         <div className="bg-white rounded-2xl border border-ivory-300">
           <div className="flex items-center justify-between px-6 py-4 border-b border-ivory-200">
-            <h2 className="font-serif text-base font-bold text-charcoal-800">Recent Leads</h2>
+            <h2 className="text-base font-bold text-charcoal-800">Recent Leads</h2>
             <Link href="/admin/leads" className="text-xs text-sandstone-600 font-semibold flex items-center gap-1 hover:underline">
               View all <ArrowRight size={12} />
             </Link>

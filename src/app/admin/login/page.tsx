@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
           <div className="w-12 h-12 rounded-xl bg-sandstone-400 flex items-center justify-center mb-4">
             <Lock size={20} className="text-white" />
           </div>
-          <h1 className="font-serif text-2xl font-bold text-charcoal-800">Admin Panel</h1>
+          <h1 className="text-2xl font-bold text-charcoal-800">Admin Panel</h1>
           <p className="text-xs text-warmgray-500 mt-1">Hestia Smart Interiors</p>
         </div>
 

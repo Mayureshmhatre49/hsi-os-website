@@ -30,7 +30,7 @@ export default function AdminPartnersPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="font-serif text-2xl font-bold text-charcoal-800">Partners</h1>
+            <h1 className="text-2xl font-bold text-charcoal-800">Partners</h1>
             <p className="text-xs text-warmgray-500 mt-1">{partners.length} referral partner{partners.length !== 1 ? 's' : ''}</p>
           </div>
           <Link href="/admin/partners/new" className="btn btn-bronze text-xs py-2.5 px-5 shadow-bronze">
@@ -50,7 +50,7 @@ export default function AdminPartnersPage() {
                 <div key={p.id} className="px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-serif font-bold text-sm text-charcoal-800">{p.name}</span>
+                      <span className="font-bold text-sm text-charcoal-800">{p.name}</span>
                       {p.company && <span className="text-xs text-warmgray-400">· {p.company}</span>}
                     </div>
                     <div className="text-xs text-warmgray-400 mt-0.5">{p.email} · {p.phone}</div>
