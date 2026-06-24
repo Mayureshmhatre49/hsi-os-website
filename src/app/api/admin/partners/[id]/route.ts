@@ -23,6 +23,44 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   return NextResponse.json({ partner, leads: leads ?? [] })
 }
 
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  if (!getAdminFromRequest(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { id } = await params
+
+  // Get the partner to find their auth_user_id
+  const { data: partner, error: fetchErr } = await supabaseAdmin
+    .from('referral_partners')
+    .select('auth_user_id')
+    .eq('id', id)
+    .single()
+
+  if (fetchErr || !partner) return NextResponse.json({ error: 'Partner not found.' }, { status: 404 })
+
+  // Nullify partner reference on any leads (keep leads, just unlink)
+  await supabaseAdmin
+    .from('leads')
+    .update({ referral_partner_id: null, referral_code: null })
+    .eq('referral_partner_id', id)
+
+  // Delete referral links
+  await supabaseAdmin.from('referral_links').delete().eq('partner_id', id)
+
+  // Delete partner record
+  const { error: deleteErr } = await supabaseAdmin
+    .from('referral_partners')
+    .delete()
+    .eq('id', id)
+
+  if (deleteErr) return NextResponse.json({ error: deleteErr.message }, { status: 500 })
+
+  // Delete Supabase Auth user last (best-effort)
+  if (partner.auth_user_id) {
+    await supabaseAdmin.auth.admin.deleteUser(partner.auth_user_id)
+  }
+
+  return NextResponse.json({ ok: true })
+}
+
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!getAdminFromRequest(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { id } = await params

@@ -5,7 +5,8 @@ import { useParams } from 'next/navigation'
 import AdminShell from '@/components/admin/AdminShell'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowLeft, Copy, Check, ExternalLink } from 'lucide-react'
+import { ArrowLeft, Copy, Check, ExternalLink, Trash2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 const STATUS_COLORS: Record<string, string> = {
   NEW: 'bg-blue-100 text-blue-700', CONTACTED: 'bg-yellow-100 text-yellow-700',
@@ -15,6 +16,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 export default function PartnerDetailPage() {
   const { id } = useParams<{ id: string }>()
+  const router  = useRouter()
   const [data, setData]     = useState<{
     partner: {
       name: string; email: string; phone: string; company: string | null
@@ -22,8 +24,10 @@ export default function PartnerDetailPage() {
     }
     leads: { id: string; name: string; phone: string; project_type: string; location: string; status: string; lead_score: number; created_at: string }[]
   } | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [copied, setCopied]   = useState(false)
+  const [loading, setLoading]   = useState(true)
+  const [copied, setCopied]     = useState(false)
+  const [deleting, setDeleting] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   useEffect(() => {
     fetch(`/api/admin/partners/${id}`)
@@ -40,6 +44,19 @@ export default function PartnerDetailPage() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.hsios.in'
   const referralUrl = link ? `${siteUrl}/enquiry?ref=${link.code}` : ''
   const totalEarnings = leads.filter(l => l.status === 'CONVERTED').length * (link?.payment_per_lead ?? 0)
+
+  async function handleDelete() {
+    setDeleting(true)
+    const res = await fetch(`/api/admin/partners/${id}`, { method: 'DELETE' })
+    if (res.ok) {
+      router.replace('/admin/partners')
+    } else {
+      const d = await res.json()
+      alert(d.error ?? 'Delete failed.')
+      setDeleting(false)
+      setConfirmDelete(false)
+    }
+  }
 
   function copyUrl() {
     navigator.clipboard.writeText(referralUrl)
@@ -61,10 +78,37 @@ export default function PartnerDetailPage() {
           <Link href="/admin/partners" className="text-warmgray-500 hover:text-charcoal-800">
             <ArrowLeft size={18} />
           </Link>
-          <div>
+          <div className="flex-1">
             <h1 className="text-xl font-bold text-charcoal-800">{partner.name}</h1>
             <p className="text-xs text-warmgray-500">{partner.email} · {partner.phone}</p>
           </div>
+
+          {/* Delete */}
+          {!confirmDelete ? (
+            <button
+              onClick={() => setConfirmDelete(true)}
+              className="btn btn-outline-dark text-xs py-2 px-3 flex items-center gap-1.5 text-red-600 border-red-200 hover:bg-red-50"
+            >
+              <Trash2 size={13} /> Delete
+            </button>
+          ) : (
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-red-600 font-semibold">Delete partner?</span>
+              <button
+                onClick={handleDelete}
+                disabled={deleting}
+                className="btn text-xs py-2 px-3 bg-red-600 text-white hover:bg-red-700 disabled:opacity-50"
+              >
+                {deleting ? 'Deleting…' : 'Yes, delete'}
+              </button>
+              <button
+                onClick={() => setConfirmDelete(false)}
+                className="btn btn-outline-dark text-xs py-2 px-3"
+              >
+                Cancel
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="grid sm:grid-cols-3 gap-4">
