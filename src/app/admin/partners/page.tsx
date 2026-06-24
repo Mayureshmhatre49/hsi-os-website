@@ -17,8 +17,10 @@ export default function AdminPartnersPage() {
 
   useEffect(() => {
     fetch('/api/admin/partners')
-      .then(r => r.json())
-      .then(d => { setPartners(d.partners ?? []); setLoading(false) })
+      .then(r => r.ok ? r.json() : { partners: [] })
+      .then(d => setPartners(d.partners ?? []))
+      .catch(console.error)
+      .finally(() => setLoading(false))
   }, [])
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.hsios.in'

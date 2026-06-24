@@ -26,8 +26,10 @@ export default function AdminLeadsPage() {
 
   useEffect(() => {
     fetch('/api/admin/leads')
-      .then(r => r.json())
-      .then(d => { setLeads(d.leads ?? []); setLoading(false) })
+      .then(r => r.ok ? r.json() : { leads: [] })
+      .then(d => setLeads(d.leads ?? []))
+      .catch(console.error)
+      .finally(() => setLoading(false))
   }, [])
 
   const filtered = leads.filter(l => {

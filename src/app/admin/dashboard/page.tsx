@@ -26,13 +26,12 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/admin/leads').then(r => r.json()),
-      fetch('/api/admin/partners').then(r => r.json()),
+      fetch('/api/admin/leads').then(r => r.ok ? r.json() : { leads: [] }),
+      fetch('/api/admin/partners').then(r => r.ok ? r.json() : { partners: [] }),
     ]).then(([ld, pt]) => {
       setLeads(ld.leads ?? [])
       setPartners(pt.partners ?? [])
-      setLoading(false)
-    })
+    }).catch(console.error).finally(() => setLoading(false))
   }, [])
 
   const statusCounts = leads.reduce<Record<string, number>>((acc, l) => {
