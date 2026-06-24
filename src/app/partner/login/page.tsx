@@ -93,9 +93,12 @@ export default function PartnerLoginPage() {
           </button>
         </form>
 
-        <p className="text-center text-xs text-warmgray-400 mt-6">
-          <Link href="/" className="text-sandstone-600 hover:underline">← Back to hsios.in</Link>
-        </p>
+        <div className="flex items-center justify-between mt-6 text-xs">
+          <Link href="/partner/forgot-password" className="text-sandstone-600 hover:underline">
+            Forgot password?
+          </Link>
+          <Link href="/" className="text-warmgray-400 hover:text-charcoal-800">← hsios.in</Link>
+        </div>
       </div>
     </div>
   )
