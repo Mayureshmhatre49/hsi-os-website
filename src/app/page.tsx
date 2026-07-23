@@ -145,9 +145,9 @@ function HeroSection() {
             Every decision documented, every rupee tracked, every trade held accountable.
           </p>
 
-          {/* Budget qualifier */}
-          <p className="text-sm text-sandstone-400/80 font-sans mb-10 pl-6 animate-fade-up [animation-delay:260ms] leading-relaxed">
-            Minimum project value ₹50 Lakhs<span className="hidden sm:inline"> &nbsp;·&nbsp; Alibag · Mumbai · Pune · Goa · Bangalore</span>
+          {/* Locations */}
+          <p className="text-sm text-sandstone-400/80 font-sans mb-10 pl-4 animate-fade-up [animation-delay:260ms] leading-relaxed">
+            Alibag · Mumbai · Pune · Goa · Bangalore
           </p>
 
           {/* CTAs */}
@@ -175,7 +175,7 @@ function HeroSection() {
             { value: '7+',      label: 'Luxury Villas — On Budget' },
             { value: '₹100Cr+', label: 'Projects Managed' },
             { value: '75+',     label: 'Trade Conflicts Resolved' },
-            { value: '0',       label: 'Cost Overruns' },
+            { value: '30% Lower', label: 'Overruns vs Industry' },
           ].map(({ value, label }) => (
             <div key={label}>
               <div className="font-serif text-3xl sm:text-4xl font-bold text-sandstone-300 mb-1">{value}</div>
@@ -804,14 +804,14 @@ function FinalCTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="btn btn-bronze text-base px-10 py-4">
+              <Link href="/contact" className="btn btn-bronze text-base px-10 py-4 w-full sm:w-auto">
                 Book Private Consultation
               </Link>
               <a
                 href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27d%20like%20to%20book%20a%20consultation%20for%20my%20project"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline-white text-base px-10 py-4"
+                className="btn btn-outline-white text-base px-10 py-4 w-full sm:w-auto"
               >
                 WhatsApp Us Directly
               </a>

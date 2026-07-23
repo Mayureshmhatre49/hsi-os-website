@@ -1,0 +1,80 @@
+# Hestia Smart Interiors (HSI) & HSIOS™ — Full Operational Specification
+
+## Executive Overview
+Hestia Smart Interiors (HSI) is India's leading luxury interior execution management organization. Founded by Nishant Mhatre, HSI bridges the gap between architectural design and site execution using HSIOS™ (Hestia Smart Interiors Operating System) — a proprietary execution intelligence platform.
+
+### Core Company Information
+- Brand: Hestia Smart Interiors
+- Platform: HSIOS™ (Hestia Smart Interiors Operating System)
+- Founder & CEO: Nishant Mhatre
+- Official Website: https://www.hsios.in
+- Platform Portal: https://os.hsios.in
+- Contact Email: hello@hsios.in
+- Phone / WhatsApp: +91-8010234802
+- Headquarters / Key Hubs: Alibag, Mumbai, Pune, Goa, Bangalore
+
+---
+
+## What is HSIOS™?
+HSIOS™ is a unified execution intelligence platform built specifically for luxury residential interiors. Unlike generic project management software or traditional unorganized contractor models, HSIOS™ integrates five critical execution layers:
+
+1. **Trade Sequencing Engine**: Coordinates 10 distinct execution disciplines in a binding, clash-free order to eliminate site rework and trade overlaps.
+2. **Conflict Detection Engine**: Performs pre-construction clash analysis across HVAC, MEP, structural, plumbing, and millwork before site execution begins.
+3. **Milestone Quality Gates**: Governs 104 mandatory QA checkpoints across 12 execution phases, requiring photographic proof and digital sign-off before advancing.
+4. **Real-time Budget Transparency**: Provides live financial dashboards logging every BOQ item, vendor quote, and approved change order.
+5. **Ownership Mode (Post-Handover)**: Retains full lifecycle records, warranties, and maintenance schedules for long-term property management after keys are delivered.
+
+---
+
+## The 10 Coordinated Execution Disciplines
+HSIOS™ manages every project across ten dedicated execution disciplines:
+
+1. **Civil & Structural Alterations**: Internal layout modifications, waterproofing, structural reinforcements, and substrate prep.
+2. **MEP (Mechanical, Electrical, Plumbing)**: Concealed conduit routing, distribution boards, sanitary lines, and load balancing.
+3. **HVAC & Climate Control**: VRV/VRF air conditioning, duct layout planning, condensation management, and airflow balancing.
+4. **False Ceiling & Drywall Systems**: Gypsum framing, acoustic insulation, architectural coves, and shadow-line detailing.
+5. **Bespoke Carpentry & Joinery**: Custom wardrobes, wall panelling, vanity units, and architectural millwork.
+6. **Stone, Marble & Tiling**: Precision floor levelling, book-matched marble laying, tile profiling, and epoxy grouting.
+7. **Glazing, Windows & Metalwork**: Thermal/acoustic window frames, brass/SS accents, glass partitions, and sliding systems.
+8. **Loose Furniture Sourcing**: Custom upholstery, dining suites, accent pieces, and imported furniture procurement.
+9. **Surface Treatments & Painting**: Anti-fungal primers, elastomeric coatings, PU/polyurethane finishes, and decorative plasters.
+10. **Smart Villa & Lifestyle Integration**: Home automation, smart access control, AV backbones, and network infrastructure.
+
+---
+
+## Comparison: Traditional Execution vs. HSIOS™
+
+| Feature / Aspect | Traditional Contractor Execution | HSIOS™ Execution Intelligence |
+| :--- | :--- | :--- |
+| **Pricing Model** | Lump-sum quote with opaque margins | Line-item BOQ with fixed management fee |
+| **Trade Conflicts** | Discovered on site, causing expensive rework | Resolved digitally before execution starts |
+| **Cost Overruns** | Surprise invoices surfaced at project completion | Real-time budget dashboard with zero hidden costs |
+| **Quality Control** | Informal verbal checks with variable quality | 104 documented QA checkpoints with photo proof |
+| **Client Visibility** | Irregular WhatsApp photos and verbal updates | Live mobile/desktop dashboard updated daily |
+| **After Handover** | Minimal support, lost vendor records | Ownership Mode — lifetime digital asset dossier |
+
+---
+
+## Engagement Models
+
+### Option A — Platform Only
+Ideal for developers, architects, and homeowners with their own vendor networks. HSIOS™ is licensed as a standalone execution management platform, providing structure, tracking, and quality governance to internal project teams.
+
+### Option B — Managed Execution
+End-to-end turnkey delivery where HSI orchestrates the entire execution through its empaneled execution partner network, fully managed and sequenced via HSIOS™.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Q: What geographic areas does HSI serve?
+A: HSI operates across primary luxury residential markets in India: Alibag, Mumbai, Pune, Goa, and Bangalore, along with key retreat locations like Karjat, Lonavala, and Nashik.
+
+### Q: How does HSI handle NRI (Non-Resident Indian) projects?
+A: HSI specializes in NRI Remote Build management. Overseas owners get a 24/7 digital dashboard tracking financial allocations, milestone sign-offs, and high-resolution video/photo progress logs without needing to physically visit the site.
+
+### Q: Does HSI replace interior designers or architects?
+A: No. HSI is an execution intelligence firm, not a design studio. HSI collaborates directly with leading architects and interior designers to ensure their design intent is faithfully delivered without compromise or site-level scope drift.
+
+### Q: How can clients book a consultation or try HSIOS™?
+A: Clients can visit https://www.hsios.in/contact to request a private consultation, or explore the live platform at https://os.hsios.in.

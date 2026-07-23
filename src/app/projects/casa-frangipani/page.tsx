@@ -33,7 +33,7 @@ const stats = [
   { value: '6,500', unit: 'sq ft', label: 'Total Built-Up Area' },
   { value: '6',     unit: 'BR',     label: 'Bedrooms' },
   { value: '12',    unit: '',       label: 'Conflicts Caught Pre-Execution' },
-  { value: '0',     unit: '',       label: 'On-Site Surprises' },
+  { value: 'Minimal', unit: '',     label: 'On-Site Surprises' },
   { value: '100',   unit: '%',      label: 'Budget Adherence' },
   { value: '-3',    unit: 'wks',    label: 'Delivered Ahead of Schedule' },
 ]

@@ -115,6 +115,11 @@
     background: var(--sandstone);
     flex-shrink: 0;
   }
+  .text-center .section-label,
+  .section-label.mx-auto {
+    justify-content: center;
+    margin-inline: auto;
+  }
 
   /* Warm divider */
   .divider-warm {
@@ -123,14 +128,17 @@
     background: linear-gradient(90deg, var(--sandstone) 0%, transparent 100%);
     margin-block: 1.5rem;
   }
+  .text-center .divider-warm {
+    margin-inline: auto;
+  }
 
   /* ── Buttons ─────────────────────────────────────────────── */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-semibold
-           text-sm tracking-wide transition-all duration-300 cursor-pointer select-none;
+           text-sm tracking-wide transition-all duration-300 cursor-pointer select-none max-w-full text-center;
     padding: 0.875rem 1.875rem;
     letter-spacing: 0.04em;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .btn-dark {

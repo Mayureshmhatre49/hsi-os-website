@@ -371,7 +371,7 @@ export default function ExecutionDisciplines({
                   {[
                     { label: '10', sub: 'Execution Disciplines' },
                     { label: '104', sub: 'QA Checkpoints' },
-                    { label: '0', sub: 'Rework Incidents' },
+                    { label: 'Minimal', sub: 'Rework Incidents' },
                   ].map(({ label, sub }) => (
                     <div key={sub} className="px-5 py-3 rounded-xl bg-white/6 border border-white/8">
                       <div className="font-serif text-xl font-bold text-sandstone-300 leading-none">{label}</div>

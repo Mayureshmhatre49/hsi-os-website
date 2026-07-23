@@ -50,7 +50,7 @@ const projects = [
     metrics: [
       { label: 'Conflicts Detected Pre-Execution', value: '7' },
       { label: 'Budget Overrun', value: 'None' },
-      { label: 'Site Surprises', value: '0' },
+      { label: 'Site Surprises', value: 'Minimal' },
     ],
   },
   {
@@ -125,7 +125,7 @@ const spotlights = [
     outcomes: [
       { value: '12', label: 'Conflicts Detected Before Site Began' },
       { value: '100%', label: 'Budget Adherence' },
-      { value: '0', label: 'On-Site Surprises' },
+      { value: 'Minimal', label: 'On-Site Surprises' },
       { value: 'Full', label: 'Sustainability Report Delivered' },
     ],
   },
@@ -221,7 +221,7 @@ export default async function ProjectsPage() {
             { val: '7+',   label: 'Premium Villas Delivered' },
             { val: '75+',  label: 'Trade Conflicts Resolved Pre-Execution' },
             { val: '100%', label: 'Delivered On Budget' },
-            { val: '0',    label: 'Client Budget Surprises' },
+            { val: '30% Lower', label: 'Cost Overruns vs Industry' },
           ].map(({ val, label }) => (
             <div key={label}>
               <div className="font-serif text-4xl font-bold">{val}</div>

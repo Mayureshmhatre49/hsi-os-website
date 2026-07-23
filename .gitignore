@@ -39,5 +39,6 @@ sustain-screenshots/
 .env.local
 .env*.local
 
-# Vercel
-.vercel
+# Local IDE settings
+.claude/
+.gemini/

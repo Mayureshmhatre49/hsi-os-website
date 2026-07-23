@@ -12,7 +12,6 @@ import { JsonLd } from '@/lib/JsonLd'
 import PlatformPreview from '@/components/ui/PlatformPreview'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 import { getAlternates } from '@/lib/seo'
-import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
 import EngagementModels from '@/components/ui/EngagementModels'
 
 export const metadata: Metadata = {
@@ -92,7 +91,7 @@ const modules = [
     ui: (
       <div className="mt-4">
         <div className="flex gap-3 mb-2">
-          {[['₹4.5Cr','Spent','bg-sandstone-400'],['₹10.5Cr','Balance','bg-ivory-300'],['0','Overruns','bg-green-100']].map(([v,k,bg]) => (
+          {[['₹4.5Cr','Spent','bg-sandstone-400'],['₹10.5Cr','Balance','bg-ivory-300'],['30% Below','Overruns','bg-green-100']].map(([v,k,bg]) => (
             <div key={k} className={`flex-1 ${bg} rounded-lg p-2 text-center`}>
               <div className="text-xs font-bold text-charcoal-800">{v}</div>
               <div className="text-[10px] text-warmgray-600">{k}</div>
@@ -215,14 +214,6 @@ const howWeWork = [
   },
 ]
 
-const processSteps = [
-  { n: 1, title: 'Project Understanding', desc: 'Goals, brief & scope definition', chip: 'Brief locked',   active: true },
-  { n: 2, title: 'Planning & Budgeting',  desc: 'Timeline, BOQ & cost structure',  chip: 'BOQ approved'                  },
-  { n: 3, title: 'Execution & Monitoring',desc: 'Real-time site tracking & vendor management', chip: 'Live now', live: true },
-  { n: 4, title: 'QA & Compliance',       desc: 'Quality checks, snag lists & sign-off', chip: 'Snag-free'                },
-  { n: 5, title: 'Delivery & Handover',   desc: 'Final handover & documentation',  chip: 'Keys delivered'                },
-]
-
 
 export default async function HSIOSPage() {
   return (
@@ -258,7 +249,7 @@ export default async function HSIOSPage() {
                 <Link href="/contact" className="btn btn-outline-white">Request a Demo</Link>
               </div>
               <div className="flex flex-wrap gap-8">
-                {[['7+','Premium Villas'],['₹100Cr+','Execution Value'],['100%','Cost Transparency'],['0','Surprises']].map(([v,l]) => (
+                {[['7+','Premium Villas'],['₹100Cr+','Execution Value'],['100%','Cost Transparency'],['Minimal','Surprises']].map(([v,l]) => (
                   <div key={l}>
                     <div className="font-serif text-2xl font-bold text-white">{v}</div>
                     <div className="text-xs text-warmgray-400 mt-0.5 uppercase tracking-wider">{l}</div>
@@ -408,7 +399,7 @@ export default async function HSIOSPage() {
               { val: '7+',    label: 'Premium villa interiors delivered across Alibag', trend: '↑ Growing' },
               { val: '₹100Cr',label: 'Execution value managed live on HSIOS™',         trend: '↑ Active' },
               { val: '100%',  label: 'Cost transparency on every active project',       trend: '↑ Always' },
-              { val: '0',     label: 'Execution surprises on completed projects',       trend: 'Zero',    green: true },
+              { val: 'Minimal', label: 'Execution surprises on completed projects',       trend: 'Minimal', green: true },
             ].map(({ val, label, trend, green }) => (
               <RevealOnScroll key={val} className="px-8 py-2 text-center">
                 <div className="font-serif text-4xl font-bold text-white mb-2">{val}</div>
@@ -652,70 +643,6 @@ export default async function HSIOSPage() {
         </div>
       </section>
 
-      {/* ── FOR WHO ───────────────────────────────────────────────────── */}
-      <section className="section-py bg-white">
-        <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mx-auto text-center mb-16">
-            <div className="section-label mx-auto">Who It&apos;s For</div>
-            <h2 className="font-serif text-display-lg text-charcoal-800">
-              Built for Homeowners{' '}
-              <span className="text-sandstone-600">and Developers.</span>
-            </h2>
-          </RevealOnScroll>
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Homeowners */}
-            <RevealOnScroll>
-              <div className="rounded-3xl bg-ivory-100 border border-ivory-300 p-10 h-full flex flex-col">
-                <div className="section-label mb-6">For Homeowners</div>
-                <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">
-                  The Home You Envisioned,<br />
-                  <em className="not-italic text-sandstone-600">Precisely Delivered.</em>
-                </h3>
-                <p className="text-warmgray-600 leading-relaxed mb-6">
-                  You&apos;ve invested in vision. We ensure the execution matches it — every rupee tracked,
-                  every decision documented, every milestone met.
-                </p>
-                <ul className="space-y-2.5 mb-8 flex-1">
-                  {['Real-time cost dashboard — no surprises','Live progress tracking from your phone','End-to-end execution with full accountability'].map(item => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-warmgray-700">
-                      <span className="w-5 h-5 rounded-full bg-sandstone-400/20 flex items-center justify-center flex-shrink-0"><span className="w-1.5 h-1.5 rounded-full bg-sandstone-600 block" /></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/for-homeowners" className="btn btn-outline-dark w-fit">Explore for Homeowners →</Link>
-              </div>
-            </RevealOnScroll>
-            {/* Developers */}
-            <RevealOnScroll delay={0.1}>
-              <div className="rounded-3xl bg-charcoal-800 p-10 h-full flex flex-col">
-                <div className="section-label text-sandstone-400 mb-6">For Developers</div>
-                <h3 className="font-serif text-display-sm text-white mb-4">
-                  Scale Your Portfolio<br />
-                  <em className="not-italic text-sandstone-300">Without Chaos.</em>
-                </h3>
-                <p className="text-warmgray-300 leading-relaxed mb-6">
-                  Standardise interior execution across every unit. Give buyers confidence. Reduce rework.
-                  Deliver every time.
-                </p>
-                <ul className="space-y-2.5 mb-8 flex-1">
-                  {['Consistent quality across all residences','Portfolio-level execution intelligence','Use as service partner or standalone platform'].map(item => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-warmgray-200">
-                      <span className="w-5 h-5 rounded-full bg-sandstone-400/20 flex items-center justify-center flex-shrink-0"><span className="w-1.5 h-1.5 rounded-full bg-sandstone-400 block" /></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/for-developers" className="btn btn-bronze w-fit">Explore for Developers →</Link>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* ── EXECUTION DISCIPLINES ──────────────────────────────────────────── */}
-      <ExecutionDisciplines variant="full" showCTA={true} context="hsi-os" />
-
       {/* ── ENGAGEMENT MODELS — Platform-only vs Managed ───────────────────── */}
       <EngagementModels emphasis="platform" />
 
@@ -756,120 +683,6 @@ export default async function HSIOSPage() {
               <span className="font-serif text-4xl text-sandstone-400/40 leading-none block">&ldquo;</span>
               <p className="font-serif text-xl text-white/70 italic mt-2">Service, Platform, or Both — one system, zero chaos.</p>
             </blockquote>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* ── PROCESS STEPS ─────────────────────────────────────────────── */}
-      <section className="section-py bg-ivory-100">
-        <div className="container-luxury">
-          <div className="grid lg:grid-cols-2 gap-20 items-start">
-            <RevealOnScroll>
-              <div className="section-label">Process</div>
-              <h2 className="font-serif text-display-lg text-charcoal-800 mb-5">
-                How Every Project<br />
-                Gets <span className="text-sandstone-600">Structured.</span>
-              </h2>
-              <p className="text-warmgray-600 leading-relaxed mb-8">
-                A five-phase approach with full accountability at every step — from your first brief to final handover.
-              </p>
-              <Link href="/how-it-works" className="btn btn-bronze">See Full Process →</Link>
-            </RevealOnScroll>
-            <RevealOnScroll delay={0.1}>
-              <div className="relative pl-8 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-px before:bg-sandstone-200">
-                {processSteps.map(({ n, title, desc, chip, active, live }, i) => (
-                  <div key={n} className={`relative mb-8 last:mb-0 ${i < processSteps.length - 1 ? '' : ''}`}>
-                    <div className={`absolute -left-8 w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold
-                      ${active ? 'border-sandstone-400 bg-sandstone-400 text-white' : 'border-sandstone-300 bg-white text-sandstone-600'}`}>
-                      {n}
-                    </div>
-                    <div className="pl-2">
-                      <div className="font-serif font-bold text-charcoal-800 mb-0.5">{title}</div>
-                      <div className="text-sm text-warmgray-500 mb-2">{desc}</div>
-                      <span className={`inline-flex text-xs font-semibold px-3 py-1 rounded-full border
-                        ${live
-                          ? 'border-green-300 bg-green-50 text-green-700'
-                          : 'border-sandstone-200 bg-sandstone-50 text-sandstone-700'
-                        }`}>
-                        {chip}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ──────────────────────────────────────────────── */}
-      <section className="section-py bg-charcoal-800">
-        <div className="container-luxury">
-          <RevealOnScroll className="mb-12">
-            <div className="section-label text-sandstone-400">Trust &amp; Transparency</div>
-            <h2 className="font-serif text-display-lg text-white max-w-xl">
-              What clients say about working with{' '}
-              <em className="not-italic text-sandstone-300">HSIOS™.</em>
-            </h2>
-          </RevealOnScroll>
-          <div className="grid lg:grid-cols-3 gap-6 items-start mb-12">
-            {/* Quote 1 */}
-            <RevealOnScroll className="lg:col-span-1">
-              <div className="bg-white/5 rounded-2xl border border-white/8 p-8 h-full">
-                <div className="font-serif text-5xl text-sandstone-400/40 leading-none mb-4">&ldquo;</div>
-                <p className="text-warmgray-200 leading-relaxed mb-6 text-sm">
-                  Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays.
-                  HSI OS gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered my home{' '}
-                  <strong className="text-white">3 weeks ahead of schedule.</strong>
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-sandstone-400/20 text-sandstone-400 flex items-center justify-center font-bold text-sm">A</div>
-                  <div>
-                    <div className="text-white text-sm font-semibold">Abhishek Bajoria</div>
-                    <div className="text-warmgray-500 text-xs">Homeowner · Alibag Villa</div>
-                  </div>
-                </div>
-              </div>
-            </RevealOnScroll>
-            {/* Proof card */}
-            <RevealOnScroll delay={0.08}>
-              <div className="bg-charcoal-900 rounded-2xl border border-sandstone-400/20 p-8">
-                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-5">Project Outcomes</div>
-                {['Delivered 3 weeks early','₹0 cost overrun','100% transparent spend','Full OS dashboard access'].map((item, i) => (
-                  <div key={item} className="flex items-center gap-3 py-3 border-b border-white/6 last:border-0">
-                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${i < 3 ? 'bg-green-400' : 'bg-sandstone-400'}`} />
-                    <span className="text-warmgray-200 text-sm">{item}</span>
-                  </div>
-                ))}
-                <div className="mt-5 pt-4 border-t border-white/8 text-[10px] text-warmgray-600 tracking-widest uppercase">
-                  HSI OS · Hestia Alibag V2
-                </div>
-              </div>
-            </RevealOnScroll>
-            {/* Quote 2 */}
-            <RevealOnScroll delay={0.16}>
-              <div className="bg-white/5 rounded-2xl border border-white/8 p-8 h-full">
-                <div className="font-serif text-5xl text-sandstone-400/40 leading-none mb-4">&ldquo;</div>
-                <p className="text-warmgray-200 leading-relaxed mb-6 text-sm">
-                  As an NRI, I had no way of verifying what my previous contractor was charging me. HSI stepped in,
-                  onboarded my property, and suddenly I had{' '}
-                  <strong className="text-white">complete visibility.</strong> The trust factor is unmatched.
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-sandstone-400/20 text-sandstone-400 flex items-center justify-center font-bold text-sm">A</div>
-                  <div>
-                    <div className="text-white text-sm font-semibold">Ankit R.</div>
-                    <div className="text-warmgray-500 text-xs">NRI Client · Goa Project</div>
-                  </div>
-                </div>
-              </div>
-            </RevealOnScroll>
-          </div>
-          <RevealOnScroll>
-            <div className="text-center text-warmgray-400 text-sm border-t border-white/8 pt-8">
-              Founded by <strong className="text-white">Nishant Mhatre</strong> — years of frontline luxury execution experience + enterprise-grade project intelligence.{' '}
-              <Link href="/about" className="text-sandstone-400 hover:text-sandstone-300 underline underline-offset-2">Read the founder&apos;s story →</Link>
-            </div>
           </RevealOnScroll>
         </div>
       </section>
@@ -948,36 +761,6 @@ export default async function HSIOSPage() {
             </div>
           </RevealOnScroll>
         </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-charcoal-800 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
-        <RevealOnScroll>
-          <div className="container-luxury max-w-2xl relative z-10">
-            <div className="section-label text-sandstone-400 mx-auto mb-6">Get Started</div>
-            <h2 className="font-serif text-display-md text-white mb-5">
-              Precision Interior Execution<br />
-              <em className="not-italic text-sandstone-300">Starts Here.</em>
-            </h2>
-            <p className="text-warmgray-300 leading-relaxed mb-8">
-              Book a private consultation. We will show you exactly how HSIOS™ applies to your project — scope, budget, and timeline.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="https://os.hsios.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-bronze text-base px-10 py-4"
-              >
-                Try HSIOS™ →
-              </a>
-              <Link href="/contact" className="btn btn-outline-white">
-                Request a Demo
-              </Link>
-            </div>
-          </div>
-        </RevealOnScroll>
       </section>
     </>
   )

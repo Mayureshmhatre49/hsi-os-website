@@ -174,7 +174,7 @@ export default function ContactPage() {
                     {[
                       { val: '7+',    label: 'Luxury Villas Delivered' },
                       { val: '100%',  label: 'Client Retention' },
-                      { val: '0',     label: 'Execution Surprises' },
+                      { val: 'Minimal', label: 'Execution Surprises' },
                     ].map(({ val, label }) => (
                       <div key={label} className="p-4 rounded-xl bg-ivory-100 text-center">
                         <div className="font-serif text-2xl font-bold text-sandstone-600 mb-0.5">{val}</div>

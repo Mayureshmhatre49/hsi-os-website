@@ -302,7 +302,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </>
         )}
       </head>
-      <body className="bg-ivory-100 text-charcoal-800 font-sans antialiased">
+      <body className="bg-ivory-100 text-charcoal-800 font-sans antialiased" suppressHydrationWarning>
         {!isLanding && <SkipToContent />}
         {!isLanding && <Navbar />}
         <main id="main-content">{children}</main>

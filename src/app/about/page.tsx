@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
 import { Target, Eye, Building2, Settings, Users, Leaf } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
@@ -495,25 +494,6 @@ export default async function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-charcoal-800 text-center">
-        <RevealOnScroll>
-          <div className="container-luxury max-w-2xl">
-            <div className="section-label justify-center text-sandstone-400">Work With HSI</div>
-            <h2 className="font-serif text-display-md text-white mb-5">
-              Meet <span className="text-sandstone-300">HSIOS™</span>
-            </h2>
-            <p className="text-warmgray-300 leading-relaxed mb-8">
-              The unified execution intelligence platform powering every Hestia project. See it in action.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/hsi-os" className="btn btn-bronze">Explore HSIOS™ →</Link>
-              <Link href="/contact" className="btn btn-outline-white">Request Consultation</Link>
-            </div>
-          </div>
-        </RevealOnScroll>
       </section>
     </>
   )

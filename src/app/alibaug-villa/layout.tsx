@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: 'https://www.hsios.in/alibaug-villa',
     title: 'Monsoon-Proof Villa Delivery in Alibaug | Hestia Villas',
     description:
-      'Build your Alibag luxury villa without the chaos. Monsoon-proof execution, marine-grade materials, real-time visibility, zero surprises. 7 villas delivered. See how.',
+      'Build your Alibag luxury villa without the chaos. Monsoon-proof execution, marine-grade materials, real-time visibility, minimal surprises. 7 villas delivered. See how.',
     images: [
       {
         url: 'https://www.hsios.in/projects-casa-frangipani-1.jpg',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     creator: '@hestiavillas',
     title: 'Monsoon-Proof Villa Execution in Alibaug',
-    description: 'Delivered 3 weeks early. Zero cost overruns. Zero rework. See Casa Frangipani case study →',
+    description: 'Delivered 3 weeks early. Overruns 30% below industry. Minimal rework. See Casa Frangipani case study →',
     images: ['https://www.hsios.in/projects-casa-frangipani-1.jpg'],
   },
 }

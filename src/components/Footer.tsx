@@ -41,10 +41,10 @@ export default function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-sandstone-400 to-transparent" />
 
       <div className="container-luxury py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
 
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
               <div className="flex items-center justify-center w-9 h-9 rounded-full bg-sandstone-400 text-white text-xs font-bold tracking-widest">H</div>
               <div>

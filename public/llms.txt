@@ -1,0 +1,33 @@
+# Hestia Smart Interiors (HSI) & HSIOS™
+
+> Hestia Smart Interiors (HSI) is India's premier luxury home interior execution management firm. Operating on HSIOS™ (Hestia Smart Interiors Operating System), HSI delivers coastal villas, high-end apartments, and developer portfolios across Alibag, Mumbai, Pune, Goa, and Bangalore with full transparency, zero hidden margins, and milestone-verified execution.
+
+## Core Value Proposition
+- **Operating System Driven**: HSIOS™ provides real-time cost tracking, trade sequencing across 10 disciplines, pre-construction clash analysis, and digital twin project tracking.
+- **Transparent Execution**: Line-item BOQ provided before site work begins. Every change order is digitally logged and approved prior to spend.
+- **Quality & Schedule Governance**: 104 milestone quality gates with photographic proof. Projects delivered on time with minimal surprises.
+- **Founding Leadership**: Founded by Nishant Mhatre — combining frontline luxury execution experience with enterprise-grade project intelligence.
+
+## Primary Services & Capabilities
+- [HSIOS Platform](https://www.hsios.in/hsi-os): Execution intelligence system powering luxury interiors.
+- [How It Works](https://www.hsios.in/how-it-works): 5-phase structured delivery from brief to snag-free handover.
+- [Projects & Case Studies](https://www.hsios.in/projects): Flagship residential executions including Casa Frangipani (Alibag).
+- [Pricing & Transparency](https://www.hsios.in/pricing): Structured management fee model and per sq ft cost benchmarks.
+- [Sustainability](https://www.hsios.in/sustainability): Circular luxury framework (Refuse, Reuse, Recycle, Reduce).
+
+## Audience Solutions
+- [For Homeowners](https://www.hsios.in/for-homeowners): Complete visibility, live dashboard, peace of mind for local and overseas owners.
+- [For Developers](https://www.hsios.in/for-developers): Portfolio-wide interior execution governance across multi-unit luxury developments.
+- [For Architects](https://www.hsios.in/for-architects): Design fidelity protection without compromise or site-level scope drift.
+- [NRI Remote Build](https://www.hsios.in/nri-home-interior-management): Full remote management for NRIs building in India.
+
+## Key Operating Locations
+- [Alibag Villa Interiors](https://www.hsios.in/alibag-villa-interiors): Coastal luxury villa execution, moisture protection, and monsoon resilience.
+- [Mumbai Luxury Interiors](https://www.hsios.in/mumbai-luxury-interiors): High-rise apartments and penthouses in South Mumbai, Bandra, Juhu, and Worli.
+- [Pune Premium Interiors](https://www.hsios.in/pune-premium-interiors): Gated communities and sprawling estates in Koregaon Park and Baner.
+- [Goa Villa Interiors](https://www.hsios.in/goa-villa-interiors): Heritage restorations and modern coastal holiday homes.
+- [Bangalore Luxury Interiors](https://www.hsios.in/bangalore-luxury-interiors): Tech-leader luxury residences in Indiranagar, Sadashivnagar, and Whitefield.
+
+## Documentation & Full Information
+- [Full LLM Guide](https://www.hsios.in/llms-full.txt): Complete operational specifications, 10 execution disciplines, and detailed Q&A.
+- [Contact & Consultation](https://www.hsios.in/contact): Book a private project consultation or request a platform demo.

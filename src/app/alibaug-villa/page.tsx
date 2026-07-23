@@ -657,9 +657,9 @@ function ALibaugTestimonialSection() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Project Completion', value: '3 Weeks Early' },
-                { label: 'Budget Overrun', value: 'Zero' },
+                { label: 'Overruns vs Industry', value: '30% Lower' },
                 { label: 'Real-time Visibility', value: '100%' },
-                { label: 'Cost Surprises', value: 'None' },
+                { label: 'Cost Surprises', value: 'Minimal' },
               ].map(({ label, value }, i) => (
                 <div key={label} className="bg-white rounded-2xl border border-ivory-300 p-6 text-center">
                   <div className="font-serif text-2xl font-bold text-sandstone-600 mb-2">{value}</div>
@@ -1051,8 +1051,8 @@ function FeaturedProjectSection() {
     { label: 'Interior Budget', value: '₹2.8 Cr', detail: 'Luxury villa interiors, fully furnished' },
     { label: 'Timeline', value: '18 Months', detail: 'From design to handover, monsoon-inclusive' },
     { label: 'Completion Status', value: '3 Weeks Early', detail: 'Despite 4 monsoon-critical phases' },
-    { label: 'Cost Variance', value: 'Zero', detail: 'Final budget = approved budget' },
-    { label: 'Post-Handover Issues', value: 'Zero', detail: 'No material defects, no callbacks' },
+    { label: 'Overruns vs Industry', value: '30% Lower', detail: '30% below industry overrun standard' },
+    { label: 'Post-Handover Callbacks', value: 'Minimal', detail: 'Minimal material defects' },
     { label: 'Owner Satisfaction', value: '10/10', detail: 'Delivered exactly as designed' },
   ]
 
@@ -1597,6 +1597,17 @@ function OwnershipSection() {
 /* ══════════════════════════════════════════════════════════════
    §8  HSI OS
 ══════════════════════════════════════════════════════════════ */
+interface DashboardDataItem {
+  label: string
+  pct: number
+}
+
+interface DashboardCardProps {
+  projectName: string
+  status?: string
+  data: DashboardDataItem[]
+}
+
 function HsiOsSection() {
   const features = [
     { label: 'Project Visibility',   desc: 'Real-time milestone tracking across every trade.' },
@@ -1607,7 +1618,7 @@ function HsiOsSection() {
     { label: 'Digital Twin',         desc: 'Living record of the entire built asset — forever.' },
   ]
 
-  const DashboardCard = ({ projectName, status = 'Active', data }: any) => (
+  const DashboardCard = ({ projectName, status = 'Active', data }: DashboardCardProps) => (
     <div className="relative">
       <div className="bg-charcoal-800 rounded-3xl p-6 shadow-luxury-lg">
         {/* Header */}
@@ -1624,7 +1635,7 @@ function HsiOsSection() {
 
         {/* Progress bars */}
         <div className="space-y-3.5 mb-6">
-          {data.map(({ label, pct }: any) => (
+          {data.map(({ label, pct }: DashboardDataItem) => (
             <div key={label}>
               <div className="flex justify-between text-xs mb-1">
                 <span className="text-warmgray-400">{label}</span>

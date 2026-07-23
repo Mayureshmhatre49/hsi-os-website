@@ -20,8 +20,6 @@ const solutionLinks = [
   { href: '/for-architects',               label: 'For Architects',    external: false },
   { href: '/commercial-interiors',         label: 'Commercial Spaces', external: false },
   { href: '/nri-home-interior-management', label: 'NRI Remote Build',  external: false },
-  { href: 'https://os.hsios.in/',          label: 'Try HSIOS™ →',      external: true  },
-  { href: '/demo',                         label: 'Request a Demo',    external: false },
 ]
 
 // Mobile-only extras (not in primary bar)
@@ -34,7 +32,6 @@ export default function Navbar() {
   const [scrolled, setScrolled]         = useState(false)
   const [menuOpen, setMenuOpen]         = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [mounted, setMounted]           = useState(false)
   const pathname  = usePathname()
   const dropRef   = useRef<HTMLLIElement>(null)
 
@@ -43,7 +40,6 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    setMounted(true)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
@@ -178,33 +174,20 @@ export default function Navbar() {
                   aria-label="Solutions"
                   className="absolute top-full left-0 mt-2 w-52 rounded-2xl bg-white border border-ivory-200 shadow-luxury overflow-hidden z-50"
                 >
-                  {solutionLinks.map(({ href, label, external }) =>
-                    external ? (
-                      <a
-                        key={href}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${label.replace(/[→]/g, '').trim()} (opens in new tab)`}
-                        className="block px-4 py-3 text-sm font-medium transition-colors text-sandstone-700 bg-sandstone-50 hover:bg-sandstone-100 border-t border-ivory-200"
-                      >
-                        {label}
-                      </a>
-                    ) : (
-                      <Link
-                        key={href}
-                        href={href}
-                        role="option"
-                        aria-selected={isActive(href)}
-                        className={`
-                          block px-4 py-3 text-sm font-medium transition-colors
-                          ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-100'}
-                        `}
-                      >
-                        {label}
-                      </Link>
-                    )
-                  )}
+                  {solutionLinks.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      role="option"
+                      aria-selected={isActive(href)}
+                      className={`
+                        block px-4 py-3 text-sm font-medium transition-colors
+                        ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-100'}
+                      `}
+                    >
+                      {label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </li>
@@ -258,6 +241,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
+        suppressHydrationWarning
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         {/* Backdrop */}
@@ -290,24 +274,15 @@ export default function Navbar() {
             {/* Solutions */}
             <div className="pt-4 border-t border-ivory-200 mt-2 space-y-1">
               <div className="px-4 pb-2 text-[11px] font-bold tracking-widest uppercase text-warmgray-400">Solutions</div>
-              {solutionLinks.map(({ href, label, external }) =>
-                external ? (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${label.replace(/[→]/g, '').trim()} (opens in new tab)`}
-                    className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors text-sandstone-700 bg-sandstone-50 hover:bg-sandstone-100"
-                  >
-                    {label}
-                  </a>
-                ) : (
-                  <Link key={href} href={href} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-200'}`}>
-                    {label}
-                  </Link>
-                )
-              )}
+              {solutionLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-200'}`}
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
 
             {/* More links */}
@@ -346,7 +321,7 @@ export default function Navbar() {
       </div>
 
       {/* Spacer — only on non-hero pages */}
-      {mounted && !isHeroPage && <div className="h-16" />}
+      {!isHeroPage && <div className="h-16" />}
     </>
   )
 }

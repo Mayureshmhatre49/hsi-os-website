@@ -64,11 +64,11 @@ const config: Config = {
         sans:  ['var(--font-sans)',  'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
-        'display-2xl': ['clamp(3rem, 6vw, 5.5rem)',  { lineHeight: '1.05', letterSpacing: '-0.03em' }],
-        'display-xl':  ['clamp(2.5rem, 5vw, 4.5rem)', { lineHeight: '1.08', letterSpacing: '-0.025em' }],
-        'display-lg':  ['clamp(2rem, 4vw, 3.5rem)',   { lineHeight: '1.12', letterSpacing: '-0.02em' }],
-        'display-md':  ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.18', letterSpacing: '-0.015em' }],
-        'display-sm':  ['clamp(1.5rem, 2.5vw, 2rem)',  { lineHeight: '1.25', letterSpacing: '-0.01em' }],
+        'display-2xl': ['clamp(2.25rem, 5.5vw, 5.5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        'display-xl':  ['clamp(2rem, 4.5vw, 4.25rem)',    { lineHeight: '1.08', letterSpacing: '-0.025em' }],
+        'display-lg':  ['clamp(1.75rem, 3.5vw, 3.25rem)',  { lineHeight: '1.12', letterSpacing: '-0.02em' }],
+        'display-md':  ['clamp(1.5rem, 2.75vw, 2.5rem)',   { lineHeight: '1.18', letterSpacing: '-0.015em' }],
+        'display-sm':  ['clamp(1.25rem, 2.25vw, 1.875rem)', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
       },
       spacing: {
         '18': '4.5rem',
