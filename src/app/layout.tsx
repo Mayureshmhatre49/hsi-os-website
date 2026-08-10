@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCTA from '@/components/ui/StickyMobileCTA'
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat'
+import ChatBot from '@/components/ui/ChatBot'
 import SkipToContent from '@/components/ui/SkipToContent'
 import WebVitals from '@/components/WebVitals'
 import { getAlternates } from '@/lib/seo'
@@ -336,6 +337,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {!isLanding && <Footer />}
         {!isLanding && <StickyMobileCTA />}
         {!isLanding && <WhatsAppFloat />}
+        {!isLanding && <ChatBot />}
         <WebVitals />
       </body>
     </html>
