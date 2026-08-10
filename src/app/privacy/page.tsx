@@ -154,7 +154,7 @@ export default function PrivacyPage() {
               If you have any questions about this Privacy Policy or our data practices,
               please contact us at{' '}
               <a href="mailto:hello@hsios.in" className="text-sandstone-700 hover:text-sandstone-900 underline">hello@hsios.in</a>{' '}
-              or call +91-8010234802.
+              or call +91-8010234802 or +91-9881149629.
             </p>
           </section>
         </div>

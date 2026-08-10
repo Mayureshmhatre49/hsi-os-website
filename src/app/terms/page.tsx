@@ -154,7 +154,7 @@ export default function TermsPage() {
               Questions about these Terms?
               Email us at{' '}
               <a href="mailto:hello@hsios.in" className="text-sandstone-700 hover:text-sandstone-900 underline">hello@hsios.in</a>{' '}
-              or call +91-8010234802.
+              or call +91-8010234802 or +91-9881149629.
             </p>
           </section>
         </div>

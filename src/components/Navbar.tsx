@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { WHATSAPP_NUMBER } from '@/lib/contact'
 
 // Primary nav — 5 links (logo = Home)
 const navLinks = [
@@ -309,7 +310,7 @@ export default function Navbar() {
             </a>
             <Link href="/contact" className="btn btn-outline-dark w-full justify-center text-sm">Book Consultation</Link>
             <a
-              href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project"
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline-dark w-full justify-center text-sm"

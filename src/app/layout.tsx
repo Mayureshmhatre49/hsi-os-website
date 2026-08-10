@@ -5,6 +5,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCTA from '@/components/ui/StickyMobileCTA'
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat'
 import SkipToContent from '@/components/ui/SkipToContent'
 import WebVitals from '@/components/WebVitals'
 import { getAlternates } from '@/lib/seo'
@@ -117,6 +118,23 @@ const localBusinessSchema = {
     'Precision interior execution for luxury villas, premium residences and holiday homes in Alibag, Mumbai and beyond — powered by HSIOS™.',
   telephone: '+91-8010234802',
   email: 'hello@hsios.in',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-8010234802',
+      contactType: 'customer service',
+      email: 'hello@hsios.in',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Hindi'],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-9881149629',
+      contactType: 'customer service',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Hindi'],
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Alibag',
@@ -199,14 +217,23 @@ const organizationSchema = {
   name: 'Hestia Smart Interiors',
   url: 'https://www.hsios.in',
   logo: 'https://www.hsios.in/logo.png',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+91-8010234802',
-    contactType: 'customer service',
-    email: 'hello@hsios.in',
-    areaServed: 'IN',
-    availableLanguage: ['English', 'Hindi'],
-  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-8010234802',
+      contactType: 'customer service',
+      email: 'hello@hsios.in',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Hindi'],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-9881149629',
+      contactType: 'customer service',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Hindi'],
+    },
+  ],
   parentOrganization: {
     '@type': 'Organization',
     name: 'Hestia Villas',
@@ -308,6 +335,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main id="main-content">{children}</main>
         {!isLanding && <Footer />}
         {!isLanding && <StickyMobileCTA />}
+        {!isLanding && <WhatsAppFloat />}
         <WebVitals />
       </body>
     </html>

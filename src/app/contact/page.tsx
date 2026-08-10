@@ -2,7 +2,8 @@
 
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { MessageCircle, Mail, MapPin, CheckCircle2 } from 'lucide-react'
+import { MessageCircle, Mail, MapPin, CheckCircle2, Phone } from 'lucide-react'
+import { PHONES, EMAIL } from '@/lib/contact'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 const projectTypes = [
@@ -127,6 +128,25 @@ export default function ContactPage() {
 
                   {/* Contact blocks */}
                   <div className="space-y-4">
+                    {PHONES.map(({ display, e164 }, i) => (
+                      <a
+                        key={e164}
+                        href={`tel:${e164}`}
+                        className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
+                      >
+                        <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
+                          <Phone size={18} strokeWidth={1.75} />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">
+                            {i === 0 ? 'Call Us' : 'Alternate Line'}
+                          </div>
+                          <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{display}</div>
+                          <div className="text-xs text-warmgray-500">Mon–Fri 9am–6pm · Sat 10am–3pm</div>
+                        </div>
+                      </a>
+                    ))}
+
                     <a
                       href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27d%20like%20to%20book%20a%20consultation"
                       target="_blank"
@@ -138,13 +158,13 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">WhatsApp</div>
-                        <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">+91-8010234802</div>
+                        <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{PHONES[0].display}</div>
                         <div className="text-xs text-warmgray-500">Typically replies within 2 hours</div>
                       </div>
                     </a>
 
                     <a
-                      href="mailto:hello@hsios.in"
+                      href={`mailto:${EMAIL}`}
                       className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
                     >
                       <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
@@ -152,7 +172,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">Email</div>
-                        <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">hello@hsios.in</div>
+                        <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{EMAIL}</div>
                         <div className="text-xs text-warmgray-500">We respond within 24 hours</div>
                       </div>
                     </a>

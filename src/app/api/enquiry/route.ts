@@ -436,13 +436,14 @@ export async function POST(req: NextRequest) {
       A representative will connect with you via Phone or WhatsApp within <strong>24 hours</strong>.
     </p>
     <p style="font-size: 15px; line-height: 1.75; color: #3A3530;">
-      For immediate assistance, please connect with us on 
-      <a href="https://wa.me/918010234802" style="color: #9A7A54; font-weight: 600;">WhatsApp (+91-8010234802)</a>.
+      For immediate assistance, please connect with us on
+      <a href="https://wa.me/918010234802" style="color: #9A7A54; font-weight: 600;">WhatsApp (+91-8010234802)</a>
+      or call +91-9881149629.
     </p>
     <hr style="border: none; border-top: 1px solid #EAE0D0; margin: 24px 0;">
     <p style="font-family: sans-serif; font-size: 12px; color: #9B9080;">
       Hestia Smart Interiors &bull; Powered by HSIOS™<br>
-      hello@hsios.in &bull; +91-8010234802
+      hello@hsios.in &bull; +91-8010234802 &bull; +91-9881149629
     </p>
   </div>
 </div>

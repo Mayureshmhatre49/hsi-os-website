@@ -818,7 +818,7 @@ function FinalCTASection() {
             </div>
 
             <p className="mt-10 text-xs text-warmgray-500 tracking-wide">
-              +91-8010234802 &nbsp;·&nbsp; hello@hsios.in &nbsp;·&nbsp; Alibag · Mumbai · Pune · Goa · Bangalore
+              +91-8010234802 &nbsp;·&nbsp; +91-9881149629 &nbsp;·&nbsp; hello@hsios.in &nbsp;·&nbsp; Alibag · Mumbai · Pune · Goa · Bangalore
             </p>
           </div>
         </RevealOnScroll>

@@ -2507,7 +2507,7 @@ function LeadForm() {
 
       {status === 'error' && (
         <p className="text-red-400 text-sm text-center">
-          Something went wrong. Please call us at +91-8010234802.
+          Something went wrong. Please call us at +91-8010234802 or +91-9881149629.
         </p>
       )}
 
@@ -2559,6 +2559,7 @@ function FinalCtaSection() {
               <div className="space-y-4 mb-10">
                 {[
                   { Icon: Phone,  label: '+91-8010234802',     sub: 'Mon–Fri 9am–6pm · Sat 10am–3pm' },
+                  { Icon: Phone,  label: '+91-9881149629',     sub: 'Alternate line · same hours' },
                   { Icon: Mail,   label: 'hello@hsios.in',     sub: 'Response within 24 hours' },
                   { Icon: MapPin, label: 'Alibaug, Maharashtra', sub: 'Site visits available on request' },
                 ].map(({ Icon, label, sub }) => (

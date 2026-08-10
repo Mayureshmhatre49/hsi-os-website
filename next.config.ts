@@ -57,14 +57,25 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
+    // Immutable long-lived caching is only safe for content-hashed filenames,
+    // which Next.js produces in production builds. In development, chunk names
+    // like /_next/static/chunks/app/layout.js are STABLE, so an immutable
+    // 1-year cache makes browsers serve stale JS after every edit — which
+    // surfaces as spurious hydration mismatches. Only send it in production.
+    const isProd = process.env.NODE_ENV === 'production'
+
     return [
       { source: '/(.*)', headers: securityHeaders },
-      // Long-lived cache for hashed static assets
-      { source: '/_next/static/:path*', headers: staticCacheHeaders },
-      // Cache public images for 1 year
-      { source: '/:file.:ext(jpg|jpeg|png|webp|avif|svg|ico|gif)', headers: staticCacheHeaders },
-      // Cache fonts
-      { source: '/:file.:ext(woff|woff2|ttf|otf|eot)', headers: staticCacheHeaders },
+      ...(isProd
+        ? [
+            // Long-lived cache for hashed static assets
+            { source: '/_next/static/:path*', headers: staticCacheHeaders },
+            // Cache public images for 1 year
+            { source: '/:file.:ext(jpg|jpeg|png|webp|avif|svg|ico|gif)', headers: staticCacheHeaders },
+            // Cache fonts
+            { source: '/:file.:ext(woff|woff2|ttf|otf|eot)', headers: staticCacheHeaders },
+          ]
+        : []),
     ]
   },
 

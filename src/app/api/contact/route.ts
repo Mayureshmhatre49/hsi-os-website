@@ -178,7 +178,7 @@ export async function POST(req: NextRequest) {
       ${budget ? `<div class="field"><div class="label">Budget Range</div><div class="value">${budget}</div></div>` : ''}
       <div class="field"><div class="label">Project Description</div><div class="value">${message.replace(/\n/g, '<br>')}</div></div>
     </div>
-    <div class="footer">Hestia Smart Interiors · hello@hsios.in · +91-8010234802</div>
+    <div class="footer">Hestia Smart Interiors · hello@hsios.in · +91-8010234802 · +91-9881149629</div>
   </div>
 </body>
 </html>`
@@ -216,12 +216,13 @@ export async function POST(req: NextRequest) {
     </p>
     <p style="font-size: 15px; line-height: 1.75; color: #3A3530;">
       If your matter is urgent, please WhatsApp us at
-      <a href="https://wa.me/918010234802" style="color: #9A7A54;">+91-8010234802</a>.
+      <a href="https://wa.me/918010234802" style="color: #9A7A54;">+91-8010234802</a>
+      or call +91-9881149629.
     </p>
     <hr style="border: none; border-top: 1px solid #EAE0D0; margin: 24px 0;">
     <p style="font-family: sans-serif; font-size: 12px; color: #9B9080;">
       Hestia Smart Interiors · Powered by HSIOS™<br>
-      hello@hsios.in · +91-8010234802
+      hello@hsios.in · +91-8010234802 · +91-9881149629
     </p>
   </div>
 </div>
