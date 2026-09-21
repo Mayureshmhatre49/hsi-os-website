@@ -1,548 +1,165 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import {
-  LayoutDashboard, DollarSign, Activity, Package, Monitor, Zap, Home,
+  Wallet, Camera, CheckCircle2, GitBranch, Archive, ImageIcon,
   Armchair, ShieldCheck, Wrench, Award, Users, Ruler,
-  BarChart2, RefreshCcw, Leaf, TrendingDown,
+  Zap, RefreshCcw, Leaf, TrendingDown,
 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
-import PlatformPreview from '@/components/ui/PlatformPreview'
 import FAQAccordion from '@/components/ui/FAQAccordion'
-import { getAlternates } from '@/lib/seo'
+import { getAlternates, breadcrumb } from '@/lib/seo'
+import { WHATSAPP_NUMBER } from '@/lib/contact'
+import { faqs } from '@/content/hsios-faqs'
 
 export const metadata: Metadata = {
-  title: 'HSIOS™ Platform — The Operating System for Luxury Interior Execution',
+  title: {
+    absolute: 'Our Platform — HSIOS™ | Hestia Smart Interiors',
+  },
   description:
-    'HSIOS™ is purpose-built software for premium residential interior execution. Manage planning, budgeting, vendor coordination and real-time tracking in one unified platform.',
+    'HSIOS™ is HSI’s in-house execution platform — how every client stays in control of their villa interior: a live budget, a daily photo timeline, digital approvals, clash detection and a handover dossier.',
   alternates: getAlternates('/hsi-os'),
 }
 
+/* Client-facing SoftwareApplication schema — no internal engine detail. */
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'HSIOS™',
-  alternateName: 'Hestia Smart Interior OS',
+  alternateName: 'Hestia Smart Interiors platform',
   applicationCategory: 'BusinessApplication',
-  applicationSubCategory: 'Project Management',
   operatingSystem: 'Web, iOS, Android',
   url: 'https://www.hsios.in/hsi-os',
   description:
-    'Purpose-built operating system for luxury interior execution — planning, budgeting, vendor management, conflict detection, and real-time client visibility in one platform.',
+    'HSI’s in-house execution platform giving every client a live budget dashboard, a daily photo timeline, digital approvals, clash detection and a handover dossier.',
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'INR',
-    description: 'Included with all Hestia Smart Interiors project engagements',
+    description: 'Provided to Hestia Smart Interiors clients as part of their project engagement',
   },
   creator: { '@id': 'https://www.hsios.in/#business' },
   featureList: [
-    'Real-time project dashboard',
-    'Budget tracking and cost management',
-    'Vendor management and coordination',
-    'Conflict detection engine',
-    'Quality checkpoint management',
-    'NRI-friendly client portal',
-    'Audit trail and documentation',
-    'Multi-unit portfolio management',
+    'Live budget dashboard',
+    'Daily photo timeline tied to the schedule',
+    'Digital change approvals',
+    'Clash detection before site work',
+    'Handover dossier and ownership records',
   ],
 }
 
-const breadcrumbSchema = {
+const breadcrumbSchema = breadcrumb([
+  { name: 'Home', url: 'https://www.hsios.in/' },
+  { name: 'Our Platform', url: 'https://www.hsios.in/hsi-os' },
+])
+
+const faqSchema = {
   '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.hsios.in' },
-    { '@type': 'ListItem', position: 2, name: 'HSIOS™ Platform', item: 'https://www.hsios.in/hsi-os' },
-  ],
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
 }
 
-const StatusDot = ({ done, live }: { done?: boolean; live?: boolean }) => (
-  <span className={`inline-block w-1.5 h-1.5 rounded-full flex-shrink-0 ${done ? 'bg-green-500' : live ? 'bg-sandstone-400' : 'bg-warmgray-300'}`} />
-)
-
-const modules = [
+/* 5 client benefits — each paired with a client-view screenshot (to supply). */
+const benefits = [
   {
-    n: '01', Icon: LayoutDashboard,
-    title: 'Project Planning Engine',
-    desc: 'Analyse plans before execution begins — identifying poor furniture flow, impractical layouts, space wastage, and ventilation mistakes when corrections are still easy and economical.',
-    features: ['Scope definition & BOQ', 'Upfront layout and flow analysis', 'Phase-based milestone planning', 'Design change management', 'Trade sequencing and coordination'],
-    ui: (
-      <div className="space-y-2 mt-4">
-        {[['Scope', '100%'], ['Plan', '75%'], ['Brief', '55%']].map(([label, w]) => (
-          <div key={label} className="flex items-center gap-3">
-            <span className="text-xs text-warmgray-500 w-10">{label}</span>
-            <div className="flex-1 h-1.5 bg-ivory-300 rounded-full overflow-hidden">
-              <div className="h-full bg-sandstone-400 rounded-full" style={{ width: w }} />
-            </div>
-          </div>
-        ))}
-      </div>
-    ),
+    Icon: Wallet,
+    title: 'A live budget dashboard',
+    desc: 'Every rupee spent and committed on your project, updated as it happens. Change orders are priced and approved before any money moves — so there are no surprise invoices at handover.',
+    shot: 'Casa Frangipani — client budget view',
   },
   {
-    n: '02', Icon: DollarSign,
-    title: 'Budget & Cost Intelligence',
-    desc: 'Live cost tracking across every room, trade and vendor. Variance alerts. Real-time budget dashboards. The end of financial surprises.',
-    features: ['Real-time spend tracking', 'Vendor-level cost breakdown', 'Change order impact analysis', 'Projected completion cost'],
-    ui: (
-      <div className="mt-4">
-        <div className="flex gap-3 mb-2">
-          {[['₹4.5Cr','Spent','bg-sandstone-400'],['₹10.5Cr','Balance','bg-ivory-300'],['30% Below','Overruns','bg-green-100']].map(([v,k,bg]) => (
-            <div key={k} className={`flex-1 ${bg} rounded-lg p-2 text-center`}>
-              <div className="text-xs font-bold text-charcoal-800">{v}</div>
-              <div className="text-[10px] text-warmgray-600">{k}</div>
-            </div>
-          ))}
-        </div>
-        <div className="h-1.5 bg-ivory-300 rounded-full overflow-hidden">
-          <div className="h-full bg-sandstone-400 rounded-full w-[30%]" />
-        </div>
-      </div>
-    ),
+    Icon: Camera,
+    title: 'A daily photo timeline',
+    desc: 'A dated photo record of every day on site, tied to the schedule. You can see exactly what happened and when, without asking anyone for an update.',
+    shot: 'Casa Frangipani — daily site timeline',
   },
   {
-    n: '03', Icon: Activity,
-    title: 'Execution Tracking System',
-    desc: 'Real-time progress monitoring across all teams, trades and site activities. Milestone tracking. Snag management. Quality inspection logs.',
-    features: ['Milestone progress tracking', 'Snag management', 'Quality inspection records', 'Site photo documentation'],
-    ui: (
-      <div className="mt-4 space-y-2">
-        {[
-          { label: 'Planning complete', done: true },
-          { label: 'Budgeting locked', done: true },
-          { label: 'Execution — Live', live: true },
-          { label: 'QA Pending', done: false },
-        ].map(({ label, done, live }) => (
-          <div key={label} className="flex items-center gap-2.5 text-xs font-medium">
-            <StatusDot done={done} live={live} />
-            <span className={done ? 'text-green-600 line-through' : live ? 'text-sandstone-600 font-semibold' : 'text-warmgray-400'}>{label}</span>
-          </div>
-        ))}
-      </div>
-    ),
+    Icon: CheckCircle2,
+    title: 'Digital change approvals',
+    desc: 'Approve materials and changes from wherever you are. Every approval is logged with a date and kept as a permanent record you can refer back to.',
+    shot: 'Casa Frangipani — approval request',
   },
   {
-    n: '04', Icon: Package,
-    title: 'Vendor & Procurement',
-    desc: 'Streamlined vendor coordination, purchase orders, delivery schedules and approval workflows. Every vendor relationship structured and accountable.',
-    features: ['Vendor onboarding & rating', 'PO management', 'Delivery tracking', 'Invoice approval workflow'],
-    ui: (
-      <div className="mt-4 grid grid-cols-2 gap-1.5">
-        {[['Electrician','bg-green-50 text-green-700 border border-green-100'],['Carpenter','bg-green-50 text-green-700 border border-green-100'],['Plumber','bg-sandstone-50 text-sandstone-700 border border-sandstone-100'],['Flooring','bg-ivory-200 text-charcoal-600 border border-ivory-300']].map(([v,c]) => (
-          <div key={v} className={`text-[10px] font-semibold px-2 py-1.5 rounded-md ${c}`}>{v}</div>
-        ))}
-      </div>
-    ),
+    Icon: GitBranch,
+    title: 'Clash detection before site work',
+    desc: 'Drawings are reconciled across trades so conflicts — a plumbing line under a kitchen island, a duct through a beam — are caught on paper, before anyone starts cutting.',
+    shot: 'Casa Frangipani — clash check summary',
   },
   {
-    n: '05', Icon: Monitor,
-    title: 'Real-Time Client Dashboard',
-    desc: 'Elegant dashboards giving homeowners and developer clients instant visibility. Progress, costs, decisions — all in one place, always current.',
-    features: ['Live progress overview', 'Budget vs actuals', 'Key decisions log', 'Document centre'],
-  },
-  {
-    n: '06', Icon: Zap,
-    title: 'Conflict Detection Engine',
-    desc: 'Identify clashes between trades before site work begins — when corrections are still easy and economical. Resolving these digitally saves time, cost, rework, and frustration.',
-    features: [
-      'Civil vs electrical conduit routing',
-      'Plumbing vs furniture alignment',
-      'HVAC vs ceiling design and depth',
-      'Bathroom slope and drain planning',
-      'Shaft and service access limitations',
-      'Storage planning and circulation flow',
-      'Door swing and staircase conflicts',
-      'Structural vs interior wall alignment',
-    ],
-    ui: (
-      <div className="mt-4 space-y-2">
-        {[
-          { label: 'Poor furniture flow in living area', type: 'warn' },
-          { label: 'Plumbing vs kitchen island clash', type: 'error' },
-          { label: 'HVAC duct vs false ceiling depth', type: 'error' },
-          { label: 'Door swing conflicts — resolved', type: 'ok' },
-          { label: 'Bathroom slope — corrected upfront', type: 'ok' },
-        ].map(({ label, type }) => (
-          <div key={label} className="flex items-center gap-2 text-xs font-medium">
-            <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${type === 'ok' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-yellow-500'}`} />
-            <span className={type === 'ok' ? 'text-green-600' : type === 'error' ? 'text-red-500' : 'text-yellow-600'}>{label}</span>
-          </div>
-        ))}
-      </div>
-    ),
-  },
-  {
-    n: '07', Icon: Home,
-    title: 'Ownership Mode',
-    desc: 'Your home should become smarter after handover. HSIOS™ ownership systems help manage asset records, maintenance planning, upgrade history and vendor intelligence for the life of your home.',
-    features: ['Asset & material records', 'Maintenance schedule planning', 'Upgrade history tracking', 'Vendor intelligence log'],
-    ui: (
-      <div className="mt-4 flex items-end gap-1.5 h-12">
-        {[40,65,50,80,60,90].map((h, i) => (
-          <div key={i} className="flex-1 bg-sandstone-400 rounded-sm" style={{ height: `${h}%`, opacity: 0.6 + i * 0.06 }} />
-        ))}
-      </div>
-    ),
+    Icon: Archive,
+    title: 'A handover dossier',
+    desc: 'Every finish, installation and warranty date documented and handed to you as a permanent record of your home — the reference you’ll use for years after the last trade leaves.',
+    shot: 'Casa Frangipani — handover dossier',
   },
 ]
 
-const howWeWork = [
-  {
-    n: '01', clr: 'border-sandstone-400', num: 'text-sandstone-500', tag: 'bg-sandstone-100/20 text-sandstone-300 border border-sandstone-400/30',
-    title: 'End-to-End Execution Partner',
-    desc: 'HSI manages your complete interior execution — from planning and design coordination to on-site delivery — fully powered by HSIOS™.',
-    features: ['Dedicated execution team', 'Full HSIOS™ platform access', 'Weekly client reporting'],
-    tagLabel: 'Service + Platform',
-  },
-  {
-    n: '02', clr: 'border-warmgray-400', num: 'text-warmgray-400', tag: 'bg-white/10 text-warmgray-300 border border-white/20',
-    title: 'Platform-Enabled Execution',
-    desc: 'Use HSIOS™ as a standalone platform. Architects, designers, and developers manage their own projects with full structure and transparency.',
-    features: ['Full platform access', 'Your team, our system', 'Onboarding + training'],
-    tagLabel: 'Platform Only',
-  },
-  {
-    n: '03', clr: 'border-ivory-400', num: 'text-ivory-300', tag: 'bg-white/5 text-warmgray-300 border border-white/15',
-    title: 'Works with Your Existing Team',
-    desc: 'Retain your architect — HSIOS™ manages the execution layer, tracking progress and maintaining full accountability alongside your design team.',
-    features: ['Collaborative by design', 'Design-execution bridge', 'Shared visibility layer'],
-    tagLabel: 'Collaborative Model',
-  },
-]
-
-
-export default async function HSIOSPage() {
+export default function HSIOSPage() {
   return (
     <>
-      <JsonLd data={[softwareSchema, breadcrumbSchema]} />
+      <JsonLd data={[breadcrumbSchema, softwareSchema, faqSchema]} />
 
-      {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative py-32 bg-charcoal-800">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-bronze-700/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="container-luxury relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-fade-up">
-              <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-sandstone-400/15 border border-sandstone-400/25">
-                <span className="w-1.5 h-1.5 rounded-full bg-sandstone-400" />
-                <span className="text-xs font-bold tracking-widest uppercase text-sandstone-400">Execution Intelligence Platform</span>
-              </div>
-              <h1 className="font-serif text-display-xl text-white mb-6">
-                The Operating System<br />
-                for <em className="not-italic text-sandstone-300">Premium Interiors.</em>
-              </h1>
-              <p className="text-warmgray-300 text-lg leading-relaxed mb-8 max-w-xl">
-                HSIOS™ is execution intelligence built specifically for premium interiors — real-time cost tracking, trade sequencing, conflict detection, and complete project transparency for every rupee and every day of your engagement.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-10">
-                <a
-                  href="https://os.hsios.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-bronze"
-                >
-                  Try HSIOS™ →
-                </a>
-                <Link href="/contact" className="btn btn-outline-white">Request a Demo</Link>
-              </div>
-              <div className="flex flex-wrap gap-8">
-                {[['7+','Premium Villas'],['₹100Cr+','Execution Value'],['100%','Cost Transparency'],['Minimal','Surprises']].map(([v,l]) => (
-                  <div key={l}>
-                    <div className="font-serif text-2xl font-bold text-white">{v}</div>
-                    <div className="text-xs text-warmgray-400 mt-0.5 uppercase tracking-wider">{l}</div>
-                  </div>
-                ))}
-              </div>
+      {/* ── HERO ──────────────────────────────────────────────── */}
+      <section className="relative py-32 bg-charcoal-800 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sandstone-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="container-luxury relative z-10 max-w-3xl">
+          <RevealOnScroll>
+            <div className="section-label text-sandstone-400">Our Platform</div>
+            <h1 className="font-serif text-display-xl text-white leading-[1.08] mb-6">
+              The system behind{' '}
+              <span className="text-sandstone-300">every HSI project.</span>
+            </h1>
+            <p className="text-lg text-warmgray-300 leading-relaxed mb-8 max-w-2xl">
+              HSIOS™ is HSI’s in-house execution platform. It’s how you stay in control of your
+              villa interior — the live budget, the daily photo proof, the approvals and the
+              records — whether you’re on site in Alibag or watching from Mumbai or abroad.
+              {/* [CONFIRM] add "Every HSI client gets access at no extra cost." once Nishant confirms the wording. */}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact" className="btn btn-bronze">Book a Consultation</Link>
+              <Link href="/how-it-works" className="btn btn-outline-white">See how we work</Link>
             </div>
-
-            {/* Dashboard card mockup */}
-            <div className="animate-fade-up [animation-delay:300ms]">
-              <div className="relative">
-                <div className="bg-charcoal-900 rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
-                  {/* Topbar */}
-                  <div className="flex items-center justify-between px-4 py-3 bg-charcoal-900 border-b border-white/8">
-                    <div className="flex gap-1.5">
-                      {['bg-red-500','bg-yellow-400','bg-green-500'].map(c => <div key={c} className={`w-2.5 h-2.5 rounded-full ${c}`} />)}
-                    </div>
-                    <span className="text-xs text-warmgray-400 font-medium">Portfolio Intelligence</span>
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      <span className="text-[10px] text-green-400 font-semibold">Live</span>
-                    </div>
-                  </div>
-                  {/* Body */}
-                  <div className="p-5 space-y-4">
-                    <div className="grid grid-cols-3 gap-3">
-                      {[['Budget','₹15Cr','↑ On Track'],['Spent','₹4.5Cr','30% utilised'],['Timeline','34%','↑ On Schedule']].map(([l,v,s]) => (
-                        <div key={l} className="bg-white/5 rounded-lg p-3 border border-white/8">
-                          <div className="text-[10px] text-warmgray-400 mb-1">{l}</div>
-                          <div className="text-base font-bold font-serif text-white">{v}</div>
-                          <div className="text-[10px] text-sandstone-400 mt-0.5">{s}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-[10px] font-semibold text-warmgray-400 uppercase tracking-wider">Execution Progress — Hestia Alibag V2</span>
-                        <span className="text-xs font-bold text-sandstone-400">34%</span>
-                      </div>
-                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-sandstone-400 rounded-full w-[34%]" />
-                      </div>
-                    </div>
-                    <div className="space-y-1.5">
-                      {[['Project Understanding & Scope','Done',true],['Planning & Budgeting','Done',true],['Execution & Site Monitoring','Live',false,true],['QA & Compliance','Pending',false],['Delivery & Handover','Pending',false]].map(([t,s,done,live]) => (
-                        <div key={String(t)} className="flex items-center gap-3">
-                          <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold flex-shrink-0
-                            ${done ? 'bg-sandstone-400 text-white' : live ? 'bg-green-400/20 border border-green-400' : 'border border-white/20'}`}>
-                            {done ? <span className="w-1.5 h-1.5 rounded-full bg-white block" /> : live ? <span className="w-1.5 h-1.5 rounded-full bg-green-400 block" /> : ''}
-                          </div>
-                          <span className={`text-xs ${done ? 'text-warmgray-300 line-through' : live ? 'text-white font-semibold' : 'text-warmgray-500'}`}>{t}</span>
-                          <span className={`ml-auto text-[9px] font-bold px-1.5 py-0.5 rounded
-                            ${done ? 'bg-sandstone-400/20 text-sandstone-400' : live ? 'bg-green-400/15 text-green-400' : 'text-warmgray-500'}`}>{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute -top-2 -right-2 text-[10px] font-bold tracking-widest uppercase bg-sandstone-400 text-white px-3 py-1 rounded-full">
-                  HSI OS v2.0 · ENGINE LIVE
-                </div>
-              </div>
-            </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── WHAT IS HSIOS ─────────────────────────────────────────────── */}
+      {/* ── 5 CLIENT BENEFITS ─────────────────────────────────── */}
       <section className="section-py bg-white">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <RevealOnScroll>
-              <div className="section-label">The Platform</div>
-              <h2 className="font-serif text-display-lg text-charcoal-800 mb-6">
-                Premium Villa Interiors,<br />
-                Executed with <span className="text-sandstone-600">Precision.</span>
+          <RevealOnScroll>
+            <div className="max-w-2xl mb-14 lg:mb-20">
+              <div className="section-label">How you stay in control</div>
+              <h2 className="font-serif text-display-lg text-charcoal-800 mb-4">
+                Five things you can see{' '}
+                <span className="text-sandstone-600">at any time.</span>
               </h2>
-              <div className="w-10 h-px bg-sandstone-400 mb-6" />
-              <p className="text-warmgray-600 leading-relaxed mb-6">
-                Most luxury interior projects fail not because of bad design — but because of broken execution.
-                Cost overruns with no explanation. Delays with no accountability. Vendors in silos.
-                <strong className="text-charcoal-800"> HSIOS™</strong> was built to eliminate this entirely.
+              <p className="text-warmgray-600 text-lg leading-relaxed">
+                No chasing WhatsApp updates. Everything that matters about your project, in one place.
               </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Full lifecycle project management from scope to handover',
-                  'Real-time cost and budget intelligence — every rupee tracked',
-                  'Conflicts detected digitally before site execution begins',
-                  'Sustainability built into core planning — not an add-on, no cost premium',
-                  'Global best practices: ergonomics, durability, safety, and finish quality',
-                  'Predictable, on-time delivery with zero surprises',
-                ].map(item => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <circle cx="8" cy="8" r="7.5" stroke="#C4A882" strokeWidth="1"/>
-                      <path d="M5 8l2.5 2.5 3.5-4" stroke="#9A7A54" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-warmgray-700 text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="https://os.hsios.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-bronze"
-              >
-                Access the Platform →
-              </a>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={0.1}>
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                  <Image
-                    src="/hestia-villa-bellissimo.jpg"
-                    alt="HSI OS Platform — Premium Interior Execution"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={85}
-                  />
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-luxury px-4 py-3 flex items-center gap-3 border border-ivory-200">
-                  <div className="w-8 h-8 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600">
-                    <BarChart2 size={15} strokeWidth={1.75} />
-                  </div>
-                  <div>
-                    <div className="font-serif text-lg font-bold text-charcoal-800">₹100Cr+</div>
-                    <div className="text-xs text-warmgray-500">Managed on HSIOS™</div>
-                  </div>
-                </div>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* ── STATS BAND ────────────────────────────────────────────────── */}
-      <section className="py-16 bg-charcoal-800">
-        <div className="container-luxury">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/10">
-            {[
-              { val: '7+',    label: 'Premium villa interiors delivered across Alibag', trend: '↑ Growing' },
-              { val: '₹100Cr',label: 'Execution value managed live on HSIOS™',         trend: '↑ Active' },
-              { val: '100%',  label: 'Cost transparency on every active project',       trend: '↑ Always' },
-              { val: 'Minimal', label: 'Execution surprises on completed projects',       trend: 'Minimal', green: true },
-            ].map(({ val, label, trend, green }) => (
-              <RevealOnScroll key={val} className="px-8 py-2 text-center">
-                <div className="font-serif text-4xl font-bold text-white mb-2">{val}</div>
-                <div className="text-xs text-warmgray-400 leading-relaxed mb-2">{label}</div>
-                <div className={`text-xs font-bold ${green ? 'text-green-400' : 'text-sandstone-400'}`}>{trend}</div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5 MODULES ─────────────────────────────────────────────────── */}
-      <section className="section-py bg-ivory-100">
-        <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
-            <div className="section-label">Core Modules</div>
-            <h2 className="font-serif text-display-lg text-charcoal-800">
-              Everything in One{' '}
-              <span className="text-sandstone-600">Intelligent System.</span>
-            </h2>
-            <p className="text-warmgray-600 mt-4 leading-relaxed">
-              Seven purpose-built modules working in concert — total command of every rupee, every day.
-            </p>
+            </div>
           </RevealOnScroll>
 
-          <div className="space-y-6">
-            {modules.map(({ n, Icon, title, desc, features, ui }, i) => (
-              <RevealOnScroll key={n} delay={i * 0.06}>
-                <div className="group grid md:grid-cols-3 gap-8 p-8 rounded-3xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-luxury transition-all duration-300">
-                  <div className="md:col-span-2">
-                    <div className="flex items-center gap-4 mb-5">
-                      <div className="w-10 h-10 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center text-sandstone-600 flex-shrink-0">
-                        <Icon size={18} strokeWidth={1.75} />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600">Module {n}</div>
-                        <h3 className="font-serif text-xl font-bold text-charcoal-800">{title}</h3>
-                      </div>
-                    </div>
-                    <p className="text-warmgray-600 leading-relaxed">{desc}</p>
-                    {ui}
-                  </div>
+          <div className="space-y-12 lg:space-y-20">
+            {benefits.map(({ Icon, title, desc, shot }, i) => (
+              <RevealOnScroll key={title}>
+                <div className={`grid lg:grid-cols-2 gap-8 lg:gap-14 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                   <div>
-                    <div className="text-xs font-semibold tracking-widest uppercase text-warmgray-500 mb-3">Key Features</div>
-                    <ul className="space-y-2">
-                      {features.map((f) => (
-                        <li key={f} className="flex items-center gap-2.5 text-sm text-warmgray-700">
-                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="flex-shrink-0">
-                            <circle cx="7" cy="7" r="6.5" stroke="#C4A882" strokeWidth="1"/>
-                            <path d="M4.5 7l2 2 3-3" stroke="#9A7A54" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INSIDE THE PLATFORM — 6 named capability modules ────────── */}
-      <section className="section-py bg-white border-t border-ivory-200">
-        <div className="container-luxury">
-          <RevealOnScroll className="max-w-3xl mb-14">
-            <div className="section-label">Inside the Platform</div>
-            <h2 className="font-serif text-display-lg text-charcoal-800 mt-2 mb-5">
-              Six engines.{' '}
-              <em className="not-italic text-sandstone-600">One execution layer.</em>
-            </h2>
-            <p className="text-warmgray-600 text-lg leading-relaxed">
-              Each capability is a working module — not a roadmap promise. The numbers below reflect
-              the platform as it currently ships.
-            </p>
-          </RevealOnScroll>
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-7">
-            {[
-              {
-                tag: 'Module 01',
-                title: 'Digital Twin',
-                metric: '5',
-                metricLabel: 'modes',
-                desc: 'Five canvases over the same hierarchy: Structural tree, Floor Plan with draggable rooms, 4D Timeline scrubber, Isometric stack, and MEP Clash overlay. Decisions tab consults the Decision Engine when you click any component.',
-                bullets: ['Structural · Floor Plan · 4D · Isometric · MEP', 'Undo/redo room positioning with API-persisted state', 'Valid IFC4 export, generated in-browser'],
-              },
-              {
-                tag: 'Module 02',
-                title: 'AI Design Validation',
-                metric: '26',
-                metricLabel: 'rules',
-                desc: 'A 26-rule engine across five categories — Material, Climate, Ventilation, Luxury Standards, Execution — backed by a Gemini AI reasoning layer that only fires when CRITICAL or HIGH findings are present. Tokens spent on what matters.',
-                bullets: ['Material grade · climate-zone fit · wet-area pairings', 'Per-room area, ceiling height, ventilation, automation', 'Weighted risk score 0–100 with remediation plan'],
-              },
-              {
-                tag: 'Module 03',
-                title: 'Decision Engine',
-                metric: '5',
-                metricLabel: 'objectives',
-                desc: 'Multi-objective decision scoring — learning confidence (35%), pattern type weight (22%), cost stress (22%), delay stress (13%), carbon stress (8%). Every recommendation includes a concrete next-step action, not just a warning.',
-                bullets: ['Time-decayed confidence (90-day half-life)', 'Auto outcome tracking across BOQ · PO · Execution · QA', 'Action Recommendation Engine returns the next step'],
-              },
-              {
-                tag: 'Module 04',
-                title: 'QA Checklist Framework',
-                metric: '104',
-                metricLabel: 'checkpoints',
-                desc: '12 execution phases. 104 items. 31 auto-evaluated (numeric/boolean rules against the project state). 73 require named human sign-off. Per-phase compliance scores. Photographic proof attached at every gate.',
-                bullets: ['Phase 0 Pre-Plinth → Phase 11 Handover', 'Auto vs manual evaluation by item type', 'Auditable sign-off chain — no informal approvals'],
-              },
-              {
-                tag: 'Module 05',
-                title: 'Sustainability Score',
-                metric: '6',
-                metricLabel: 'dimensions',
-                desc: 'A weighted score across six dimensions: Carbon 35% · Circularity 20% · Energy 15% · IEQ 12% · Water 10% · Durability 8%. Benchmarked against HSI-internal and IGBC-equivalent frameworks. Advisory only — never gates your project.',
-                bullets: ['Per-item, per-room, and per-project scoring', 'Lifecycle cost projection over 30 years', 'Override workflow recorded for project reporting'],
-              },
-              {
-                tag: 'Module 06',
-                title: 'Carbon Story Engine',
-                metric: '4',
-                metricLabel: 'metrics',
-                desc: 'Carbon savings translated into terms a non-engineer understands — trees absorbed, car kilometres avoided, flight kilometres avoided, household kWh. Anchored to the Indian grid emissions factor (0.82 kg CO₂e / kWh).',
-                bullets: ['21 kg / tree / year absorption factor', '0.21 kg / km car · 0.255 kg / km flight', 'HSI Excellence Certified · Approved · Compliant labels'],
-              },
-            ].map(({ tag, title, metric, metricLabel, desc, bullets }, i) => (
-              <RevealOnScroll key={title} delay={i * 0.05}>
-                <div className="h-full p-7 lg:p-8 rounded-2xl bg-ivory-50 border border-ivory-200 hover:border-sandstone-300 hover:shadow-luxury transition-all duration-300">
-                  <div className="flex items-start justify-between mb-5">
-                    <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-600">{tag}</div>
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="font-serif text-3xl font-bold text-sandstone-700 leading-none">{metric}</span>
-                      <span className="text-[10px] font-semibold text-warmgray-500 uppercase tracking-wider">{metricLabel}</span>
+                    <div className="w-12 h-12 rounded-xl bg-sandstone-100 flex items-center justify-center mb-5">
+                      <Icon className="text-sandstone-700" size={22} strokeWidth={1.75} />
                     </div>
+                    <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">{title}</h3>
+                    <p className="text-warmgray-600 text-lg leading-relaxed">{desc}</p>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-3">{title}</h3>
-                  <p className="text-warmgray-600 text-sm leading-relaxed mb-5">{desc}</p>
-                  <ul className="space-y-2">
-                    {bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-xs text-warmgray-600 leading-snug">
-                        <span className="w-1 h-1 rounded-full bg-sandstone-400 flex-shrink-0 mt-1.5" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  {/* Client-view screenshot placeholder — real image to be supplied (see §4 image pass). */}
+                  <div className="relative rounded-3xl overflow-hidden aspect-[16/10] bg-ivory-100 border border-ivory-300 flex flex-col items-center justify-center text-center p-6">
+                    <ImageIcon className="text-sandstone-300 mb-3" size={36} strokeWidth={1.25} />
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-500">Client view · screenshot to supply</div>
+                    <div className="text-sm text-warmgray-500 mt-1">{shot}</div>
+                  </div>
                 </div>
               </RevealOnScroll>
             ))}
@@ -550,7 +167,7 @@ export default async function HSIOSPage() {
         </div>
       </section>
 
-      {/* ── GLOBAL STANDARDS + PHILOSOPHY ────────────────────────────── */}
+      {/* ── GLOBAL STANDARDS + PHILOSOPHY ─────────────────────── */}
       <section className="section-py bg-charcoal-800">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -559,22 +176,23 @@ export default async function HSIOSPage() {
             <RevealOnScroll>
               <div className="section-label text-sandstone-400">Built to Global Standards</div>
               <h2 className="font-serif text-display-md text-white mb-6">
-                Every Project Benchmarked<br />
-                <span className="text-sandstone-300">Beyond Local Practice.</span>
+                Benchmarked beyond{' '}
+                <span className="text-sandstone-300">local practice.</span>
               </h2>
               <p className="text-warmgray-300 leading-relaxed mb-8">
-                HSIOS™ incorporates international best practices into every execution decision — ensuring projects are future-ready and benchmarked against global residential standards, not just conventional local norms.
+                HSIOS™ builds international best practice into every execution decision — so your
+                home is benchmarked against global residential standards, not just local norms.
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { Icon: Armchair,    label: 'Ergonomics',     desc: 'Human-centred space planning and furniture sizing' },
-                  { Icon: ShieldCheck, label: 'Safety',         desc: 'Structural, electrical, and fire safety standards' },
-                  { Icon: Wrench,      label: 'Maintainability',desc: 'Service access, panel placement, and longevity' },
-                  { Icon: Award,       label: 'Finish Quality', desc: 'Premium grade execution benchmarks at every stage' },
-                  { Icon: Users,       label: 'Usability',      desc: 'Universal design, clearances, and accessibility' },
-                  { Icon: Ruler,       label: 'Workflow',       desc: 'Efficient kitchen, bathroom, and circulation flow' },
+                  { Icon: Armchair,    label: 'Ergonomics',      desc: 'Human-centred space planning and sizing' },
+                  { Icon: ShieldCheck, label: 'Safety',          desc: 'Structural, electrical and fire safety' },
+                  { Icon: Wrench,      label: 'Maintainability', desc: 'Service access and longevity' },
+                  { Icon: Award,       label: 'Finish Quality',  desc: 'Premium execution benchmarks' },
+                  { Icon: Users,       label: 'Usability',       desc: 'Clearances and accessibility' },
+                  { Icon: Ruler,       label: 'Workflow',        desc: 'Efficient kitchen and circulation flow' },
                 ].map(({ Icon: StdIcon, label, desc }) => (
-                  <div key={label} className="p-4 rounded-xl bg-white/5 border border-white/8 hover:bg-white/8 hover:border-sandstone-400/30 transition-all duration-300">
+                  <div key={label} className="p-4 rounded-xl bg-white/5 border border-white/8">
                     <div className="w-7 h-7 flex items-center justify-center text-sandstone-400 mb-2">
                       <StdIcon size={16} strokeWidth={1.5} />
                     </div>
@@ -589,20 +207,24 @@ export default async function HSIOSPage() {
             <RevealOnScroll delay={0.1}>
               <div className="section-label text-sandstone-400">Core Philosophy</div>
               <h2 className="font-serif text-display-md text-white mb-6">
-                Refuse. Reuse. Recycle.<br />
-                <span className="text-sandstone-300">Built into Every Decision.</span>
+                Refuse. Reuse. Recycle.{' '}
+                <span className="text-sandstone-300">Built into every decision.</span>
               </h2>
               <p className="text-warmgray-300 leading-relaxed mb-8">
-                Sustainability is not an expensive add-on in HSIOS™. It is integrated into core planning — ensuring smarter choices, efficient layouts, and long-term value from the start. No cost premium. No compromise on aesthetics.
+                Sustainability isn’t a costly add-on. It’s built into planning — smarter choices and
+                efficient layouts that reduce waste without a cost premium or a compromise on design.{' '}
+                <Link href="/sustainability" className="text-sandstone-300 underline underline-offset-2 hover:text-sandstone-200">
+                  How we approach sustainability →
+                </Link>
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {[
-                  { word: 'Refuse',  PhilIcon: Zap,          desc: 'Unnecessary materials, wasteful designs, and inefficient decisions — rejected before they enter the plan.' },
-                  { word: 'Reuse',   PhilIcon: RefreshCcw,   desc: 'Existing assets, salvageable materials, and adaptable design elements — retained and integrated.' },
-                  { word: 'Recycle', PhilIcon: Leaf,         desc: 'Responsible material planning and waste reduction — tracked and documented through every phase.' },
-                  { word: 'Reduce',  PhilIcon: TrendingDown, desc: 'Alternate low-impact materials, optimised transport, better natural light and ventilation — smaller footprint, greater long-term value.' },
+                  { word: 'Refuse',  PhilIcon: Zap,          desc: 'Wasteful materials and inefficient decisions — rejected before they enter the plan.' },
+                  { word: 'Reuse',   PhilIcon: RefreshCcw,   desc: 'Salvageable materials and adaptable elements — retained and integrated.' },
+                  { word: 'Recycle', PhilIcon: Leaf,         desc: 'Responsible material planning and waste reduction — tracked through every phase.' },
+                  { word: 'Reduce',  PhilIcon: TrendingDown, desc: 'Lower-impact materials, better light and ventilation — a smaller footprint, greater long-term value.' },
                 ].map(({ word, PhilIcon, desc }) => (
-                  <div key={word} className="flex gap-4 p-5 rounded-2xl bg-white/5 border border-white/8">
+                  <div key={word} className="flex gap-4 p-4 rounded-2xl bg-white/5 border border-white/8">
                     <div className="w-9 h-9 rounded-lg bg-sandstone-400/20 flex items-center justify-center text-sandstone-300 flex-shrink-0">
                       <PhilIcon size={16} strokeWidth={1.5} />
                     </div>
@@ -619,78 +241,18 @@ export default async function HSIOSPage() {
         </div>
       </section>
 
-      {/* ── PLATFORM PREVIEW ──────────────────────────────────────────── */}
-      <section className="section-py bg-ivory-200">
-        <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-10">
-            <div className="section-label">Platform Preview</div>
-            <h2 className="font-serif text-display-lg text-charcoal-800">
-              See HSIOS™ in <span className="text-sandstone-600">Action.</span>
-            </h2>
-            <p className="text-warmgray-600 mt-4 leading-relaxed">
-              Every module is purpose-built for premium interior execution — not a generic tool adapted for interiors.
-              Explore the platform below.
-            </p>
-          </RevealOnScroll>
-          <RevealOnScroll>
-            <PlatformPreview />
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* ── HOW WE WORK ───────────────────────────────────────────────── */}
-      <section className="section-py bg-charcoal-800">
-        <div className="container-luxury">
-          <RevealOnScroll className="max-w-xl mb-16">
-            <div className="section-label text-sandstone-400">How We Work</div>
-            <h2 className="font-serif text-display-lg text-white">
-              Flexible by Design.<br />
-              <em className="not-italic text-sandstone-300">Built for Real-World Execution.</em>
-            </h2>
-            <p className="text-warmgray-400 mt-4 leading-relaxed">
-              Three ways to work with HSI — same intelligence, different levels of involvement.
-            </p>
-          </RevealOnScroll>
-          <div className="grid sm:grid-cols-3 gap-5 mb-12">
-            {howWeWork.map(({ n, clr, num, tag, title, desc, features, tagLabel }, i) => (
-              <RevealOnScroll key={n} delay={i * 0.08}>
-                <div className={`bg-white/5 rounded-2xl border-t-2 ${clr} border border-white/8 p-7 h-full flex flex-col`}>
-                  <div className={`font-serif text-3xl font-bold ${num} mb-4 opacity-70`}>{n}</div>
-                  <h3 className="font-serif text-lg font-bold text-white mb-3">{title}</h3>
-                  <p className="text-warmgray-400 text-sm leading-relaxed mb-5 flex-1">{desc}</p>
-                  <ul className="space-y-1.5 mb-5">
-                    {features.map(f => (
-                      <li key={f} className="flex items-center gap-2 text-xs text-warmgray-300">
-                        <span className="w-1 h-1 rounded-full bg-sandstone-400/60 shrink-0" />{f}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className={`text-xs font-bold px-3 py-1.5 rounded-full w-fit ${tag}`}>{tagLabel}</span>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-          <RevealOnScroll>
-            <blockquote className="text-center border-t border-white/10 pt-10">
-              <span className="font-serif text-4xl text-sandstone-400/40 leading-none block">&ldquo;</span>
-              <p className="font-serif text-xl text-white/70 italic mt-2">Service, Platform, or Both — one system, zero chaos.</p>
-            </blockquote>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* ── FAQ ───────────────────────────────────────────────────────── */}
+      {/* ── FAQ ───────────────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <RevealOnScroll>
               <div className="section-label">FAQ</div>
               <h2 className="font-serif text-display-lg text-charcoal-800 mb-5">
-                Everything you<br />
+                Everything you{' '}
                 need to <span className="text-sandstone-600">know.</span>
               </h2>
               <p className="text-warmgray-600 leading-relaxed mb-8">
-                Before starting your project, we answer the questions every homeowner and developer asks.
+                Before starting your project, we answer the questions every owner and developer asks.
               </p>
               <Link href="/contact" className="text-sandstone-600 font-semibold hover:text-sandstone-700 transition-colors">
                 Still have questions? →
@@ -703,53 +265,27 @@ export default async function HSIOSPage() {
         </div>
       </section>
 
-      {/* ── SEO CONTENT ───────────────────────────────────────────────── */}
-      <section className="section-py bg-white">
-        <div className="container-luxury max-w-3xl">
+      {/* ── FINAL CTA ─────────────────────────────────────────── */}
+      <section className="section-py bg-charcoal-800 text-center">
+        <div className="container-luxury max-w-2xl">
           <RevealOnScroll>
-            <div className="prose prose-warmgray max-w-none">
-              <h2 className="font-serif text-display-sm text-charcoal-800">
-                Premium Interior Execution in Alibag &amp; Mumbai — Powered by HSIOS™
-              </h2>
-              <p className="text-warmgray-600 leading-relaxed">
-                Alibag and Mumbai are two of India&apos;s most active markets for premium residential interiors. Alibag draws
-                high-net-worth second-home buyers seeking luxury villas in a coastal setting. Mumbai&apos;s premium apartment and
-                penthouse market demands execution precision across South Mumbai, Bandra, Juhu, and Worli. Both markets share
-                coastal conditions, discerning clients, and zero tolerance for execution failures. HSIOS™ was built to serve
-                exactly this profile.
-              </p>
-              <h3 className="font-serif text-xl font-bold text-charcoal-800 mt-8 mb-3">
-                Interior Designers in Alibag &amp; Mumbai vs. HSI&apos;s Execution Intelligence
-              </h3>
-              <p className="text-warmgray-600 leading-relaxed">
-                Premium interior projects in both Alibag and Mumbai face similar core challenges: coordination gaps between
-                design and execution teams, cost overruns from unmanaged changes, and timeline delays from poor vendor
-                accountability. HSIOS™ provides the structured system to prevent this — tracking every phase, every rupee,
-                and every vendor from day one.
-              </p>
-              <h3 className="font-serif text-xl font-bold text-charcoal-800 mt-8 mb-3">
-                Why Premium Residential Developers Choose HSIOS™
-              </h3>
-              <p className="text-warmgray-600 leading-relaxed">
-                Developers delivering luxury residences in Alibag, Karjat, Lonavala, and Mumbai face the challenge of
-                maintaining consistent interior quality across dozens of units. HSIOS™ provides the system to standardise
-                execution — reducing rework, improving handover timelines, and giving buyers confidence that their home&apos;s
-                interiors are being delivered with the same rigour as the construction itself.{' '}
-                <Link href="/for-developers" className="text-sandstone-600 hover:text-sandstone-700 underline underline-offset-2">
-                  Learn how HSI works for developers →
-                </Link>
-              </p>
-              <h3 className="font-serif text-xl font-bold text-charcoal-800 mt-8 mb-3">
-                The HSI Advantage: Service + Platform
-              </h3>
-              <p className="text-warmgray-600 leading-relaxed">
-                Whether you&apos;re a homeowner who wants complete hand-holding through your villa interior project, or a developer
-                looking to give your team a smarter execution system, HSI can work both ways.{' '}
-                <Link href="/contact" className="text-sandstone-600 hover:text-sandstone-700 underline underline-offset-2">
-                  Request a demo
-                </Link>{' '}
-                to see it in action for your project.
-              </p>
+            <h2 className="font-serif text-display-md text-white mb-6">
+              See it with your own project.
+            </h2>
+            <p className="text-warmgray-300 leading-relaxed mb-10">
+              Book a consultation and we’ll walk you through exactly how you’ll track your villa
+              interior in HSIOS™ — in person, or over video if you’re building from another city or abroad.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/contact" className="btn btn-bronze">Book a Consultation</Link>
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20HSI%2C%20I%27d%20like%20to%20see%20how%20HSIOS%20works%20for%20my%20project`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline-white"
+              >
+                WhatsApp Us
+              </a>
             </div>
           </RevealOnScroll>
         </div>
