@@ -210,8 +210,8 @@ function NriStoryBand() {
         <RevealOnScroll delay={0.1}>
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-luxury">
             <Image
-              src="/hestia-villa-bellissimo.jpg"
-              alt="Villa Bellissimo interior, Alibag — tracked remotely in HSIOS™"
+              src="/hestia-villa-poolside-alibag.webp"
+              alt="Poolside dining at a Hestia villa, Alibag — a project tracked remotely in HSIOS™"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 45vw"
