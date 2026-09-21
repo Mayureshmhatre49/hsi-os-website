@@ -5,6 +5,7 @@ import MarqueeTicker from '@/components/ui/MarqueeTicker'
 import { JsonLd } from '@/lib/JsonLd'
 import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
 import EngagementModels from '@/components/ui/EngagementModels'
+import { verifiedTestimonials } from '@/content/testimonials'
 
 /*
  * Title, description, and alternates inherit from the root layout (layout.tsx)
@@ -27,36 +28,13 @@ import EngagementModels from '@/components/ui/EngagementModels'
    12. Final CTA
    ════════════════════════════════════════════════════════════ */
 /*
- * Testimonials live at module-level so the Review + AggregateRating schema below
- * can derive from the same source — keeps displayed reviews and structured data in sync.
+ * Testimonials come from the single source of truth (src/content/testimonials.ts).
+ * Only entries confirmed by Nishant (verified: true) are returned — so this list
+ * is empty until then, and the Review/AggregateRating schema below is only
+ * emitted when there is at least one verified review to back it.
  */
-const testimonials = [
-  {
-    quote: 'Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered 3 weeks ahead of schedule.',
-    name: 'Abhishek Bajoria',
-    role: 'Homeowner · Alibag Villa',
-    initials: 'AB',
-  },
-  {
-    quote: 'Managing a ₹2.5Cr villa interior project from Hong Kong without physical access became very smooth thanks to HSIOS™. I had more visibility into my Alibag project than I do into some of my HK properties.',
-    name: 'Niket Murdeshwar',
-    role: 'NRI Homeowner · Hong Kong',
-    initials: 'NM',
-  },
-  {
-    quote: "I've worked with many execution contractors over 15 years. What sets HSIOS™ apart is that my design intent actually survives site execution. The conflict detection caught a ceiling vs HVAC issue before a single cutter touched the ceiling. That alone saved 3 weeks.",
-    name: 'Rahul D.',
-    role: 'Principal Architect · Mumbai',
-    initials: 'RD',
-  },
-]
+const testimonials = verifiedTestimonials()
 
-/*
- * Review + AggregateRating schema for the testimonials rendered in <ProofSection>.
- * Google's structured-data policy requires these reviews to be visible on the same page —
- * they are. The aggregateRating reflects only the testimonials shown (currently 3),
- * not internal project counts. Update both arrays together when adding testimonials.
- */
 const reviewSchemas = testimonials.map((t) => ({
   '@context': 'https://schema.org',
   '@type': 'Review',
@@ -78,10 +56,13 @@ const aggregateRatingSchema = {
   reviewCount: testimonials.length.toString(),
 }
 
+/* Only emit review structured data when there are verified reviews to show. */
+const reviewJsonLd = testimonials.length > 0 ? [...reviewSchemas, aggregateRatingSchema] : []
+
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={[...reviewSchemas, aggregateRatingSchema]} />
+      {reviewJsonLd.length > 0 && <JsonLd data={reviewJsonLd} />}
       <HeroSection />
       <MarqueeTicker />
       <ProblemSection />
@@ -718,7 +699,8 @@ function ProofSection() {
         </div>
       </section>
 
-      {/* Testimonials — 3 only */}
+      {/* Testimonials — verified only (see src/content/testimonials.ts). */}
+      {testimonials.length > 0 && (
       <section className="section-py bg-ivory-200" aria-label="Testimonials">
         <div className="container-luxury">
           <RevealOnScroll>
@@ -732,7 +714,7 @@ function ProofSection() {
           </RevealOnScroll>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map(({ quote, name, role, initials }, i) => (
+            {testimonials.map(({ quote, name, role, location, initials }, i) => (
               <RevealOnScroll key={name} delay={i * 0.08}>
                 <div className="card-luxury p-8 flex flex-col h-full bg-white">
                   <div className="font-serif text-5xl text-sandstone-300 leading-none mb-4">&ldquo;</div>
@@ -743,7 +725,7 @@ function ProofSection() {
                     </div>
                     <div>
                       <div className="font-semibold text-charcoal-800 text-sm">{name}</div>
-                      <div className="text-xs text-warmgray-500 mt-0.5">{role}</div>
+                      <div className="text-xs text-warmgray-500 mt-0.5">{location ? `${role} · ${location}` : role}</div>
                     </div>
                   </div>
                 </div>
@@ -766,6 +748,7 @@ function ProofSection() {
           </RevealOnScroll>
         </div>
       </section>
+      )}
     </>
   )
 }

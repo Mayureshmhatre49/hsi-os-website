@@ -7,6 +7,7 @@ import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
 import EngagementModels from '@/components/ui/EngagementModels'
+import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
   title: 'For Developers — Scalable Luxury Interior Execution Platform',
@@ -221,28 +222,32 @@ export default async function ForDevelopersPage() {
       {/* ── ENGAGEMENT MODELS — Managed execution for multi-unit ──── */}
       <EngagementModels emphasis="managed" />
 
-      {/* ── TESTIMONIAL ───────────────────────────────────────────── */}
-      <section className="py-20 bg-ivory-100">
-        <div className="container-luxury max-w-3xl">
-          <RevealOnScroll>
-            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
-              <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
-              <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
-                We have a 24-unit development in Alibag. Getting consistent finish quality and documentation
-                across all units would have been impossible without HSIOS™. The reporting alone —
-                what we can show buyers — is worth the entire engagement.
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">RM</div>
-                <div className="text-left">
-                  <div className="font-semibold text-charcoal-800 text-sm">Rajesh M.</div>
-                  <div className="text-xs text-warmgray-500 mt-0.5">Developer · Alibag Township</div>
+      {/* ── TESTIMONIAL — renders only when verified (src/content/testimonials.ts) ── */}
+      {(() => {
+        const t = getVerifiedTestimonial('rajesh-m')
+        if (!t) return null
+        return (
+          <section className="py-20 bg-ivory-100">
+            <div className="container-luxury max-w-3xl">
+              <RevealOnScroll>
+                <div className="card-luxury bg-white p-6 sm:p-10 text-center">
+                  <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+                  <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                    {t.quote}
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">{t.initials}</div>
+                    <div className="text-left">
+                      <div className="font-semibold text-charcoal-800 text-sm">{t.name}</div>
+                      <div className="text-xs text-warmgray-500 mt-0.5">{t.location ? `${t.role} · ${t.location}` : t.role}</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+          </section>
+        )
+      })()}
 
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="py-24 bg-sandstone-400 text-center">

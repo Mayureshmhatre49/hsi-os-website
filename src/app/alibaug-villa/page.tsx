@@ -11,6 +11,7 @@ import {
   Database, Hotel, HeartHandshake, TreePine, Plane,
   Star, Zap, IndianRupee, Check, Wrench, Award,
 } from 'lucide-react'
+import { verifiedTestimonials } from '@/content/testimonials'
 
 /* ─── shared ease ─────────────────────────────────────────── */
 const ease = [0.21, 0.47, 0.32, 0.98] as const
@@ -2030,31 +2031,17 @@ function ComparisonSection() {
 /* ══════════════════════════════════════════════════════════════
    TESTIMONIALS
 ══════════════════════════════════════════════════════════════ */
-const TESTIMONIALS = [
-  {
-    quote: "Building my villa in Alibag while living in Mumbai was my biggest fear. I expected endless delays. HSIOS™ gave me an exact roadmap, and I tracked every rupee on my dashboard. They delivered 3 weeks ahead of schedule.",
-    name: 'Abhishek Bajoria',
-    role: 'Homeowner · Alibag Villa',
-    img: '',
-    initials: 'AB',
-  },
-  {
-    quote: "Managing a ₹2.5Cr villa interior project from Hong Kong without physical access became very smooth thanks to HSIOS™. I had more visibility into my Alibag project than I do into some of my HK properties.",
-    name: 'Niket Murdeshwar',
-    role: 'NRI Homeowner · Hong Kong',
-    img: '',
-    initials: 'NM',
-  },
-  {
-    quote: "I've worked with many execution contractors over 15 years. What sets HSIOS™ apart is that my design intent actually survives site execution. The conflict detection caught a ceiling vs HVAC issue before a single cutter touched the ceiling. That alone saved 3 weeks.",
-    name: 'Rahul D.',
-    role: 'Principal Architect · Mumbai',
-    img: '',
-    initials: 'RD',
-  },
-]
+/* Verified testimonials only — single source of truth (src/content/testimonials.ts). */
+const TESTIMONIALS = verifiedTestimonials().map((t) => ({
+  quote: t.quote,
+  name: t.name,
+  role: t.location ? `${t.role} · ${t.location}` : t.role,
+  img: '',
+  initials: t.initials ?? '',
+}))
 
 function TestimonialsSection() {
+  if (TESTIMONIALS.length === 0) return null
   return (
     <section className="section-py bg-white">
       <div className="container-luxury">

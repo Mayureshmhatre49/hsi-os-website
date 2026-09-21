@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { MessageCircle, Mail, MapPin, CheckCircle2, Phone } from 'lucide-react'
 import { PHONES, EMAIL } from '@/lib/contact'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { getVerifiedTestimonial } from '@/content/testimonials'
 
 const projectTypes = [
   'Villa — Complete End-to-End Interior',
@@ -203,15 +204,21 @@ export default function ContactPage() {
                     ))}
                   </div>
 
-                  {/* Testimonial pull-quote */}
-                  <blockquote className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
-                    <p className="text-sm text-warmgray-700 leading-relaxed italic mb-3">
-                      &ldquo;The fee paid for itself before site work even started. Twelve conflicts caught in planning that would have cost three times the fee to fix on site.&rdquo;
-                    </p>
-                    <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600">
-                      Abhishek Bajoria — Villa Owner · Alibag
-                    </div>
-                  </blockquote>
+                  {/* Testimonial pull-quote — renders only when verified (src/content/testimonials.ts) */}
+                  {(() => {
+                    const t = getVerifiedTestimonial('abhishek-bajoria')
+                    if (!t) return null
+                    return (
+                      <blockquote className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
+                        <p className="text-sm text-warmgray-700 leading-relaxed italic mb-3">
+                          &ldquo;{t.quote}&rdquo;
+                        </p>
+                        <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600">
+                          {t.name} — {t.location ? `${t.role} · ${t.location}` : t.role}
+                        </div>
+                      </blockquote>
+                    )
+                  })()}
 
                   {/* Trust note */}
                   <div className="p-5 rounded-2xl bg-white border border-ivory-200">

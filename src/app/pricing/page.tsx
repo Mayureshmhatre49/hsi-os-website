@@ -4,6 +4,7 @@ import { FileText, Zap, BarChart2, Eye, CheckSquare, Leaf, Archive, Maximize2, L
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
   title: 'Pricing — Transparent Project Investment',
@@ -452,28 +453,32 @@ export default async function PricingPage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIAL ───────────────────────────────────── */}
-      <section className="py-20 bg-ivory-100">
-        <div className="container-luxury max-w-3xl">
-          <RevealOnScroll>
-            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
-              <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
-              <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
-                The HSIOS™ fee paid for itself before site work even started. One conflict they caught —
-                a plumbing line running directly under the kitchen island — would have cost more to fix
-                on-site than the entire management fee. That&apos;s the real value proposition.
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">AB</div>
-                <div className="text-left">
-                  <div className="font-semibold text-charcoal-800 text-sm">Abhishek Bajoria</div>
-                  <div className="text-xs text-warmgray-500 mt-0.5">Homeowner · Alibag Villa</div>
+      {/* ── TESTIMONIAL — renders only when verified (src/content/testimonials.ts) ── */}
+      {(() => {
+        const t = getVerifiedTestimonial('abhishek-bajoria')
+        if (!t) return null
+        return (
+          <section className="py-20 bg-ivory-100">
+            <div className="container-luxury max-w-3xl">
+              <RevealOnScroll>
+                <div className="card-luxury bg-white p-6 sm:p-10 text-center">
+                  <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+                  <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                    {t.quote}
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">{t.initials}</div>
+                    <div className="text-left">
+                      <div className="font-semibold text-charcoal-800 text-sm">{t.name}</div>
+                      <div className="text-xs text-warmgray-500 mt-0.5">{t.location ? `${t.role} · ${t.location}` : t.role}</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+          </section>
+        )
+      })()}
 
       {/* ── FAQ ───────────────────────────────────────────── */}
       <section className="section-py bg-charcoal-800">
