@@ -208,7 +208,7 @@ const disciplines = [
 interface ExecutionDisciplinesProps {
   variant?: 'full' | 'compact'
   showCTA?: boolean
-  context?: 'homepage' | 'hsi-os' | 'how-it-works' | 'for-homeowners' | 'for-developers' | 'for-architects'
+  context?: 'homepage' | 'hsi-os' | 'how-it-works' | 'for-homeowners' | 'for-developers' | 'for-architects' | 'services'
 }
 
 export default function ExecutionDisciplines({
@@ -225,6 +225,7 @@ export default function ExecutionDisciplines({
     'for-homeowners': 'One accountable team. Every discipline. Full visibility throughout.',
     'for-developers': 'The same execution disciplines, standardised across every unit in your portfolio.',
     'for-architects': 'Your specifications are non-negotiable. We enforce them across every discipline.',
+    services: 'Every discipline, coordinated by one accountable team.',
   }
 
   return (
