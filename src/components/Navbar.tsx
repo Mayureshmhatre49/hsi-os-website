@@ -88,7 +88,7 @@ export default function Navbar() {
           }
         `}
       >
-        <nav className="container-luxury flex items-center justify-between h-16 gap-6" aria-label="Main navigation">
+        <nav className="container-luxury flex items-center justify-between h-16 gap-3" aria-label="Main navigation">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
@@ -111,15 +111,15 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav — 4 links + Solutions dropdown */}
-          <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+          {/* Desktop Nav — shown at xl+ (narrower widths use the hamburger drawer) */}
+          <ul className="hidden xl:flex items-center gap-0.5">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
                   aria-current={isActive(href) ? 'page' : undefined}
                   className={`
-                    relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap
+                    relative px-2.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap
                     ${isActive(href)
                       ? transparent
                         ? 'text-white bg-white/10'
@@ -146,7 +146,7 @@ export default function Navbar() {
                 aria-haspopup="listbox"
                 aria-controls="solutions-dropdown"
                 className={`
-                  flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium
+                  flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium
                   transition-all duration-200 whitespace-nowrap
                   ${solutionLinks.some(l => isActive(l.href))
                     ? transparent ? 'text-white bg-white/10' : 'text-sandstone-700 bg-sandstone-50'
@@ -189,7 +189,7 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          <div className="hidden xl:flex items-center gap-2.5 flex-shrink-0">
             <a
               href="https://os.hsios.in/"
               target="_blank"
@@ -204,7 +204,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               className={`
-                btn text-sm px-5 py-2.5 whitespace-nowrap
+                btn text-sm px-4 py-2.5 whitespace-nowrap
                 ${transparent
                   ? 'bg-white/15 backdrop-blur-sm text-white border border-white/30 hover:bg-white hover:text-charcoal-800'
                   : 'btn-bronze'
@@ -221,7 +221,7 @@ export default function Navbar() {
             aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className={`lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg transition-colors duration-200 ${transparent ? 'text-white' : 'text-charcoal-800'}`}
+            className={`xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg transition-colors duration-200 ${transparent ? 'text-white' : 'text-charcoal-800'}`}
           >
             <span className={`block w-5 h-0.5 transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-2' : ''} ${transparent ? 'bg-white' : 'bg-charcoal-800'}`} />
             <span className={`block w-5 h-0.5 transition-all duration-300 ${menuOpen ? 'opacity-0 scale-x-0' : ''} ${transparent ? 'bg-white' : 'bg-charcoal-800'}`} />
@@ -237,7 +237,7 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Navigation menu"
         suppressHydrationWarning
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 z-40 xl:hidden transition-all duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         {/* Backdrop */}
         <div className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm" onClick={() => setMenuOpen(false)} />
