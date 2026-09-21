@@ -8,7 +8,7 @@ const items = [
   'Intelligent Planning. Documented Execution.',
   'Sustainability Without Compromise.',
   'The Future of Premium Interiors.',
-  'Alibag · Mumbai · Pune · Goa · Beyond.',
+  'Alibag · Konkan Coast · Mumbai · Beyond.',
 ]
 
 // Duplicated so the CSS marquee loops without a visible reset

@@ -32,6 +32,12 @@ export const FACTS = {
   /** Short stat-tile form of the budget claim. */
   budgetClaimStat: { value: '30% Lower', label: 'Cost Overruns vs Industry' },
 
+  /**
+   * Typical all-in investment for a ~4,000 sq ft Alibag villa interior.
+   * Consistent with the /pricing villa band (₹1.5Cr–₹8Cr+). Keep in step with /pricing.
+   */
+  typicalVillaInvestment: '₹1.5–3.5 Cr',
+
   /** Confirmed by Nishant (2026-09-21): minimum project value ₹50 Lakh. */
   minProjectValue: '₹50 Lakh',
 
