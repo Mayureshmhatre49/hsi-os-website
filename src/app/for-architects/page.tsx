@@ -7,7 +7,7 @@ import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
-  title: 'For Architects & Designers — Protect Design Intent with HSIOS™',
+  title: 'For Architects & Designers — Your Execution Partner',
   description:
     'HSIOS™ protects your design vision with conflict detection, execution intelligence, and real-time documentation. Built for premium villa and residential projects across India.',
   alternates: getAlternates('/for-architects'),
@@ -84,18 +84,20 @@ export default async function ForArchitectsPage() {
             <div className="max-w-2xl">
               <div className="section-label text-sandstone-400">For Architects &amp; Designers</div>
               <h1 className="font-serif text-display-xl text-white mb-4">
-                Your Design Survives<br />
-                <em className="not-italic text-sandstone-300">Every Site Decision.</em>
+                Your execution partner<br />
+                <em className="not-italic text-sandstone-300">on site.</em>
               </h1>
               <p className="font-serif text-lg text-sandstone-200 mb-4">
-                That is our commitment to every architect we work with.
+                You keep design control. We deliver it on the ground.
               </p>
               <p className="text-warmgray-200 text-lg leading-relaxed mb-8">
-                HSIOS™ is built with conflict detection, precision documentation, and execution intelligence — so your design survives the journey from drawing board to handover.
+                Hand over your GFC drawings and HSI runs procurement, sequencing, quality and handover —
+                with every decision recorded in HSIOS™, our in-house platform, so your specification
+                survives the journey from drawing board to handover.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="btn btn-bronze">Book a Strategy Call</Link>
-                <Link href="/hsi-os" className="btn btn-outline-white">Explore HSIOS™</Link>
+                <Link href="/contact" className="btn btn-bronze">Discuss a Project</Link>
+                <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
               </div>
             </div>
           </RevealOnScroll>
@@ -166,7 +168,10 @@ export default async function ForArchitectsPage() {
 
             <RevealOnScroll delay={0.1}>
               <div className="bg-charcoal-900 rounded-2xl border border-white/10 p-8">
-                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-6">Conflict Scan Results</div>
+                <div className="flex items-center justify-between gap-3 mb-6">
+                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400">Conflict Scan Results</div>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-warmgray-400 border border-white/15 rounded-full px-2.5 py-1">Example</span>
+                </div>
                 {[
                   { clash: 'HVAC duct vs false ceiling depth',  severity: 'High',   status: 'Resolved', statusClr: 'text-green-400 bg-green-400/10' },
                   { clash: 'Plumbing vs kitchen island',        severity: 'High',   status: 'Resolved', statusClr: 'text-green-400 bg-green-400/10' },

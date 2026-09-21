@@ -8,9 +8,9 @@ import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
-  title: 'For Developers — Scalable Luxury Interior Execution Platform',
+  title: 'For Developers — Sample Villas & Multi-Villa Execution',
   description:
-    'Standardise premium interior execution across your entire development portfolio. HSIOS™ delivers quality, consistency, procurement efficiency, and buyer transparency at any scale.',
+    'Consistent luxury interior execution across sample villas and multi-villa developments in the Alibag belt — quality, procurement efficiency and buyer visibility, tracked in HSIOS™.',
   alternates: getAlternates('/for-developers'),
 }
 
@@ -32,7 +32,8 @@ const developerBenefits = [
   { Icon: LayoutDashboard, title: 'Multi-Unit Dashboard',    desc: 'All units, all progress, one view. Costs, timelines, and milestones across your entire portfolio.' },
   { Icon: ShoppingBag,     title: 'Procurement Efficiency',  desc: 'Consolidated procurement across units reduces cost, eliminates duplication, and improves lead times.' },
   { Icon: ClipboardList,   title: 'Quality Documentation',   desc: 'Auditable quality records for every unit — milestone-verified, permanently documented, and shareable with buyers.' },
-  { Icon: Eye,             title: 'Buyer Transparency',      desc: 'Give buyers real-time progress visibility as a sales differentiator. Premium execution, proven before handover.' },
+  // [CONFIRM] Is a per-buyer progress portal live? Worded as "on request" until confirmed.
+  { Icon: Eye,             title: 'Buyer Transparency',      desc: 'On request, give buyers real-time progress visibility on their own unit as a sales differentiator — premium execution, proven before handover.' },
   { Icon: Zap,             title: 'Faster Handover',         desc: 'Structured trade sequencing and quality gates reduce rework — accelerating handover by weeks.' },
 ]
 
@@ -82,11 +83,11 @@ export default async function ForDevelopersPage() {
                 <em className="not-italic text-sandstone-300">Across Your Portfolio.</em>
               </h1>
               <p className="text-warmgray-200 text-lg leading-relaxed mb-8">
-                HSIOS™ brings consistent execution intelligence to every unit in your development — from sample villas to full-scale luxury projects.
+                HSI brings consistent interior execution to every unit in your development — from sample villas to multi-villa projects across the Alibag belt — tracked in HSIOS™.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn btn-bronze">Discuss Your Development</Link>
-                <Link href="/hsi-os" className="btn btn-outline-white">Explore HSIOS™</Link>
+                <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
               </div>
             </div>
           </RevealOnScroll>

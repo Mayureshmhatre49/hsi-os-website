@@ -87,6 +87,18 @@ export const TESTIMONIALS: Testimonial[] = [
     verified: false,
   },
   {
+    // [CONFIRM] real client + permission. Shown on /for-homeowners; note the
+    // role says "Mumbai Apartment" while the offering is villa-first.
+    id: 'nandita-s',
+    name: 'Nandita S.',
+    role: 'Homeowner',
+    location: 'Mumbai',
+    initials: 'NS',
+    quote:
+      'My husband and I both work full time. We simply didn’t have the bandwidth to visit site every weekend. HSIOS™ meant approving things on my phone during lunch, seeing progress by evening, and always knowing exactly where the budget stood.',
+    verified: false,
+  },
+  {
     // [CONFIRM] or remove. "Rajesh M. · Developer · Alibag Township" cites a
     // 24-unit development that does NOT appear anywhere in the portfolio.
     id: 'rajesh-m',

@@ -20,6 +20,7 @@ const phases = [
     desc: 'We begin by deeply understanding your project — property type, vision, timeline and budget expectations. A detailed brief is compiled and signed off.',
     tasks: ['Discovery call & site visit', 'Project brief documentation', 'Preliminary scope definition', 'Stakeholder alignment'],
     milestone: 'Project Brief Approved',
+    dashboard: 'In your dashboard: your signed brief and agreed scope, in one place.',
   },
   {
     n: '02',
@@ -28,6 +29,7 @@ const phases = [
     desc: 'A comprehensive execution plan is built — including a full Bill of Quantities, vendor shortlist, trade sequencing and phased budget.',
     tasks: ['Full BOQ development', 'Vendor identification & shortlisting', 'Budget proposal sign-off', 'Timeline creation in HSIOS™'],
     milestone: 'Execution Plan Signed Off',
+    dashboard: 'In your dashboard: the full BOQ, your approved budget and the project timeline.',
   },
   {
     n: '03',
@@ -36,6 +38,7 @@ const phases = [
     desc: 'All long-lead materials are ordered, vendors are contracted, site preparation is completed and execution resources are mobilised.',
     tasks: ['Long-lead item procurement', 'Vendor contracts finalised', 'Site preparation & safety', 'HSIOS™ project activation'],
     milestone: 'Site Ready — Execution Begins',
+    dashboard: 'In your dashboard: procurement status and the ETA on every long-lead item.',
   },
   {
     n: '04',
@@ -44,6 +47,7 @@ const phases = [
     desc: 'All interior work is executed under HSIOS™ monitoring. Daily progress is logged, costs are tracked in real time, and clients receive live dashboard access.',
     tasks: ['Day-by-day execution tracking', 'Weekly client progress reports', 'Real-time cost monitoring', 'Quality checkpoints at each phase'],
     milestone: 'Ongoing — Live Dashboard Access',
+    dashboard: 'In your dashboard: daily photos, the live budget and each quality checkpoint as it happens.',
   },
   {
     n: '05',
@@ -52,6 +56,7 @@ const phases = [
     desc: 'A formal snag walkthrough is conducted. All items are documented in HSIOS™ and resolved before handover. Final documentation package is compiled.',
     tasks: ['Formal snag walkthrough', 'Resolution tracking in HSIOS™', 'Final quality sign-off', 'Documentation handover package'],
     milestone: 'Project Complete — Keys Delivered',
+    dashboard: 'In your dashboard: the snag list, final sign-offs and your handover dossier.',
   },
 ]
 
@@ -113,7 +118,7 @@ export default async function HowItWorksPage() {
             <div className="absolute left-6 top-0 bottom-0 w-px bg-ivory-300 hidden md:block" />
 
             <div className="space-y-8">
-              {phases.map(({ n, title, duration, desc, tasks, milestone }, i) => (
+              {phases.map(({ n, title, duration, desc, tasks, milestone, dashboard }, i) => (
                 <RevealOnScroll key={n} delay={i * 0.08}>
                   <div className="md:pl-20 relative">
                     {/* Step bubble */}
@@ -151,6 +156,13 @@ export default async function HowItWorksPage() {
                             {task}
                           </div>
                         ))}
+                      </div>
+
+                      <div className="mt-6 flex items-start gap-2.5 p-4 rounded-xl bg-sandstone-50 border border-sandstone-100">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9A7A54" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
+                          <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
+                        </svg>
+                        <span className="text-sm text-sandstone-800 leading-relaxed">{dashboard}</span>
                       </div>
                     </div>
                   </div>
@@ -203,8 +215,8 @@ export default async function HowItWorksPage() {
               Book a private consultation. We will walk through each phase in relation to your specific scope, timeline, and investment.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn btn-bronze">Book Consultation →</Link>
-              <Link href="/hsi-os" className="btn btn-outline-white">Explore HSIOS™</Link>
+              <Link href="/contact" className="btn btn-bronze">Book a Consultation</Link>
+              <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
             </div>
           </div>
         </RevealOnScroll>

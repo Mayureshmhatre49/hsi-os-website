@@ -5,11 +5,12 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
+import { FACTS } from '@/content/facts'
 
 export const metadata: Metadata = {
   title: 'Pricing — Transparent Project Investment',
   description:
-    'Understand what drives luxury interior project investment in India. HSIOS™ offers structured, transparent pricing with no hidden costs — from villa execution to premium apartment fitouts.',
+    'Understand what drives luxury villa interior project investment in Alibag and the Konkan coast. HSI offers structured, transparent pricing with no hidden costs, tracked in HSIOS™.',
   alternates: getAlternates('/pricing'),
 }
 
@@ -38,8 +39,10 @@ const drivers = [
 
 const tiers = [
   {
+    // [CONFIRM] Are premium apartments in scope at all? If yes, keep Mumbai-only
+    // (villa interiors are the core offering); if not, remove this tier.
     type: 'Premium Apartment',
-    subtitle: 'Mumbai · Bangalore · Pune',
+    subtitle: 'Mumbai',
     sqft: '1,200 – 3,500 sq ft',
     range: '₹60L – ₹2.5Cr',
     rangeNote: 'Total execution investment',
@@ -57,7 +60,7 @@ const tiers = [
   },
   {
     type: 'Villa & Bungalow',
-    subtitle: 'Alibag · Goa · Karjat · Lonavala',
+    subtitle: 'Alibag · Karjat · Lonavala',
     sqft: '3,000 – 12,000 sq ft',
     range: '₹1.5Cr – ₹8Cr+',
     rangeNote: 'Total execution investment',
@@ -141,16 +144,16 @@ const comparisons = [
 
 const faqs = [
   {
-    q: 'How does HSIOS™ charge for its services?',
-    a: 'HSIOS™ charges a structured project management fee calculated on the approved execution value. This fee is fixed at engagement and covers the full management scope — from BOQ to handover documentation. The fee replaces the traditional contractor margin model, so you know exactly what management costs before any work begins.',
+    q: 'How does HSI charge for its services?',
+    a: 'HSI charges a structured management fee calculated on the approved execution value. This fee is fixed at engagement and covers the full management scope — from BOQ to handover documentation. The fee replaces the traditional contractor margin model, so you know exactly what management costs before any work begins.',
   },
   {
     q: 'Are the cost ranges per sq ft inclusive of everything?',
-    a: 'The per sq ft benchmarks reflect total execution cost — materials plus labour across all trades. They do not include loose furniture, landscape design, or architect fees. The HSIOS™ project management fee is separate and discussed at engagement based on project scope.',
+    a: 'The per sq ft benchmarks reflect total execution cost — materials plus labour across all trades. They do not include loose furniture, landscape design, or architect fees. The HSI management fee is separate and discussed at engagement based on project scope.',
   },
   {
-    q: 'What is the minimum project value HSIOS™ works with?',
-    a: 'We work with projects from approximately ₹50L upward in total execution value. Below this threshold, the structured execution layer that HSIOS™ provides is difficult to deliver cost-effectively. If you are unsure where your project sits, a discovery call will help clarify scope and investment.',
+    q: 'What is the minimum project value HSI works with?',
+    a: `We work with projects from approximately ${FACTS.minProjectValue} upward in total execution value. Below this threshold, the structured execution layer that HSIOS™ provides is difficult to deliver cost-effectively. If you are unsure where your project sits, a discovery call will help clarify scope and investment.`,
   },
   {
     q: 'Can I bring my own interior designer and still use HSIOS™?',
@@ -162,7 +165,7 @@ const faqs = [
   },
   {
     q: 'Is the HSIOS™ fee worth it compared to a traditional contractor?',
-    a: 'The HSIOS™ management fee is typically recovered — and more — through early conflict detection alone. A single structural conflict discovered mid-execution can cost ₹5–20L in rework and 4–8 weeks of delay. Budget surprises at handover on premium projects routinely run 15–30% over the original estimate. Transparent execution does not cost more. Opaque execution does.',
+    a: 'The HSI management fee is typically recovered — and more — through early conflict detection alone. A single structural conflict discovered mid-execution can cost ₹5–20L in rework and 4–8 weeks of delay. Budget surprises at handover on premium projects routinely run 15–30% over the original estimate. Transparent execution does not cost more. Opaque execution does.',
   },
 ]
 
@@ -261,7 +264,7 @@ export default async function PricingPage() {
               <div className="w-px h-12 bg-sandstone-300 hidden sm:block" />
               <div className="grid sm:grid-cols-3 gap-5 flex-1">
                 {[
-                  { label: 'Premium Apartment', value: '₹60L – ₹2.5Cr', note: 'Mumbai · Pune · Bangalore' },
+                  { label: 'Premium Apartment', value: '₹60L – ₹2.5Cr', note: 'Mumbai' },
                   { label: 'Villa & Bungalow',  value: '₹1.5Cr – ₹8Cr+', note: 'Alibag · Goa · Karjat' },
                   { label: 'Developer Project', value: 'Custom',          note: 'Discussed at engagement' },
                 ].map(({ label, value, note }) => (
@@ -353,7 +356,7 @@ export default async function PricingPage() {
           <RevealOnScroll>
             <p className="text-warmgray-500 text-xs text-center mt-8 max-w-2xl mx-auto">
               Ranges reflect total execution investment (materials + labour). Loose furniture, landscape, and architect fees are separate.
-              Coastal locations carry a 15–25% material premium. The HSIOS™ project management fee is discussed at engagement.
+              Coastal locations carry a 15–25% material premium. The HSI management fee is discussed at engagement.
             </p>
           </RevealOnScroll>
         </div>
@@ -365,12 +368,12 @@ export default async function PricingPage() {
           <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Every Project. Every Time.</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
-              What HSIOS™ Delivers<br />
-              <span className="text-sandstone-600">As Standard.</span>
+              What Every HSI<br />
+              <span className="text-sandstone-600">Project Includes.</span>
             </h2>
             <p className="text-warmgray-600 mt-4 leading-relaxed">
-              These are not optional extras. Every HSIOS™ project — regardless of size —
-              includes the full execution intelligence layer.
+              These are not optional extras. Every HSI project — regardless of size —
+              includes the full execution layer, tracked in HSIOS™.
             </p>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
@@ -395,7 +398,7 @@ export default async function PricingPage() {
           <RevealOnScroll className="max-w-xl mb-10 lg:mb-16">
             <div className="section-label">Why It Matters</div>
             <h2 className="font-serif text-display-lg text-charcoal-800">
-              HSIOS™ vs a Traditional<br />
+              HSI vs a Traditional<br />
               <span className="text-sandstone-600">Contractor.</span>
             </h2>
           </RevealOnScroll>

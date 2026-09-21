@@ -4,12 +4,12 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
-import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
+import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
   title: 'For Homeowners — Premium Interior Execution with Full Visibility',
   description:
-    'Build your luxury villa or residence with complete cost clarity, real-time progress tracking, and zero execution surprises. HSIOS™ — India\'s first luxury home execution platform.',
+    'Build your luxury villa in Alibag with complete cost clarity, real-time progress tracking and daily photo proof — even from Mumbai or abroad. Turnkey interior execution by HSI.',
   alternates: getAlternates('/for-homeowners'),
 }
 
@@ -199,31 +199,64 @@ export default async function ForHomeownersPage() {
         </div>
       </section>
 
-      {/* ── EXECUTION DISCIPLINES ────────────────────────────────── */}
-      <ExecutionDisciplines variant="compact" showCTA={true} context="for-homeowners" />
-
-      {/* ── TESTIMONIAL ───────────────────────────────────────────── */}
-      <section className="py-20 bg-ivory-100">
-        <div className="container-luxury max-w-3xl">
+      {/* ── FEATURED PROJECT ─────────────────────────────────────── */}
+      <section className="section-py bg-white">
+        <div className="container-luxury">
           <RevealOnScroll>
-            <div className="card-luxury bg-white p-6 sm:p-10 text-center">
-              <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
-              <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
-                My husband and I both work full time. We simply didn&apos;t have the bandwidth to visit site every weekend.
-                HSIOS™ meant approving things on my phone during lunch, seeing progress by evening,
-                and always knowing exactly where the budget stood.
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">NS</div>
-                <div className="text-left">
-                  <div className="font-semibold text-charcoal-800 text-sm">Nandita S.</div>
-                  <div className="text-xs text-warmgray-500 mt-0.5">Homeowner · Mumbai Apartment</div>
-                </div>
+            <Link href="/projects/casa-frangipani" className="group grid lg:grid-cols-5 gap-6 lg:gap-8 items-center">
+              <div className="lg:col-span-3 relative rounded-3xl overflow-hidden aspect-[16/9]">
+                <Image
+                  src="/projects-casa-frangipani-1.jpg"
+                  alt="Casa Frangipani living room, Alibag — Hestia Smart Interiors"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
               </div>
-            </div>
+              <div className="lg:col-span-2">
+                <div className="section-label">Featured Project</div>
+                <h2 className="font-serif text-display-sm text-charcoal-800 mb-4 group-hover:text-sandstone-700 transition-colors">
+                  Casa Frangipani, Alibag
+                </h2>
+                <p className="text-warmgray-600 leading-relaxed mb-6">
+                  A 6-bedroom villa executed as a complete end-to-end interior — every decision, rupee
+                  and site day tracked in HSIOS™ so the owners stayed in control throughout.
+                </p>
+                <span className="inline-flex items-center gap-2 font-semibold text-sandstone-700 group-hover:gap-3 transition-all">
+                  View full project →
+                </span>
+              </div>
+            </Link>
           </RevealOnScroll>
         </div>
       </section>
+
+      {/* ── TESTIMONIAL — renders only when verified (src/content/testimonials.ts) ── */}
+      {(() => {
+        const t = getVerifiedTestimonial('nandita-s')
+        if (!t) return null
+        return (
+          <section className="py-20 bg-ivory-100">
+            <div className="container-luxury max-w-3xl">
+              <RevealOnScroll>
+                <div className="card-luxury bg-white p-6 sm:p-10 text-center">
+                  <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+                  <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                    {t.quote}
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">{t.initials}</div>
+                    <div className="text-left">
+                      <div className="font-semibold text-charcoal-800 text-sm">{t.name}</div>
+                      <div className="text-xs text-warmgray-500 mt-0.5">{t.location ? `${t.role} · ${t.location}` : t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            </div>
+          </section>
+        )
+      })()}
 
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="section-py bg-sandstone-400 text-center">
@@ -237,7 +270,7 @@ export default async function ForHomeownersPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn bg-white text-charcoal-800 hover:bg-ivory-100">
-                Book Consultation
+                Book a Consultation
               </Link>
               <a
                 href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27m%20a%20homeowner%20interested%20in%20your%20services"
