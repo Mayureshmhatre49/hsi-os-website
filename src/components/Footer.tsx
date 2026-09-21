@@ -4,35 +4,29 @@ import { PHONES, WHATSAPP_NUMBER, EMAIL } from '@/lib/contact'
 type FooterLink = { href: string; label: string; external?: boolean }
 
 const footerLinks: Record<string, FooterLink[]> = {
-  Platform: [
-    { href: 'https://os.hsios.in/', label: 'Try HSIOS™ →',    external: true },
-    { href: '/hsi-os',              label: 'Platform Overview' },
-    { href: '/how-it-works',        label: 'How It Works' },
-    { href: '/projects',            label: 'Projects' },
-    { href: '/insights',            label: 'Insights' },
-    { href: '/contact',             label: 'Request Consultation' },
+  Services: [
+    { href: '/services',      label: 'Turnkey Execution' },
+    { href: '/how-it-works',  label: 'How We Work' },
+    { href: '/projects',      label: 'Projects' },
+    { href: '/pricing',       label: 'Pricing' },
   ],
-  Solutions: [
-    { href: '/for-homeowners',               label: 'For Homeowners' },
-    { href: '/for-developers',               label: 'For Developers' },
-    { href: '/for-architects',               label: 'For Architects' },
-    { href: '/for-bim-managers',             label: 'For BIM Managers' },
-    { href: '/for-sustainability-experts',   label: 'For Sustainability Experts' },
-    { href: '/commercial-interiors',         label: 'Commercial Spaces' },
-    { href: '/nri-home-interior-management', label: 'NRI Remote Build' },
-    { href: '/security',                     label: 'Security & Trust' },
-    { href: '/demo',                         label: 'Request a Demo' },
-    { href: '/about',                        label: 'Our Story' },
+  'Who We Serve': [
+    { href: '/for-homeowners',               label: 'Villa Owners' },
+    { href: '/nri-home-interior-management', label: 'NRI Owners' },
+    { href: '/for-architects',               label: 'Architects & Designers' },
+    { href: '/for-developers',               label: 'Developers' },
+  ],
+  Company: [
+    { href: '/about',          label: 'About' },
+    { href: '/hsi-os',         label: 'Our Platform' },
+    { href: '/sustainability', label: 'Sustainability' },
+    { href: '/insights',       label: 'Insights' },
+    { href: '/security',       label: 'Security' },
   ],
   Locations: [
-    { href: '/alibag-villa-interiors',        label: 'Alibag' },
-    { href: '/mumbai-luxury-interiors',       label: 'Mumbai' },
-    { href: '/pune-premium-interiors',        label: 'Pune' },
-    { href: '/goa-villa-interiors',           label: 'Goa' },
-    { href: '/bangalore-luxury-interiors',    label: 'Bangalore' },
-    { href: '/nashik-villa-interiors',        label: 'Nashik' },
-    { href: '/lonavala-villa-interiors',      label: 'Lonavala' },
-    { href: '/nri-home-interior-management',  label: 'NRI Remote' },
+    { href: '/alibag-villa-interiors',   label: 'Alibag' },
+    { href: '/mumbai-luxury-interiors',  label: 'Mumbai' },
+    { href: '/lonavala-villa-interiors', label: 'Karjat & Lonavala' },
   ],
 }
 
@@ -42,7 +36,7 @@ export default function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-sandstone-400 to-transparent" />
 
       <div className="container-luxury py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
 
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-2">
@@ -54,9 +48,13 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="text-warmgray-300 text-sm leading-relaxed max-w-xs mb-8">
-              Precision interior execution for luxury villas, premium homes and holiday properties —
-              delivered with total transparency and documented accountability through HSIOS™.
+            <p className="text-warmgray-300 text-sm leading-relaxed max-w-xs mb-4">
+              Turnkey luxury interior execution for villas and second homes — every rupee,
+              decision and site day documented and visible to you, delivered through HSIOS™,
+              our in-house platform.
+            </p>
+            <p className="text-warmgray-400 text-sm leading-relaxed max-w-xs mb-8">
+              Based in Alibag · Serving Alibag, the Konkan coast &amp; Mumbai owners · NRI projects welcome
             </p>
 
             {/* Contact */}

@@ -4,7 +4,6 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import MarqueeTicker from '@/components/ui/MarqueeTicker'
 import { JsonLd } from '@/lib/JsonLd'
 import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
-import EngagementModels from '@/components/ui/EngagementModels'
 import { verifiedTestimonials } from '@/content/testimonials'
 
 /*
@@ -71,7 +70,6 @@ export default function HomePage() {
       <HowHSIOSWorksSection />
       <WhatWeCreateSection />
       <ExecutionDisciplines variant="full" showCTA={true} context="homepage" />
-      <EngagementModels emphasis="neutral" />
       <WhyChooseUsSection />
       <ProofSection />
       <FinalCTASection />

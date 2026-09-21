@@ -5,28 +5,22 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { WHATSAPP_NUMBER } from '@/lib/contact'
 
-// Primary nav — 5 links (logo = Home)
+// Primary nav — services-first (logo = Home)
 const navLinks = [
-  { href: '/projects',      label: 'Projects' },
-  { href: '/hsi-os',        label: 'HSIOS™' },
-  { href: '/sustainability', label: 'Sustainability' },
-  { href: '/pricing',       label: 'Pricing' },
-  { href: '/about',         label: 'About' },
-]
-
-// Solutions dropdown
-const solutionLinks = [
-  { href: '/for-homeowners',               label: 'For Homeowners',   external: false },
-  { href: '/for-developers',               label: 'For Developers',    external: false },
-  { href: '/for-architects',               label: 'For Architects',    external: false },
-  { href: '/commercial-interiors',         label: 'Commercial Spaces', external: false },
-  { href: '/nri-home-interior-management', label: 'NRI Remote Build',  external: false },
-]
-
-// Mobile-only extras (not in primary bar)
-const mobileExtras = [
-  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/projects',     label: 'Projects' },
+  { href: '/services',     label: 'Services' },
+  { href: '/how-it-works', label: 'How We Work' },
+  { href: '/pricing',      label: 'Pricing' },
+  { href: '/about',        label: 'About' },
   { href: '/insights',     label: 'Insights' },
+]
+
+// "Who We Serve" dropdown — the audiences HSI sells interior execution to
+const solutionLinks = [
+  { href: '/for-homeowners',               label: 'Villa Owners' },
+  { href: '/nri-home-interior-management', label: 'NRI Owners' },
+  { href: '/for-architects',               label: 'Architects & Designers' },
+  { href: '/for-developers',               label: 'Developers' },
 ]
 
 export default function Navbar() {
@@ -162,7 +156,7 @@ export default function Navbar() {
                   }
                 `}
               >
-                Solutions
+                Who We Serve
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}>
                   <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -172,8 +166,8 @@ export default function Navbar() {
                 <div
                   id="solutions-dropdown"
                   role="listbox"
-                  aria-label="Solutions"
-                  className="absolute top-full left-0 mt-2 w-52 rounded-2xl bg-white border border-ivory-200 shadow-luxury overflow-hidden z-50"
+                  aria-label="Who We Serve"
+                  className="absolute top-full left-0 mt-2 w-60 rounded-2xl bg-white border border-ivory-200 shadow-luxury overflow-hidden z-50"
                 >
                   {solutionLinks.map(({ href, label }) => (
                     <Link
@@ -200,24 +194,24 @@ export default function Navbar() {
               href="https://os.hsios.in/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Try the HSIOS platform (opens in new tab)"
+              aria-label="Client login to the HSIOS platform (opens in new tab)"
               className={`text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
                 transparent ? 'text-white/80 hover:text-white' : 'text-sandstone-700 hover:text-sandstone-800'
               }`}
             >
-              Try Platform →
+              Client Login
             </a>
             <Link
               href="/contact"
               className={`
-                btn text-sm px-5 py-2.5
+                btn text-sm px-5 py-2.5 whitespace-nowrap
                 ${transparent
                   ? 'bg-white/15 backdrop-blur-sm text-white border border-white/30 hover:bg-white hover:text-charcoal-800'
                   : 'btn-bronze'
                 }
               `}
             >
-              Book Consultation
+              Book a Site Consultation
             </Link>
           </div>
 
@@ -272,9 +266,9 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Solutions */}
+            {/* Who We Serve */}
             <div className="pt-4 border-t border-ivory-200 mt-2 space-y-1">
-              <div className="px-4 pb-2 text-[11px] font-bold tracking-widest uppercase text-warmgray-400">Solutions</div>
+              <div className="px-4 pb-2 text-[11px] font-bold tracking-widest uppercase text-warmgray-400">Who We Serve</div>
               {solutionLinks.map(({ href, label }) => (
                 <Link
                   key={href}
@@ -285,30 +279,20 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-
-            {/* More links */}
-            <div className="pt-4 border-t border-ivory-200 mt-2 space-y-1">
-              <div className="px-4 pb-2 text-[11px] font-bold tracking-widest uppercase text-warmgray-400">More</div>
-              {mobileExtras.map(({ href, label }) => (
-                <Link key={href} href={href} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-200'}`}>
-                  {label}
-                </Link>
-              ))}
-            </div>
           </nav>
 
           {/* CTAs */}
           <div className="px-4 py-5 border-t border-ivory-200 space-y-3" style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}>
+            <Link href="/contact" className="btn btn-bronze w-full justify-center text-sm">Book a Site Consultation</Link>
             <a
               href="https://os.hsios.in/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Try the HSIOS platform (opens in new tab)"
-              className="btn btn-bronze w-full justify-center text-sm"
+              aria-label="Client login to the HSIOS platform (opens in new tab)"
+              className="btn btn-outline-dark w-full justify-center text-sm"
             >
-              Try HSIOS™ Platform →
+              Client Login
             </a>
-            <Link href="/contact" className="btn btn-outline-dark w-full justify-center text-sm">Book Consultation</Link>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project`}
               target="_blank"

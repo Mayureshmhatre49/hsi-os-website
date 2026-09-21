@@ -4,8 +4,6 @@ import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
-import ExecutionDisciplines from '@/components/ui/ExecutionDisciplines'
-import EngagementModels from '@/components/ui/EngagementModels'
 import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
@@ -220,12 +218,6 @@ export default async function ForArchitectsPage() {
           </div>
         </div>
       </section>
-
-      {/* ── EXECUTION DISCIPLINES ────────────────────────────────── */}
-      <ExecutionDisciplines variant="compact" showCTA={true} context="for-architects" />
-
-      {/* ── ENGAGEMENT MODELS — Platform emphasis for design teams ── */}
-      <EngagementModels emphasis="platform" />
 
       {/* ── USE CASES ───────────────────────────────────────────── */}
       <section className="section-py bg-ivory-100">

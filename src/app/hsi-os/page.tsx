@@ -7,12 +7,10 @@ import {
   BarChart2, RefreshCcw, Leaf, TrendingDown,
 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import MarqueeTicker from '@/components/ui/MarqueeTicker'
 import { JsonLd } from '@/lib/JsonLd'
 import PlatformPreview from '@/components/ui/PlatformPreview'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 import { getAlternates } from '@/lib/seo'
-import EngagementModels from '@/components/ui/EngagementModels'
 
 export const metadata: Metadata = {
   title: 'HSIOS™ Platform — The Operating System for Luxury Interior Execution',
@@ -316,9 +314,6 @@ export default async function HSIOSPage() {
           </div>
         </div>
       </section>
-
-      {/* ── MARQUEE ───────────────────────────────────────────────────── */}
-      <MarqueeTicker />
 
       {/* ── WHAT IS HSIOS ─────────────────────────────────────────────── */}
       <section className="section-py bg-white">
@@ -642,9 +637,6 @@ export default async function HSIOSPage() {
           </RevealOnScroll>
         </div>
       </section>
-
-      {/* ── ENGAGEMENT MODELS — Platform-only vs Managed ───────────────────── */}
-      <EngagementModels emphasis="platform" />
 
       {/* ── HOW WE WORK ───────────────────────────────────────────────── */}
       <section className="section-py bg-charcoal-800">
