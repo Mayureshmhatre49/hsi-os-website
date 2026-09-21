@@ -211,7 +211,7 @@ export default function Navbar() {
                 }
               `}
             >
-              Book a Site Consultation
+              Book a Consultation
             </Link>
           </div>
 
@@ -283,7 +283,7 @@ export default function Navbar() {
 
           {/* CTAs */}
           <div className="px-4 py-5 border-t border-ivory-200 space-y-3" style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}>
-            <Link href="/contact" className="btn btn-bronze w-full justify-center text-sm">Book a Site Consultation</Link>
+            <Link href="/contact" className="btn btn-bronze w-full justify-center text-sm">Book a Consultation</Link>
             <a
               href="https://os.hsios.in/"
               target="_blank"

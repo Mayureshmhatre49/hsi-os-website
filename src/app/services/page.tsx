@@ -29,7 +29,7 @@ export default function ServicesPage() {
             a clash check before site work, a live budget dashboard and daily photo proof, all
             tracked in HSIOS™, our in-house platform.
           </p>
-          <Link href="/contact" className="btn btn-bronze">Book a Site Consultation</Link>
+          <Link href="/contact" className="btn btn-bronze">Book a Consultation</Link>
         </RevealOnScroll>
       </div>
     </section>
