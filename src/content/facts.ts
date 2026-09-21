@@ -24,12 +24,13 @@ export const FACTS = {
   executionValueManaged: '₹100Cr+',
 
   /**
-   * [CONFIRM] choose ONE claim, never both:
-   *   'All 7 villas delivered within the approved budget'  OR
-   *   'X% lower cost overruns vs industry'
-   * The live site currently shows BOTH (they contradict). Pick one here.
+   * Confirmed by Nishant (2026-09-21): use the overruns claim, NOT "100% on
+   * budget". The two must never appear together — drop any "delivered on
+   * budget" / "100% budget adherence" tile in favour of this one.
    */
-  budgetClaim: '[CONFIRM budget claim — pick ONE, see facts.ts]',
+  budgetClaim: '30% lower cost overruns vs industry',
+  /** Short stat-tile form of the budget claim. */
+  budgetClaimStat: { value: '30% Lower', label: 'Cost Overruns vs Industry' },
 
   /** Confirmed by Nishant (2026-09-21): minimum project value ₹50 Lakh. */
   minProjectValue: '₹50 Lakh',
