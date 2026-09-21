@@ -20,8 +20,8 @@ export const FACTS = {
   /** Sum of the per-project conflict counts on /projects: 12+8+7+9+10+11+18 = 75. */
   conflictsCaughtPreExecution: 75,
 
-  /** [CONFIRM] figure + wording — e.g. "₹100Cr+ execution value delivered". Must be defensible. */
-  executionValueManaged: '[CONFIRM ₹100Cr+ execution value]',
+  /** Confirmed by Nishant (2026-09-21): ₹100Cr+ execution value delivered. */
+  executionValueManaged: '₹100Cr+',
 
   /**
    * [CONFIRM] choose ONE claim, never both:
@@ -31,8 +31,8 @@ export const FACTS = {
    */
   budgetClaim: '[CONFIRM budget claim — pick ONE, see facts.ts]',
 
-  /** [CONFIRM] ₹50L (Pricing/Lonavala) vs ₹25L (Contact). Pick one. */
-  minProjectValue: '[CONFIRM min project value ₹50L or ₹25L]',
+  /** Confirmed by Nishant (2026-09-21): minimum project value ₹50 Lakh. */
+  minProjectValue: '₹50 Lakh',
 
   /** QA checkpoints across 12 phases. The Mumbai page's "200-point" is wrong — use this. */
   qaCheckpoints: 104,
