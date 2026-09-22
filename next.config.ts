@@ -82,6 +82,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/index.html', destination: '/', permanent: true },
+      // Platform demo is paused — send /demo to the consultation flow (§3.13).
+      { source: '/demo', destination: '/contact', permanent: true },
       ...legacyPages.map((slug) => ({
         source: `/${slug}.html`,
         destination: `/${slug}`,

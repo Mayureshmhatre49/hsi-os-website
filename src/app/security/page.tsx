@@ -9,94 +9,68 @@ const PAGE_URL = 'https://www.hsios.in/security'
 export const metadata: Metadata = {
   title: 'Security & Trust — How HSIOS™ Protects Your Project',
   description:
-    'Per-tenant isolation, refresh-token rotation with theft detection, role-based AI context, encrypted backups, and a documented audit trail. Enterprise-grade hygiene for premium interior execution.',
+    'How HSIOS™ keeps your project safe: your data in a region you choose, role-based access, one-time-code sign-in, a permanent audit trail, encrypted backups, and export on request.',
   alternates: getAlternates('/security'),
   openGraph: {
     title: 'Security & Trust — HSIOS™',
     description:
-      'How HSIOS™ protects your project data: per-tenant isolation, refresh-token rotation, role-based AI sanitisation, encrypted backups, and a documented audit trail.',
+      'How HSIOS™ keeps your project data safe — role-based access, secure sign-in, a permanent audit trail, encrypted backups, and export on request.',
     url: PAGE_URL,
+    images: [{ url: '/projects-casa-frangipani-1.jpg', width: 1200, height: 630, alt: 'Hestia Smart Interiors — secure project execution' }],
   },
 }
 
 const principles = [
   {
-    title: 'Per-Tenant Isolation',
-    desc: 'Every query, every event, every Socket.io broadcast is scoped to your tenant. Cross-tenant access returns 404 (never leaks existence). Verified at middleware, service, and socket layers — three independent checks, not one.',
+    title: 'Your data stays yours',
+    desc: 'Your project’s records, photos and documents live on infrastructure in a region you choose. Your files aren’t handed off to a third-party cloud.',
   },
   {
-    title: 'Refresh-Token Rotation',
-    desc: 'Each refresh issues a fresh token and burns the previous one. Reuse of an already-rotated token revokes the entire token family — a strong signal that a session was stolen. Reused tokens trigger an immediate logout and security notification.',
+    title: 'Everyone sees only what they should',
+    desc: 'You, your vendors and our team each get a role-appropriate view. Vendors never see each other, and you never see internal notes you weren’t meant to.',
   },
   {
-    title: 'Role-Based AI Sanitisation',
-    desc: 'AI Co-Pilot context is filtered by your role before any prompt reaches a model. Homeowner prompts cannot surface vendor markups. Vendor prompts cannot extract internal financials. The model only sees what your role is permitted to see.',
+    title: 'Secure sign-in',
+    desc: 'You sign in with a one-time code sent to your email or WhatsApp — there’s no fixed password to leak, and each code expires quickly.',
   },
   {
-    title: 'Encrypted Daily Backups',
-    desc: 'Custom-format pg_dump runs daily with structural verification. Archived to a separate region, retention-pruned automatically, and validated for restorability — backups that are not restorable are not backups.',
+    title: 'A permanent audit trail',
+    desc: 'Every approval, change order and sign-off is recorded on a tamperproof log you can review — or export — at any time.',
   },
   {
-    title: 'Documented Audit Trail',
-    desc: 'Every state change is captured in an immutable event log — approvals, change orders, vendor swaps, snags, sign-offs. 180-day retention by default, exportable on demand. Auditors get a structured paper trail, not a chat history.',
+    title: 'Encrypted, verified backups',
+    desc: 'Your project is backed up daily, encrypted, and checked so it can actually be restored if it’s ever needed.',
   },
   {
-    title: 'Per-Request CSP Nonce',
-    desc: 'Every page response is served with a unique per-request Content Security Policy nonce. Inline scripts that did not originate from HSIOS™ cannot execute. Mitigates an entire class of script-injection attacks at the browser level.',
-  },
-]
-
-const operational = [
-  {
-    title: 'HTTPS-only with HSTS preload',
-    desc: 'Strict Transport Security with 2-year max-age, includeSubDomains, and preload. HTTP traffic is rejected before the application ever sees the request.',
-  },
-  {
-    title: 'Rate limiting per identity',
-    desc: '500 requests per 15 minutes globally, 30 AI requests per 10 minutes per user. Protects platform availability without throttling legitimate work.',
-  },
-  {
-    title: 'Email + OTP verification',
-    desc: 'Verification tokens are single-use, time-bound, and rate-limited. Forgot-password and resend-verification flows never confirm whether an email exists — no enumeration leak.',
-  },
-  {
-    title: 'Mass-assignment guard',
-    desc: 'Patch endpoints use explicit field allowlists. A request body cannot promote a user, change a project\'s tenant, or overwrite an audit field — even if the field is present in the JSON.',
-  },
-  {
-    title: 'Field-level immutability',
-    desc: 'Document file URLs and version numbers are write-once after creation. To version a document, you create a new record — you do not overwrite the original. The audit trail is preserved by design.',
-  },
-  {
-    title: 'OTP fail-closed in production',
-    desc: 'Vendor and Client portals refuse to accept any developer-mode OTP in production environments unless an explicit override env var is set. Dev convenience never leaks into prod.',
+    title: 'Your data is portable',
+    desc: 'Records, BOQ, logs and documents are all exportable on demand. Your data is stored in your project — never held against it.',
   },
 ]
 
 const faqs = [
   {
     q: 'Where is my project data stored?',
-    a: 'On a Linux VPS in a region of your choosing. The database runs locally on the host with SSL-required connections. Backups are encrypted before leaving the host. Object storage (uploads) is on the same infrastructure — no third-party cloud handles your photos or documents.',
+    a: 'On infrastructure in a region you choose, with encrypted daily backups. Your photos and documents are not handed to a third-party cloud.',
   },
   {
     q: 'Who can see my financials?',
-    a: 'Only roles that are explicitly authorised: Founder, Admin, Project Manager, and Finance Manager see raw cost data. Client and Vendor roles see aggregated bands (e.g. "1–2 Cr range", "70-80% spent") — never raw vendor invoices, markups, or internal notes. The AI Co-Pilot enforces the same boundary.',
+    a: 'Only your team and the managers you authorise see raw cost data. As an owner you see clear budget bands — never raw vendor invoices, markups or internal notes. The AI assistant follows the same rule.',
   },
   {
     q: 'What happens if my login is compromised?',
-    a: 'Refresh tokens are family-tracked. If a stolen token is replayed, the entire family is revoked instantly and the legitimate user is logged out with a "Session reuse detected" message. You then re-authenticate fresh, which invalidates the stolen credentials.',
+    a: 'If your session is used from somewhere it shouldn’t be, we shut it down immediately and ask you to sign in again — which cancels the old access straight away.',
   },
   {
-    q: 'Is the AI Co-Pilot a privacy risk?',
-    a: 'No. Project context is sanitised by role before any prompt reaches the AI provider. A Client-role prompt cannot extract financials the Client was never shown. A Vendor-role prompt cannot reach another vendor\'s data. The sanitisation runs server-side; there is no client-side path to bypass it.',
+    q: 'Is the AI assistant a privacy risk?',
+    a: 'No. The assistant only ever sees what your role is allowed to see. It cannot surface financials, or another party’s data, that you were never shown.',
   },
   {
-    q: 'Do you retain my project data forever?',
-    a: 'Event logs are pruned after 180 days by default — retention is tunable per tenant. Refresh tokens are pruned 14 days after expiry. Project records use a soft-delete archive flag so historical data is recoverable; nothing is hard-deleted without explicit action.',
+    q: 'Do you keep my project data forever?',
+    a: 'We keep your project records for as long as you need them, and nothing is permanently deleted without an explicit request from you.',
   },
   {
     q: 'Can I export my data?',
-    a: 'Yes. Project records, BOQ items, execution logs, audit trail, and uploaded documents are all exportable on demand. The platform stores your data in your project — not against your project. Portability is a first-class concern, not an afterthought.',
+    a: 'Yes. Your records, BOQ, execution logs, audit trail and documents are all exportable on demand. Portability is a first-class concern, not an afterthought.',
   },
 ]
 
@@ -105,7 +79,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Security & Trust — How HSIOS™ Protects Your Project',
   description:
-    'Per-tenant isolation, refresh-token rotation with theft detection, role-based AI sanitisation, encrypted backups, and a documented audit trail.',
+    'How HSIOS™ keeps your project safe — your data in a region you choose, role-based access, secure sign-in, a permanent audit trail, encrypted backups, and export on request.',
   url: PAGE_URL,
   author: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
   publisher: { '@id': 'https://www.hsios.in/#organization' },
@@ -160,8 +134,8 @@ export default async function SecurityPage() {
               <em className="not-italic text-sandstone-600">protected.</em>
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed">
-              Six engineering primitives that work together to keep your data isolated, your
-              decisions auditable, and your AI assistance privacy-respecting.
+              Six things we do — in plain terms — to keep your data private, your decisions on record,
+              and your project yours.
             </p>
           </RevealOnScroll>
 
@@ -170,36 +144,10 @@ export default async function SecurityPage() {
               <RevealOnScroll key={title} delay={i * 0.05}>
                 <div className="h-full p-7 rounded-2xl bg-white border border-ivory-300">
                   <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-600 mb-3">
-                    {`Principle 0${i + 1}`}
+                    {`0${i + 1}`}
                   </div>
                   <h3 className="font-serif text-xl text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OPERATIONAL CONTROLS ── */}
-      <section className="section-py bg-charcoal-800">
-        <div className="container-luxury">
-          <RevealOnScroll className="max-w-2xl mb-12">
-            <div className="section-label text-sandstone-400">Operational Controls</div>
-            <h2 className="font-serif text-display-lg text-white mt-2 mb-5">
-              Hardening, all the way <em className="not-italic text-sandstone-300">down the stack.</em>
-            </h2>
-            <p className="text-warmgray-300 text-lg leading-relaxed">
-              Six concrete controls applied at the transport, application, and storage layers.
-            </p>
-          </RevealOnScroll>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {operational.map(({ title, desc }) => (
-              <RevealOnScroll key={title}>
-                <div className="h-full p-6 rounded-2xl bg-white/5 border border-white/8">
-                  <h3 className="font-serif text-base text-white mb-2 leading-snug">{title}</h3>
-                  <p className="text-warmgray-300 text-xs leading-relaxed">{desc}</p>
                 </div>
               </RevealOnScroll>
             ))}
@@ -244,7 +192,7 @@ export default async function SecurityPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn btn-bronze">Request Security Brief</Link>
-              <Link href="/hsi-os" className="btn btn-outline-white">Explore HSIOS™</Link>
+              <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
             </div>
           </RevealOnScroll>
         </div>

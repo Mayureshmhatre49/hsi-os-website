@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 export const metadata: Metadata = {
@@ -170,8 +171,17 @@ export default function SustainabilityPage() {
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-charcoal-900">
         <div className="absolute inset-0">
+          {/* Real project photo base */}
+          <Image
+            src="/hestia-villa-poolside-alibag.webp"
+            alt="Poolside living at a Hestia villa, Alibag"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
           {/* Deep warm-charcoal base — sunlit interior atmosphere */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(150deg, #1f1509 0%, #2e1f0d 18%, #1c1408 42%, #0e0b07 68%, #070503 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(150deg, rgba(31,21,9,0.92) 0%, rgba(46,31,13,0.85) 18%, rgba(28,20,8,0.82) 42%, rgba(14,11,7,0.9) 68%, rgba(7,5,3,0.95) 100%)' }} />
           {/* Golden radial glow — suggests warm window light from upper right */}
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 58% 68% at 76% 28%, rgba(194,152,68,0.22) 0%, rgba(160,110,42,0.09) 38%, transparent 65%)' }} />
           {/* Secondary cooler glow — depth from lower left */}
@@ -197,8 +207,8 @@ export default function SustainabilityPage() {
                 HSIOS™ helps create a smarter, process-driven ecosystem where every stakeholder works in alignment from the beginning — delivering fewer mistakes, fewer rebuilds, lower waste, and more sustainable homes.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="btn btn-bronze">Start a Sustainable Project</Link>
-                <Link href="/hsi-os" className="btn btn-outline-white">Explore HSIOS™</Link>
+                <Link href="/contact" className="btn btn-bronze">Book a Consultation</Link>
+                <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
               </div>
             </div>
           </RevealOnScroll>
@@ -211,7 +221,8 @@ export default function SustainabilityPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20">
             {[
               { num: '4R',    label: 'Sustainability Framework',   sub: 'Refuse · Reuse · Recycle · Reduce' },
-              { num: '100%',  label: 'Projects with waste tracking', sub: 'Documented disposal records' },
+              // [CONFIRM] Is waste tracked on all 7 delivered villas? If not, soften or remove.
+              { num: 'Every', label: 'Project — waste tracked',    sub: 'Documented disposal records' },
               { num: 'Zero',  label: 'Compromise on aesthetics',   sub: 'Luxury and responsibility together' },
               { num: '1st',   label: 'Time right — always',        sub: 'Eliminate rework at source' },
             ].map(({ num, label, sub }) => (
@@ -364,51 +375,33 @@ export default function SustainabilityPage() {
 
           <RevealOnScroll delay={0.1}>
             <div className="rounded-3xl bg-white border border-ivory-300 p-8 sm:p-10 shadow-luxury">
-              <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-stretch">
-                {/* Hero metric — trees */}
-                <div className="lg:col-span-2 bg-sandstone-50 border border-sandstone-200 rounded-2xl p-7 flex flex-col justify-between">
-                  <div>
-                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-3">
-                      Example · A 2,400 kg CO₂e saving
-                    </div>
-                    <div className="flex items-baseline gap-3 mb-3">
-                      <span className="font-serif text-6xl sm:text-7xl font-bold text-sandstone-700 leading-none">114</span>
-                      <span className="text-warmgray-600 text-sm font-semibold">trees absorbing CO₂ for one year</span>
-                    </div>
-                    <p className="text-xs text-warmgray-500 leading-relaxed">
-                      Based on 21 kg CO₂e absorbed per mature tree per year. The savings calculation is anchored
-                      in the Indian grid emissions factor of 0.82 kg CO₂e per kWh.
-                    </p>
-                  </div>
-                  <div className="mt-6 pt-5 border-t border-sandstone-200">
-                    <div className="text-[11px] text-warmgray-500 leading-snug">
-                      Carbon savings calculated per project against material baselines. Numbers shown are
-                      illustrative of premium villa execution, not a guarantee.
-                    </div>
-                  </div>
+              {/* Headline example — always visible */}
+              <div className="max-w-xl bg-sandstone-50 border border-sandstone-200 rounded-2xl p-7">
+                <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-3">
+                  Example · A 2,400 kg CO₂e saving
                 </div>
+                <div className="flex items-baseline gap-3 mb-3">
+                  <span className="font-serif text-6xl sm:text-7xl font-bold text-sandstone-700 leading-none">114</span>
+                  <span className="text-warmgray-600 text-sm font-semibold">trees absorbing CO₂ for one year</span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-sandstone-200 text-[11px] text-warmgray-500 leading-snug">
+                  Carbon savings are calculated per project against material baselines. Numbers shown are
+                  illustrative of premium villa execution, not a guarantee.
+                </div>
+              </div>
 
-                {/* Three sub-metrics */}
-                <div className="lg:col-span-3 grid sm:grid-cols-3 gap-5">
+              {/* Factor detail — collapsed by default (§3.14) */}
+              <details className="group mt-8 border-t border-ivory-200 pt-6">
+                <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-semibold text-sandstone-700 hover:text-sandstone-800">
+                  <span className="text-lg leading-none transition-transform group-open:rotate-45">+</span>
+                  How we calculate
+                </summary>
+
+                <div className="mt-6 grid sm:grid-cols-3 gap-5">
                   {[
-                    {
-                      value: '~11,400',
-                      unit: 'km',
-                      label: 'Car kilometres avoided',
-                      factor: '0.21 kg CO₂e / km driven',
-                    },
-                    {
-                      value: '~9,400',
-                      unit: 'km',
-                      label: 'Flight kilometres avoided',
-                      factor: '0.255 kg CO₂e / km flown',
-                    },
-                    {
-                      value: '~2,930',
-                      unit: 'kWh',
-                      label: 'Grid electricity offset',
-                      factor: '0.82 kg CO₂e / kWh · India grid',
-                    },
+                    { value: '~11,400', unit: 'km',  label: 'Car kilometres avoided',   factor: '0.21 kg CO₂e / km driven' },
+                    { value: '~9,400',  unit: 'km',  label: 'Flight kilometres avoided', factor: '0.255 kg CO₂e / km flown' },
+                    { value: '~2,930',  unit: 'kWh', label: 'Grid electricity offset',   factor: '0.82 kg CO₂e / kWh · India grid' },
                   ].map(({ value, unit, label, factor }) => (
                     <div key={label} className="border border-ivory-300 rounded-2xl p-6 flex flex-col">
                       <div className="flex items-baseline gap-1.5 mb-3">
@@ -420,26 +413,25 @@ export default function SustainabilityPage() {
                     </div>
                   ))}
                 </div>
-              </div>
 
-              <div className="mt-10 pt-8 border-t border-ivory-200 grid md:grid-cols-3 gap-6 text-sm text-warmgray-600 leading-relaxed">
-                <div>
-                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">How it works</div>
-                  Every line item in your BOQ is matched to a verified material carbon profile. The platform
-                  computes <em className="not-italic font-semibold text-charcoal-800">carbonUsed vs carbonBaseline</em>{' '}
-                  for the same component built traditionally.
+                <div className="mt-8 grid md:grid-cols-3 gap-6 text-sm text-warmgray-600 leading-relaxed">
+                  <div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">How it works</div>
+                    Every line item in your BOQ is matched to a verified material carbon profile, and the
+                    carbon used is compared against the same component built traditionally.
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">What you see</div>
+                    A per-project carbon scorecard, lower-carbon alternatives with the cost difference, and a
+                    plain-language narrative you can share with family, lenders or auditors.
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">What it isn&apos;t</div>
+                    Not a carbon-neutral claim and not a green-building shortcut — a measurement framework that
+                    makes carbon visible, and overridable, with the override recorded for your report.
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">What you see</div>
-                  Per-project carbon scorecard, top offenders, lower-carbon alternatives with cost delta,
-                  and the Story Engine narrative you can share with family, lenders, or auditors.
-                </div>
-                <div>
-                  <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">What it isn&apos;t</div>
-                  Not a carbon-neutral claim. Not a green-building shortcut. A measurement framework that
-                  makes carbon visible — and overridable, with the override recorded for your report.
-                </div>
-              </div>
+              </details>
             </div>
           </RevealOnScroll>
         </div>

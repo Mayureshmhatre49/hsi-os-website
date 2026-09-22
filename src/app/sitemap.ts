@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/how-it-works',               priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/pricing',                    priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/sustainability',             priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/demo',                       priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/insights',                    priority: 0.8, changeFrequency: 'weekly' as const },
     { url: '/insights/designer-vs-execution-firm', priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/projects/casa-frangipani',    priority: 0.85, changeFrequency: 'monthly' as const },
