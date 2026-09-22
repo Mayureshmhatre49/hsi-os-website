@@ -6,6 +6,7 @@ import { MessageCircle, Mail, MapPin, CheckCircle2, Phone } from 'lucide-react'
 import { PHONES, EMAIL } from '@/lib/contact'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getVerifiedTestimonial } from '@/content/testimonials'
+import { FACTS } from '@/content/facts'
 
 const projectTypes = [
   'Villa — Complete End-to-End Interior',
@@ -38,15 +39,29 @@ interface FormState {
   phone: string
   projectType: string
   location: string
+  area: string
+  stage: string
+  residence: string
   budget: string
+  preferredContact: string
   message: string
   honeypot: string // anti-spam
 }
 
 const initialForm: FormState = {
   name: '', email: '', phone: '', projectType: '',
-  location: '', budget: '', message: '', honeypot: '',
+  location: '', area: '', stage: '', residence: '',
+  budget: '', preferredContact: '', message: '', honeypot: '',
 }
+
+const stageOptions = [
+  'Drawings ready (GFC / for construction)',
+  'Design in progress',
+  'Bare shell / not yet designed',
+  'Not sure',
+]
+
+const preferredContactOptions = ['Phone call', 'WhatsApp', 'Video call']
 
 export default function ContactPage() {
   const [form, setForm] = useState<FormState>(initialForm)
@@ -184,18 +199,22 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">We Serve</div>
-                        <div className="font-semibold text-charcoal-800">Alibag · Mumbai · Pune · Goa</div>
-                        <div className="text-xs text-warmgray-500">And beyond — NRI projects welcome</div>
+                        <div className="font-semibold text-charcoal-800 leading-snug">{FACTS.serviceArea}</div>
                       </div>
                     </div>
+
+                    {/* [CONFIRM] outside-hours availability for NRI clients */}
+                    <p className="text-xs text-warmgray-500 leading-relaxed px-1">
+                      WhatsApp and video calls are available outside these hours for NRI clients.
+                    </p>
                   </div>
 
                   {/* Social proof stats */}
                   <div className="grid grid-cols-3 gap-3">
                     {[
-                      { val: '7+',    label: 'Luxury Villas Delivered' },
-                      { val: '100%',  label: 'Client Retention' },
-                      { val: 'Minimal', label: 'Execution Surprises' },
+                      { val: `${FACTS.villasDelivered}`, label: 'Luxury Villas Delivered' },
+                      { val: `${FACTS.conflictsCaughtPreExecution}`, label: 'Clashes Caught Pre-Site' },
+                      { val: FACTS.budgetClaimStat.value, label: FACTS.budgetClaimStat.label },
                     ].map(({ val, label }) => (
                       <div key={label} className="p-4 rounded-xl bg-ivory-100 text-center">
                         <div className="font-serif text-2xl font-bold text-sandstone-600 mb-0.5">{val}</div>
@@ -343,6 +362,58 @@ export default function ContactPage() {
                           </select>
                         </div>
 
+                        {/* Approx area */}
+                        <div>
+                          <label htmlFor="area" className="form-label">Approx. area (sq ft)</label>
+                          <input
+                            id="area" name="area" type="text" inputMode="numeric"
+                            value={form.area} onChange={handleChange}
+                            placeholder="e.g. 4,000"
+                            className="form-input"
+                          />
+                        </div>
+
+                        {/* Stage */}
+                        <div>
+                          <label htmlFor="stage" className="form-label">Stage</label>
+                          <select
+                            id="stage" name="stage"
+                            value={form.stage} onChange={handleChange}
+                            className="form-input"
+                          >
+                            <option value="">Select stage (optional)</option>
+                            {stageOptions.map((s) => (
+                              <option key={s} value={s}>{s}</option>
+                            ))}
+                          </select>
+                        </div>
+
+                        {/* Where you live */}
+                        <div>
+                          <label htmlFor="residence" className="form-label">Where you live</label>
+                          <input
+                            id="residence" name="residence" type="text"
+                            value={form.residence} onChange={handleChange}
+                            placeholder="India city, or country if abroad"
+                            className="form-input"
+                          />
+                        </div>
+
+                        {/* Preferred contact */}
+                        <div>
+                          <label htmlFor="preferredContact" className="form-label">Preferred contact</label>
+                          <select
+                            id="preferredContact" name="preferredContact"
+                            value={form.preferredContact} onChange={handleChange}
+                            className="form-input"
+                          >
+                            <option value="">Select (optional)</option>
+                            {preferredContactOptions.map((p) => (
+                              <option key={p} value={p}>{p}</option>
+                            ))}
+                          </select>
+                        </div>
+
                         {/* Budget */}
                         <div className="sm:col-span-2">
                           <label htmlFor="budget" className="form-label">Approximate Budget</label>
@@ -422,7 +493,7 @@ export default function ContactPage() {
               },
               {
                 q: 'What is the minimum project size you work with?',
-                a: 'We focus on premium residential projects — typically ₹25 Lakhs and above. Our process is designed for projects where structure and quality genuinely matter.',
+                a: `We focus on premium residential projects — typically ${FACTS.minProjectValue} and above in interior execution value. Our process is designed for projects where structure and quality genuinely matter.`,
               },
             ].map(({ q, a }) => (
               <RevealOnScroll key={q}>

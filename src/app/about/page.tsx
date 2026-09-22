@@ -386,7 +386,7 @@ export default async function AboutPage() {
             <RevealOnScroll>
               <div className="section-label text-white/60">Our Mission</div>
               <h2 className="font-serif text-display-md text-white mb-6">
-                To become the most trusted operating system for premium residential interiors.
+                To be the most trusted execution partner for luxury homes, powered by our own technology.
               </h2>
               <p className="text-white/80 text-lg leading-relaxed">
                 Built from frustration with how premium homes were being built — beautiful designs
@@ -433,8 +433,8 @@ export default async function AboutPage() {
                 how interiors are planned and executed.
               </p>
               <blockquote className="border-l-4 border-sandstone-400 pl-6 italic text-charcoal-700 font-serif text-lg">
-                &ldquo;We are not just an interior service company — we are building the
-                operating system for premium interior execution.&rdquo;
+                &ldquo;We are an execution company that built its own technology, because the
+                industry&rsquo;s tools weren&rsquo;t good enough for the homes we deliver.&rdquo;
               </blockquote>
             </RevealOnScroll>
 

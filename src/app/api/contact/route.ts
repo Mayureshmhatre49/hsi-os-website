@@ -36,7 +36,7 @@ function isRateLimited(ip: string): boolean {
 const ALLOWED_ORIGINS = new Set([
   'https://www.hsios.in',
   'https://hsios.in',
-  ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:3000', 'http://localhost:3001'] : []),
+  ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:4000'] : []),
 ])
 
 function isAllowedOrigin(req: NextRequest): boolean {
@@ -108,7 +108,11 @@ export async function POST(req: NextRequest) {
   const phone       = sanitizeLine(body.phone)
   const projectType = sanitizeLine(body.projectType)
   const location    = sanitizeLine(body.location)
+  const area        = sanitizeLine(body.area)
+  const stage       = sanitizeLine(body.stage)
+  const residence   = sanitizeLine(body.residence)
   const budget      = sanitizeLine(body.budget)
+  const preferredContact = sanitizeLine(body.preferredContact)
   const message     = sanitizeBody(body.message)
 
   /* Validate required fields */
@@ -127,7 +131,7 @@ export async function POST(req: NextRequest) {
 
   if (!smtpUser || !smtpPass) {
     // Fallback: log to console in development, return success
-    console.log('[Contact Form]', { name, email, phone, projectType, location, budget, message })
+    console.log('[Contact Form]', { name, email, phone, projectType, location, area, stage, residence, budget, preferredContact, message })
     if (process.env.NODE_ENV !== 'production') {
       return NextResponse.json({ ok: true })
     }
@@ -175,7 +179,11 @@ export async function POST(req: NextRequest) {
       ${phone ? `<div class="field"><div class="label">Phone / WhatsApp</div><div class="value">${phone}</div></div>` : ''}
       <div class="field"><div class="label">Project Type</div><div class="value">${projectType}</div></div>
       <div class="field"><div class="label">Location</div><div class="value">${location}</div></div>
+      ${area ? `<div class="field"><div class="label">Approx. Area (sq ft)</div><div class="value">${area}</div></div>` : ''}
+      ${stage ? `<div class="field"><div class="label">Stage</div><div class="value">${stage}</div></div>` : ''}
+      ${residence ? `<div class="field"><div class="label">Where They Live</div><div class="value">${residence}</div></div>` : ''}
       ${budget ? `<div class="field"><div class="label">Budget Range</div><div class="value">${budget}</div></div>` : ''}
+      ${preferredContact ? `<div class="field"><div class="label">Preferred Contact</div><div class="value">${preferredContact}</div></div>` : ''}
       <div class="field"><div class="label">Project Description</div><div class="value">${message.replace(/\n/g, '<br>')}</div></div>
     </div>
     <div class="footer">Hestia Smart Interiors · hello@hsios.in · +91-8010234802 · +91-9881149629</div>
@@ -190,7 +198,7 @@ export async function POST(req: NextRequest) {
       replyTo: email,
       subject: `New Project Enquiry — ${name} — ${projectType} in ${location}`,
       html,
-      text: `New Project Enquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject: ${projectType}\nLocation: ${location}\nBudget: ${budget}\n\n${message}`,
+      text: `New Project Enquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject: ${projectType}\nLocation: ${location}\nArea: ${area}\nStage: ${stage}\nWhere they live: ${residence}\nBudget: ${budget}\nPreferred contact: ${preferredContact}\n\n${message}`,
     })
 
     // Auto-acknowledgement to client

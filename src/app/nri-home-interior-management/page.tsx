@@ -4,6 +4,7 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
   title: 'NRI Home Interior Management — Build in India from Anywhere',
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     description: 'Build your luxury Indian home from Dubai, London, or New York with total transparency — powered by HSIOS™.',
     url: 'https://www.hsios.in/nri-home-interior-management',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [{ url: '/projects-casa-frangipani-1.jpg', width: 1200, height: 630, alt: 'Casa Frangipani villa interior, Alibag — built remotely for an NRI owner' }],
   },
 }
 
@@ -34,7 +36,7 @@ const breadcrumbSchema = breadcrumb([
 const faqs = [
   {
     q: 'How do I check project progress when I\'m not in India?',
-    a: "Through the HSI OS homeowner dashboard. Every day, your on-site supervisor logs progress photos tied to the day's scheduled tasks. You see exactly what work happened, not a curated image the contractor chose to share.",
+    a: "Through the HSIOS™ homeowner dashboard. Every day, your on-site supervisor logs progress photos tied to the day's scheduled tasks. You see exactly what work happened, not a curated image the contractor chose to share.",
   },
   {
     q: 'How do you handle financial tracking and payments for NRI projects?',
@@ -46,11 +48,11 @@ const faqs = [
   },
   {
     q: 'What is the "NRI Premium" and how does HSI prevent it?',
-    a: 'The NRI Premium is when local vendors inflate costs knowing remote owners can\'t audit them. HSI OS blocks this with digital Material Takeoffs (MTOs) pre-calculated from drawings, vendor direct payment visibility, and formal Change Orders for every upgrade.',
+    a: 'The NRI Premium is when local vendors inflate costs knowing remote owners can\'t audit them. HSIOS™ blocks this with digital Material Takeoffs (MTOs) pre-calculated from drawings, vendor direct payment visibility, and formal Change Orders for every upgrade.',
   },
   {
     q: 'Do I need to fly to India at any point during execution?',
-    a: 'No. HSI OS was specifically designed for this. You can manage your entire project digitally — approving changes, reviewing budgets and monitoring daily progress without a single site visit.',
+    a: 'No. HSIOS™ was specifically designed for this. You can manage your entire project digitally — approving changes, reviewing budgets and monitoring daily progress without a single site visit.',
   },
 ]
 
@@ -61,11 +63,11 @@ const painPoints = [
   },
   {
     title: 'Cost Creep',
-    desc: 'The "NRI Premium" is an industry reality. Inflated quotes, opaque material sourcing and fictitious labour escalations extract 20–40% more from remote owners. HSI OS eliminates this with locked-in transparency.',
+    desc: 'The "NRI Premium" is an industry reality. Inflated quotes, opaque material sourcing and fictitious labour escalations extract 20–40% more from remote owners. HSIOS™ eliminates this with locked-in transparency.',
   },
   {
     title: 'Timezone Communication',
-    desc: 'You shouldn\'t have to stay awake at 2 AM to receive a chaotic WhatsApp update. HSI OS logs project health 24/7 — check your dashboard on your schedule, in your timezone.',
+    desc: 'You shouldn\'t have to stay awake at 2 AM to receive a chaotic WhatsApp update. HSIOS™ logs project health 24/7 — check your dashboard on your schedule, in your timezone.',
   },
   {
     title: 'Change Approval Chaos',
@@ -73,7 +75,7 @@ const painPoints = [
   },
   {
     title: 'Quality Blind Spots',
-    desc: 'Contractors show you finished marble, not the concealed plumbing behind it. HSI OS mandates photographic proof of all core engineering — pipes, conduits, waterproofing — before they\'re covered.',
+    desc: 'Contractors show you finished marble, not the concealed plumbing behind it. HSIOS™ mandates photographic proof of all core engineering — pipes, conduits, waterproofing — before they\'re covered.',
   },
   {
     title: 'The Dependency on a Local Relative',
@@ -120,7 +122,7 @@ export default async function NriHomeInteriorManagementPage() {
                 <span className="text-sandstone-400">Anywhere in the World</span>
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
-                HSI OS gives NRIs in Dubai, London and New York the same control as a homeowner on
+                HSIOS™ gives NRIs in Dubai, London and New York the same control as a homeowner on
                 site daily — live dashboards, transparent costs and zero dependency on WhatsApp.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -152,7 +154,7 @@ export default async function NriHomeInteriorManagementPage() {
               </h2>
               <p className="text-warmgray-600 mt-4 max-w-2xl mx-auto">
                 Building from abroad through traditional contracting is a stressful, opaque, and
-                costly experience. HSI OS was designed specifically to solve every one of these
+                costly experience. HSIOS™ was designed specifically to solve every one of these
                 problems.
               </p>
             </div>
@@ -225,9 +227,10 @@ export default async function NriHomeInteriorManagementPage() {
               Built for{' '}
               <em className="not-italic text-sandstone-300">absentee ownership.</em>
             </h2>
+            {/* [CONFIRM] which of these six are live today; remove or mark "coming soon" any that aren't. */}
             <p className="text-warmgray-300 text-lg leading-relaxed">
-              Five concrete features that make HSIOS™ different from a contractor with a WhatsApp
-              account. Each is shipping today.
+              Six concrete features that make HSIOS™ different from a contractor with a WhatsApp
+              account.
             </p>
           </RevealOnScroll>
 
@@ -235,19 +238,19 @@ export default async function NriHomeInteriorManagementPage() {
             {[
               {
                 title: 'Secure OTP Login',
-                desc: 'No password sharing across family members. Time-bound OTP via email or WhatsApp every session. Rate-limited so credentials can\'t be brute-forced. Built for clients who can\'t risk a leaked password.',
+                desc: 'No password to share across the family, and none to leak. Each session signs in with a time-bound one-time code sent to your email or WhatsApp.',
               },
               {
                 title: 'Daily Photo Timeline',
-                desc: 'Site photos captured against the master schedule, not chosen by the contractor. Each photo tied to a milestone, with EXIF preserved for verification. View the build from London or Singapore as if you were on-site.',
+                desc: 'Site photos captured against the master schedule, not chosen by the contractor. Every photo is date-stamped and tied to a milestone, so you can follow the build from London or Singapore as if you were on site.',
               },
               {
                 title: 'Activity Log',
-                desc: 'Every material upgrade approved. Every change order signed. Every snag logged and resolved. Cursor-paginated, exportable, auditable from any device — the same way you\'d expect a brokerage statement.',
+                desc: 'Every material upgrade approved, every change order signed, every snag logged and resolved — a complete, exportable record you can review from any device, the way you would a bank statement.',
               },
               {
                 title: 'Aggregated Data View',
-                desc: 'You see project progress, budget bands, and component status — never raw vendor invoices or internal markups. Privacy-by-design: even AI prompts cannot extract financials you weren\'t shown.',
+                desc: 'You see progress, budget bands and component status — never raw vendor invoices or internal markups. You only ever see what is meant for you.',
               },
               {
                 title: 'Multi-Device Dashboard',
@@ -296,6 +299,33 @@ export default async function NriHomeInteriorManagementPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIAL — Niket (Hong Kong NRI), renders only when verified ── */}
+      {(() => {
+        const t = getVerifiedTestimonial('niket-murdeshwar')
+        if (!t) return null
+        return (
+          <section className="py-20 bg-ivory-100">
+            <div className="container-luxury max-w-3xl">
+              <RevealOnScroll>
+                <div className="card-luxury bg-white p-6 sm:p-10 text-center">
+                  <div className="font-serif text-5xl text-sandstone-300 leading-none mb-6">&ldquo;</div>
+                  <p className="font-serif text-xl text-charcoal-800 leading-relaxed italic mb-8 max-w-2xl mx-auto">
+                    {t.quote}
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="w-11 h-11 rounded-full bg-sandstone-100 flex items-center justify-center font-serif font-bold text-sandstone-700 text-sm">{t.initials}</div>
+                    <div className="text-left">
+                      <div className="font-semibold text-charcoal-800 text-sm">{t.name}</div>
+                      <div className="text-xs text-warmgray-500 mt-0.5">{t.location ? `${t.role} · ${t.location}` : t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            </div>
+          </section>
+        )
+      })()}
+
       {/* ── CTA ── */}
       <section className="py-24 bg-charcoal-900 text-center">
         <div className="container-luxury max-w-2xl">
@@ -309,18 +339,19 @@ export default async function NriHomeInteriorManagementPage() {
               You are investing significantly. The execution layer should match that investment — structured, documented, and fully visible to you, regardless of where you are in the world.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/contact" className="btn btn-bronze">
+                Book a Video Consultation
+              </Link>
               <a
                 href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20an%20NRI%20interested%20in%20remote%20execution%20for%20my%20home"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-bronze"
+                className="btn btn-outline-white"
               >
-                Speak to Our NRI Specialists
+                WhatsApp Us
               </a>
-              <Link href="/contact" className="btn btn-outline-light">
-                Request a Proposal
-              </Link>
             </div>
+            <p className="text-xs text-warmgray-500 mt-5">Video calls scheduled around your time zone.</p>
           </RevealOnScroll>
         </div>
       </section>
