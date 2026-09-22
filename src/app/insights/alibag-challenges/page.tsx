@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Top Interior Design Challenges in Coastal Alibag Homes — HSI OS',
+  title: 'Top Interior Design Challenges in Coastal Alibag Homes — HSIOS™',
   description:
-    'Discover the biggest execution and design challenges when building a luxury villa in Alibag — ground moisture, semi-open ecosystems, and multi-vendor chaos — and how HSI OS mitigates each risk.',
-  alternates: { canonical: 'https://www.hsios.in/blog-alibag-challenges' },
+    'Discover the biggest execution and design challenges when building a luxury villa in Alibag — ground moisture, semi-open ecosystems, and multi-vendor chaos — and how HSIOS™ mitigates each risk.',
+  alternates: { canonical: 'https://www.hsios.in/insights/alibag-challenges' },
   openGraph: {
     title: 'Top Interior Design Challenges in Coastal Alibag Homes',
     description: 'Why beautiful 3D renders often fail in reality, and how structured execution solves the Alibag puzzle.',
-    url: 'https://www.hsios.in/blog-alibag-challenges',
+    url: 'https://www.hsios.in/insights/alibag-challenges',
     type: 'article',
   },
 }
@@ -21,10 +22,13 @@ export default async function BlogAlibagChallengesPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Top Interior Design Challenges in Coastal Alibag Homes',
-    description: 'Discover the biggest execution and design challenges when building a luxury villa in Alibag and how HSI OS mitigates these risks.',
+    description: 'Discover the biggest execution and design challenges when building a luxury villa in Alibag and how HSIOS™ mitigates these risks.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-alibag-challenges',
+    url: 'https://www.hsios.in/insights/alibag-challenges',
   }
 
   return (
@@ -72,7 +76,7 @@ export default async function BlogAlibagChallengesPage() {
               <div className="bg-sandstone-50 rounded-2xl p-6 border border-sandstone-200">
                 <p className="font-semibold text-charcoal-800 mb-2">The Fix:</p>
                 <p>
-                  Interior execution cannot be separated from civil intelligence. HSI OS enforces
+                  Interior execution cannot be separated from civil intelligence. HSIOS™ enforces
                   rigorous checking of damp-proof courses (DPC) and foundational anti-termite piping
                   before any interior woodwork begins. You receive photographic proof of the
                   treatment before it is concealed.
@@ -91,7 +95,7 @@ export default async function BlogAlibagChallengesPage() {
               <div className="bg-sandstone-50 rounded-2xl p-6 border border-sandstone-200">
                 <p className="font-semibold text-charcoal-800 mb-2">The Fix:</p>
                 <p>
-                  Material tracking matters. The HSI OS procurement module tracks the specific
+                  Material tracking matters. The HSIOS™ procurement module tracks the specific
                   grades of materials entering the site. If a contractor attempts to substitute
                   exterior-grade PU coating with a standard interior spray on a semi-open patio,
                   the platform&apos;s digital quality checklist flags it during the inspection phase
@@ -111,7 +115,7 @@ export default async function BlogAlibagChallengesPage() {
               <div className="bg-sandstone-50 rounded-2xl p-6 border border-sandstone-200">
                 <p className="font-semibold text-charcoal-800 mb-2">The Fix:</p>
                 <p>
-                  HSI OS acts as the central orchestrator. The Execution Tracking System schedules
+                  HSIOS™ acts as the central orchestrator. The Execution Tracking System schedules
                   vendors sequentially. The carpenter knows exactly when the automation team is
                   laying their conduits, eliminating the classic &quot;break and remake&quot; cycle that
                   plagues unmanaged projects and inflates costs by 15–25%.
@@ -151,8 +155,8 @@ export default async function BlogAlibagChallengesPage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
-                  { href: '/blog-alibag-timeline', title: 'Alibag Villa Interior: What to Expect from Start to Finish', cat: 'Execution Timeline' },
+                  { href: '/insights/alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
+                  { href: '/insights/alibag-timeline', title: 'Alibag Villa Interior: What to Expect from Start to Finish', cat: 'Execution Timeline' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>
@@ -163,6 +167,7 @@ export default async function BlogAlibagChallengesPage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )

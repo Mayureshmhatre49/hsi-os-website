@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
@@ -7,11 +8,11 @@ export const metadata: Metadata = {
   title: "Sustainable Luxury Interiors: Why 'Good Looking' is No Longer Enough | HSI Insights",
   description:
     "Explore how HSIOS integrates sustainability into luxury interior execution through the Refuse, Reuse, Recycle framework and technology-driven precision.",
-  alternates: { canonical: 'https://www.hsios.in/blog-sustainable-luxury' },
+  alternates: { canonical: 'https://www.hsios.in/insights/sustainable-luxury' },
   openGraph: {
     title: "Sustainable Luxury Interiors: Why 'Good Looking' is No Longer Enough",
     description: 'How technology and execution intelligence enable true environmental responsibility in luxury home building.',
-    url: 'https://www.hsios.in/blog-sustainable-luxury',
+    url: 'https://www.hsios.in/insights/sustainable-luxury',
     type: 'article',
   },
 }
@@ -23,8 +24,11 @@ export default async function BlogSustainableLuxuryPage() {
     headline: "Sustainable Luxury Interiors: Why 'Good Looking' is No Longer Enough",
     description: 'How technology and execution intelligence enable true environmental responsibility in luxury home building.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-sustainable-luxury',
+    url: 'https://www.hsios.in/insights/sustainable-luxury',
   }
 
   return (
@@ -142,8 +146,8 @@ export default async function BlogSustainableLuxuryPage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-alibag-villa-guide', title: 'The Complete Guide to Villa Interior Design in Alibag (2025)', cat: 'Guide · Alibag Series' },
-                  { href: '/blog-nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'Guide · NRI Series' },
+                  { href: '/insights/alibag-villa-guide', title: 'The Complete Guide to Villa Interior Design in Alibag (2025)', cat: 'Guide · Alibag Series' },
+                  { href: '/insights/nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'Guide · NRI Series' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>
@@ -154,6 +158,7 @@ export default async function BlogSustainableLuxuryPage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )

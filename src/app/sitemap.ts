@@ -40,14 +40,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/turnkey-home-interiors',             priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/second-home-interior-design',        priority: 0.8, changeFrequency: 'monthly' as const },
     // Blog posts
-    { url: '/blog-alibag-villa-guide',     priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-alibag-villa-cost',      priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-alibag-challenges',      priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-alibag-timeline',        priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-nri-remote-management',  priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-nri-tracking-progress',  priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-nri-cost-inflation',     priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: '/blog-sustainable-luxury',     priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/alibag-villa-guide',     priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/alibag-villa-cost',      priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/alibag-challenges',      priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/alibag-timeline',        priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/nri-remote-management',  priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/nri-tracking-progress',  priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/nri-cost-inflation',     priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: '/insights/sustainable-luxury',     priority: 0.7, changeFrequency: 'monthly' as const },
   ]
 
   return staticRoutes.map(({ url, priority, changeFrequency }) => ({

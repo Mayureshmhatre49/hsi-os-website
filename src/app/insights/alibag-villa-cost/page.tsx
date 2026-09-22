@@ -4,14 +4,14 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'How Much Does a Villa Interior Cost in Alibag? — HSI OS',
+  title: 'How Much Does a Villa Interior Cost in Alibag? — HSIOS™',
   description:
     'A transparent breakdown of premium villa interior costs in Alibag. Understand pricing per square foot, hidden logistics costs, and how to avoid the 30–40% budget overrun that catches most owners.',
-  alternates: { canonical: 'https://www.hsios.in/blog-alibag-villa-cost' },
+  alternates: { canonical: 'https://www.hsios.in/insights/alibag-villa-cost' },
   openGraph: {
     title: 'How Much Does a Villa Interior Cost in Alibag?',
     description: 'A transparent breakdown of premium execution costs and the hidden coastal premium.',
-    url: 'https://www.hsios.in/blog-alibag-villa-cost',
+    url: 'https://www.hsios.in/insights/alibag-villa-cost',
     type: 'article',
   },
 }
@@ -23,8 +23,11 @@ export default async function BlogAlibagVillaCostPage() {
     headline: 'How Much Does a Villa Interior Cost in Alibag?',
     description: 'A transparent breakdown of premium villa interior costs in Alibag.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-alibag-villa-cost',
+    url: 'https://www.hsios.in/insights/alibag-villa-cost',
   }
 
   return (
@@ -78,7 +81,7 @@ export default async function BlogAlibagVillaCostPage() {
                 <li>
                   <strong className="text-charcoal-800">Mandatory Material Upgrades:</strong> As
                   highlighted in our{' '}
-                  <Link href="/blog-alibag-villa-guide" className="text-bronze-700 underline underline-offset-2 hover:text-bronze-900">
+                  <Link href="/insights/alibag-villa-guide" className="text-bronze-700 underline underline-offset-2 hover:text-bronze-900">
                     Complete Guide to Alibag Design
                   </Link>
                   , you cannot use commercial ply. 100% of the carcass must be BWP Marine Grade.
@@ -112,10 +115,10 @@ export default async function BlogAlibagVillaCostPage() {
               </p>
 
               <h2 className="font-serif text-2xl text-charcoal-900 pt-4">
-                Controlling Costs with HSI OS
+                Controlling Costs with HSIOS™
               </h2>
               <p>
-                Our solution to the cost problem is radical transparency. The HSI OS platform gives
+                Our solution to the cost problem is radical transparency. The HSIOS™ platform gives
                 you a live <strong>Budget & Cost Intelligence</strong> dashboard. Every rupee is
                 mapped back to an approved estimate. If the price of Marine Ply drops, you see the
                 saving. If you choose to upgrade a bathroom fixture, the system forces a digital
@@ -156,8 +159,8 @@ export default async function BlogAlibagVillaCostPage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-alibag-villa-guide', title: 'The Complete Guide to Villa Interior Design in Alibag', cat: 'Guide' },
-                  { href: '/blog-alibag-challenges', title: 'Top Interior Design Challenges in Coastal Alibag Homes', cat: 'Insights' },
+                  { href: '/insights/alibag-villa-guide', title: 'The Complete Guide to Villa Interior Design in Alibag', cat: 'Guide' },
+                  { href: '/insights/alibag-challenges', title: 'Top Interior Design Challenges in Coastal Alibag Homes', cat: 'Insights' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>

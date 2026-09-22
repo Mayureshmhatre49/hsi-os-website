@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'How to Track Your India Villa Interior Without Flying Back — HSI OS',
+  title: 'How to Track Your India Villa Interior Without Flying Back — HSIOS™',
   description:
-    'Discover how NRIs can track their luxury interior progress in India down to the daily milestone using HSI OS — moving beyond grainy WhatsApp updates to real-time execution intelligence.',
-  alternates: { canonical: 'https://www.hsios.in/blog-nri-tracking-progress' },
+    'Discover how NRIs can track their luxury interior progress in India down to the daily milestone using HSIOS™ — moving beyond grainy WhatsApp updates to real-time execution intelligence.',
+  alternates: { canonical: 'https://www.hsios.in/insights/nri-tracking-progress' },
   openGraph: {
     title: 'How to Track Your India Villa Interior Without Flying Back',
     description: 'Moving beyond grainy WhatsApp updates to real-time, data-driven execution intelligence for remote homeowners.',
-    url: 'https://www.hsios.in/blog-nri-tracking-progress',
+    url: 'https://www.hsios.in/insights/nri-tracking-progress',
     type: 'article',
   },
 }
@@ -21,10 +22,13 @@ export default async function BlogNriTrackingProgressPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'How to Track Your India Villa Interior Without Flying Back',
-    description: 'Discover how NRIs can track their luxury interior progress in India down to the daily milestone using HSI OS.',
+    description: 'Discover how NRIs can track their luxury interior progress in India down to the daily milestone using HSIOS™.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-nri-tracking-progress',
+    url: 'https://www.hsios.in/insights/nri-tracking-progress',
   }
 
   return (
@@ -75,7 +79,7 @@ export default async function BlogNriTrackingProgressPage() {
                 The Phase-by-Phase Tracking Strategy
               </h2>
               <p>
-                HSI OS enforces a tracking methodology that protects the homeowner&apos;s remote
+                HSIOS™ enforces a tracking methodology that protects the homeowner&apos;s remote
                 interests from day one.
               </p>
 
@@ -93,7 +97,7 @@ export default async function BlogNriTrackingProgressPage() {
                 2. Photographic Proof of the Core
               </h3>
               <p>
-                Beautiful finishes hide terrible execution. The HSI OS protocol mandates that the
+                Beautiful finishes hide terrible execution. The HSIOS™ protocol mandates that the
                 site manager uploads high-resolution imagery of the core engineering{' '}
                 <em>before it is covered.</em> You will see the physical proof of pressure-tested
                 pipes, aligned conduits, and correct damp-proof chemical application before the
@@ -138,7 +142,7 @@ export default async function BlogNriTrackingProgressPage() {
                   rel="noopener noreferrer"
                   className="btn-bronze"
                 >
-                  Discover the HSI OS Dashboard
+                  Discover the HSIOS™ Dashboard
                 </a>
                 <Link href="/hsi-os" className="btn btn-outline-dark">
                   How HSIOS™ Works
@@ -153,8 +157,8 @@ export default async function BlogNriTrackingProgressPage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'Guide' },
-                  { href: '/blog-nri-cost-inflation', title: 'The "NRI Premium": Why Local Contractors Overcharge', cat: 'Cost Intelligence' },
+                  { href: '/insights/nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'Guide' },
+                  { href: '/insights/nri-cost-inflation', title: 'The "NRI Premium": Why Local Contractors Overcharge', cat: 'Cost Intelligence' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>
@@ -165,6 +169,7 @@ export default async function BlogNriTrackingProgressPage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )

@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Remote Interior Project Management: What NRIs Need to Know — HSI OS',
+  title: 'Remote Interior Project Management: What NRIs Need to Know — HSIOS™',
   description:
     'A complete guide for Non-Resident Indians looking to execute premium luxury interiors in India without the anxiety of remote management. Real-time tracking, digital approvals, transparent costs.',
-  alternates: { canonical: 'https://www.hsios.in/blog-nri-remote-management' },
+  alternates: { canonical: 'https://www.hsios.in/insights/nri-remote-management' },
   openGraph: {
     title: 'Remote Interior Project Management: What NRIs Need to Know',
     description: 'The fundamental difference between hoping your contractor performs and guaranteeing your execution remotely.',
-    url: 'https://www.hsios.in/blog-nri-remote-management',
+    url: 'https://www.hsios.in/insights/nri-remote-management',
     type: 'article',
   },
 }
@@ -23,8 +24,11 @@ export default async function BlogNriRemoteManagementPage() {
     headline: 'Remote Interior Project Management: What NRIs Need to Know',
     description: 'A complete guide for Non-Resident Indians looking to execute premium luxury interiors in India without the anxiety of remote management.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-nri-remote-management',
+    url: 'https://www.hsios.in/insights/nri-remote-management',
   }
 
   return (
@@ -75,7 +79,7 @@ export default async function BlogNriRemoteManagementPage() {
                 The Digital Operating System Solution
               </h2>
               <p>
-                HSI OS completely redefines how NRIs engage with their projects. We believe you
+                HSIOS™ completely redefines how NRIs engage with their projects. We believe you
                 should not have to fly to Mumbai or Bangalore to ensure your home is being built
                 correctly. Instead of unstructured communication, we provide absolute execution
                 intelligence.
@@ -85,7 +89,7 @@ export default async function BlogNriRemoteManagementPage() {
                 1. The Reality of the Daily Dashboard
               </h3>
               <p>
-                When your project is onboarded to HSI OS, you receive access to a dedicated
+                When your project is onboarded to HSIOS™, you receive access to a dedicated
                 homeowner dashboard. Every day, the on-site supervisor logs specific progress
                 photos tied to the day&apos;s tasks. If the electrical conduit routing was scheduled
                 for Tuesday, you see the photos on Tuesday. You are never left wondering what work
@@ -97,7 +101,7 @@ export default async function BlogNriRemoteManagementPage() {
               </h3>
               <p>
                 The &quot;NRI Premium&quot; is a well-known industry secret where local vendors inflate costs
-                assuming remote owners won&apos;t audit them. HSI OS blocks this entirely. All cost
+                assuming remote owners won&apos;t audit them. HSIOS™ blocks this entirely. All cost
                 tracking, vendor payments and material procurement requests are logged digitally.
                 If you want an imported chandelier, the system will raise an approval request
                 showing the exact cost, shipping margin and impact on the master timeline.
@@ -155,8 +159,8 @@ export default async function BlogNriRemoteManagementPage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-nri-tracking-progress', title: 'How to Track Your India Villa Interior Without Flying Back', cat: 'Insights' },
-                  { href: '/blog-nri-cost-inflation', title: 'The "NRI Premium": Why Local Contractors Overcharge', cat: 'Cost Intelligence' },
+                  { href: '/insights/nri-tracking-progress', title: 'How to Track Your India Villa Interior Without Flying Back', cat: 'Insights' },
+                  { href: '/insights/nri-cost-inflation', title: 'The "NRI Premium": Why Local Contractors Overcharge', cat: 'Cost Intelligence' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>
@@ -167,6 +171,7 @@ export default async function BlogNriRemoteManagementPage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )

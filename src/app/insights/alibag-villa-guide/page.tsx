@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'The Complete Guide to Villa Interior Design in Alibag (2025) — HSIOS™',
+  title: 'The Complete Guide to Villa Interior Design in Alibag (2026) — HSIOS™',
   description:
     'How to execute a luxury villa interior in Alibag without cost overruns or monsoon delays. Covers coastal material specs, vendor logistics, pre-monsoon sequencing, trade coordination, and realistic budgets.',
-  alternates: { canonical: 'https://www.hsios.in/blog-alibag-villa-guide' },
+  alternates: { canonical: 'https://www.hsios.in/insights/alibag-villa-guide' },
   openGraph: {
-    title: 'The Complete Guide to Villa Interior Design in Alibag (2025)',
+    title: 'The Complete Guide to Villa Interior Design in Alibag (2026)',
     description: 'Everything you need to know about executing a premium coastal villa interior without delays or surprises.',
-    url: 'https://www.hsios.in/blog-alibag-villa-guide',
+    url: 'https://www.hsios.in/insights/alibag-villa-guide',
     type: 'article',
   },
 }
@@ -20,11 +21,14 @@ export default async function BlogAlibagVillaGuidePage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'The Complete Guide to Villa Interior Design in Alibag (2025)',
+    headline: 'The Complete Guide to Villa Interior Design in Alibag (2026)',
     description: 'A comprehensive execution guide for building or renovating a luxury villa interior in Alibag.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-alibag-villa-guide',
+    url: 'https://www.hsios.in/insights/alibag-villa-guide',
   }
 
   return (
@@ -38,7 +42,7 @@ export default async function BlogAlibagVillaGuidePage() {
             <div className="section-label text-sandstone-400 mb-4">Guide · Alibag Series · 12 Min Read</div>
             <h1 className="font-serif text-display-xl text-white mb-6">
               The Complete Guide to Villa Interior Design in{' '}
-              <span className="text-sandstone-400">Alibag (2025)</span>
+              <span className="text-sandstone-400">Alibag (2026)</span>
             </h1>
             <p className="text-xl text-warmgray-300 max-w-2xl mx-auto">
               Why building a luxury interior in Alibag is fundamentally different from a city
@@ -262,7 +266,7 @@ export default async function BlogAlibagVillaGuidePage() {
                 and the smaller vendor competition pool.
               </p>
               <p>
-                Broad benchmarks for a premium finished villa interior in Alibag (2025):
+                Broad benchmarks for a premium finished villa interior in Alibag (2026):
               </p>
               <div className="overflow-x-auto rounded-xl border border-ivory-300 my-6">
                 <table className="w-full text-sm text-warmgray-700">
@@ -383,10 +387,10 @@ export default async function BlogAlibagVillaGuidePage() {
               <h3 className="font-serif text-xl text-charcoal-800 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
-                  { href: '/blog-alibag-timeline', title: 'Alibag Villa Interior: What to Expect from Start to Finish', cat: 'Execution Timeline' },
-                  { href: '/blog-alibag-challenges', title: 'The 5 Biggest Mistakes in Alibag Villa Execution', cat: 'Common Mistakes' },
-                  { href: '/blog-nri-remote-management', title: 'How NRIs Manage Premium Interior Projects Remotely', cat: 'NRI Guide' },
+                  { href: '/insights/alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
+                  { href: '/insights/alibag-timeline', title: 'Alibag Villa Interior: What to Expect from Start to Finish', cat: 'Execution Timeline' },
+                  { href: '/insights/alibag-challenges', title: 'The 5 Biggest Mistakes in Alibag Villa Execution', cat: 'Common Mistakes' },
+                  { href: '/insights/nri-remote-management', title: 'How NRIs Manage Premium Interior Projects Remotely', cat: 'NRI Guide' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">{r.cat}</div>
@@ -397,6 +401,7 @@ export default async function BlogAlibagVillaGuidePage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )

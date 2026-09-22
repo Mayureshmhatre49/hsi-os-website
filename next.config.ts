@@ -25,10 +25,16 @@ const legacyPages = [
   'alibag-villa-interiors', 'mumbai-luxury-interiors',
   'pune-premium-interiors', 'goa-villa-interiors',
   'bangalore-luxury-interiors', 'nri-home-interior-management',
-  'blog-alibag-villa-guide', 'blog-alibag-villa-cost',
-  'blog-alibag-challenges', 'blog-alibag-timeline',
-  'blog-nri-remote-management', 'blog-nri-tracking-progress',
-  'blog-nri-cost-inflation',
+]
+
+/*
+ * Blog posts moved to /insights/<slug> (§3.15). Redirect the old /blog-<slug>
+ * and /blog-<slug>.html URLs to the new home. The new slug is the old one with
+ * the "blog-" prefix stripped.
+ */
+const blogSlugs = [
+  'alibag-villa-guide', 'alibag-villa-cost', 'alibag-challenges', 'alibag-timeline',
+  'nri-remote-management', 'nri-tracking-progress', 'nri-cost-inflation', 'sustainable-luxury',
 ]
 
 const nextConfig: NextConfig = {
@@ -84,6 +90,11 @@ const nextConfig: NextConfig = {
       { source: '/index.html', destination: '/', permanent: true },
       // Platform demo is paused — send /demo to the consultation flow (§3.13).
       { source: '/demo', destination: '/contact', permanent: true },
+      // Blog posts relocated to /insights/<slug> (§3.15).
+      ...blogSlugs.flatMap((slug) => [
+        { source: `/blog-${slug}`,      destination: `/insights/${slug}`, permanent: true },
+        { source: `/blog-${slug}.html`, destination: `/insights/${slug}`, permanent: true },
+      ]),
       ...legacyPages.map((slug) => ({
         source: `/${slug}.html`,
         destination: `/${slug}`,

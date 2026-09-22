@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Alibag Villa Interior: What to Expect from Start to Finish — HSI OS',
+  title: 'Alibag Villa Interior: What to Expect from Start to Finish — HSIOS™',
   description:
-    'A detailed phase-by-phase timeline of executing a premium villa interior in Alibag. Understand exactly how long it takes, what happens in each phase, and how HSI OS guarantees predictability.',
-  alternates: { canonical: 'https://www.hsios.in/blog-alibag-timeline' },
+    'A detailed phase-by-phase timeline of executing a premium villa interior in Alibag. Understand exactly how long it takes, what happens in each phase, and how HSIOS™ guarantees predictability.',
+  alternates: { canonical: 'https://www.hsios.in/insights/alibag-timeline' },
   openGraph: {
     title: 'Alibag Villa Interior: What to Expect from Start to Finish',
-    description: 'A step-by-step breakdown of how HSI OS manages the lifecycle of a premium luxury execution.',
-    url: 'https://www.hsios.in/blog-alibag-timeline',
+    description: 'A step-by-step breakdown of how HSIOS™ manages the lifecycle of a premium luxury execution.',
+    url: 'https://www.hsios.in/insights/alibag-timeline',
     type: 'article',
   },
 }
@@ -61,8 +62,11 @@ export default async function BlogAlibagTimelinePage() {
     headline: 'Alibag Villa Interior: What to Expect from Start to Finish',
     description: 'A detailed phase-by-phase timeline of executing a premium villa interior in Alibag.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-alibag-timeline',
+    url: 'https://www.hsios.in/insights/alibag-timeline',
   }
 
   return (
@@ -79,7 +83,7 @@ export default async function BlogAlibagTimelinePage() {
               <span className="text-sandstone-400">Start to Finish</span>
             </h1>
             <p className="text-xl text-warmgray-300">
-              A step-by-step breakdown of how HSI OS manages the lifecycle of a premium luxury
+              A step-by-step breakdown of how HSIOS™ manages the lifecycle of a premium luxury
               execution from blank canvas to handed-over home.
             </p>
           </RevealOnScroll>
@@ -95,7 +99,7 @@ export default async function BlogAlibagTimelinePage() {
               of the timeline. &quot;When will it be ready?&quot; is a question that standard contractors
               answer with guesswork. At HSI, we answer it with data. Here is exactly how a premium
               Alibag villa interior transitions from a raw shell to a handed-over home, managed
-              entirely through HSI OS.
+              entirely through HSIOS™.
             </p>
           </RevealOnScroll>
 
@@ -143,7 +147,7 @@ export default async function BlogAlibagTimelinePage() {
                   Plan Your Execution
                 </a>
                 <Link href="/how-it-works" className="btn btn-outline-dark">
-                  How HSI OS Works
+                  How HSIOS™ Works
                 </Link>
               </div>
             </div>
@@ -155,8 +159,8 @@ export default async function BlogAlibagTimelinePage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-alibag-villa-guide', title: 'The Complete Guide to Villa Interior Design in Alibag', cat: 'Guide' },
-                  { href: '/blog-alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
+                  { href: '/insights/alibag-villa-guide', title: 'The Complete Guide to Villa Interior Design in Alibag', cat: 'Guide' },
+                  { href: '/insights/alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>
@@ -167,6 +171,7 @@ export default async function BlogAlibagTimelinePage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )

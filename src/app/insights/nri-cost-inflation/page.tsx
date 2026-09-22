@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It — HSI OS',
+  title: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It — HSIOS™',
   description:
-    'Understand why NRIs often face inflated quotes for interior projects in India and how HSI OS enforces radical financial transparency through digital MTOs, vendor direct payments and change orders.',
-  alternates: { canonical: 'https://www.hsios.in/blog-nri-cost-inflation' },
+    'Understand why NRIs often face inflated quotes for interior projects in India and how HSIOS™ enforces radical financial transparency through digital MTOs, vendor direct payments and change orders.',
+  alternates: { canonical: 'https://www.hsios.in/insights/nri-cost-inflation' },
   openGraph: {
     title: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It',
     description: 'Exposing the hidden margins in remote interior execution and enforcing radical financial transparency.',
-    url: 'https://www.hsios.in/blog-nri-cost-inflation',
+    url: 'https://www.hsios.in/insights/nri-cost-inflation',
     type: 'article',
   },
 }
@@ -21,10 +22,13 @@ export default async function BlogNriCostInflationPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It',
-    description: 'Understand why NRIs often face inflated quotes for interior projects in India, and how HSI OS enforces strict budget transparency.',
+    description: 'Understand why NRIs often face inflated quotes for interior projects in India, and how HSIOS™ enforces strict budget transparency.',
     author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
+    // [CONFIRM] real original publish date (placeholder below); dateModified = today
+    datePublished: '2025-01-01',
+    dateModified: '2026-09-22',
     publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/blog-nri-cost-inflation',
+    url: 'https://www.hsios.in/insights/nri-cost-inflation',
   }
 
   return (
@@ -90,14 +94,14 @@ export default async function BlogNriCostInflationPage() {
               </h2>
               <p>
                 The only defense against opaque pricing is systemic, locked-in transparency. This
-                is precisely why we developed the HSI OS structure.
+                is precisely why we developed the HSIOS™ structure.
               </p>
 
               <h3 className="font-serif text-xl text-charcoal-900">
                 1. Digital Material Takeoffs (MTO)
               </h3>
               <p>
-                Before execution begins, the HSI OS engine calculates the exact volume of ply,
+                Before execution begins, the HSIOS™ engine calculates the exact volume of ply,
                 paint, and stone required based on the architect&apos;s CAD drawings. If your villa
                 requires exactly 142 sheets of marine ply, you are aware of it. The contractor
                 cannot suddenly bill you for 200 sheets mid-way through the project.
@@ -166,8 +170,8 @@ export default async function BlogNriCostInflationPage() {
               <h3 className="font-serif text-xl text-charcoal-900 mb-6">Continue Reading</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { href: '/blog-nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'Guide' },
-                  { href: '/blog-nri-tracking-progress', title: 'How to Track Your India Villa Interior Without Flying Back', cat: 'Insights' },
+                  { href: '/insights/nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'Guide' },
+                  { href: '/insights/nri-tracking-progress', title: 'How to Track Your India Villa Interior Without Flying Back', cat: 'Insights' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="section-label text-bronze-600 mb-2 text-xs">{r.cat}</div>
@@ -178,6 +182,7 @@ export default async function BlogNriCostInflationPage() {
             </div>
           </RevealOnScroll>
         </div>
+      <ArticleCTA />
       </article>
     </>
   )
