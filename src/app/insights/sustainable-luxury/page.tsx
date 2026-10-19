@@ -68,7 +68,7 @@ export default async function BlogSustainableLuxuryPage() {
 
               <p>
                 At Hestia Smart Interiors, we believe that <strong className="text-charcoal-800">Precision is the ultimate sustainability.</strong> 
-                By leveraging our HSIOS™ platform, we move beyond the superficial and embed environmental 
+                Through our HSIOS™ platform, we move beyond the superficial and embed environmental 
                 responsibility into the very logic of execution.
               </p>
 

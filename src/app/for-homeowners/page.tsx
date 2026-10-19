@@ -88,7 +88,7 @@ export default async function ForHomeownersPage() {
               You have invested in a vision. We make certain it is the home you receive.
             </p>
             <p className="text-warmgray-300 text-lg leading-relaxed">
-              HSIOS™ eliminates rework, budget drift, and the accountability gaps that define most premium projects. Clarity at every stage, from brief to handover.
+              HSIOS™ closes the gaps behind rework, budget drift and lost accountability — the problems that define most premium projects. Clarity at every stage, from brief to handover.
             </p>
           </RevealOnScroll>
         </div>

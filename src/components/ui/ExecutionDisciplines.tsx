@@ -376,7 +376,7 @@ export default function ExecutionDisciplines({
                   ].map(({ label, sub }) => (
                     <div key={sub} className="px-5 py-3 rounded-xl bg-white/6 border border-white/8">
                       <div className="font-serif text-xl font-bold text-sandstone-300 leading-none">{label}</div>
-                      <div className="text-xs text-warmgray-500 mt-0.5 uppercase tracking-wider">{sub}</div>
+                      <div className="text-xs text-warmgray-400 mt-0.5 uppercase tracking-wider">{sub}</div>
                     </div>
                   ))}
                 </div>

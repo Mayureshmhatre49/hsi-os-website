@@ -134,11 +134,11 @@ export default function ContactPage() {
                 <div className="space-y-8 lg:sticky lg:top-28">
                   <div>
                     <h2 className="font-serif text-display-sm text-charcoal-800 mb-4">
-                      We Would Love to Hear About Your Project.
+                      Tell Us What You&apos;re Building.
                     </h2>
                     <p className="text-warmgray-600 leading-relaxed">
                       Whether it is a villa in Alibag, an apartment in Mumbai or a holiday
-                      home you are planning from abroad — let us show you what is possible.
+                      home you are planning from abroad — we&apos;ll show you how we would run it: scope, sequence and budget.
                     </p>
                   </div>
 
@@ -458,7 +458,7 @@ export default function ContactPage() {
                         >
                           {status === 'sending' ? 'Sending…' : 'Request a Call Back →'}
                         </button>
-                        <p className="text-xs text-warmgray-400 self-center">
+                        <p className="text-xs text-warmgray-600 self-center">
                           By submitting, you agree that HSI may contact you about your enquiry.
                           We never share your data.
                         </p>

@@ -5,6 +5,7 @@ import { Repeat2, LayoutDashboard, ShoppingBag, ClipboardList, Eye, Zap } from '
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import { ClientFeature } from '@/components/ui/ClientSpotlight'
 import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
@@ -115,6 +116,13 @@ export default async function ForDevelopersPage() {
               ))}
             </div>
           </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ── DEVELOPER CLIENT ──────────────────────────────── */}
+      <section className="section-py bg-white" aria-label="Developer client">
+        <div className="container-luxury">
+          <ClientFeature context="developers" />
         </div>
       </section>
 

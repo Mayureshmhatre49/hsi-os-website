@@ -5,6 +5,7 @@ import { ArrowRight, MapPin } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import { ClientFeature } from '@/components/ui/ClientSpotlight'
 import { FACTS } from '@/content/facts'
 import { ALIBAG, ALIBAG_AREAS, placeSchema } from '@/content/locations'
 
@@ -292,6 +293,13 @@ export default async function AlibagVillaInteriorsPage() {
               </Link>
             </div>
           </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ── CURRENT CLIENT ── */}
+      <section className="pb-20 bg-white">
+        <div className="container-luxury">
+          <ClientFeature context="alibag" />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import { ClientFeature } from '@/components/ui/ClientSpotlight'
 
 export const metadata: Metadata = {
   title: 'Projects & Case Studies — Luxury Villa Interiors',
@@ -36,7 +37,7 @@ const projects = [
     href: 'https://hestiavillas.in/case_study/serenity-villa/',
     metrics: [
       { label: 'Trade Clashes Resolved', value: '8' },
-      { label: 'Delivered Within Budget', value: 'Yes' },
+      { label: 'Budget Tracking', value: 'Live' },
       { label: 'Vendor Escalations', value: '0' },
     ],
   },
@@ -49,7 +50,7 @@ const projects = [
     href: 'https://hestiavillas.in/case_study/rughani-house/',
     metrics: [
       { label: 'Conflicts Detected Pre-Execution', value: '7' },
-      { label: 'Budget Overrun', value: 'None' },
+      { label: 'Budget Tracking', value: 'Live' },
       { label: 'Site Surprises', value: 'Minimal' },
     ],
   },
@@ -63,7 +64,7 @@ const projects = [
     metrics: [
       { label: 'Legacy Conflicts Identified', value: '9' },
       { label: 'Existing Fixtures Reused', value: '60%' },
-      { label: 'Delivered Within Budget', value: 'Yes' },
+      { label: 'Budget Tracking', value: 'Live' },
     ],
   },
   {
@@ -203,11 +204,11 @@ export default async function ProjectsPage() {
             <div className="max-w-2xl">
               <div className="section-label text-sandstone-400">Our Work</div>
               <h1 className="font-serif text-display-xl text-white mb-6">
-                Premium Villa Interior<br />
-                <em className="not-italic text-sandstone-300">Case Studies, Delivered.</em>
+                Premium Villa Interiors,<br />
+                <em className="not-italic text-sandstone-300">Delivered and Documented.</em>
               </h1>
               <p className="text-warmgray-300 text-lg leading-relaxed">
-                Every feature of HSIOS™ was forged through the real-world challenges of premium villa execution.
+                Seven villas on the Konkan coast — each with its trade conflicts caught on paper, its budget tracked live and its handover documented. Every feature of HSIOS™ came from projects like these.
               </p>
             </div>
           </RevealOnScroll>
@@ -228,6 +229,13 @@ export default async function ProjectsPage() {
               <div className="text-sm text-white/75 mt-1 uppercase tracking-wider">{label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── CURRENT PROJECT ───────────────────────────────── */}
+      <section className="section-py bg-white" aria-label="Current project">
+        <div className="container-luxury">
+          <ClientFeature context="projects" />
         </div>
       </section>
 

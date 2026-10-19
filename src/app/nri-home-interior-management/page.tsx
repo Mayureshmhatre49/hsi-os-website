@@ -199,7 +199,7 @@ export default async function NriHomeInteriorManagementPage() {
               {
                 num: '03',
                 title: 'Structured Digital Approvals',
-                desc: 'Every design decision, material change and budget deviation is forced through a digital approval funnel. It exists on permanent record — keeping your designers and our execution teams perfectly aligned, with you in control.',
+                desc: 'Every design decision, material change and budget deviation is forced through a digital approval funnel. It exists on permanent record — keeping your designers and our execution teams aligned to what you approved, with you in control.',
               },
             ].map((step, i) => (
               <RevealOnScroll key={step.num} delay={i * 0.1}>

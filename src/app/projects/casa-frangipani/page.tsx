@@ -66,7 +66,7 @@ const interventions = [
 ]
 
 const lessonsToOwners = [
-  'Pre-execution conflict detection is the single highest-leverage activity in luxury villa execution. Twelve issues caught before the first hammer fell would have surfaced as ₹15L+ of rework otherwise.',
+  'Pre-execution conflict detection is the single most valuable activity in luxury villa execution. Twelve issues caught before the first hammer fell would have surfaced as ₹15L+ of rework otherwise.',
   'Real-time budget transparency converts an absentee NRI owner from "anxious" to "in control." The dashboard pattern eliminates the need for daily site visits.',
   'Coastal projects need marine-grade material specs at procurement, not at handover. Substitution attempts are caught at material entry, not on snag day.',
   'Three months ahead of schedule is the natural consequence of trade sequencing — not a stretch goal.',

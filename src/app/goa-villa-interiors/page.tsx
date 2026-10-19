@@ -105,7 +105,7 @@ export default async function GoaVillaInteriorsPage() {
                 Villa Interiors in{' '}
                 <span className="text-sandstone-400">Goa</span>
                 <br />
-                Your Holiday Home, Executed Perfectly
+                Your Holiday Home, Executed Precisely
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Executing Goa&apos;s luxury second homes with total transparency. Built for absentee

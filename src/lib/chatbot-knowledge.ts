@@ -58,12 +58,20 @@ export const KNOWLEDGE: KBEntry[] = [
   },
   {
     id: 'engagement-models',
-    question: 'How can I engage HSI — service or platform?',
-    keywords: ['engagement', 'model', 'service', 'platform', 'managed', 'option', 'ways', 'hire', 'plan'],
+    question: 'How can I engage HSI?',
+    keywords: ['engagement', 'model', 'service', 'platform', 'managed', 'option', 'ways', 'hire', 'plan', 'turnkey'],
     answer:
-      'Two ways. Managed Execution: our team runs your entire interior execution using HSIOS™. Platform Only: your own architects, developers or execution teams use HSIOS™ to manage projects independently. You can also combine both — our team plus our platform.',
-    link: { href: '/contact', label: 'Request a demo' },
+      'Two ways. Turnkey Execution: HSI delivers your complete interior — from approved drawings to handover — through our empanelled partner network. Execution Partner: your architect or designer keeps design control, and HSI runs procurement, sequencing, quality and handover on site. Either way, the project is tracked end to end in HSIOS™.',
+    link: { href: '/services', label: 'See our services' },
     suggest: true,
+  },
+  {
+    id: 'clients',
+    question: 'Who have you worked with?',
+    keywords: ['client', 'clients', 'worked', 'portfolio', 'cerulean', 'developer', 'references', 'past projects'],
+    answer:
+      'We have delivered 7 villas in and around Alibag, including Casa Frangipani — handed over three months ahead of schedule. We are currently executing interiors for Cerulean, a sky-pool villa development at Revdanda, Alibag, where every residence is delivered on HSIOS™.',
+    link: { href: '/projects', label: 'See our projects' },
   },
   {
     id: 'pricing-benchmarks',

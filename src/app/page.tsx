@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ClientStrip } from '@/components/ui/ClientSpotlight'
 import {
   Building2, LayoutGrid, Hammer, Frame, Zap, Droplets, Wind, Layers, Brush, Cpu,
   Camera, Wallet, CheckCircle2, MapPin, ArrowRight,
@@ -71,6 +72,7 @@ export default function HomePage() {
       {reviewJsonLd.length > 0 && <JsonLd data={reviewJsonLd} />}
       <HeroSection />
       <ProofBar />
+      <ClientStrip />
       <MarqueeTicker />
       <NriStoryBand />
       <WhatWeExecute />
@@ -115,7 +117,7 @@ function HeroSection() {
           </h1>
 
           <p className="text-lg text-white/85 font-sans leading-relaxed max-w-xl mb-3 animate-fade-up [animation-delay:220ms] border-l-2 border-sandstone-400 pl-4">
-            Turnkey interior execution for villas and second homes. Every rupee, decision and
+            Complete interior execution for villas and second homes. Every rupee, decision and
             site day is visible to you — even from Mumbai or abroad.
           </p>
 
@@ -375,7 +377,7 @@ const workflowSteps = [
   { step: 'Clarity before commitment', desc: 'A full bill of quantities, clash detection and locked material specs before a single trade quote is accepted — all tracked in HSIOS™, our in-house platform.' },
   { step: 'Your design survives the site', desc: 'Every decision is measured against the approved drawings, and trades are sequenced so the build matches the design — not a site-adapted compromise.' },
   { step: 'Every rupee is visible', desc: 'A live budget dashboard and approved change orders in HSIOS™. No surprise invoices — you know what it costs before it happens.' },
-  { step: 'Documented, snag-free handover', desc: 'A defect-free handover with full documentation, warranties and AMC — and records that stay with your home.' },
+  { step: 'Documented, snag-free handover', desc: 'Every snag closed and signed off before keys change hands — with full documentation, warranties and AMC, and records that stay with your home.' },
 ]
 
 function HowWeWork() {

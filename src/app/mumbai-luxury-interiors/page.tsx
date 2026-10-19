@@ -160,7 +160,7 @@ export default async function MumbaiLuxuryInteriorsPage() {
             <div className="text-center mb-16">
               <div className="section-label">Mumbai Execution Reality</div>
               <h2 className="font-serif text-display-lg text-charcoal-900 mt-4">
-                Challenges Unique to Mumbai Interiors
+                What Makes Mumbai Interiors Different
               </h2>
               <p className="text-warmgray-600 mt-4 max-w-2xl mx-auto">
                 Mumbai&apos;s luxury micro-market has its own rules. HSIOS™ has been purpose-built

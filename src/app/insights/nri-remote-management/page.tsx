@@ -117,7 +117,7 @@ export default async function BlogNriRemoteManagementPage() {
                 No more digging through hundreds of WhatsApp messages to find out if you approved
                 the master bedroom veneer. Every design decision, material change and budget
                 deviation is forced through a digital approval funnel. It exists on record, keeping
-                both your designers and our execution teams perfectly aligned with what you
+                both your designers and our execution teams aligned with exactly what you
                 actually approved.
               </p>
 

@@ -48,8 +48,8 @@ export default function ServicesPage() {
           <RevealOnScroll>
             <div className="section-label">Services</div>
             <h1 className="font-serif text-display-lg text-charcoal-800 mb-6">
-              Turnkey interior execution,{' '}
-              <span className="text-sandstone-600">one accountable team.</span>
+              Complete interior execution.{' '}
+              <span className="text-sandstone-600">One accountable team.</span>
             </h1>
             <p className="text-lg text-warmgray-600 leading-relaxed mb-8">
               HSI delivers the complete interior for luxury villas and second homes — from approved

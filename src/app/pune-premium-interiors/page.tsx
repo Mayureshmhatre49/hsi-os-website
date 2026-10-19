@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: 'What are my options for engaging HSI?',
-    a: 'HSI offers two engagement models. Managed Execution, where HSI runs the entire build end-to-end through our empanelled partner network; or Platform Only, where you license HSIOS™ to run your own team with the same milestone-verified tracking.',
+    a: 'Two ways. Turnkey Execution, where HSI delivers your complete interior — from approved drawings to handover — through our empanelled partner network; or Execution Partner, where your architect or designer keeps design control and HSI runs procurement, sequencing, quality and handover on site.',
   },
   {
     q: 'How do you ensure quality on handcrafted premium finishes?',
@@ -61,7 +61,7 @@ const features = [
   },
   {
     title: 'Flexible Engagement',
-    desc: 'Engage HSI for fully managed execution through our empanelled partner network, or license HSIOS™ to run your own team with the same milestone-verified tracking.',
+    desc: 'Engage HSI for turnkey execution of your complete interior, or as the execution partner to your architect — either way, tracked end to end in HSIOS™.',
   },
 ]
 
@@ -170,7 +170,7 @@ export default async function PunePremiumInteriorsPage() {
             <p className="text-warmgray-600 leading-relaxed">
               HSIOS™ bridges this gap. By utilising our technology-driven platform, we manage the
               entire execution lifecycle of your Pune residence. Every rupee is tracked. Every
-              milestone is photographed. Your architect&apos;s vision is translated perfectly without
+              milestone is photographed. Your architect&apos;s vision is translated precisely, without
               the usual stress — and you have a live dashboard proving it, every single day.
             </p>
           </RevealOnScroll>
@@ -211,7 +211,7 @@ export default async function PunePremiumInteriorsPage() {
               <span className="text-sandstone-400">Intelligently</span>
             </h2>
             <p className="text-warmgray-400 mb-8">
-              Precise execution. Complete transparency. Zero surprises at handover.
+              Precise execution. Complete transparency. A handover with nothing left unexplained.
             </p>
             <a
               href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20interested%20in%20discussing%20my%20Pune%20project"

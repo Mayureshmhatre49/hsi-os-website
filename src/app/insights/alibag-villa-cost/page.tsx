@@ -63,8 +63,8 @@ export default async function BlogAlibagVillaCostPage() {
               <p className="text-xl text-warmgray-600">
                 When planning a luxury second home in Alibag, the most common question homeowners
                 ask is: <em>&quot;What is the interior cost per square foot?&quot;</em> The reality is that
-                applying a standard Mumbai or Pune cost model to an Alibag villa guarantees a
-                30–40% budget overrun. Executing premium interiors in a coastal town carries
+                applying a standard Mumbai or Pune cost model to an Alibag villa is how owners end up
+                with a 30–40% budget overrun. Executing premium interiors in a coastal town carries
                 specific logistical and material realities.
               </p>
 

@@ -136,7 +136,7 @@ export default async function BlogNriCostInflationPage() {
               </h2>
               <p>
                 Building a legacy home in India shouldn&apos;t feel like a financial gamble. By
-                leveraging an execution partner equipped with a transparent operating system, you
+                working with an execution partner that runs on a transparent operating system, you
                 pay the fair market rate for luxury quality — nothing more. Your investment in
                 India should be defined by the home you receive, not the margin your contractor
                 extracted.

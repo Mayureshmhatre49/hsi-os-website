@@ -109,7 +109,7 @@ export default async function BangaloreLuxuryInteriorsPage() {
                 Luxury Interiors in{' '}
                 <span className="text-sandstone-400">Bangalore</span>
                 <br />
-                Intelligent Execution. Zero Surprises.
+                Intelligent Execution. Every Decision on Record.
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Bangalore homeowners demand more than aesthetics — they expect intelligence,

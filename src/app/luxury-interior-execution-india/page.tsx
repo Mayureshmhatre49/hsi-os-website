@@ -109,7 +109,7 @@ export default async function LuxuryInteriorExecutionIndiaPage() {
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 HSIOS™ delivers structured, technology-driven execution for luxury residences across
-                India — from Mumbai penthouses to Goa villas. Transparent. On time. Zero surprises.
+                India — from Mumbai penthouses to Goa villas. Transparent. Milestone-verified. Every decision on record.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
