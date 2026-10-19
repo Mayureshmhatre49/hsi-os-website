@@ -2,26 +2,27 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Mumbai Luxury Interiors — Apartments & Penthouses',
   description:
-    'Premium interior execution for Mumbai apartments, penthouses, and high-rises. HSIOS™ navigates society approvals, high-rise logistics, and vendor coordination with full cost transparency.',
+    'Interior execution for Mumbai apartments and penthouses — society approvals, high-rise logistics and vendor coordination with full cost transparency in HSIOS™.',
   alternates: getAlternates('/mumbai-luxury-interiors'),
   openGraph: {
     title: 'Mumbai Luxury Interiors — Apartments & Penthouses',
     description: 'Premium interior execution for Mumbai luxury residences — society-compliant, fully transparent, powered by HSIOS™.',
     url: 'https://www.hsios.in/mumbai-luxury-interiors',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [OG_IMAGE],
   },
 }
 
 const faqs = [
   {
     q: 'How do you manage society working-hour restrictions in Mumbai buildings?',
-    a: 'We build society NOC timelines and permitted working windows directly into the HSI OS project schedule before execution starts. All vendors are briefed and our daily task plans respect building-level rules automatically.',
+    a: 'We build society NOC timelines and permitted working windows directly into the HSIOS™ project schedule before execution starts. All vendors are briefed and our daily task plans respect building-level rules automatically.',
   },
   {
     q: 'Can I work with my own interior designer while using HSI for execution?',
@@ -29,7 +30,7 @@ const faqs = [
   },
   {
     q: 'How do you handle cost overruns in Mumbai projects?',
-    a: 'The HSI OS Budget Intelligence module tracks every rupee against the approved estimate in real time. Any deviation triggers a digital Change Order that requires your sign-off before a single rupee is spent.',
+    a: 'The HSIOS™ Budget Intelligence module tracks every rupee against the approved estimate in real time. Any deviation triggers a digital Change Order that requires your sign-off before a single rupee is spent.',
   },
   {
     q: 'Do you manage work in both new Bandra apartments and older South Mumbai buildings?',
@@ -40,7 +41,7 @@ const faqs = [
 const challenges = [
   {
     title: 'High-Rise Logistics',
-    desc: 'Material hoisting schedules, goods-lift bookings and floor-protection protocols require precise coordination. HSI OS manages every logistics window.',
+    desc: 'Material hoisting schedules, goods-lift bookings and floor-protection protocols require precise coordination. HSIOS™ manages every logistics window.',
   },
   {
     title: 'Society Rule Compliance',
@@ -48,7 +49,7 @@ const challenges = [
   },
   {
     title: '15+ Vendor Orchestration',
-    desc: 'Civil, electrical, plumbing, HVAC, automation, stone, carpentry — sequenced in HSI OS so no trade stalls while waiting on another.',
+    desc: 'Civil, electrical, plumbing, HVAC, automation, stone, carpentry — sequenced in HSIOS™ so no trade stalls while waiting on another.',
   },
   {
     title: 'Radical Cost Control',
@@ -107,7 +108,7 @@ export default async function MumbaiLuxuryInteriorsPage() {
                 High-Rise Execution Without Compromise
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
-                From Worli penthouses to Bandra sea-facing apartments — HSI OS navigates every
+                From Worli penthouses to Bandra sea-facing apartments — HSIOS™ navigates every
                 society rule, logistics window, and vendor timeline so you don&apos;t have to.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -138,7 +139,7 @@ export default async function MumbaiLuxuryInteriorsPage() {
                 Challenges Unique to Mumbai Interiors
               </h2>
               <p className="text-warmgray-600 mt-4 max-w-2xl mx-auto">
-                Mumbai&apos;s luxury micro-market has its own rules. HSI OS has been purpose-built
+                Mumbai&apos;s luxury micro-market has its own rules. HSIOS™ has been purpose-built
                 to handle all of them without adding friction to your project.
               </p>
             </div>
@@ -171,7 +172,7 @@ export default async function MumbaiLuxuryInteriorsPage() {
               committees. One coordination failure cascades into weeks of lost time.
             </p>
             <p className="text-warmgray-600 leading-relaxed mb-10">
-              HSI OS is the operating layer that eliminates this chaos. Every trade is sequenced.
+              HSIOS™ is the operating layer that eliminates this chaos. Every trade is sequenced.
               Every material is tracked. Every cost is transparent. And every decision you make is
               documented — so you are never chasing a WhatsApp thread to remember if you approved
               the imported marble upgrade.

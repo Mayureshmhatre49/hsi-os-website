@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
+import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 const PAGE_URL = 'https://www.hsios.in/for-sustainability-experts'
 
 export const metadata: Metadata = {
-  title: 'HSIOS™ for Sustainability Experts — Carbon, IGBC & Lifecycle Scoring',
+  title: 'HSIOS™ for Sustainability Experts — IGBC & Lifecycle',
   description:
-    'A 6-dimension sustainability score, HSI-internal and IGBC-equivalent benchmarking, lifecycle cost projections, and an override workflow that records every advisory decision.',
+    'A 6-dimension sustainability score, IGBC-equivalent benchmarking, lifecycle cost projections and a recorded override workflow — built into HSIOS™.',
   alternates: getAlternates('/for-sustainability-experts'),
   openGraph: {
     title: 'HSIOS™ for Sustainability Experts',
     description:
       '6-dimension scoring, IGBC-equivalent benchmarking, lifecycle cost, and override workflow.',
     url: PAGE_URL,
+    images: [OG_IMAGE],
   },
 }
 
@@ -125,7 +126,7 @@ export default async function ForSustainabilityExpertsPage() {
               advisory decision — never blocks one.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/demo" className="btn btn-bronze">Request a Demo</Link>
+              <Link href="/contact" className="btn btn-bronze">Request a Demo</Link>
               <Link href="/sustainability" className="btn btn-outline-white">Sustainability Page</Link>
             </div>
           </RevealOnScroll>
@@ -237,7 +238,7 @@ export default async function ForSustainabilityExpertsPage() {
               respects your authority.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/demo" className="btn btn-bronze">Request a Demo</Link>
+              <Link href="/contact" className="btn btn-bronze">Request a Demo</Link>
               <Link href="/sustainability" className="btn btn-outline-white">Sustainability Approach</Link>
             </div>
           </RevealOnScroll>

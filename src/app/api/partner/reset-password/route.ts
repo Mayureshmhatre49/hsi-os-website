@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 
 export async function POST(req: NextRequest) {
-  const body = await req.json()
+  const body = await req.json().catch(() => ({}))
   const { accessToken, password } = body
 
   if (!accessToken || typeof accessToken !== 'string') {
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
   // Update the password
   const { error: updateErr } = await supabaseAdmin.auth.admin.updateUserById(user.id, { password })
   if (updateErr) {
-    return NextResponse.json({ error: updateErr.message }, { status: 500 })
+    return NextResponse.json({ error: 'Could not update password. Please try again.' }, { status: 500 })
   }
 
   return NextResponse.json({ ok: true })

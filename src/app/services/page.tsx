@@ -11,7 +11,7 @@ import { WHATSAPP_NUMBER } from '@/lib/contact'
 export const metadata: Metadata = {
   title: 'Services — Turnkey Interior Execution',
   description:
-    'Turnkey luxury interior execution for villas and second homes, or an execution partner for architects and designers — one accountable team, delivered through HSIOS™.',
+    'Turnkey interior execution for villas and second homes, or an execution partner for architects — one accountable team, delivered through HSIOS™.',
   alternates: getAlternates('/services'),
 }
 
@@ -102,23 +102,6 @@ export default function ServicesPage() {
               </div>
             </RevealOnScroll>
           </div>
-
-          {/* [CONFIRM] Optional third engagement model — the Pune FAQ implies HSI will
-              also manage an owner's own contractors. Confirm with Nishant whether to
-              offer this as a stated option; if yes, promote it to a full card above. */}
-          <RevealOnScroll delay={0.15}>
-            <div className="mt-6 rounded-2xl border-2 border-dashed border-sandstone-300 bg-sandstone-50/50 p-6">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600 mb-2">
-                [CONFIRM] Possible third option
-              </div>
-              <p className="text-sm text-warmgray-600 leading-relaxed">
-                <strong>Project Management over your own contractors.</strong> HSI coordinates,
-                sequences and quality-checks the vendors you have already appointed.{' '}
-                <em>To confirm with Nishant before this goes live — the Pune page currently implies
-                it, but it is not yet a stated engagement model.</em>
-              </p>
-            </div>
-          </RevealOnScroll>
 
           {/* Execution Network note — resolves the "own workforce" vs "not the labour layer" conflict */}
           <RevealOnScroll delay={0.2}>

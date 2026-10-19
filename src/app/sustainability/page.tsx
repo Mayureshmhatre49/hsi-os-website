@@ -6,7 +6,7 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 export const metadata: Metadata = {
   title: 'Sustainability Built Into Every Decision — HSIOS™',
   description:
-    'HSIOS™ embeds sustainability into every interior project — smarter materials, reduced rework, lower carbon footprint, and documented waste reduction. Luxury, technology, and responsibility together.',
+    'How HSIOS™ builds sustainability into interior execution — specified materials, less rework and smarter procurement. Luxury, built responsibly.',
   alternates: { canonical: 'https://www.hsios.in/sustainability' },
 }
 
@@ -216,7 +216,7 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── IMPACT NUMBERS ────────────────────────────────────── */}
-      <section className="py-16 bg-sandstone-400">
+      <section className="py-16 bg-sandstone-700">
         <div className="container-luxury">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20">
             {[
@@ -229,7 +229,7 @@ export default function SustainabilityPage() {
               <RevealOnScroll key={num} className="px-8 py-4 text-center first:pl-0 last:pr-0">
                 <div className="font-serif text-4xl font-bold text-white mb-1">{num}</div>
                 <div className="text-white font-semibold text-sm">{label}</div>
-                <div className="text-white/60 text-xs mt-1">{sub}</div>
+                <div className="text-white/85 text-xs mt-1">{sub}</div>
               </RevealOnScroll>
             ))}
           </div>
@@ -679,7 +679,7 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── LUXURY + TECH + RESPONSIBILITY ────────────────────── */}
-      <section className="section-py bg-sandstone-400 relative overflow-hidden">
+      <section className="section-py bg-sandstone-700 relative overflow-hidden">
         <div className="absolute inset-0">
           {/* Warm diagonal light sweep — textured sandstone atmosphere */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(160,118,55,0.35) 0%, transparent 45%, rgba(120,88,35,0.20) 100%)' }} />
@@ -690,7 +690,7 @@ export default function SustainabilityPage() {
         </div>
         <div className="container-luxury relative z-10">
           <RevealOnScroll className="max-w-2xl mb-14">
-            <div className="section-label text-white/60">Philosophy</div>
+            <div className="section-label text-white/85">Philosophy</div>
             <h2 className="font-serif text-display-lg text-white mt-2">
               Luxury, Technology<br />& Responsibility<br />
               <em className="not-italic text-white/80">Together.</em>
@@ -739,7 +739,7 @@ export default function SustainabilityPage() {
                       <IconX />
                     </div>
                     <div>
-                      <p className="text-xs text-warmgray-500 uppercase tracking-widest mb-2">The myth</p>
+                      <p className="text-xs text-warmgray-400 uppercase tracking-widest mb-2">The myth</p>
                       <p className="text-warmgray-300 text-sm leading-relaxed italic">&ldquo;{myth}&rdquo;</p>
                     </div>
                   </div>
@@ -788,10 +788,10 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
-            <div className="section-label justify-center text-white/60">Build With Purpose</div>
+            <div className="section-label justify-center text-white/85">Build With Purpose</div>
             <h2 className="font-serif text-display-md text-white mb-5 mt-2">
               Premium Interiors.<br />
               <em className="not-italic text-white/85">Responsible Outcomes.</em>

@@ -3,17 +3,19 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'The Complete Guide to Villa Interior Design in Alibag (2026) — HSIOS™',
+  title: 'The Complete Guide to Alibag Villa Interiors (2026)',
   description:
-    'How to execute a luxury villa interior in Alibag without cost overruns or monsoon delays. Covers coastal material specs, vendor logistics, pre-monsoon sequencing, trade coordination, and realistic budgets.',
+    'How to execute a luxury villa interior in Alibag without overruns or monsoon delays — coastal material specs, vendor logistics, sequencing and budgets.',
   alternates: { canonical: 'https://www.hsios.in/insights/alibag-villa-guide' },
   openGraph: {
     title: 'The Complete Guide to Villa Interior Design in Alibag (2026)',
     description: 'Everything you need to know about executing a premium coastal villa interior without delays or surprises.',
     url: 'https://www.hsios.in/insights/alibag-villa-guide',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 
@@ -363,7 +365,7 @@ export default async function BlogAlibagVillaGuidePage() {
               <h3 className="font-serif text-2xl text-charcoal-800 mb-3">Planning an Alibag Villa?</h3>
               <p className="text-warmgray-600 mb-6">
                 Don&apos;t leave execution to chance. HSIOS™ has delivered 7 premium villas
-                across Alibag and Karjat — with zero budget overruns.
+                across Alibag and Karjat — with cost overruns 30% below the industry average.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a

@@ -10,7 +10,7 @@ import { FACTS } from '@/content/facts'
 export const metadata: Metadata = {
   title: 'Pricing — Transparent Project Investment',
   description:
-    'Understand what drives luxury villa interior project investment in Alibag and the Konkan coast. HSI offers structured, transparent pricing with no hidden costs, tracked in HSIOS™.',
+    'What drives the investment in a luxury villa interior in Alibag and the Konkan coast — structured, transparent pricing with no hidden costs, tracked in HSIOS™.',
   alternates: getAlternates('/pricing'),
 }
 
@@ -143,6 +143,11 @@ const comparisons = [
 ]
 
 const faqs = [
+  // [CONFIRM] Digital Twin pricing is an open question in the SRS (decide before Phase 2).
+  {
+    q: 'Is the HSIOS™ Digital Twin included?',
+    a: 'Every HSI villa is being set up to be handed over with its Digital Twin, built from the records HSIOS™ keeps during execution. For homes HSI did not build, the Digital Twin is in early access and pricing is shared on request.',
+  },
   {
     q: 'How does HSI charge for its services?',
     a: 'HSI charges a structured management fee calculated on the approved execution value. This fee is fixed at engagement and covers the full management scope — from BOQ to handover documentation. The fee replaces the traditional contractor margin model, so you know exactly what management costs before any work begins.',
@@ -304,7 +309,7 @@ export default async function PricingPage() {
                 <div className={`
                   relative rounded-3xl p-8 flex flex-col h-full border transition-all duration-300
                   ${highlight
-                    ? 'bg-sandstone-400 border-sandstone-300 ring-1 ring-sandstone-300/50'
+                    ? 'bg-sandstone-700 border-sandstone-500 ring-1 ring-sandstone-300/50'
                     : 'bg-white/5 border-white/10 hover:bg-white/8 hover:border-white/20'}
                 `}>
                   {highlight && (
@@ -314,20 +319,20 @@ export default async function PricingPage() {
                   )}
 
                   <div className="mb-6">
-                    <div className={`text-xs font-bold tracking-widest uppercase mb-1 ${highlight ? 'text-white/70' : 'text-sandstone-400'}`}>
+                    <div className={`text-xs font-bold tracking-widest uppercase mb-1 ${highlight ? 'text-white/80' : 'text-sandstone-400'}`}>
                       {subtitle}
                     </div>
                     <h3 className={`font-serif text-2xl font-bold mb-1 ${highlight ? 'text-white' : 'text-white'}`}>
                       {type}
                     </h3>
-                    <div className={`text-sm ${highlight ? 'text-white/70' : 'text-warmgray-400'}`}>{sqft}</div>
+                    <div className={`text-sm ${highlight ? 'text-white/80' : 'text-warmgray-400'}`}>{sqft}</div>
                   </div>
 
                   <div className={`rounded-2xl p-5 mb-6 ${highlight ? 'bg-white/15' : 'bg-white/5'}`}>
                     <div className={`font-serif text-3xl font-bold mb-0.5 ${highlight ? 'text-white' : 'text-sandstone-300'}`}>
                       {range}
                     </div>
-                    <div className={`text-xs ${highlight ? 'text-white/60' : 'text-warmgray-500'}`}>{rangeNote}</div>
+                    <div className={`text-xs ${highlight ? 'text-white/80' : 'text-warmgray-400'}`}>{rangeNote}</div>
                     <div className={`text-sm font-medium mt-2 ${highlight ? 'text-white/80' : 'text-warmgray-300'}`}>
                       {perSqft}
                     </div>
@@ -354,7 +359,7 @@ export default async function PricingPage() {
           </div>
 
           <RevealOnScroll>
-            <p className="text-warmgray-500 text-xs text-center mt-8 max-w-2xl mx-auto">
+            <p className="text-warmgray-400 text-xs text-center mt-8 max-w-2xl mx-auto">
               Ranges reflect total execution investment (materials + labour). Loose furniture, landscape, and architect fees are separate.
               Coastal locations carry a 15–25% material premium. The HSI management fee is discussed at engagement.
             </p>
@@ -507,7 +512,7 @@ export default async function PricingPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

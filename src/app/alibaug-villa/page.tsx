@@ -76,7 +76,7 @@ function LandingNav() {
           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold tracking-wider transition-colors duration-300 ${dark ? 'bg-white/25 text-white' : 'bg-sandstone-400 text-white'}`}>H</div>
           <div className="hidden sm:block">
             <div className={`font-serif font-bold text-sm leading-none transition-colors duration-300 ${dark ? 'text-white' : 'text-charcoal-800'}`}>Hestia Villas</div>
-            <div className={`text-[9px] font-semibold tracking-[0.16em] uppercase mt-0.5 transition-colors duration-300 ${dark ? 'text-white/75' : 'text-sandstone-600'}`}>Powered by HSI OS</div>
+            <div className={`text-[9px] font-semibold tracking-[0.16em] uppercase mt-0.5 transition-colors duration-300 ${dark ? 'text-white/75' : 'text-sandstone-600'}`}>Powered by HSIOS™</div>
           </div>
         </div>
 
@@ -291,7 +291,7 @@ function HeroSection() {
           >
             <div className="w-7 h-px bg-sandstone-400" />
             <span className="text-sandstone-400 text-[11px] font-semibold tracking-[0.22em] uppercase">
-              Hestia Villas × HSI OS — Alibaug
+              Hestia Villas × HSIOS™ — Alibaug
             </span>
           </motion.div>
 
@@ -374,7 +374,7 @@ function HeroSection() {
               { label: '1 Cr+ Minimum Project Scope', Icon: IndianRupee },
               { label: 'End-To-End Accountability', Icon: Shield },
               { label: 'Digital Twin Enabled', Icon: Database },
-              { label: 'Powered By HSI OS', Icon: Zap },
+              { label: 'Powered By HSIOS™', Icon: Zap },
             ].map(({ label, Icon }) => (
               <div key={label} className="flex items-center gap-2 text-white/50 text-xs">
                 <Icon size={12} className="text-sandstone-400" strokeWidth={1.75} />
@@ -621,47 +621,48 @@ function ProblemSection() {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   §3.5  ALIBAG OWNER TESTIMONIAL
+   §3.5  ALIBAG PROJECT PROOF
 ══════════════════════════════════════════════════════════════ */
 function ALibaugTestimonialSection() {
   return (
     <section className="section-py bg-ivory-100">
       <div className="container-luxury">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Testimonial quote */}
+          {/* Project proof — Abhishek Bajoria's quote is withheld until a verified
+              version matching the confirmed outcome (3 months early) is supplied. */}
           <FadeUp>
             <div className="mb-8">
-              <div className="section-label">Client Voice</div>
+              <div className="section-label">Proof From Alibag</div>
               <h2 className="font-serif text-display-md text-charcoal-800 mb-8">
-                "I Was Managing My<br/>Alibag Villa From Mumbai.<br/>
-                <em className="not-italic text-sandstone-600">HSIOS™ Gave Me Control."</em>
+                Planned Around the Monsoon.<br/>
+                <em className="not-italic text-sandstone-600">Delivered Three Months Early.</em>
               </h2>
             </div>
 
-            <blockquote className="text-warmgray-700 text-lg leading-relaxed italic mb-8 border-l-4 border-sandstone-400 pl-6">
-              "I was terrified managing my Alibag villa while working full-time in Mumbai. With traditional contractors, I'd get vague updates and discover problems months later. HSIOS™ changed everything. I could see every material approval, every trade sequence, every budget decision in real-time. My project finished 3 weeks early with zero cost overruns. For the first time, I felt in control."
-            </blockquote>
+            <p className="text-warmgray-700 text-lg leading-relaxed mb-8 border-l-4 border-sandstone-400 pl-6">
+              Casa Frangipani, a 6,500 sq ft villa in Alibag, was handed over three months ahead of
+              schedule. Twelve trade conflicts were caught in HSIOS™ before site work began, and every
+              material approval, trade sequence and budget decision was visible to the owner as it
+              happened.
+            </p>
 
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-sandstone-200 flex items-center justify-center flex-shrink-0">
-                <span className="font-serif text-lg font-bold text-sandstone-700">AB</span>
-              </div>
-              <div>
-                <div className="font-semibold text-charcoal-800">Abhishek Bajoria</div>
-                <div className="text-warmgray-500 text-sm">Villa Homeowner · Alibag</div>
-              </div>
-            </div>
+            <Link
+              href="/projects/casa-frangipani"
+              className="inline-flex items-center gap-2 font-semibold text-sandstone-600 hover:text-sandstone-700 transition-colors"
+            >
+              Read the Casa Frangipani case study <ArrowRight size={15} />
+            </Link>
           </FadeUp>
 
           {/* Proof metrics */}
           <FadeUp delay={0.1}>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: 'Project Completion', value: '3 Weeks Early' },
+                { label: 'Project Completion', value: '3 Months Early' },
                 { label: 'Overruns vs Industry', value: '30% Lower' },
                 { label: 'Real-time Visibility', value: '100%' },
                 { label: 'Cost Surprises', value: 'Minimal' },
-              ].map(({ label, value }, i) => (
+              ].map(({ label, value }) => (
                 <div key={label} className="bg-white rounded-2xl border border-ivory-300 p-6 text-center">
                   <div className="font-serif text-2xl font-bold text-sandstone-600 mb-2">{value}</div>
                   <div className="text-warmgray-600 text-xs font-medium">{label}</div>
@@ -1051,7 +1052,7 @@ function FeaturedProjectSection() {
   const stats = [
     { label: 'Interior Budget', value: '₹2.8 Cr', detail: 'Luxury villa interiors, fully furnished' },
     { label: 'Timeline', value: '18 Months', detail: 'From design to handover, monsoon-inclusive' },
-    { label: 'Completion Status', value: '3 Weeks Early', detail: 'Despite 4 monsoon-critical phases' },
+    { label: 'Completion Status', value: '3 Months Early', detail: 'Despite 4 monsoon-critical phases' },
     { label: 'Overruns vs Industry', value: '30% Lower', detail: '30% below industry overrun standard' },
     { label: 'Post-Handover Callbacks', value: 'Minimal', detail: 'Minimal material defects' },
     { label: 'Owner Satisfaction', value: '10/10', detail: 'Delivered exactly as designed' },
@@ -1069,7 +1070,7 @@ function FeaturedProjectSection() {
               <em className="not-italic text-sandstone-600">When Everything Works.</em>
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed">
-              Our flagship Alibag project. ₹2.8 Cr luxury villa interior, delivered 3 weeks early, zero rework,
+              Our flagship Alibag project. ₹2.8 Cr luxury villa interior, delivered 3 months early, zero rework,
               zero cost surprises. This is what Alibag execution looks like when system meets mastery.
             </p>
           </div>
@@ -1113,7 +1114,7 @@ function FeaturedProjectSection() {
               {/* The Result */}
               <div>
                 <div className="text-green-600 text-xs font-semibold uppercase tracking-wider mb-3">The Result</div>
-                <h3 className="font-serif text-xl text-charcoal-800 mb-2">Delivered 3 Weeks Early</h3>
+                <h3 className="font-serif text-xl text-charcoal-800 mb-2">Delivered 3 Months Early</h3>
                 <p className="text-warmgray-600 text-sm leading-relaxed">
                   Owner moved in June (2 months before monsoon season). All finishes weather-tested. Zero water damage. Zero rework. This is what happens when discipline meets coastal execution.
                 </p>
@@ -1145,7 +1146,7 @@ function AlibaugFaqSection() {
   const faqs = [
     {
       q: 'How do you manage monsoon delays when building in Alibag?',
-      a: 'We engineer the timeline around monsoon windows, not despite them. Critical dry-season work is front-loaded. Materials are pre-procured from Mumbai before monsoon. Trade sequencing is planned so water-sensitive tasks (painting, electrical final runs, smart systems) happen only in dry months. We track weather forecasts 90 days out. Result: Casa Frangipani finished 3 weeks early despite 4 monsoon-critical phases.'
+      a: 'We engineer the timeline around monsoon windows, not despite them. Critical dry-season work is front-loaded. Materials are pre-procured from Mumbai before monsoon. Trade sequencing is planned so water-sensitive tasks (painting, electrical final runs, smart systems) happen only in dry months. We track weather forecasts 90 days out. Result: Casa Frangipani finished 3 months early despite 4 monsoon-critical phases.'
     },
     {
       q: 'Can I manage my Alibag villa from Mumbai or abroad?',
@@ -1301,7 +1302,7 @@ function CasaFrangipaniSection() {
                   ['Delivery', 'Turnkey — End to End'],
                   ['Smart Home', 'Fully Integrated'],
                   ['Grade', 'Hospitality Standard'],
-                  ['Platform', 'HSI OS — Managed'],
+                  ['Platform', 'HSIOS™ — Managed'],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-4 text-xs">
                     <span className="text-warmgray-500 flex-shrink-0">{k}</span>
@@ -1396,7 +1397,10 @@ function DigitalTwinSection() {
               <p className="text-warmgray-400 text-lg leading-relaxed mb-8">
                 Every Hestia home receives a Digital Twin — a living, queryable record of every
                 architectural decision, installation, vendor, and warranty. Not just at handover.
-                For the life of the building.
+                For the life of the building.{' '}
+                <Link href="/digital-twin" className="text-sandstone-300 underline underline-offset-2 hover:text-sandstone-200">
+                  How the Digital Twin works →
+                </Link>
               </p>
             </FadeUp>
 
@@ -1404,7 +1408,7 @@ function DigitalTwinSection() {
               {[
                 {
                   year: '2 Years After Handover',
-                  desc: 'An appliance fails. Open HSI OS. Warranty details, vendor contact, installation date — retrieved in seconds.',
+                  desc: 'An appliance fails. Open your HSIOS™ Digital Twin. Warranty details, vendor contact, installation date — retrieved in seconds.',
                 },
                 {
                   year: '5 Years Later',
@@ -1514,7 +1518,7 @@ function OwnershipSection() {
     { Icon: Wrench,         title: 'Maintenance Tracking', desc: 'Scheduled reminders, service logs, and full lifecycle management for every system.' },
     { Icon: FileText,       title: 'Service History',   desc: 'Complete record of every technician visit, repair, and upgrade — permanently accessible.' },
     { Icon: Shield,         title: 'Warranty Management', desc: 'Warranty periods tracked, expiry alerts surfaced, claims documented and retrievable.' },
-    { Icon: Eye,            title: 'Remote Visibility', desc: 'Monitor your property from anywhere in the world through HSI OS.' },
+    { Icon: Eye,            title: 'Remote Visibility', desc: 'Monitor your property from anywhere in the world through HSIOS™.' },
     { Icon: HeartHandshake, title: 'Ongoing Support',   desc: 'The Hestia relationship doesn\'t end at handover. We remain your intelligent property partner.' },
   ]
 
@@ -1578,7 +1582,7 @@ function OwnershipSection() {
                 'Ongoing intelligent property partnership',
                 'Complete digital twin at handover',
                 'Warranty tracking and expiry alerts built in',
-                'Full remote visibility through HSI OS',
+                'Full remote visibility through HSIOS™',
               ].map(item => (
                 <div key={item} className="flex items-start gap-3 mb-3 text-white/80 text-sm">
                   <div className="w-4 h-4 rounded-full bg-sandstone-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1596,7 +1600,7 @@ function OwnershipSection() {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   §8  HSI OS
+   §8  HSIOS™
 ══════════════════════════════════════════════════════════════ */
 interface DashboardDataItem {
   label: string
@@ -1625,7 +1629,7 @@ function HsiOsSection() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-sandstone-400 mb-0.5">HSI OS</div>
+            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-sandstone-400 mb-0.5">HSIOS™</div>
             <div className="text-white font-semibold text-sm">{projectName}</div>
           </div>
           <div className="flex items-center gap-2">
@@ -1709,13 +1713,13 @@ function HsiOsSection() {
           {/* Right: Copy */}
           <div>
             <FadeUp>
-              <div className="section-label">HSI OS</div>
+              <div className="section-label">HSIOS™</div>
               <h2 className="font-serif text-display-lg text-charcoal-800 mb-4">
                 The Intelligence Layer<br />
                 <em className="not-italic text-sandstone-600">Behind Every Hestia Home.</em>
               </h2>
               <p className="text-warmgray-600 text-lg leading-relaxed mb-8">
-                HSI OS is not project management software. It is the execution intelligence layer —
+                HSIOS™ is not project management software. It is the execution intelligence layer —
                 translating design intent into verified, documented, milestone-accountable delivery.
               </p>
             </FadeUp>
@@ -1741,7 +1745,7 @@ function HsiOsSection() {
                 rel="noopener noreferrer"
                 className="btn-outline-dark inline-flex text-sm"
               >
-                Explore HSI OS <ArrowRight size={13} />
+                Explore HSIOS™ <ArrowRight size={13} />
               </a>
             </FadeUp>
           </div>
@@ -1771,7 +1775,7 @@ function NriSection() {
                 <em className="not-italic text-sandstone-300">You Don't Need To Be.</em>
               </h2>
               <p className="text-warmgray-400 text-lg leading-relaxed mb-8">
-                Distance is not a constraint. HSI OS gives you complete, real-time visibility into
+                Distance is not a constraint. HSIOS™ gives you complete, real-time visibility into
                 your project and your property — from any timezone, at any stage of construction
                 or ownership.
               </p>
@@ -1829,7 +1833,7 @@ function NriSection() {
               <div className="flex items-center gap-3 bg-sandstone-600/12 border border-sandstone-400/20 rounded-2xl p-4">
                 <Wifi size={15} className="text-sandstone-400 flex-shrink-0" strokeWidth={1.75} />
                 <p className="text-warmgray-300 text-sm leading-relaxed">
-                  Full project visibility through HSI OS — no flights required.
+                  Full project visibility through HSIOS™ — no flights required.
                 </p>
               </div>
             </div>
@@ -1965,7 +1969,7 @@ const COMPARE = [
   ['Quality Control',  'Self-reported by contractor',         '104 independent QA sign-offs'],
   ['Smart Home',       'Retrofitted after handover',          'Planned from the slab — no retrofitting'],
   ['Post-Handover',    'Builder disappears',                  'Ongoing ownership intelligence partnership'],
-  ['Technology',       'WhatsApp and spreadsheets',           'HSI OS — proprietary execution platform'],
+  ['Technology',       'WhatsApp and spreadsheets',           'HSIOS™ — proprietary execution platform'],
 ]
 
 function ComparisonSection() {
@@ -2494,7 +2498,7 @@ function LeadForm() {
 
       {status === 'error' && (
         <p className="text-red-400 text-sm text-center">
-          Something went wrong. Please call us at +91-8010234802 or +91-9881149629.
+          Something went wrong. Please call us at +91-8010234802 or +91-9766645771.
         </p>
       )}
 
@@ -2546,7 +2550,7 @@ function FinalCtaSection() {
               <div className="space-y-4 mb-10">
                 {[
                   { Icon: Phone,  label: '+91-8010234802',     sub: 'Mon–Fri 9am–6pm · Sat 10am–3pm' },
-                  { Icon: Phone,  label: '+91-9881149629',     sub: 'Alternate line · same hours' },
+                  { Icon: Phone,  label: '+91-9766645771',     sub: 'Alternate line · same hours' },
                   { Icon: Mail,   label: 'hello@hsios.in',     sub: 'Response within 24 hours' },
                   { Icon: MapPin, label: 'Alibaug, Maharashtra', sub: 'Site visits available on request' },
                 ].map(({ Icon, label, sub }) => (
@@ -2604,7 +2608,7 @@ function LandingFooter() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="font-serif text-xl text-white mb-0.5">Hestia Villas</div>
-            <div className="text-warmgray-600 text-xs">Powered By HSI OS</div>
+            <div className="text-warmgray-600 text-xs">Powered By HSIOS™</div>
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -2612,7 +2616,7 @@ function LandingFooter() {
               { label: 'Projects',          href: '/projects',          external: false },
               { label: 'About',             href: '/about',             external: false },
               { label: 'Casa Frangipani',   href: 'https://villa.hestiavillas.in/casa-frangipani-luxury-villa-rental-alibaug', external: true },
-              { label: 'HSI OS',            href: '/hsi-os',            external: false },
+              { label: 'HSIOS™',            href: '/hsi-os',            external: false },
               { label: 'Contact',           href: '/contact',           external: false },
             ].map(({ label, href, external }) =>
               external ? (

@@ -2,34 +2,35 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Goa Villa Interiors — Luxury Holiday Home Execution by Hestia Smart Interiors',
+  title: 'Goa Villa Interiors — Holiday Home Execution',
   description:
-    'Premium villa interior execution in Goa. HSI OS brings transparent project management, real-time cost tracking and precise timelines to luxury holiday homes — managed remotely.',
+    'Villa interior execution in Goa — transparent project management, live cost tracking and milestone-verified timelines for holiday homes, managed remotely.',
   alternates: getAlternates('/goa-villa-interiors'),
   openGraph: {
     title: 'Goa Villa Interiors — Hestia Smart Interiors',
     description: 'Luxury Goa villa execution with total transparency, powered by HSIOS™.',
     url: 'https://www.hsios.in/goa-villa-interiors',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [OG_IMAGE],
   },
 }
 
 const faqs = [
   {
     q: 'How do you manage local Goa contractors?',
-    a: 'Through strict, contract-bound milestones integrated into HSI OS. Payments to vendors are only released upon platform-verified completion of work, ensuring speed and accountability regardless of the local pace.',
+    a: 'Through strict, contract-bound milestones integrated into HSIOS™. Payments to vendors are only released upon platform-verified completion of work, ensuring speed and accountability regardless of the local pace.',
   },
   {
     q: 'Can I track my Goa site from Dubai or London?',
-    a: 'Yes — that is precisely what HSI OS was built for. As an NRI or remote owner, the dashboard acts as your digital site supervisor, providing absolute clarity on costs and progress without requiring site visits.',
+    a: 'Yes — that is precisely what HSIOS™ was built for. As an NRI or remote owner, the dashboard acts as your digital site supervisor, providing absolute clarity on costs and progress without requiring site visits.',
   },
   {
     q: "How does Goa's monsoon affect execution timelines?",
-    a: 'Our HSI OS Planning Engine builds the monsoon window directly into your master schedule. Civil works, external waterproofing and window installation are prioritised to ensure the villa is weather-tight before June rains halt exterior work.',
+    a: 'Our HSIOS™ Planning Engine builds the monsoon window directly into your master schedule. Civil works, external waterproofing and window installation are prioritised to ensure the villa is weather-tight before June rains halt exterior work.',
   },
   {
     q: 'Do you use weather-resistant materials as standard in Goa?',
@@ -40,7 +41,7 @@ const faqs = [
 const challenges = [
   {
     title: 'The Absentee Owner Problem',
-    desc: "You shouldn't have to fly down every two weeks. HSI OS gives you daily photographic updates and live milestone tracking so you are always in control from wherever you are.",
+    desc: "You shouldn't have to fly down every two weeks. HSIOS™ gives you daily photographic updates and live milestone tracking so you are always in control from wherever you are.",
   },
   {
     title: 'Extreme Weather Proofing',
@@ -56,7 +57,7 @@ const challenges = [
   },
   {
     title: 'Live Budget Auditing',
-    desc: "Every rupee spent is audited. No lump-sum shocks. No NRI premium. Goa's holiday-home market has historically been exploited — HSI OS eliminates that entirely.",
+    desc: "Every rupee spent is audited. No lump-sum shocks. No NRI premium. Goa's holiday-home market has historically been exploited — HSIOS™ eliminates that entirely.",
   },
   {
     title: 'Remote Change Approvals',
@@ -108,7 +109,7 @@ export default async function GoaVillaInteriorsPage() {
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Executing Goa&apos;s luxury second homes with total transparency. Built for absentee
-                owners who refuse to compromise on quality — powered by HSI OS.
+                owners who refuse to compromise on quality — powered by HSIOS™.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -171,7 +172,7 @@ export default async function GoaVillaInteriorsPage() {
               predictable execution nearly impossible without a rigid system in place.
             </p>
             <p className="text-warmgray-600 leading-relaxed">
-              HSI OS is that system. We bring execution intelligence built for coastal complexity —
+              HSIOS™ is that system. We bring execution intelligence built for coastal complexity —
               allowing homeowners based in Mumbai, Delhi or abroad to build in Goa without the
               anxiety of the unknown. Every rupee spent is audited. Every day of work is logged.
               Every change must pass through your digital approval funnel.

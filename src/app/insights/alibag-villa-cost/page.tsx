@@ -2,17 +2,19 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'How Much Does a Villa Interior Cost in Alibag? — HSIOS™',
+  title: 'How Much Does a Villa Interior Cost in Alibag?',
   description:
-    'A transparent breakdown of premium villa interior costs in Alibag. Understand pricing per square foot, hidden logistics costs, and how to avoid the 30–40% budget overrun that catches most owners.',
+    'A transparent breakdown of villa interior costs in Alibag — per-sq-ft pricing, hidden logistics costs and how to avoid the 30–40% overrun most owners face.',
   alternates: { canonical: 'https://www.hsios.in/insights/alibag-villa-cost' },
   openGraph: {
     title: 'How Much Does a Villa Interior Cost in Alibag?',
     description: 'A transparent breakdown of premium execution costs and the hidden coastal premium.',
     url: 'https://www.hsios.in/insights/alibag-villa-cost',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

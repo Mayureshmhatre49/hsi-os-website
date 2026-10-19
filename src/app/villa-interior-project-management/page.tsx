@@ -3,11 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Villa Interior Project Management — HSIOS™',
   description:
-    'Professional villa interior project management across India. HSIOS™ provides structured execution, live progress tracking, multi-trade coordination, and digital change approvals for luxury villas — Goa, Alibag, Lonavala, and beyond.',
+    'Villa interior project management across India — structured execution, live progress tracking, multi-trade coordination and digital change approvals.',
   /*
    * Canonical-merged with /luxury-interior-execution-india to consolidate
    * keyword authority across overlapping nationwide execution pages.
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     title: 'Villa Interior Project Management — HSIOS™',
     description: 'Technology-driven villa interior project management across India, powered by HSIOS™.',
     url: 'https://www.hsios.in/villa-interior-project-management',
+    images: [OG_IMAGE],
   },
 }
 

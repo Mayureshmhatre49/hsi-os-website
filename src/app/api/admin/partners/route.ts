@@ -76,7 +76,7 @@ async function sendPartnerWelcomeEmails(
     <hr style="border: none; border-top: 1px solid #EAE0D0; margin: 24px 0;">
     <p style="font-family: sans-serif; font-size: 12px; color: #9B9080;">
       Hestia Smart Interiors &bull; Powered by HSIOS™<br>
-      hello@hsios.in &bull; +91-8010234802 &bull; +91-9881149629
+      hello@hsios.in &bull; +91-8010234802 &bull; +91-9766645771
     </p>
   </div>
 </div>

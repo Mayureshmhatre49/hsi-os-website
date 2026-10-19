@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { LayoutDashboard, FileText, LogOut, Menu, X } from 'lucide-react'
+import { LayoutDashboard, LogOut, Menu, X } from 'lucide-react'
 
 const NAV = [
   { href: '/partner/dashboard', label: 'My Leads', icon: LayoutDashboard },

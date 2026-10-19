@@ -10,7 +10,7 @@ import { getVerifiedTestimonial } from '@/content/testimonials'
 export const metadata: Metadata = {
   title: 'For Developers — Sample Villas & Multi-Villa Execution',
   description:
-    'Consistent luxury interior execution across sample villas and multi-villa developments in the Alibag belt — quality, procurement efficiency and buyer visibility, tracked in HSIOS™.',
+    'Consistent interior execution across sample villas and multi-villa developments in the Alibag belt — quality, procurement and buyer visibility in HSIOS™.',
   alternates: getAlternates('/for-developers'),
 }
 
@@ -142,6 +142,17 @@ export default async function ForDevelopersPage() {
               </RevealOnScroll>
             ))}
           </div>
+
+          <RevealOnScroll className="mt-10">
+            <p className="text-warmgray-600 leading-relaxed">
+              <span className="font-semibold text-charcoal-800">Coming later:</span> hand over every unit
+              with its own HSIOS™ Digital Twin — assets, warranties and care instructions already on record
+              for the buyer.{' '}
+              <Link href="/digital-twin" className="text-sandstone-600 font-semibold hover:text-sandstone-700">
+                See the Digital Twin →
+              </Link>
+            </p>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -243,7 +254,7 @@ export default async function ForDevelopersPage() {
       })()}
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

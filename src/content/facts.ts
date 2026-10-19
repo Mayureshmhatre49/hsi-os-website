@@ -57,11 +57,11 @@ export const FACTS = {
   currentQuarterEngagements: '[CONFIRM 3 new engagements this quarter — keep only if true]',
 
   /**
-   * [CONFIRM] Casa Frangipani's true outcome — 'On Schedule' vs '3 Weeks Ahead'
-   * disagree across Home / testimonial / /projects card / JSON-LD. Set the real
-   * one here and use it everywhere, including the case-study JSON-LD description.
+   * Confirmed by Nishant (2026-10-19): Casa Frangipani was delivered three
+   * months ahead of schedule. Use this everywhere, including the case-study
+   * JSON-LD description.
    */
-  casaFrangipaniOutcome: '[CONFIRM Casa Frangipani outcome — On Schedule or 3 Weeks Ahead]',
+  casaFrangipaniOutcome: '3 Months Ahead of Schedule',
 } as const
 
 export type Facts = typeof FACTS

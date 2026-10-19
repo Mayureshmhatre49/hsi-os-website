@@ -6,9 +6,9 @@ import { getAlternates, breadcrumb } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'About Hestia Smart Interiors — Leadership Team, Vision & Values',
+  title: 'About HSI — Leadership, Vision & Values',
   description:
-    'Meet the leadership team behind Hestia Smart Interiors — Nishant Mhatre (Founder & CEO), Sanjay Joshi (Co-founder & CTO), and Vishal Patil (COO) — and the vision behind HSIOS™.',
+    'Meet the team behind Hestia Smart Interiors — Nishant Mhatre, Sanjay Joshi and Vishal Patil — and the vision that built HSIOS™.',
   alternates: getAlternates('/about'),
 }
 
@@ -380,11 +380,11 @@ export default async function AboutPage() {
       </section>
 
       {/* ── MISSION & STANDARDS ───────────────────────────── */}
-      <section className="section-py bg-sandstone-400">
+      <section className="section-py bg-sandstone-700">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <RevealOnScroll>
-              <div className="section-label text-white/60">Our Mission</div>
+              <div className="section-label text-white/85">Our Mission</div>
               <h2 className="font-serif text-display-md text-white mb-6">
                 To be the most trusted execution partner for luxury homes, powered by our own technology.
               </h2>
@@ -395,7 +395,7 @@ export default async function AboutPage() {
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={0.1}>
-              <div className="section-label text-white/60">Our Standards</div>
+              <div className="section-label text-white/85">Our Standards</div>
               <div className="grid grid-cols-2 gap-4 mt-2">
                 {['Precision Execution','Documented Accountability','Lifecycle Sustainability','Earned Completion','Radical Transparency','Responsible Luxury'].map((standard, i) => (
                   <div key={standard} className="flex items-center gap-3 p-4 rounded-xl bg-white/10 border border-white/15">
@@ -454,7 +454,7 @@ export default async function AboutPage() {
       </section>
 
       {/* ── KEY POSITIONING ───────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 relative overflow-hidden">
+      <section className="py-24 bg-sandstone-700 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"
              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E\")" }} />
         <RevealOnScroll>

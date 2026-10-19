@@ -3,17 +3,19 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Alibag Villa Interior: What to Expect from Start to Finish — HSIOS™',
+  title: 'Alibag Villa Interior Timeline: Start to Finish',
   description:
-    'A detailed phase-by-phase timeline of executing a premium villa interior in Alibag. Understand exactly how long it takes, what happens in each phase, and how HSIOS™ guarantees predictability.',
+    'A phase-by-phase timeline for a premium villa interior in Alibag — how long each stage takes, what happens in it, and how HSIOS™ keeps it on track.',
   alternates: { canonical: 'https://www.hsios.in/insights/alibag-timeline' },
   openGraph: {
     title: 'Alibag Villa Interior: What to Expect from Start to Finish',
     description: 'A step-by-step breakdown of how HSIOS™ manages the lifecycle of a premium luxury execution.',
     url: 'https://www.hsios.in/insights/alibag-timeline',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

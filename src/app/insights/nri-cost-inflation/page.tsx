@@ -3,17 +3,19 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It — HSIOS™',
+  title: 'The "NRI Premium": Why Contractors Overcharge NRIs',
   description:
-    'Understand why NRIs often face inflated quotes for interior projects in India and how HSIOS™ enforces radical financial transparency through digital MTOs, vendor direct payments and change orders.',
+    'Why NRIs are often quoted inflated prices for interiors in India — and how HSIOS™ keeps costs transparent with digital MTOs, direct payments and change orders.',
   alternates: { canonical: 'https://www.hsios.in/insights/nri-cost-inflation' },
   openGraph: {
     title: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It',
     description: 'Exposing the hidden margins in remote interior execution and enforcing radical financial transparency.',
     url: 'https://www.hsios.in/insights/nri-cost-inflation',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

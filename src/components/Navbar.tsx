@@ -2,17 +2,20 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
+import BrandLogo from '@/components/ui/BrandLogo'
 import { usePathname } from 'next/navigation'
 import { WHATSAPP_NUMBER } from '@/lib/contact'
 
 // Primary nav — services-first (logo = Home)
-const navLinks = [
+// `mobileOnly` links stay in the drawer but are dropped from the desktop bar for width.
+const navLinks: { href: string; label: string; badge?: string; mobileOnly?: boolean }[] = [
   { href: '/projects',     label: 'Projects' },
   { href: '/services',     label: 'Services' },
   { href: '/how-it-works', label: 'How We Work' },
   { href: '/pricing',      label: 'Pricing' },
+  { href: '/digital-twin', label: 'Digital Twin', badge: 'New' },
   { href: '/about',        label: 'About' },
-  { href: '/insights',     label: 'Insights' },
+  { href: '/insights',     label: 'Insights', mobileOnly: true },
 ]
 
 // "Who We Serve" dropdown — the audiences HSI sells interior execution to
@@ -74,7 +77,7 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
-  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo', '/alibaug-villa', '/enquiry'].includes(pathname)
+  const isHeroPage = ['/', '/for-homeowners', '/for-developers', '/for-architects', '/commercial-interiors', '/hsi-os', '/sustainability', '/pricing', '/demo', '/alibaug-villa', '/enquiry', '/digital-twin'].includes(pathname)
   const transparent = isHeroPage && !scrolled && !menuOpen
 
   return (
@@ -84,36 +87,20 @@ export default function Navbar() {
           fixed top-0 inset-x-0 z-50 transition-all duration-500
           ${transparent
             ? 'bg-charcoal-900/80 backdrop-blur-md'
-            : 'bg-ivory-50/96 backdrop-blur-md shadow-luxury border-b border-ivory-200'
+            : 'bg-ivory-50/95 backdrop-blur-md shadow-luxury border-b border-ivory-200'
           }
         `}
       >
         <nav className="container-luxury flex items-center justify-between h-16 gap-3" aria-label="Main navigation">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
-            <div
-              className={`
-                flex items-center justify-center w-9 h-9 rounded-full text-xs font-bold tracking-widest
-                transition-colors duration-300
-                ${transparent ? 'bg-white/20 text-white' : 'bg-sandstone-400 text-white'}
-              `}
-            >
-              H
-            </div>
-            <div className="hidden sm:block">
-              <div className={`font-serif font-bold text-base leading-none transition-colors duration-300 ${transparent ? 'text-white' : 'text-charcoal-800'}`}>
-                Hestia Smart Interiors
-              </div>
-              <div className={`font-sans text-[10px] font-semibold tracking-[0.16em] uppercase mt-0.5 transition-colors duration-300 ${transparent ? 'text-white/60' : 'text-sandstone-600'}`}>
-                Powered by HSIOS™
-              </div>
-            </div>
+          <Link href="/" aria-label="Hestia Smart Interiors — Home" className="flex items-center flex-shrink-0">
+            <BrandLogo tone={transparent ? 'light' : 'dark'} priority />
           </Link>
 
           {/* Desktop Nav — shown at xl+ (narrower widths use the hamburger drawer) */}
           <ul className="hidden xl:flex items-center gap-0.5">
-            {navLinks.map(({ href, label }) => (
+            {navLinks.filter(l => !l.mobileOnly).map(({ href, label, badge }) => (
               <li key={href}>
                 <Link
                   href={href}
@@ -131,6 +118,11 @@ export default function Navbar() {
                   `}
                 >
                   {label}
+                  {badge && (
+                    <span className={`ml-1.5 align-middle text-[9px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-full ${transparent ? 'bg-sandstone-400/25 text-sandstone-200' : 'bg-sandstone-100 text-sandstone-700'}`}>
+                      {badge}
+                    </span>
+                  )}
                   {isActive(href) && (
                     <span className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${transparent ? 'bg-sandstone-300' : 'bg-sandstone-500'}`} />
                   )}
@@ -260,9 +252,10 @@ export default function Navbar() {
 
           {/* Links */}
           <nav className="flex-1 overflow-y-auto px-4 py-5 space-y-1">
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ href, label, badge }) => (
               <Link key={href} href={href} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive(href) ? 'bg-sandstone-50 text-sandstone-700' : 'text-charcoal-700 hover:bg-ivory-200'}`}>
                 {label}
+                {badge && <span className="text-[9px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-full bg-sandstone-100 text-sandstone-700">{badge}</span>}
               </Link>
             ))}
 

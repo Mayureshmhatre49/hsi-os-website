@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/projects',                    priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/services',                    priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/hsi-os',                      priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: '/digital-twin',                priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/how-it-works',               priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/pricing',                    priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/sustainability',             priority: 0.7, changeFrequency: 'monthly' as const },
@@ -36,9 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/nri-home-interior-management', priority: 0.8, changeFrequency: 'monthly' as const },
     // SEO keyword pages
     { url: '/luxury-interior-execution-india',    priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: '/villa-interior-project-management',  priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: '/turnkey-home-interiors',             priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/second-home-interior-design',        priority: 0.8, changeFrequency: 'monthly' as const },
+    // /villa-interior-project-management, /turnkey-home-interiors and
+    // /second-home-interior-design canonicalise to the page above, so they are
+    // deliberately left out — sitemaps should list canonical URLs only.
     // Blog posts
     { url: '/insights/alibag-villa-guide',     priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/insights/alibag-villa-cost',      priority: 0.7, changeFrequency: 'monthly' as const },

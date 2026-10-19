@@ -3,9 +3,10 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: "Sustainable Luxury Interiors: Why 'Good Looking' is No Longer Enough | HSI Insights",
+  title: 'Sustainable Luxury Interiors: Beyond Good Looks',
   description:
     "Explore how HSIOS integrates sustainability into luxury interior execution through the Refuse, Reuse, Recycle framework and technology-driven precision.",
   alternates: { canonical: 'https://www.hsios.in/insights/sustainable-luxury' },
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     description: 'How technology and execution intelligence enable true environmental responsibility in luxury home building.',
     url: 'https://www.hsios.in/insights/sustainable-luxury',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

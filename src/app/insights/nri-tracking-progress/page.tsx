@@ -3,17 +3,19 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'How to Track Your India Villa Interior Without Flying Back — HSIOS™',
+  title: 'Track Your India Villa Interior Without Flying Back',
   description:
-    'Discover how NRIs can track their luxury interior progress in India down to the daily milestone using HSIOS™ — moving beyond grainy WhatsApp updates to real-time execution intelligence.',
+    'How NRIs can track a villa interior in India down to the daily milestone with HSIOS™ — beyond grainy WhatsApp updates to verified progress.',
   alternates: { canonical: 'https://www.hsios.in/insights/nri-tracking-progress' },
   openGraph: {
     title: 'How to Track Your India Villa Interior Without Flying Back',
     description: 'Moving beyond grainy WhatsApp updates to real-time, data-driven execution intelligence for remote homeowners.',
     url: 'https://www.hsios.in/insights/nri-tracking-progress',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

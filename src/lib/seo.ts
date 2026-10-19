@@ -107,3 +107,15 @@ export const softwareApplicationSchema = {
   },
   publisher: { '@id': `${BASE}/#organization` },
 }
+
+/**
+ * Default social share image (src/app/opengraph-image.jpg, 1200×630).
+ * Next.js replaces — not merges — a page's `openGraph` object, so any page
+ * that defines its own `openGraph` must list this explicitly or lose the image.
+ */
+export const OG_IMAGE = {
+  url: '/opengraph-image.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'Casa Frangipani villa interior, Alibag — executed by Hestia Smart Interiors',
+}

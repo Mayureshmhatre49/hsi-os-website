@@ -1,9 +1,10 @@
 'use client'
 import { useState } from 'react'
-import { faqs } from '@/content/hsios-faqs'
+import { faqs as defaultFaqs } from '@/content/hsios-faqs'
 
-export default function FAQAccordion() {
+export default function FAQAccordion({ items }: { items?: { q: string; a: string }[] } = {}) {
   const [open, setOpen] = useState<number | null>(null)
+  const faqs = items ?? defaultFaqs
 
   return (
     <div className="divide-y divide-ivory-300 border border-ivory-300 rounded-2xl overflow-hidden">

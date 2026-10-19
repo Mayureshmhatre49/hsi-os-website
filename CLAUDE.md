@@ -201,7 +201,7 @@ Applied to all routes:
 | `Cross-Origin-Opener-Policy` | `same-origin-allow-popups` |
 | `Cross-Origin-Resource-Policy` | `cross-origin` |
 
-Static assets (`/_next/static/*`, images, fonts) receive `Cache-Control: public, max-age=31536000, immutable`.
+Hashed build assets (`/_next/static/*`) receive `Cache-Control: public, max-age=31536000, immutable`. Un-hashed `/public` images and fonts get `public, max-age=2592000, stale-while-revalidate=86400` (30 days) so replaced files are picked up.
 
 ### 2. Dynamic CSP — `src/middleware.ts`
 
@@ -370,10 +370,10 @@ Tailwind `fontFamily` config: `font-serif` → `var(--font-serif)`, `font-sans` 
 | Scale | Key values | Usage |
 |-------|-----------|-------|
 | `ivory-*` | 50–400 | Page backgrounds (`bg-ivory-100` = `#FAF7F2`) |
-| `sandstone-*` | 50–800 | Primary accent; `sandstone-400` = `#C4A882`, `sandstone-600` = `#9A7A54` |
-| `bronze-*` | 300–800 | CTA buttons; `bronze-600` = `#8B6B35` |
+| `sandstone-*` | 50–800 | Primary accent; `sandstone-400` = `#C4A882` (decorative only — fails contrast under white text), `sandstone-600` = `#7E6444`, `sandstone-700` = `#6E5438` (full-width bands with white text) |
+| `bronze-*` | 300–800 | CTA buttons; `bronze-600` = `#826431` |
 | `charcoal-*` | 50–900 | Text & dark surfaces; `charcoal-800` = `#1C1C1E` (body text / headings) |
-| `warmgray-*` | 100–800 | Muted text / borders |
+| `warmgray-*` | 100–800 | Muted text / borders. On light backgrounds use `warmgray-500`+ for text; on dark backgrounds use `warmgray-400` or lighter (WCAG AA). |
 
 > The old CLAUDE.md listed a `gold-*` palette — this does not exist. The correct accent scales are `sandstone-*` and `bronze-*`.
 
@@ -511,7 +511,7 @@ Located in `/admin/`. This is a **legacy PHP dashboard** that predates the Next.
 - Nginx handles SSL termination and sets `x-forwarded-proto: https`.
 - The middleware enforces HTTPS for any `http` request via 301 redirect.
 - `deploy.sh` — deployment script (check before running on production).
-- Static assets (`/_next/static/*`, images, fonts) are cached for **1 year** (immutable).
+- Hashed `/_next/static/*` assets are cached for **1 year** (immutable); un-hashed `/public` images and fonts for **30 days**.
 
 ---
 

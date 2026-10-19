@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
+import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -202,10 +203,12 @@ function EnquiryFunnel() {
       <div className="hidden lg:flex lg:w-[45%] xl:w-[40%] bg-charcoal-800 text-white p-12 xl:p-18 flex-col justify-between relative overflow-hidden z-10">
         {/* Background visual cover */}
         <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
-          <img 
-            src="/projects-casa-frangipani-1.jpg" 
-            alt="Luxury Villa Interior by Hestia Smart Interiors" 
-            className="w-full h-full object-cover object-center filter grayscale contrast-125"
+          <Image
+            src="/projects-casa-frangipani-1.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 1280px) 40vw, 45vw"
+            className="object-cover object-center filter grayscale contrast-125"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-800/80 to-charcoal-900/40 z-10" />
@@ -712,7 +715,7 @@ function EnquiryFunnel() {
                       href="/hsi-os"
                       className="btn btn-outline-warm w-full text-xs py-3 justify-center hover:bg-sandstone-50 transition-colors"
                     >
-                      How HSI OS™ Works
+                      How HSIOS™ Works
                     </Link>
 
                     <a

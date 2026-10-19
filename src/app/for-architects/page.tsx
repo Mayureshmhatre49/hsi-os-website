@@ -9,7 +9,7 @@ import { getVerifiedTestimonial } from '@/content/testimonials'
 export const metadata: Metadata = {
   title: 'For Architects & Designers — Your Execution Partner',
   description:
-    'HSIOS™ protects your design vision with conflict detection, execution intelligence, and real-time documentation. Built for premium villa and residential projects across India.',
+    'HSIOS™ protects your design intent on site — conflict detection, milestone-verified execution and documented decisions for premium residential projects.',
   alternates: getAlternates('/for-architects'),
 }
 
@@ -183,7 +183,7 @@ export default async function ForArchitectsPage() {
                   <div key={clash} className="flex items-center justify-between py-3 border-b border-white/6 last:border-0">
                     <div>
                       <div className="text-sm text-white font-medium">{clash}</div>
-                      <div className="text-xs text-warmgray-500 mt-0.5">Severity: {severity}</div>
+                      <div className="text-xs text-warmgray-400 mt-0.5">Severity: {severity}</div>
                     </div>
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${statusClr}`}>{status}</span>
                   </div>
@@ -282,7 +282,7 @@ export default async function ForArchitectsPage() {
       })()}
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

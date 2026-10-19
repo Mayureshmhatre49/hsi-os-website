@@ -18,7 +18,7 @@ export type Phone = {
 
 export const PHONES: Phone[] = [
   { display: '+91-8010234802', e164: '+918010234802' },
-  { display: '+91-9881149629', e164: '+919881149629' },
+  { display: '+91-9766645771', e164: '+919766645771' },
 ]
 
 /** Primary phone — used where only a single number fits (quick-call CTAs). */
@@ -29,5 +29,5 @@ export const WHATSAPP_NUMBER = '918010234802'
 
 export const EMAIL = 'hello@hsios.in'
 
-/** "+91-8010234802 or +91-9881149629" — for inline prose. */
+/** "+91-8010234802 or +91-9766645771" — for inline prose. */
 export const PHONES_INLINE = PHONES.map(p => p.display).join(' or ')

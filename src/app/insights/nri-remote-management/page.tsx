@@ -3,17 +3,19 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Remote Interior Project Management: What NRIs Need to Know — HSIOS™',
+  title: 'Remote Interior Project Management for NRIs',
   description:
-    'A complete guide for Non-Resident Indians looking to execute premium luxury interiors in India without the anxiety of remote management. Real-time tracking, digital approvals, transparent costs.',
+    'A guide for NRIs executing premium interiors in India from abroad — real-time tracking, digital approvals and transparent costs, without the guesswork.',
   alternates: { canonical: 'https://www.hsios.in/insights/nri-remote-management' },
   openGraph: {
     title: 'Remote Interior Project Management: What NRIs Need to Know',
     description: 'The fundamental difference between hoping your contractor performs and guaranteeing your execution remotely.',
     url: 'https://www.hsios.in/insights/nri-remote-management',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

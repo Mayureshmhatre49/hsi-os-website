@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  Wallet, Camera, CheckCircle2, GitBranch, Archive, ImageIcon,
+  Wallet, Camera, CheckCircle2, GitBranch, Archive,
   Armchair, ShieldCheck, Wrench, Award, Users, Ruler,
   Zap, RefreshCcw, Leaf, TrendingDown,
 } from 'lucide-react'
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     absolute: 'Our Platform — HSIOS™ | Hestia Smart Interiors',
   },
   description:
-    'HSIOS™ is HSI’s in-house execution platform — how every client stays in control of their villa interior: a live budget, a daily photo timeline, digital approvals, clash detection and a handover dossier.',
+    'HSIOS™ is HSI’s in-house execution platform: a live budget, daily photo timeline, digital approvals, clash detection and a handover dossier for every client.',
   alternates: getAlternates('/hsi-os'),
 }
 
@@ -64,7 +64,13 @@ const faqSchema = {
 }
 
 /* 5 client benefits — each paired with a client-view screenshot (to supply). */
-const benefits = [
+const benefits: {
+  Icon: typeof Wallet
+  title: string
+  desc: string
+  shot: string
+  link?: { href: string; label: string }
+}[] = [
   {
     Icon: Wallet,
     title: 'A live budget dashboard',
@@ -94,6 +100,7 @@ const benefits = [
     title: 'A handover dossier',
     desc: 'Every finish, installation and warranty date documented and handed to you as a permanent record of your home — the reference you’ll use for years after the last trade leaves.',
     shot: 'Casa Frangipani — handover dossier',
+    link: { href: '/digital-twin', label: 'It becomes your home’s HSIOS™ Digital Twin →' },
   },
 ]
 
@@ -143,7 +150,7 @@ export default function HSIOSPage() {
           </RevealOnScroll>
 
           <div className="space-y-12 lg:space-y-20">
-            {benefits.map(({ Icon, title, desc, shot }, i) => (
+            {benefits.map(({ Icon, title, desc, shot, link }, i) => (
               <RevealOnScroll key={title}>
                 <div className={`grid lg:grid-cols-2 gap-8 lg:gap-14 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                   <div>
@@ -152,13 +159,23 @@ export default function HSIOSPage() {
                     </div>
                     <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">{title}</h3>
                     <p className="text-warmgray-600 text-lg leading-relaxed">{desc}</p>
+                    {link && (
+                      <Link href={link.href} className="inline-block mt-5 text-sandstone-600 font-semibold hover:text-sandstone-700 transition-colors">
+                        {link.label}
+                      </Link>
+                    )}
                   </div>
 
-                  {/* Client-view screenshot placeholder — real image to be supplied (see §4 image pass). */}
-                  <div className="relative rounded-3xl overflow-hidden aspect-[16/10] bg-ivory-100 border border-ivory-300 flex flex-col items-center justify-center text-center p-6">
-                    <ImageIcon className="text-sandstone-300 mb-3" size={36} strokeWidth={1.25} />
-                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-500">Client view · screenshot to supply</div>
-                    <div className="text-sm text-warmgray-500 mt-1">{shot}</div>
+                  {/* Feature panel. Swap for a real client-view screenshot of `shot` when available. */}
+                  <div
+                    className="relative rounded-3xl overflow-hidden aspect-[16/10] bg-gradient-to-br from-ivory-100 via-sandstone-50 to-sandstone-100 border border-ivory-300 flex flex-col items-center justify-center text-center p-6"
+                    aria-hidden="true"
+                  >
+                    <div className="w-20 h-20 rounded-2xl bg-white shadow-luxury flex items-center justify-center mb-4">
+                      <Icon className="text-sandstone-600" size={34} strokeWidth={1.5} />
+                    </div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600">HSIOS™ · Client view</div>
+                    <div className="text-sm text-warmgray-600 mt-1">{shot.replace(/^.*— /, '').replace(/^./, (c) => c.toUpperCase())}</div>
                   </div>
                 </div>
               </RevealOnScroll>

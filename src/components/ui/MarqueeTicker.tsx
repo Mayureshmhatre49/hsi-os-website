@@ -17,7 +17,7 @@ const doubled = [...items, ...items]
 export default function MarqueeTicker() {
   return (
     <div
-      className="w-full overflow-hidden bg-sandstone-400 py-3.5 select-none"
+      className="w-full overflow-hidden bg-sandstone-700 py-3.5 select-none"
       aria-hidden="true"
     >
       <div

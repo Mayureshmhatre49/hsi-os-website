@@ -19,6 +19,13 @@ const staticCacheHeaders = [
   { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
 ]
 
+// Files in /public keep stable names (logo.png, favicon.ico…), so they must
+// NOT be immutable — a replaced logo would stay stale for a year. 30 days,
+// revalidated in the background.
+const publicAssetCacheHeaders = [
+  { key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' },
+]
+
 const legacyPages = [
   'about', 'projects', 'contact', 'insights', 'hsi-os',
   'how-it-works', 'for-homeowners', 'for-developers',
@@ -76,10 +83,9 @@ const nextConfig: NextConfig = {
         ? [
             // Long-lived cache for hashed static assets
             { source: '/_next/static/:path*', headers: staticCacheHeaders },
-            // Cache public images for 1 year
-            { source: '/:file.:ext(jpg|jpeg|png|webp|avif|svg|ico|gif)', headers: staticCacheHeaders },
-            // Cache fonts
-            { source: '/:file.:ext(woff|woff2|ttf|otf|eot)', headers: staticCacheHeaders },
+            // Un-hashed public images and fonts
+            { source: '/:file.:ext(jpg|jpeg|png|webp|avif|svg|ico|gif)', headers: publicAssetCacheHeaders },
+            { source: '/:file.:ext(woff|woff2|ttf|otf|eot)', headers: publicAssetCacheHeaders },
           ]
         : []),
     ]

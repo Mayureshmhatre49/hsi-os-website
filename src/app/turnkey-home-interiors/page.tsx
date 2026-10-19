@@ -3,11 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Premium Turnkey Home Interiors — HSIOS™',
   description:
-    'Premium turnkey home interior execution across India. HSIOS™ manages design coordination, procurement, multi-trade execution, and handover — one accountable partner, one finished home.',
+    'Turnkey home interior execution across India — design coordination, procurement, multi-trade execution and handover. One accountable partner, one home.',
   /*
    * Canonical-merged with /luxury-interior-execution-india to consolidate
    * keyword authority across overlapping nationwide execution pages.
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     title: 'Premium Turnkey Home Interiors — HSIOS™',
     description: 'True turnkey luxury interior execution — one partner, zero chaos, from drawings to handover.',
     url: 'https://www.hsios.in/turnkey-home-interiors',
+    images: [OG_IMAGE],
   },
 }
 
@@ -240,10 +242,10 @@ export default async function TurnkeyHomeInteriorsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <div className="container-luxury max-w-2xl">
           <RevealOnScroll>
-            <div className="section-label text-white/70 mb-4">True Turnkey</div>
+            <div className="section-label text-white/85 mb-4">True Turnkey</div>
             <h2 className="font-serif text-display-md text-white mb-5">
               Hand Over the Drawings. Receive the Keys.
             </h2>

@@ -9,7 +9,7 @@ const PAGE_URL = 'https://www.hsios.in/security'
 export const metadata: Metadata = {
   title: 'Security & Trust — How HSIOS™ Protects Your Project',
   description:
-    'How HSIOS™ keeps your project safe: your data in a region you choose, role-based access, one-time-code sign-in, a permanent audit trail, encrypted backups, and export on request.',
+    'How HSIOS™ keeps your project safe: data in a region you choose, role-based access, one-time-code sign-in, a permanent audit trail and encrypted backups.',
   alternates: getAlternates('/security'),
   openGraph: {
     title: 'Security & Trust — HSIOS™',

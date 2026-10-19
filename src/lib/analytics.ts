@@ -55,6 +55,9 @@ export const analytics = {
   demoRequest: (source: string) =>
     trackEvent({ action: 'demo_request', category: 'conversion', label: source }),
 
+  twinEnquiry: (kind: 'early-access' | 'walkthrough') =>
+    trackEvent({ action: 'twin_enquiry', category: 'conversion', label: kind }),
+
   navClick: (label: string) =>
     trackEvent({ action: 'nav_click', category: 'navigation', label }),
 }

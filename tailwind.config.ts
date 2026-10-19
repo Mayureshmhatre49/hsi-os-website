@@ -24,15 +24,15 @@ const config: Config = {
           300: '#D0B898',
           400: '#C4A882',  // primary accent
           500: '#B5956E',
-          600: '#9A7A54',  // darker accent
-          700: '#7D6040',
+          600: '#7E6444',  // darker accent (WCAG AA ≥4.5:1 on ivory/white)
+          700: '#6E5438',
           800: '#5C4428',
         },
         bronze: {
           300: '#D4B870',
           400: '#C4A850',
           500: '#B09035',
-          600: '#8B6B35',  // CTA buttons
+          600: '#826431',  // CTA buttons (WCAG AA with white text)
           700: '#6B5028',
           800: '#4A3618',
         },
@@ -53,8 +53,8 @@ const config: Config = {
           200: '#EAE3DA',
           300: '#D8CFC5',
           400: '#C0B5A8',
-          500: '#9B9080',
-          600: '#7A7060',
+          500: '#746A5C',
+          600: '#6A6052',
           700: '#5A5248',
           800: '#3A3530',
         },

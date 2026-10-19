@@ -62,7 +62,7 @@ export const KNOWLEDGE: KBEntry[] = [
     keywords: ['engagement', 'model', 'service', 'platform', 'managed', 'option', 'ways', 'hire', 'plan'],
     answer:
       'Two ways. Managed Execution: our team runs your entire interior execution using HSIOS™. Platform Only: your own architects, developers or execution teams use HSIOS™ to manage projects independently. You can also combine both — our team plus our platform.',
-    link: { href: '/demo', label: 'Request a demo' },
+    link: { href: '/contact', label: 'Request a demo' },
     suggest: true,
   },
   {
@@ -81,6 +81,15 @@ export const KNOWLEDGE: KBEntry[] = [
     answer:
       'HSIOS™ charges a structured project management fee calculated on the approved execution value and fixed at engagement. It covers the full management scope — from BOQ to handover documentation — and replaces the traditional contractor margin model, so you know exactly what management costs before any work begins.',
     link: { href: '/pricing', label: 'Pricing details' },
+  },
+  {
+    id: 'digital-twin',
+    question: 'What is the HSIOS™ Digital Twin?',
+    keywords: ['digital', 'twin', 'warranty', 'amc', 'caretaker', 'qr', 'label', 'appliance', 'maintenance', 'passport', 'after', 'handover', '360'],
+    answer:
+      'The HSIOS™ Digital Twin is a verified record of your home: every appliance and piece of equipment with its invoice, warranty, AMC and repair contact, pinned inside a 360° walkthrough. Caretakers scan a QR label — no app needed — to see care steps in English, Hindi or Marathi, and you get warranty and AMC reminders on WhatsApp. It is in early access; HSI clients can book a walkthrough.',
+    link: { href: '/digital-twin', label: 'Explore the Digital Twin' },
+    suggest: true,
   },
   {
     id: 'minimum-project',

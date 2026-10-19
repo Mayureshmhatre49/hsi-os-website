@@ -2,19 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Villa Interiors in Nashik — Vineyard Estate & Weekend Home Execution',
+  title: 'Villa Interiors in Nashik — Vineyard & Weekend Homes',
   description:
-    'Premium villa interior execution in Nashik. HSIOS™ manages vineyard estates, weekend homes, and farmhouses across Nashik with transparent cost tracking, multi-trade coordination, and remote owner dashboards.',
+    'Villa interior execution in Nashik for vineyard estates, weekend homes and farmhouses — transparent costs, multi-trade coordination and remote dashboards.',
   alternates: getAlternates('/nashik-villa-interiors'),
   openGraph: {
     title: 'Villa Interiors in Nashik — HSIOS™',
     description: 'Luxury villa execution for Nashik vineyard estates and weekend homes, powered by HSIOS™.',
     url: 'https://www.hsios.in/nashik-villa-interiors',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [OG_IMAGE],
   },
 }
 
@@ -231,10 +232,10 @@ export default async function NashikVillaInteriorsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <div className="container-luxury max-w-2xl">
           <RevealOnScroll>
-            <div className="section-label text-white/70 mb-4">Build in Nashik</div>
+            <div className="section-label text-white/85 mb-4">Build in Nashik</div>
             <h2 className="font-serif text-display-md text-white mb-5">
               Your Nashik Estate. Executed Without Compromise.
             </h2>

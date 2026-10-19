@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Alibag Villa Interiors — Premium Interior Execution by HSIOS™',
+  title: 'Alibag Villa Interiors — Execution by HSIOS™',
   description:
-    'Premium villa interior execution in Alibag. HSIOS™ manages coastal material specs, monsoon scheduling, 15+ vendor coordination, and complete cost transparency for luxury second homes.',
+    'Villa interior execution in Alibag: coastal material specs, monsoon scheduling, 15+ vendors coordinated and full cost transparency through HSIOS™.',
   alternates: {
     ...getAlternates('/alibag-villa-interiors'),
   },
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     title: 'Alibag Villa Interiors — Premium Interior Execution by HSIOS™',
     description: 'Premium villa interior execution in Alibag — coastal material expertise, milestone-verified delivery, powered by HSIOS™.',
     url: 'https://www.hsios.in/alibag-villa-interiors',
+    images: [OG_IMAGE],
   },
 }
 
@@ -30,7 +31,7 @@ const faqs = [
   },
   {
     q: 'What happens if execution runs into the monsoon season?',
-    a: 'The HSI OS timeline module tracks critical path dependencies daily. If your pre-monsoon weatherproofing milestone is at risk by March, you know it — allowing corrective action before the June rains force a 4-month work stoppage.',
+    a: 'The HSIOS™ timeline module tracks critical path dependencies daily. If your pre-monsoon weatherproofing milestone is at risk by March, you know it — allowing corrective action before the June rains force a 4-month work stoppage.',
   },
   {
     q: 'Do you use marine-grade materials as standard?',
@@ -57,7 +58,7 @@ const challenges = [
   },
   {
     title: '15+ Vendor Orchestration',
-    desc: 'Plumbers, electricians, HVAC, automation, carpenters — all sequenced in HSI OS so no trade breaks the work of another.',
+    desc: 'Plumbers, electricians, HVAC, automation, carpenters — all sequenced in HSIOS™ so no trade breaks the work of another.',
   },
   {
     title: '7 Villas Delivered',
@@ -108,7 +109,7 @@ export default async function AlibagVillaInteriorsPage() {
                 Coastal Execution, Structured to Perfection
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
-                Seven luxury villas delivered on the Konkan coast. HSI OS manages every material,
+                Seven luxury villas delivered on the Konkan coast. HSIOS™ manages every material,
                 vendor, and monsoon window so you never discover surprises after handover.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -171,7 +172,7 @@ export default async function AlibagVillaInteriorsPage() {
               of a coastal, semi-remote site is vast.
             </p>
             <p className="text-warmgray-600 leading-relaxed mb-10">
-              HSI OS bridges that gap. We translate your architect&apos;s vision into hundreds of
+              HSIOS™ bridges that gap. We translate your architect&apos;s vision into hundreds of
               trackable micro-tasks, manage material procurement from Mumbai, and sequence every trade
               so your project is weather-tight before the monsoon and delivered without surprises.
             </p>
@@ -180,7 +181,7 @@ export default async function AlibagVillaInteriorsPage() {
             <h3 className="font-serif text-2xl text-charcoal-900 mb-4">Our Alibag Process</h3>
             <div className="space-y-4 text-warmgray-600 leading-relaxed">
               <p>
-                From day one, your project is mapped onto the HSI OS platform. GFC drawings are
+                From day one, your project is mapped onto the HSIOS™ platform. GFC drawings are
                 translated into quantified Material Takeoffs. Procurement is batch-shipped from
                 Mumbai. Daily progress photos are tied to scheduled tasks, not chosen by the
                 contractor. Change orders require your digital signature before any spend occurs.

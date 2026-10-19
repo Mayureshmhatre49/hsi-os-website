@@ -16,7 +16,7 @@ import { verifiedTestimonials } from '@/content/testimonials'
 /* ── SEO metadata (services-first, Alibag-led) ─────────────── */
 export const metadata: Metadata = {
   title: {
-    absolute: 'Luxury Villa Interiors in Alibag — Turnkey Execution | Hestia Smart Interiors',
+    absolute: 'Luxury Villa Interiors in Alibag | Hestia Smart Interiors',
   },
   description:
     'Turnkey luxury villa interior execution in Alibag and the Konkan coast. Live budget, daily photo proof and digital approvals, built for Mumbai and NRI owners.',
@@ -397,7 +397,7 @@ function HowWeWork() {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-serif font-bold text-white text-sm mb-1.5 leading-snug">{step}</h3>
-                    <p className="text-warmgray-500 text-xs leading-relaxed">{desc}</p>
+                    <p className="text-warmgray-400 text-xs leading-relaxed">{desc}</p>
                   </div>
                 </div>
               </RevealOnScroll>

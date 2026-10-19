@@ -3,17 +3,19 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Top Interior Design Challenges in Coastal Alibag Homes — HSIOS™',
+  title: 'Interior Challenges in Coastal Alibag Homes',
   description:
-    'Discover the biggest execution and design challenges when building a luxury villa in Alibag — ground moisture, semi-open ecosystems, and multi-vendor chaos — and how HSIOS™ mitigates each risk.',
+    'The biggest execution challenges in a coastal Alibag villa — ground moisture, semi-open spaces and multi-vendor coordination — and how HSIOS™ manages each.',
   alternates: { canonical: 'https://www.hsios.in/insights/alibag-challenges' },
   openGraph: {
     title: 'Top Interior Design Challenges in Coastal Alibag Homes',
     description: 'Why beautiful 3D renders often fail in reality, and how structured execution solves the Alibag puzzle.',
     url: 'https://www.hsios.in/insights/alibag-challenges',
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

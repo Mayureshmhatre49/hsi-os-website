@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
+import { createRateLimiter, clientIp } from '@/lib/rate-limit'
+
+// 3 reset emails per IP per 15 minutes — stops mailbox flooding.
+const isRateLimited = createRateLimiter(3, 15 * 60_000)
 
 export async function POST(req: NextRequest) {
-  const body = await req.json()
+  if (isRateLimited(clientIp(req))) {
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+  }
+
+  const body = await req.json().catch(() => ({}))
   const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

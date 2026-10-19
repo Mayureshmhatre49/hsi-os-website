@@ -10,9 +10,9 @@ import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Commercial Interior Execution — HSIOS™ for Retail & Commercial Spaces',
+  title: 'Commercial Interior Execution — Retail & F&B',
   description:
-    'HSIOS™ brings structured interior execution to commercial spaces — retail stores, experience centres, F&B outlets, and franchise rollouts. Zone-based tracking, fixture BOQs, and multi-unit scalability.',
+    'Structured interior execution for retail stores, experience centres, F&B outlets and franchise rollouts — zone-based tracking and fixture BOQs in HSIOS™.',
   alternates: getAlternates('/commercial-interiors'),
 }
 
@@ -376,7 +376,7 @@ export default async function CommercialInteriorsPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

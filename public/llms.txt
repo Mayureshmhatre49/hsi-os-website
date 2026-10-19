@@ -10,6 +10,7 @@
 
 ## Primary Services & Capabilities
 - [HSIOS Platform](https://www.hsios.in/hsi-os): Execution intelligence system powering luxury interiors.
+- [HSIOS™ Digital Twin](https://www.hsios.in/digital-twin): Verified home record for villas and second homes — asset register, 360° walkthrough, AI-read invoices, no-app caretaker QR labels, WhatsApp warranty/AMC reminders. Early access.
 - [How It Works](https://www.hsios.in/how-it-works): 5-phase structured delivery from brief to snag-free handover.
 - [Projects & Case Studies](https://www.hsios.in/projects): Flagship residential executions including Casa Frangipani (Alibag).
 - [Pricing & Transparency](https://www.hsios.in/pricing): Structured management fee model and per sq ft cost benchmarks.

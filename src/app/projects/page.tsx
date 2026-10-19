@@ -6,9 +6,9 @@ import { getAlternates, breadcrumb } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Case Studies & Projects — Luxury Villa Interiors by HSIOS™',
+  title: 'Projects & Case Studies — Luxury Villa Interiors',
   description:
-    'See how HSIOS™ delivered 7 premium villa interiors with zero budget overruns — conflicts detected pre-execution, real-time budget tracking, and full documentation from start to handover.',
+    'How HSIOS™ delivered 7 premium villa interiors — conflicts caught before execution, live budget tracking and full documentation from start to handover.',
   alternates: getAlternates('/projects'),
 }
 
@@ -23,8 +23,8 @@ const projects = [
     featured: true,
     metrics: [
       { label: 'Conflicts Detected Pre-Execution', value: '12' },
-      { label: 'Budget Adherence', value: '100%' },
-      { label: 'Delivery', value: 'On Schedule' },
+      { label: 'Built-Up Area', value: '6,500 sq ft' },
+      { label: 'Delivery', value: '3 Months Early' },
     ],
   },
   {
@@ -76,7 +76,7 @@ const projects = [
     metrics: [
       { label: 'Conflicts Resolved Pre-Site', value: '10' },
       { label: 'On-Site Rework', value: 'Minimal' },
-      { label: 'Budget Adherence', value: '100%' },
+      { label: 'Budget Tracking', value: 'Live' },
     ],
   },
   {
@@ -103,7 +103,7 @@ const projects = [
     metrics: [
       { label: 'Conflicts Detected Pre-Execution', value: '18' },
       { label: 'Structural Clashes Resolved', value: '6' },
-      { label: 'Budget Adherence', value: '100%' },
+      { label: 'Budget Tracking', value: 'Live' },
     ],
   },
 ]
@@ -124,7 +124,7 @@ const spotlights = [
     ],
     outcomes: [
       { value: '12', label: 'Conflicts Detected Before Site Began' },
-      { value: '100%', label: 'Budget Adherence' },
+      { value: 'Live', label: 'Budget Tracking' },
       { value: 'Minimal', label: 'On-Site Surprises' },
       { value: 'Full', label: 'Sustainability Report Delivered' },
     ],
@@ -145,7 +145,7 @@ const spotlights = [
     outcomes: [
       { value: '18', label: 'Conflicts Detected Pre-Execution' },
       { value: '6', label: 'Structural Clashes Resolved' },
-      { value: '100%', label: 'Budget Adherence' },
+      { value: 'Live', label: 'Budget Tracking' },
       { value: '1', label: 'Unified Family Residence' },
     ],
   },
@@ -215,12 +215,12 @@ export default async function ProjectsPage() {
       </section>
 
       {/* ── STATS ─────────────────────────────────────────── */}
-      <section className="py-12 bg-sandstone-400">
+      <section className="py-12 bg-sandstone-700">
         <div className="container-luxury grid grid-cols-2 sm:grid-cols-4 gap-8 text-center text-white">
           {[
             { val: '7+',   label: 'Premium Villas Delivered' },
             { val: '75+',  label: 'Trade Conflicts Resolved Pre-Execution' },
-            { val: '100%', label: 'Delivered On Budget' },
+            { val: '₹100Cr+', label: 'Execution Value Delivered' },
             { val: '30% Lower', label: 'Cost Overruns vs Industry' },
           ].map(({ val, label }) => (
             <div key={label}>

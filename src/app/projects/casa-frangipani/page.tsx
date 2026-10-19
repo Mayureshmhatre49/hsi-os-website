@@ -10,12 +10,12 @@ const PAGE_URL = 'https://www.hsios.in/projects/casa-frangipani'
 export const metadata: Metadata = {
   title: 'Casa Frangipani — 6-Bedroom Villa Case Study, Alibag',
   description:
-    'How HSIOS™ delivered Casa Frangipani — a 6,500 sq ft, 6-bedroom luxury villa in Alibag — three weeks ahead of schedule with 12 conflicts detected pre-execution and 100% budget adherence.',
+    'How HSIOS™ delivered Casa Frangipani, a 6,500 sq ft, 6-bedroom villa in Alibag, three months ahead of schedule — with 12 conflicts caught before execution.',
   alternates: getAlternates('/projects/casa-frangipani'),
   openGraph: {
     title: 'Casa Frangipani — Luxury Villa Interior Case Study, Alibag',
     description:
-      '6-bedroom complete-execution villa delivered on the Konkan coast — 12 pre-execution conflicts caught, 0 on-site surprises, 3 weeks early.',
+      '6-bedroom complete-execution villa delivered on the Konkan coast — 12 pre-execution conflicts caught, 0 on-site surprises, 3 months early.',
     url: PAGE_URL,
     type: 'article',
     images: [
@@ -34,8 +34,8 @@ const stats = [
   { value: '6',     unit: 'BR',     label: 'Bedrooms' },
   { value: '12',    unit: '',       label: 'Conflicts Caught Pre-Execution' },
   { value: 'Minimal', unit: '',     label: 'On-Site Surprises' },
-  { value: '100',   unit: '%',      label: 'Budget Adherence' },
-  { value: '-3',    unit: 'wks',    label: 'Delivered Ahead of Schedule' },
+  { value: 'Live',  unit: '',       label: 'Budget Tracking' },
+  { value: '3',     unit: 'mo',     label: 'Delivered Ahead of Schedule' },
 ]
 
 const interventions = [
@@ -69,7 +69,7 @@ const lessonsToOwners = [
   'Pre-execution conflict detection is the single highest-leverage activity in luxury villa execution. Twelve issues caught before the first hammer fell would have surfaced as ₹15L+ of rework otherwise.',
   'Real-time budget transparency converts an absentee NRI owner from "anxious" to "in control." The dashboard pattern eliminates the need for daily site visits.',
   'Coastal projects need marine-grade material specs at procurement, not at handover. Substitution attempts are caught at material entry, not on snag day.',
-  'Three weeks ahead of schedule is the natural consequence of trade sequencing — not a stretch goal.',
+  'Three months ahead of schedule is the natural consequence of trade sequencing — not a stretch goal.',
 ]
 
 const articleSchema = {
@@ -77,7 +77,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Casa Frangipani — 6-Bedroom Villa Case Study, Alibag',
   description:
-    'How HSIOS™ delivered a 6,500 sq ft luxury villa interior on the Konkan coast — 12 conflicts detected pre-execution, 0 on-site surprises, 3 weeks ahead of schedule.',
+    'How HSIOS™ delivered a 6,500 sq ft luxury villa interior on the Konkan coast — 12 conflicts detected pre-execution, 0 on-site surprises, 3 months ahead of schedule.',
   image: ['https://www.hsios.in/projects-casa-frangipani-1.jpg'],
   url: PAGE_URL,
   author: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
@@ -143,7 +143,7 @@ export default async function CasaFrangipaniPage() {
               </h1>
               <p className="text-lg sm:text-xl text-warmgray-300 max-w-2xl mb-8 leading-relaxed">
                 A 6,500 sq ft luxury villa, end-to-end interior execution. Twelve conflicts caught before
-                site work began. Zero surprises through handover. Three weeks ahead of schedule.
+                site work began. Zero surprises through handover. Three months ahead of schedule.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn btn-bronze">Discuss a Similar Project</Link>
@@ -162,7 +162,7 @@ export default async function CasaFrangipaniPage() {
       </section>
 
       {/* ── STATS BAND ── */}
-      <section className="py-12 bg-sandstone-400">
+      <section className="py-12 bg-sandstone-700">
         <div className="container-luxury grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 text-center text-white">
           {stats.map(({ value, unit, label }) => (
             <div key={label}>

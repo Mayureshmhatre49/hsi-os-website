@@ -3,16 +3,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
+import { OG_IMAGE } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Luxury Interior Execution Company in India — HSIOS™',
   description:
-    'India\'s leading luxury interior execution company. HSIOS™ brings structured project management, live cost tracking, and multi-trade coordination to premium villas and residences across Mumbai, Bangalore, Pune, and Goa.',
+    'Luxury interior execution across India — structured project management, live cost tracking and multi-trade coordination for villas in Mumbai, Pune and Goa.',
   alternates: { canonical: 'https://www.hsios.in/luxury-interior-execution-india' },
   openGraph: {
     title: 'Luxury Interior Execution Company in India — HSIOS™',
     description: 'Structured, technology-driven luxury interior execution across India — powered by HSIOS™.',
     url: 'https://www.hsios.in/luxury-interior-execution-india',
+    images: [OG_IMAGE],
   },
 }
 
@@ -271,10 +273,10 @@ export default async function LuxuryInteriorExecutionIndiaPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <div className="container-luxury max-w-2xl">
           <RevealOnScroll>
-            <div className="section-label text-white/70 mb-4">Ready to Execute?</div>
+            <div className="section-label text-white/85 mb-4">Ready to Execute?</div>
             <h2 className="font-serif text-display-md text-white mb-5">
               India&apos;s Finest Homes Deserve Documented Execution.
             </h2>

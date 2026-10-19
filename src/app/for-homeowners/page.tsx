@@ -7,9 +7,9 @@ import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
-  title: 'For Homeowners — Premium Interior Execution with Full Visibility',
+  title: 'For Homeowners — Interior Execution, Full Visibility',
   description:
-    'Build your luxury villa in Alibag with complete cost clarity, real-time progress tracking and daily photo proof — even from Mumbai or abroad. Turnkey interior execution by HSI.',
+    'Build your Alibag villa with cost clarity, live progress tracking and daily photo proof — even from Mumbai or abroad. Turnkey interior execution by HSI.',
   alternates: getAlternates('/for-homeowners'),
 }
 
@@ -259,7 +259,7 @@ export default async function ForHomeownersPage() {
       })()}
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="section-py bg-sandstone-400 text-center">
+      <section className="section-py bg-sandstone-700 text-center">
         <RevealOnScroll>
           <div className="container-luxury max-w-2xl">
             <h2 className="font-serif text-display-md text-white mb-5">

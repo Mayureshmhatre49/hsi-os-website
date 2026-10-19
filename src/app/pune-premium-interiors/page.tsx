@@ -2,19 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Premium Interiors in Pune — Villa & Apartment Execution by Hestia Smart Interiors',
+  title: 'Premium Interiors in Pune — Villas & Apartments',
   description:
-    'Premium interior execution for apartments, villas and penthouses in Pune. HSI OS brings transparency and structure to luxury projects in Koregaon Park, Kalyani Nagar and beyond.',
+    'Interior execution for apartments, villas and penthouses in Pune — HSIOS™ brings structure and cost transparency to projects in Koregaon Park and beyond.',
   alternates: getAlternates('/pune-premium-interiors'),
   openGraph: {
     title: 'Premium Interiors in Pune — Hestia Smart Interiors',
     description: "Technology-driven interior execution for Pune's luxury residences, powered by HSIOS™.",
     url: 'https://www.hsios.in/pune-premium-interiors',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [OG_IMAGE],
   },
 }
 
@@ -24,8 +25,8 @@ const faqs = [
     a: 'Both. HSI handles the complete interior shell and core execution for new standalone villas on the outskirts of Pune, as well as high-end penthouses and apartments in the city centre.',
   },
   {
-    q: 'Can I hire HSI just for project management?',
-    a: 'Yes. You can use HSI OS and our team strictly as an Execution Partner while maintaining your own chosen contractors, or you can opt for our full end-to-end execution service where we supply the workforce.',
+    q: 'What are my options for engaging HSI?',
+    a: 'HSI offers two engagement models. Managed Execution, where HSI runs the entire build end-to-end through our empanelled partner network; or Platform Only, where you license HSIOS™ to run your own team with the same milestone-verified tracking.',
   },
   {
     q: 'How do you ensure quality on handcrafted premium finishes?',
@@ -33,7 +34,7 @@ const faqs = [
   },
   {
     q: 'How does HSI prevent timeline delays in Pune?',
-    a: 'We micro-schedule works down to the daily level using the HSI OS Planning Engine. Different trades are sequenced so they do not bottleneck each other, and delays are flagged in real time — not discovered at the end.',
+    a: 'We micro-schedule works down to the daily level using the HSIOS™ Planning Engine. Different trades are sequenced so they do not bottleneck each other, and delays are flagged in real time — not discovered at the end.',
   },
 ]
 
@@ -44,7 +45,7 @@ const features = [
   },
   {
     title: 'Total Cost Visibility',
-    desc: 'We eliminate the "black box" of interior costs. HSI OS tracks every purchase and vendor payment, alerting you instantly of variances against the approved estimate.',
+    desc: 'We eliminate the "black box" of interior costs. HSIOS™ tracks every purchase and vendor payment, alerting you instantly of variances against the approved estimate.',
   },
   {
     title: 'Timeline Integrity',
@@ -60,7 +61,7 @@ const features = [
   },
   {
     title: 'Flexible Engagement',
-    desc: 'Use HSI as a full execution partner with our own workforce, or plug us in as project managers over your existing contractors. The platform works both ways.',
+    desc: 'Engage HSI for fully managed execution through our empanelled partner network, or license HSIOS™ to run your own team with the same milestone-verified tracking.',
   },
 ]
 
@@ -162,12 +163,12 @@ export default async function PunePremiumInteriorsPage() {
             <p className="text-warmgray-600 leading-relaxed mb-6">
               Pune&apos;s luxury real estate market is expanding rapidly. Discerning homeowners in
               Koregaon Park, Kalyani Nagar and Prabhat Road are demanding execution quality that
-              rivals global standards. Yet the gap between stunning architectural design and the
+              rivals global standards. Yet the gap between considered architectural design and the
               reality of on-ground execution remains vast — unstructured vendor coordination, rampant
               cost escalations, and timeline failures are endemic.
             </p>
             <p className="text-warmgray-600 leading-relaxed">
-              HSI OS bridges this gap. By utilising our technology-driven platform, we manage the
+              HSIOS™ bridges this gap. By utilising our technology-driven platform, we manage the
               entire execution lifecycle of your Pune residence. Every rupee is tracked. Every
               milestone is photographed. Your architect&apos;s vision is translated perfectly without
               the usual stress — and you have a live dashboard proving it, every single day.

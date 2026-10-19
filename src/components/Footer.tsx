@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BrandLogo from '@/components/ui/BrandLogo'
 import { PHONES, WHATSAPP_NUMBER, EMAIL } from '@/lib/contact'
 
 type FooterLink = { href: string; label: string; external?: boolean }
@@ -16,9 +17,12 @@ const footerLinks: Record<string, FooterLink[]> = {
     { href: '/for-architects',               label: 'Architects & Designers' },
     { href: '/for-developers',               label: 'Developers' },
   ],
+  Products: [
+    { href: '/digital-twin',   label: 'HSIOS™ Digital Twin' },
+    { href: '/hsi-os',         label: 'Our Platform' },
+  ],
   Company: [
     { href: '/about',          label: 'About' },
-    { href: '/hsi-os',         label: 'Our Platform' },
     { href: '/sustainability', label: 'Sustainability' },
     { href: '/insights',       label: 'Insights' },
     { href: '/security',       label: 'Security' },
@@ -36,16 +40,12 @@ export default function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-sandstone-400 to-transparent" />
 
       <div className="container-luxury py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-10 lg:gap-8">
 
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-sandstone-400 text-white text-xs font-bold tracking-widest">H</div>
-              <div>
-                <div className="font-serif font-bold text-white text-base leading-none">Hestia Smart Interiors</div>
-                <div className="text-[10px] font-semibold tracking-[0.16em] uppercase text-sandstone-400 mt-0.5">Powered by HSIOS™</div>
-              </div>
+            <Link href="/" aria-label="Hestia Smart Interiors — Home" className="flex items-center mb-6 w-fit">
+              <BrandLogo tone="light" />
             </Link>
 
             <p className="text-warmgray-300 text-sm leading-relaxed max-w-xs mb-4">
@@ -156,17 +156,17 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/8">
         <div className="container-luxury py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-warmgray-500">
+          <p className="text-xs text-warmgray-400">
             © {new Date().getFullYear()} Hestia Smart Interiors. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-xs text-warmgray-500 hover:text-warmgray-300 transition-colors">
+            <Link href="/privacy" className="text-xs text-warmgray-400 hover:text-warmgray-300 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs text-warmgray-500 hover:text-warmgray-300 transition-colors">
+            <Link href="/terms" className="text-xs text-warmgray-400 hover:text-warmgray-300 transition-colors">
               Terms of Service
             </Link>
-            <span className="text-xs text-warmgray-600">Made in India</span>
+            <span className="text-xs text-warmgray-400">Made in India</span>
           </div>
         </div>
       </div>

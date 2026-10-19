@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
+import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 const PAGE_URL = 'https://www.hsios.in/for-bim-managers'
 
 export const metadata: Metadata = {
-  title: 'HSIOS™ for BIM Managers — Clash Detection, Validation & IFC Export',
+  title: 'HSIOS™ for BIM Managers — Clash Detection & IFC',
   description:
-    'A working clash-detection layer, a 26-rule design validation engine, and in-browser IFC4 export. HSIOS™ gives BIM Managers a single execution layer that respects the model.',
+    'A clash-detection layer, a 26-rule design validation engine and in-browser IFC4 export — one execution layer in HSIOS™ that respects the model.',
   alternates: getAlternates('/for-bim-managers'),
   openGraph: {
     title: 'HSIOS™ for BIM Managers',
     description:
       'Clash detection, 26-rule design validation, IFC4 export, and a Decision Engine that learns from your project history.',
     url: PAGE_URL,
+    images: [OG_IMAGE],
   },
 }
 
@@ -145,7 +146,7 @@ export default async function ForBimManagersPage() {
               and exports valid IFC4 back into your federated coordination workflow.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/demo" className="btn btn-bronze">Request a Demo</Link>
+              <Link href="/contact" className="btn btn-bronze">Request a Demo</Link>
               <Link href="/hsi-os" className="btn btn-outline-white">Platform Overview</Link>
             </div>
           </RevealOnScroll>
@@ -247,7 +248,7 @@ export default async function ForBimManagersPage() {
               detection, and the IFC export all run at full fidelity. No demo-mode reductions.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/demo" className="btn btn-bronze">Request a Demo</Link>
+              <Link href="/contact" className="btn btn-bronze">Request a Demo</Link>
               <Link href="/contact" className="btn btn-outline-white">Talk to Engineering</Link>
             </div>
           </RevealOnScroll>

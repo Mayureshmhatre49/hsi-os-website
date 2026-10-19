@@ -53,21 +53,12 @@ export const metadata: Metadata = {
     title: 'Hestia Smart Interiors — Luxury Villa Interiors, Responsibly Delivered',
     description:
       'Precision interior execution for luxury villas and premium residences — powered by HSIOS™. What is designed, gets built.',
-    images: [
-      {
-        url: '/projects-casa-frangipani-1.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Casa Frangipani — Hestia Smart Interiors, Alibag',
-      },
-    ],
   },
 
   twitter: {
     card: 'summary_large_image',
     title: 'Hestia Smart Interiors — Luxury Villa Interiors',
     description: 'Precision interior execution powered by HSIOS™ — every rupee tracked, every trade accountable, every project delivered as designed.',
-    images: ['/projects-casa-frangipani-1.jpg'],
   },
 
   robots: {
@@ -106,8 +97,8 @@ const localBusinessSchema = {
   logo: {
     '@type': 'ImageObject',
     url: 'https://www.hsios.in/logo.png',
-    width: 200,
-    height: 60,
+    width: 600,
+    height: 421,
   },
   image: [
     'https://www.hsios.in/projects-casa-frangipani-1.jpg',
@@ -130,7 +121,7 @@ const localBusinessSchema = {
     },
     {
       '@type': 'ContactPoint',
-      telephone: '+91-9881149629',
+      telephone: '+91-9766645771',
       contactType: 'customer service',
       areaServed: 'IN',
       availableLanguage: ['English', 'Hindi'],
@@ -229,7 +220,7 @@ const organizationSchema = {
     },
     {
       '@type': 'ContactPoint',
-      telephone: '+91-9881149629',
+      telephone: '+91-9766645771',
       contactType: 'customer service',
       areaServed: 'IN',
       availableLanguage: ['English', 'Hindi'],

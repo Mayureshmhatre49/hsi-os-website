@@ -11,7 +11,12 @@ function lazyClient(urlEnv: string, keyEnv: string): SupabaseClient {
         const url = process.env[urlEnv]
         const key = process.env[keyEnv]
         if (!url || !key) throw new Error(`Missing env vars: ${urlEnv} / ${keyEnv}`)
-        client = createClient(url, key)
+        // Server-side singletons must be stateless: never cache a signed-in
+        // session on the shared client, or one partner's login would be
+        // reused by the next request.
+        client = createClient(url, key, {
+          auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+        })
       }
       return (client as unknown as Record<string | symbol, unknown>)[prop]
     },

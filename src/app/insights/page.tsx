@@ -5,9 +5,9 @@ import { JsonLd } from '@/lib/JsonLd'
 import { getAlternates, breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Insights — Execution Intelligence for Premium Interiors',
+  title: 'Insights — Execution Intelligence for Interiors',
   description:
-    'Field notes, guides and thought leadership on luxury interior execution in India. Deep dives on Alibag villa interiors, NRI remote management and cost transparency.',
+    'Field notes and guides on luxury interior execution in India — Alibag villa interiors, NRI remote management and cost transparency.',
   alternates: getAlternates('/insights'),
 }
 
@@ -185,7 +185,7 @@ export default function InsightsPage() {
                     {title}
                   </h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed mb-6">{excerpt}</p>
-                  <div className="flex items-center justify-between text-xs text-warmgray-400 pt-5 border-t border-ivory-200">
+                  <div className="flex items-center justify-between text-xs text-warmgray-600 pt-5 border-t border-ivory-200">
                     <span>{readTime}</span>
                     <span className="flex items-center gap-1.5 font-semibold text-sandstone-600 group-hover:gap-2.5 transition-all">
                       Read →

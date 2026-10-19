@@ -2,19 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Luxury Interiors in Bangalore — Smart Execution by HSIOS™',
+  title: 'Luxury Interiors in Bangalore — HSIOS™ Execution',
   description:
-    'Premium interior execution for Bangalore villas, apartments, and tech-enabled homes. HSIOS™ handles multi-trade coordination, smart home integration, and live budget tracking — Whitefield, Koramangala, Indiranagar.',
+    'Interior execution for Bangalore villas and apartments — multi-trade coordination, smart home integration and live budget tracking through HSIOS™.',
   alternates: getAlternates('/bangalore-luxury-interiors'),
   openGraph: {
     title: 'Luxury Interiors in Bangalore — Smart Execution by HSIOS™',
     description: 'Modern, tech-enabled premium interior execution for Bangalore residences, powered by HSIOS™.',
     url: 'https://www.hsios.in/bangalore-luxury-interiors',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [OG_IMAGE],
   },
 }
 
@@ -256,10 +257,10 @@ export default async function BangaloreLuxuryInteriorsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-sandstone-400 text-center">
+      <section className="py-24 bg-sandstone-700 text-center">
         <div className="container-luxury max-w-2xl">
           <RevealOnScroll>
-            <div className="section-label text-white/70 mb-4">Ready to Build?</div>
+            <div className="section-label text-white/85 mb-4">Ready to Build?</div>
             <h2 className="font-serif text-display-md text-white mb-5">
               Execute Your Bangalore Home Intelligently.
             </h2>

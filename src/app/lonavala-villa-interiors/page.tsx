@@ -2,19 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Villa Interiors in Lonavala & Karjat — Hill Retreat Execution',
+  title: 'Villa Interiors in Lonavala & Karjat',
   description:
-    'Premium villa interior execution in Lonavala, Khandala, and Karjat. HSIOS™ manages luxury hill retreat builds with transparent cost tracking, remote owner dashboards, and multi-trade coordination.',
+    'Villa interior execution in Lonavala, Khandala and Karjat — transparent cost tracking, remote owner dashboards and multi-trade coordination through HSIOS™.',
   alternates: getAlternates('/lonavala-villa-interiors'),
   openGraph: {
     title: 'Villa Interiors in Lonavala & Karjat — HSIOS™',
     description: 'Luxury hill retreat execution in Lonavala and Karjat, powered by HSIOS™.',
     url: 'https://www.hsios.in/lonavala-villa-interiors',
     alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    images: [OG_IMAGE],
   },
 }
 

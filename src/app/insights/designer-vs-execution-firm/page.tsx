@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 const PAGE_URL = 'https://www.hsios.in/insights/designer-vs-execution-firm'
 
 export const metadata: Metadata = {
-  title: 'Interior Designer vs Execution Firm — What\'s the Difference?',
+  title: 'Interior Designer vs Execution Firm: The Difference',
   description:
-    'Most luxury home projects fail in execution, not design. A definitive guide to the difference between an interior designer and an execution firm — and why premium homeowners hire both.',
+    'Most luxury home projects fail in execution, not design. The difference between an interior designer and an execution firm — and why owners hire both.',
   alternates: getAlternates('/insights/designer-vs-execution-firm'),
   openGraph: {
     title: 'Interior Designer vs Execution Firm — What\'s the Difference?',
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       'Why luxury home projects fail in execution, not design — and what to look for when hiring an execution partner.',
     url: PAGE_URL,
     type: 'article',
+    images: [OG_IMAGE],
   },
 }
 

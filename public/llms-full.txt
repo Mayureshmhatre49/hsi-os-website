@@ -55,6 +55,20 @@ HSIOS™ manages every project across ten dedicated execution disciplines:
 
 ---
 
+## HSIOS™ Digital Twin (Early Access)
+A separate product and a module of HSIOS™: a verified digital record of one home, built for villas and second homes whose owners are often away.
+
+- Room-by-room asset register: appliances, HVAC, pumps, geysers, RO, electrical, joinery and fixtures, each with warranty, AMC and service history.
+- 360° walkthrough with assets pinned in place.
+- AI extraction of invoices, warranty cards and AMC contracts, confirmed by a person before saving; originals kept.
+- Weather-resistant QR label on each asset: any phone camera opens care steps and the repair contact, with no app or login, in English, Hindi or Marathi. Public scans exclude invoice values, owner identity, full address and interior photos.
+- Warranty and AMC reminders on WhatsApp at 30 days, 7 days and on the day.
+- HSI villas are handed over with their twin, built from HSIOS™ execution records. Other homes are onboarded by HSI's team during early access.
+- Roadmap: service tickets and water-leak shut-off (Phase 2), vendor marketplace (Phase 3), self-onboarding and developer handover (Phase 4).
+- More: https://www.hsios.in/digital-twin
+
+---
+
 ## Engagement Models
 
 ### Option A — Platform Only

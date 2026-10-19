@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { clientIp } from '@/lib/rate-limit'
 
 /* ── Rate limiting ─────────────────────────────────────────
    In-memory — sufficient for single-process PM2 deployment.
@@ -84,7 +85,7 @@ export async function POST(req: NextRequest) {
   }
 
   /* Rate limit by IP */
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
+  const ip = clientIp(req)
   if (isRateLimited(ip)) {
     return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
   }
@@ -114,6 +115,8 @@ export async function POST(req: NextRequest) {
   const budget      = sanitizeLine(body.budget)
   const preferredContact = sanitizeLine(body.preferredContact)
   const message     = sanitizeBody(body.message)
+  const isTwin      = body.interest === 'digital-twin'
+  const enquiryKind = isTwin ? 'Digital Twin Enquiry' : 'Project Enquiry'
 
   /* Validate required fields */
   if (!name || !email || !projectType || !location || !message) {
@@ -170,7 +173,7 @@ export async function POST(req: NextRequest) {
 <body>
   <div class="wrapper">
     <div class="header">
-      <h1>New Project Enquiry</h1>
+      <h1>New ${enquiryKind}</h1>
       <p>Submitted via hsios.in — ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</p>
     </div>
     <div class="body">
@@ -186,7 +189,7 @@ export async function POST(req: NextRequest) {
       ${preferredContact ? `<div class="field"><div class="label">Preferred Contact</div><div class="value">${preferredContact}</div></div>` : ''}
       <div class="field"><div class="label">Project Description</div><div class="value">${message.replace(/\n/g, '<br>')}</div></div>
     </div>
-    <div class="footer">Hestia Smart Interiors · hello@hsios.in · +91-8010234802 · +91-9881149629</div>
+    <div class="footer">Hestia Smart Interiors · hello@hsios.in · +91-8010234802 · +91-9766645771</div>
   </div>
 </body>
 </html>`
@@ -196,9 +199,9 @@ export async function POST(req: NextRequest) {
       from: `"HSIOS™ Website" <${smtpUser}>`,
       to: notifyTo,
       replyTo: email,
-      subject: `New Project Enquiry — ${name} — ${projectType} in ${location}`,
+      subject: `New ${enquiryKind} — ${name} — ${projectType} in ${location}`,
       html,
-      text: `New Project Enquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject: ${projectType}\nLocation: ${location}\nArea: ${area}\nStage: ${stage}\nWhere they live: ${residence}\nBudget: ${budget}\nPreferred contact: ${preferredContact}\n\n${message}`,
+      text: `New ${enquiryKind}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject: ${projectType}\nLocation: ${location}\nArea: ${area}\nStage: ${stage}\nWhere they live: ${residence}\nBudget: ${budget}\nPreferred contact: ${preferredContact}\n\n${message}`,
     })
 
     // Auto-acknowledgement to client
@@ -219,18 +222,19 @@ export async function POST(req: NextRequest) {
   </div>
   <div style="background: white; padding: 32px; border: 1px solid #EAE0D0; border-radius: 0 0 12px 12px;">
     <p style="font-size: 15px; line-height: 1.75; color: #3A3530;">
-      We have received your project enquiry and will respond within <strong>24 hours</strong>
-      to schedule a consultation.
+      ${isTwin
+        ? 'We have received your HSIOS&trade; Digital Twin enquiry and will be in touch within <strong>24 hours</strong>.'
+        : 'We have received your project enquiry and will respond within <strong>24 hours</strong> to schedule a consultation.'}
     </p>
     <p style="font-size: 15px; line-height: 1.75; color: #3A3530;">
       If your matter is urgent, please WhatsApp us at
       <a href="https://wa.me/918010234802" style="color: #9A7A54;">+91-8010234802</a>
-      or call +91-9881149629.
+      or call +91-9766645771.
     </p>
     <hr style="border: none; border-top: 1px solid #EAE0D0; margin: 24px 0;">
     <p style="font-family: sans-serif; font-size: 12px; color: #9B9080;">
       Hestia Smart Interiors · Powered by HSIOS™<br>
-      hello@hsios.in · +91-8010234802 · +91-9881149629
+      hello@hsios.in · +91-8010234802 · +91-9766645771
     </p>
   </div>
 </div>

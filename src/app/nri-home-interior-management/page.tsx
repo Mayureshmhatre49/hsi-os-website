@@ -7,9 +7,9 @@ import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
 
 export const metadata: Metadata = {
-  title: 'NRI Home Interior Management — Build in India from Anywhere',
+  title: 'NRI Home Interior Management — Build From Anywhere',
   description:
-    'Full interior execution management for NRIs building in India. HSIOS™ gives you real-time project visibility, cost transparency, and digital approvals — no site visits required.',
+    'Interior execution management for NRIs building in India. HSIOS™ gives you live visibility, cost transparency and digital approvals — no site visits needed.',
   alternates: getAlternates('/nri-home-interior-management'),
   openGraph: {
     title: 'NRI Home Interior Management — Build in India from Anywhere',
@@ -272,6 +272,30 @@ export default async function NriHomeInteriorManagementPage() {
               </RevealOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── AFTER HANDOVER — Digital Twin ── */}
+      <section className="py-20 bg-white">
+        <div className="container-luxury">
+          <RevealOnScroll>
+            <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center p-8 md:p-12 rounded-3xl bg-ivory-100 border border-ivory-300">
+              <div>
+                <div className="section-label">After handover</div>
+                <h2 className="font-serif text-display-sm text-charcoal-800 mb-4">
+                  Keep running the villa from wherever you live.
+                </h2>
+                <p className="text-warmgray-600 leading-relaxed">
+                  The HSIOS™ Digital Twin keeps every appliance, warranty, AMC and repair contact on
+                  record, with QR labels your caretaker can scan and WhatsApp reminders timed to your
+                  time zone.
+                </p>
+              </div>
+              <div className="flex flex-wrap lg:justify-end gap-3">
+                <Link href="/digital-twin" className="btn btn-dark">Explore the Digital Twin</Link>
+              </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 

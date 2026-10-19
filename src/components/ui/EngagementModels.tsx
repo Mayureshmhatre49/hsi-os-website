@@ -83,7 +83,7 @@ export default function EngagementModels({
             audience="For architects, developers, project teams, and homeowners working with their own vendors."
             description="Run your project on HSIOS™. Keep your existing execution partners. Gain full execution intelligence, documentation, and lifecycle visibility — without changing your delivery model."
             includes={platformIncludes}
-            cta={{ href: '/demo', label: 'Request a Platform Demo' }}
+            cta={{ href: '/contact', label: 'Request a Platform Demo' }}
             Icon={Cpu}
           />
           <ModelColumn

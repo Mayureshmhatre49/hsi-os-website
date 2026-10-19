@@ -12,13 +12,13 @@
   --ivory-dark:      #F3EDE3;
   --cream:           #EAE0D0;
   --sandstone:       #C4A882;
-  --sandstone-dark:  #9A7A54;
-  --bronze:          #8B6B35;
+  --sandstone-dark:  #7E6444;
+  --bronze:          #826431;
   --bronze-light:    #C4A850;
   --charcoal:        #1C1C1E;
   --charcoal-mid:    #3A3530;
   --warm-gray:       #5A5248;
-  --muted:           #9B9080;
+  --muted:           #746A5C;
 
   /* Typography */
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { clientIp } from '@/lib/rate-limit'
 
 /* ── Rate limiting ───────────────────────────────────────── */
 const rateLimitMap = new Map<string, { count: number; reset: number }>()
@@ -142,7 +143,7 @@ export async function POST(req: NextRequest) {
   }
 
   /* Rate limit by IP */
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
+  const ip = clientIp(req)
   if (isRateLimited(ip)) {
     return NextResponse.json({ error: 'Too many requests. Please wait a moment.' }, { status: 429 })
   }
@@ -438,12 +439,12 @@ export async function POST(req: NextRequest) {
     <p style="font-size: 15px; line-height: 1.75; color: #3A3530;">
       For immediate assistance, please connect with us on
       <a href="https://wa.me/918010234802" style="color: #9A7A54; font-weight: 600;">WhatsApp (+91-8010234802)</a>
-      or call +91-9881149629.
+      or call +91-9766645771.
     </p>
     <hr style="border: none; border-top: 1px solid #EAE0D0; margin: 24px 0;">
     <p style="font-family: sans-serif; font-size: 12px; color: #9B9080;">
       Hestia Smart Interiors &bull; Powered by HSIOS™<br>
-      hello@hsios.in &bull; +91-8010234802 &bull; +91-9881149629
+      hello@hsios.in &bull; +91-8010234802 &bull; +91-9766645771
     </p>
   </div>
 </div>
