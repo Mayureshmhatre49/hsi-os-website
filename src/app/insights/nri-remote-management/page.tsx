@@ -3,7 +3,7 @@ import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
-import { OG_IMAGE } from '@/lib/seo'
+import { OG_IMAGE, articleSchema as blogPosting, breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Remote Interior Project Management for NRIs',
@@ -20,22 +20,23 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogNriRemoteManagementPage() {
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  const articleSchema = blogPosting({
+    slug: 'nri-remote-management',
     headline: 'Remote Interior Project Management: What NRIs Need to Know',
     description: 'A complete guide for Non-Resident Indians looking to execute premium luxury interiors in India without the anxiety of remote management.',
-    author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
-    // [CONFIRM] real original publish date (placeholder below); dateModified = today
-    datePublished: '2025-01-01',
-    dateModified: '2026-09-22',
-    publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/insights/nri-remote-management',
-  }
+    datePublished: '2026-04-13',
+    dateModified: '2026-10-19',
+    about: [{ '@type': 'Country', name: 'India' }],
+  })
+
 
   return (
     <>
-      <JsonLd data={articleSchema} />
+      <JsonLd data={[articleSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Insights', url: 'https://www.hsios.in/insights' },
+        { name: 'NRI Remote Project Management', url: 'https://www.hsios.in/insights/nri-remote-management' },
+      ])]} />
 
       {/* ── ARTICLE HERO ── */}
       <section className="pt-40 pb-16 bg-charcoal-900">

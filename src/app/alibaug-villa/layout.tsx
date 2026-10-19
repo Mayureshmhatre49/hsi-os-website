@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description:
     'Architecture, construction, interiors, and Digital Twin — one integrated ecosystem for discerning villa owners in Alibaug. Backed by HSIOS™. Book a private consultation.',
   alternates: getAlternates('/alibaug-villa'),
+  // Paid-traffic landing page. Kept out of the index so it doesn't compete with
+  // /alibag-villa-interiors (the canonical Alibag page); links are still followed.
+  robots: { index: false, follow: true },
   openGraph: {
     type: 'website',
     url: 'https://www.hsios.in/alibaug-villa',

@@ -10,6 +10,7 @@ import ChatBot from '@/components/ui/ChatBot'
 import SkipToContent from '@/components/ui/SkipToContent'
 import WebVitals from '@/components/WebVitals'
 import { getAlternates } from '@/lib/seo'
+import { ALIBAG, MUMBAI, placeSchema } from '@/content/locations'
 
 /* ── Self-hosted fonts via next/font/google ────────────────
    Fonts are downloaded at build time, self-hosted, and served
@@ -107,7 +108,7 @@ const localBusinessSchema = {
     'https://www.hsios.in/hestia-serenity-villa.jpg',
   ],
   description:
-    'Precision interior execution for luxury villas, premium residences and holiday homes in Alibag, Mumbai and beyond — powered by HSIOS™.',
+    'Precision interior execution for luxury villas, premium residences and holiday homes in Alibag (Alibaug), Mumbai and across the Konkan coast — powered by HSIOS™.',
   telephone: '+91-8010234802',
   email: 'hello@hsios.in',
   contactPoint: [
@@ -163,14 +164,18 @@ const localBusinessSchema = {
   currenciesAccepted: 'INR',
   paymentAccepted: 'Bank Transfer, NEFT, RTGS',
   foundingDate: '2021',
+  // Primary markets first, fully disambiguated (see src/content/locations.ts).
   areaServed: [
-    { '@type': 'City', name: 'Alibag' },
-    { '@type': 'City', name: 'Mumbai' },
-    { '@type': 'City', name: 'Pune' },
-    { '@type': 'City', name: 'Goa' },
-    { '@type': 'City', name: 'Bangalore' },
-    { '@type': 'City', name: 'Nashik' },
+    placeSchema(ALIBAG),
+    placeSchema(MUMBAI),
+    { '@type': 'AdministrativeArea', name: 'Raigad district', sameAs: 'https://en.wikipedia.org/wiki/Raigad_district' },
+    { '@type': 'Place', name: 'Konkan coast', sameAs: 'https://en.wikipedia.org/wiki/Konkan' },
+    { '@type': 'City', name: 'Karjat' },
     { '@type': 'City', name: 'Lonavala' },
+    { '@type': 'City', name: 'Pune' },
+    { '@type': 'State', name: 'Goa' },
+    { '@type': 'City', name: 'Nashik' },
+    { '@type': 'City', name: 'Bangalore' },
     { '@type': 'Country', name: 'India' },
   ],
   knowsAbout: [

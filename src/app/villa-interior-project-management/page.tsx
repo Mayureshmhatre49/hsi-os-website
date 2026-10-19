@@ -261,7 +261,7 @@ export default async function VillaInteriorProjectManagementPage() {
               >
                 Discuss Your Villa
               </a>
-              <Link href="/projects" className="btn btn-outline-light">
+              <Link href="/projects" className="btn btn-outline-white">
                 See Our Work
               </Link>
             </div>

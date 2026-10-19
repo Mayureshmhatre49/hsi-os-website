@@ -15,10 +15,24 @@ const posts = [
   {
     slug: 'insights/alibag-villa-guide',
     category: 'Guide · Alibag Series',
-    title: 'The Complete Guide to Villa Interior Design in Alibag (2025)',
+    title: 'The Complete Guide to Villa Interior Design in Alibag (2026)',
     excerpt: 'Everything you need to know about weather-proofing, material selection, and executing a premium coastal home without delays or surprises.',
     readTime: '12 min read',
     featured: true,
+  },
+  {
+    slug: 'insights/alibag-second-home-from-mumbai',
+    category: 'Guide · Mumbai to Alibag',
+    title: 'Building an Alibag Second Home While Living in Mumbai',
+    excerpt: 'Travel, monsoon timing, logistics and budgets — the practical playbook for Mumbai families building a villa across the harbour.',
+    readTime: '8 min read',
+  },
+  {
+    slug: 'insights/mumbai-apartment-renovation-society-noc',
+    category: 'Guide · Mumbai',
+    title: 'Renovating a Mumbai Apartment: Society NOC & Rules',
+    excerpt: 'What your housing society will ask for before you renovate, and how to plan the work so approvals never stall it.',
+    readTime: '7 min read',
   },
   {
     slug: 'insights/designer-vs-execution-firm',

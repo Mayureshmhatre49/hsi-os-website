@@ -120,7 +120,11 @@ function HeroSection() {
           </p>
 
           <p className="text-sm text-sandstone-400/80 font-sans mb-10 pl-4 animate-fade-up [animation-delay:260ms] leading-relaxed">
-            Alibag · Konkan Coast · Mumbai owners · NRI projects
+            <Link href="/alibag-villa-interiors" className="hover:text-sandstone-300 underline-offset-4 hover:underline">Alibag</Link>
+            {' · Konkan Coast · '}
+            <Link href="/mumbai-luxury-interiors" className="hover:text-sandstone-300 underline-offset-4 hover:underline">Mumbai owners</Link>
+            {' · '}
+            <Link href="/nri-home-interior-management" className="hover:text-sandstone-300 underline-offset-4 hover:underline">NRI projects</Link>
           </p>
 
           <div className="flex flex-wrap items-center gap-4 animate-fade-up [animation-delay:320ms]">
@@ -205,6 +209,12 @@ function NriStoryBand() {
           <Link href="/nri-home-interior-management" className="btn btn-outline-dark">
             How we work with NRI owners
           </Link>
+          <p className="mt-5 text-sm text-warmgray-600">
+            Living in Mumbai?{' '}
+            <Link href="/insights/alibag-second-home-from-mumbai" className="font-semibold text-sandstone-600 underline underline-offset-2 hover:text-sandstone-700">
+              Read our guide to building an Alibag second home from Mumbai
+            </Link>
+          </p>
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.1}>

@@ -257,7 +257,7 @@ export default async function LonavalaVillaInteriorsPage() {
               >
                 Discuss Your Project
               </a>
-              <Link href="/projects" className="btn btn-outline-light">
+              <Link href="/projects" className="btn btn-outline-white">
                 See Our Portfolio
               </Link>
             </div>

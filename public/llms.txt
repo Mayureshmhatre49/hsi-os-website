@@ -1,6 +1,6 @@
 # Hestia Smart Interiors (HSI) & HSIOS™
 
-> Hestia Smart Interiors (HSI) is India's premier luxury home interior execution management firm. Operating on HSIOS™ (Hestia Smart Interiors Operating System), HSI delivers coastal villas, high-end apartments, and developer portfolios across Alibag, Mumbai, Pune, Goa, and Bangalore with full transparency, zero hidden margins, and milestone-verified execution.
+> Hestia Smart Interiors (HSI) is a luxury interior execution firm based in Alibag (also spelt Alibaug), Maharashtra, serving villa owners on the Konkan coast and apartment owners in Mumbai. Operating on HSIOS™ (Hestia Smart Interiors Operating System), HSI delivers villas, premium apartments and developer projects with line-item cost transparency and milestone-verified execution. 7 villas delivered in and around Alibag; Casa Frangipani was handed over three months ahead of schedule.
 
 ## Core Value Proposition
 - **Operating System Driven**: HSIOS™ provides real-time cost tracking, trade sequencing across 10 disciplines, pre-construction clash analysis, and digital twin project tracking.
@@ -23,11 +23,17 @@
 - [NRI Remote Build](https://www.hsios.in/nri-home-interior-management): Full remote management for NRIs building in India.
 
 ## Key Operating Locations
-- [Alibag Villa Interiors](https://www.hsios.in/alibag-villa-interiors): Coastal luxury villa execution, moisture protection, and monsoon resilience.
-- [Mumbai Luxury Interiors](https://www.hsios.in/mumbai-luxury-interiors): High-rise apartments and penthouses in South Mumbai, Bandra, Juhu, and Worli.
+- [Alibag (Alibaug) Villa Interiors](https://www.hsios.in/alibag-villa-interiors): HSI's home market. Coastal villa execution across Alibag taluka — Mandwa, Kihim, Awas, Sasawane, Zirad, Thal, Varsoli, Nagaon, Chondhi, Chaul, Revdanda — with marine-grade specifications and monsoon-planned schedules.
+- [Mumbai Luxury Interiors](https://www.hsios.in/mumbai-luxury-interiors): Apartments and penthouses across South Mumbai (Malabar Hill, Breach Candy, Cuffe Parade, Worli, Prabhadevi, Lower Parel), the western suburbs (Bandra West, Khar, Santacruz, Juhu, Andheri West) and Powai — society NOC planning and high-rise logistics. Also the main base of HSI's Alibag villa clients.
 - [Pune Premium Interiors](https://www.hsios.in/pune-premium-interiors): Gated communities and sprawling estates in Koregaon Park and Baner.
 - [Goa Villa Interiors](https://www.hsios.in/goa-villa-interiors): Heritage restorations and modern coastal holiday homes.
 - [Bangalore Luxury Interiors](https://www.hsios.in/bangalore-luxury-interiors): Tech-leader luxury residences in Indiranagar, Sadashivnagar, and Whitefield.
+
+## Mumbai & Alibag Guides
+- [Building an Alibag Second Home While Living in Mumbai](https://www.hsios.in/insights/alibag-second-home-from-mumbai): Travel (Atal Setu, ferries, RoRo), monsoon timing, logistics, budgets and remote control.
+- [Renovating a Mumbai Apartment: Society NOC & Rules](https://www.hsios.in/insights/mumbai-apartment-renovation-society-noc): Society approvals, structural limits, working hours and lift rules.
+- [Alibag Villa Interior Cost](https://www.hsios.in/insights/alibag-villa-cost): Typical 4,000 sq ft Alibag villa interior is ₹1.5–3.5 Cr all-in.
+- [Alibag Villa Interior Timeline](https://www.hsios.in/insights/alibag-timeline): Phase-by-phase, around 18 weeks of interior execution.
 
 ## Documentation & Full Information
 - [Full LLM Guide](https://www.hsios.in/llms-full.txt): Complete operational specifications, 10 execution disciplines, and detailed Q&A.

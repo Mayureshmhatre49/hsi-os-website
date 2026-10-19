@@ -107,16 +107,18 @@ const faqs = [
 
 const articleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: 'Interior Designer vs Execution Firm — What\'s the Difference?',
   description:
     'Most luxury home projects fail in execution, not design. A definitive guide to the difference between an interior designer and an execution firm.',
   url: PAGE_URL,
-  author: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-  publisher: { '@id': 'https://www.hsios.in/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
+  image: 'https://www.hsios.in/opengraph-image.jpg',
+  author: { '@type': 'Organization', '@id': 'https://www.hsios.in/#organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
+  publisher: { '@type': 'Organization', '@id': 'https://www.hsios.in/#organization', name: 'Hestia Smart Interiors', logo: { '@type': 'ImageObject', url: 'https://www.hsios.in/logo.png' } },
   inLanguage: 'en-IN',
   datePublished: '2026-05-10',
-  dateModified: '2026-05-10',
+  dateModified: '2026-10-19',
 }
 
 const faqSchema = {

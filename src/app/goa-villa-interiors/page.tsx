@@ -120,7 +120,7 @@ export default async function GoaVillaInteriorsPage() {
                 >
                   Start Your Goa Project
                 </a>
-                <Link href="/contact" className="btn btn-outline-light">
+                <Link href="/contact" className="btn btn-outline-white">
                   Get a Cost Estimate
                 </Link>
               </div>

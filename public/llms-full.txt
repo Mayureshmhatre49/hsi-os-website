@@ -1,7 +1,7 @@
 # Hestia Smart Interiors (HSI) & HSIOS™ — Full Operational Specification
 
 ## Executive Overview
-Hestia Smart Interiors (HSI) is India's leading luxury interior execution management organization. Founded by Nishant Mhatre, HSI bridges the gap between architectural design and site execution using HSIOS™ (Hestia Smart Interiors Operating System) — a proprietary execution intelligence platform.
+Hestia Smart Interiors (HSI) is a luxury interior execution firm based in Alibag (Alibaug), Maharashtra. Founded by Nishant Mhatre, HSI bridges the gap between architectural design and site execution using HSIOS™ (Hestia Smart Interiors Operating System) — a proprietary execution intelligence platform.
 
 ### Core Company Information
 - Brand: Hestia Smart Interiors
@@ -11,7 +11,11 @@ Hestia Smart Interiors (HSI) is India's leading luxury interior execution manage
 - Platform Portal: https://os.hsios.in
 - Contact Email: hello@hsios.in
 - Phone / WhatsApp: +91-8010234802
-- Headquarters / Key Hubs: Alibag, Mumbai, Pune, Goa, Bangalore
+- Alternate phone: +91-9766645771
+- Base: Alibag (Alibaug), Raigad district, Maharashtra 402201
+- Primary markets: Alibag and the Konkan coast; Mumbai apartment owners and Mumbai families building in Alibag
+- Also serving: Karjat, Lonavala, Pune, Goa, Nashik, Bangalore and NRI clients
+- Track record: 7 villas delivered in and around Alibag; 75 trade conflicts caught before execution; Casa Frangipani (6,500 sq ft, Alibag) delivered three months ahead of schedule
 
 ---
 
@@ -79,16 +83,32 @@ End-to-end turnkey delivery where HSI orchestrates the entire execution through 
 
 ---
 
+## Alibag (Alibaug) — Local Execution Knowledge
+- Areas served in Alibag taluka: Mandwa, Kihim, Awas, Sasawane, Zirad, Thal, Varsoli, Nagaon, Chondhi, Chaul, Revdanda, and the wider Raigad coast.
+- Coastal specification baseline: BWP marine-grade ply carcasses, SS-304/316 hardware, high-grade waterproofing.
+- Monsoon (roughly June–September) is the critical constraint; weather-sensitive work is sealed before June.
+- Premium materials are batch-procured from Mumbai and moved by road or RoRo ferry against quantified material takeoffs.
+- Typical 4,000 sq ft villa interior: ₹1.5–3.5 Cr all-in. Interior execution: around 18 weeks once the shell is ready.
+- Guide: https://www.hsios.in/insights/alibag-second-home-from-mumbai
+
+## Mumbai — Local Execution Knowledge
+- Apartments and penthouses across South Mumbai, the western suburbs and Powai.
+- Society NOC, permitted working hours, goods-lift slots and debris rules are mapped into the HSIOS™ schedule before mobilisation.
+- Structural changes require a structural engineer's assessment; wet-area moves are planned around the flat below.
+- Guide: https://www.hsios.in/insights/mumbai-apartment-renovation-society-noc
+
+---
+
 ## Frequently Asked Questions (FAQ)
 
 ### Q: What geographic areas does HSI serve?
-A: HSI operates across primary luxury residential markets in India: Alibag, Mumbai, Pune, Goa, and Bangalore, along with key retreat locations like Karjat, Lonavala, and Nashik.
+A: HSI is based in Alibag and focuses on Alibag and the Konkan coast plus Mumbai, and also takes projects in Karjat, Lonavala, Pune, Goa, Nashik and Bangalore, and for NRI owners.
 
 ### Q: How does HSI handle NRI (Non-Resident Indian) projects?
 A: HSI specializes in NRI Remote Build management. Overseas owners get a 24/7 digital dashboard tracking financial allocations, milestone sign-offs, and high-resolution video/photo progress logs without needing to physically visit the site.
 
 ### Q: Does HSI replace interior designers or architects?
-A: No. HSI is an execution intelligence firm, not a design studio. HSI collaborates directly with leading architects and interior designers to ensure their design intent is faithfully delivered without compromise or site-level scope drift.
+A: No. HSI is an execution intelligence firm, not a design studio. HSI collaborates directly with architects and interior designers to ensure their design intent is faithfully delivered without compromise or site-level scope drift.
 
 ### Q: How can clients book a consultation or try HSIOS™?
 A: Clients can visit https://www.hsios.in/contact to request a private consultation, or explore the live platform at https://os.hsios.in.

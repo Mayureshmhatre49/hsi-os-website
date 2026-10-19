@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { ALIBAG, placeSchema } from '@/content/locations'
 import { JsonLd } from '@/lib/JsonLd'
-import { OG_IMAGE } from '@/lib/seo'
+import { OG_IMAGE, articleSchema as blogPosting, breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'The Complete Guide to Alibag Villa Interiors (2026)',
@@ -20,22 +21,23 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogAlibagVillaGuidePage() {
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  const articleSchema = blogPosting({
+    slug: 'alibag-villa-guide',
     headline: 'The Complete Guide to Villa Interior Design in Alibag (2026)',
     description: 'A comprehensive execution guide for building or renovating a luxury villa interior in Alibag.',
-    author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
-    // [CONFIRM] real original publish date (placeholder below); dateModified = today
-    datePublished: '2025-01-01',
-    dateModified: '2026-09-22',
-    publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/insights/alibag-villa-guide',
-  }
+    datePublished: '2026-04-13',
+    dateModified: '2026-10-19',
+    about: [placeSchema(ALIBAG)],
+  })
+
 
   return (
     <>
-      <JsonLd data={articleSchema} />
+      <JsonLd data={[articleSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Insights', url: 'https://www.hsios.in/insights' },
+        { name: 'Alibag Villa Interior Guide', url: 'https://www.hsios.in/insights/alibag-villa-guide' },
+      ])]} />
 
       {/* ── ARTICLE HERO ── */}
       <section className="pt-40 pb-16 bg-charcoal-900">

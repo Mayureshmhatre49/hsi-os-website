@@ -1,20 +1,24 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight, MapPin } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
+import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import { FACTS } from '@/content/facts'
+import { MUMBAI, MUMBAI_AREAS, ALIBAG, placeSchema } from '@/content/locations'
+
+const PAGE_URL = 'https://www.hsios.in/mumbai-luxury-interiors'
 
 export const metadata: Metadata = {
-  title: 'Mumbai Luxury Interiors — Apartments & Penthouses',
+  title: 'Luxury Interiors in Mumbai — Apartments & Penthouses',
   description:
     'Interior execution for Mumbai apartments and penthouses — society approvals, high-rise logistics and vendor coordination with full cost transparency in HSIOS™.',
   alternates: getAlternates('/mumbai-luxury-interiors'),
   openGraph: {
     title: 'Mumbai Luxury Interiors — Apartments & Penthouses',
     description: 'Premium interior execution for Mumbai luxury residences — society-compliant, fully transparent, powered by HSIOS™.',
-    url: 'https://www.hsios.in/mumbai-luxury-interiors',
-    alternateLocale: ['en_GB', 'en_US', 'en_AU', 'en_SG'],
+    url: PAGE_URL,
     images: [OG_IMAGE],
   },
 }
@@ -33,8 +37,16 @@ const faqs = [
     a: 'The HSIOS™ Budget Intelligence module tracks every rupee against the approved estimate in real time. Any deviation triggers a digital Change Order that requires your sign-off before a single rupee is spent.',
   },
   {
-    q: 'Do you manage work in both new Bandra apartments and older South Mumbai buildings?',
-    a: 'Yes. We have experience across the full Mumbai micro-market spectrum — from brand-new shells in BKC to heritage buildings in Breach Candy that require careful structural sensitivity.',
+    q: 'Does the approach differ for new towers and older South Mumbai buildings?',
+    a: 'Yes. A new shell in a recent tower is mostly about logistics, builder specifications and goods-lift windows. An older building adds load limits, ageing services and stricter committee scrutiny, so structural and plumbing surveys come before any design is locked. HSIOS™ captures these constraints at onboarding so the schedule reflects the building you actually have.',
+  },
+  {
+    q: 'What society approvals do I need to renovate a Mumbai apartment?',
+    a: 'Most housing societies require a written application and NOC from the managing committee before work starts, usually with a scope description, contractor details and a refundable deposit. Structural changes need a structural engineer’s report and, where required, municipal permission. Our guide to Mumbai apartment renovation walks through the process.',
+  },
+  {
+    q: 'I live in Mumbai but am building a villa in Alibag. Can you manage both?',
+    a: 'Yes — this is the most common profile we work with. Alibag is our home base, and HSIOS™ gives Mumbai owners the same daily visibility of an Alibag site as a city one: progress photos, live budget and digital approvals, without weekly ferry trips.',
   },
 ]
 
@@ -61,7 +73,7 @@ const challenges = [
   },
   {
     title: 'Quality at Finish Level',
-    desc: 'Milestone-locked quality inspections with photographic proof. No phase proceeds until the previous one passes our 200-point digital snagging checklist.',
+    desc: `Milestone-locked quality inspections with photographic proof. No phase proceeds until the previous one passes its milestone checks — ${FACTS.qaCheckpoints} QA checkpoints across the project.`,
   },
 ]
 
@@ -76,11 +88,23 @@ export default async function MumbaiLuxuryInteriorsPage() {
     })),
   }
 
+  const service = serviceSchema({
+    name: 'Luxury Apartment & Penthouse Interior Execution in Mumbai',
+    serviceType: 'Apartment Interior Execution',
+    description:
+      'Interior execution for Mumbai apartments and penthouses — society NOC planning, high-rise logistics, multi-trade sequencing and live cost tracking through HSIOS™.',
+    url: PAGE_URL,
+    areaServed: [
+      placeSchema(MUMBAI),
+      ...MUMBAI_AREAS.flatMap(({ areas }) => areas.map((name) => ({ '@type': 'Place', name: `${name}, Mumbai` }))),
+    ],
+  })
+
   return (
     <>
-      <JsonLd data={[faqSchema, breadcrumb([
+      <JsonLd data={[faqSchema, service, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
-        { name: 'Mumbai Luxury Interiors', url: 'https://www.hsios.in/mumbai-luxury-interiors' },
+        { name: 'Mumbai Luxury Interiors', url: PAGE_URL },
       ])]} />
 
       {/* ── HERO ── */}
@@ -88,7 +112,7 @@ export default async function MumbaiLuxuryInteriorsPage() {
         <div className="absolute inset-0">
           <Image
             src="/projects-casa-frangipani-1.jpg"
-            alt="Luxury apartment and penthouse interiors in Mumbai by Hestia Smart Interiors"
+            alt="Luxury interior executed by Hestia Smart Interiors"
             fill
             className="object-cover"
             priority
@@ -120,7 +144,7 @@ export default async function MumbaiLuxuryInteriorsPage() {
                 >
                   Start Your Mumbai Project
                 </a>
-                <Link href="/contact" className="btn btn-outline-light">
+                <Link href="/contact" className="btn btn-outline-white">
                   Get a Cost Estimate
                 </Link>
               </div>
@@ -205,9 +229,85 @@ export default async function MumbaiLuxuryInteriorsPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-bronze-600 font-bold mt-0.5">—</span>
-                <span>200-point digital snagging at handover — nothing is missed</span>
+                <span>{FACTS.qaCheckpoints} QA checkpoints and digital snagging through to handover</span>
               </li>
             </ul>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ── NEIGHBOURHOODS ── */}
+      <section className="py-24 bg-ivory-50">
+        <div className="container-luxury">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <RevealOnScroll>
+              <div className="section-label">Across Mumbai</div>
+              <h2 className="font-serif text-display-md text-charcoal-900 mb-6">
+                Every Building Has Its Own Rules
+              </h2>
+              <p className="text-warmgray-600 leading-relaxed mb-6">
+                A Malabar Hill heritage block, a Worli tower and a Bandra West redevelopment run on
+                very different constraints — committee approvals, permitted working hours, goods-lift
+                access and load limits. We map those rules into the HSIOS™ schedule before
+                mobilisation, so no trade arrives to a locked service lift or a stop-work notice.
+              </p>
+              <p className="text-warmgray-600 leading-relaxed">
+                Planning a renovation? Start with our guide to{' '}
+                <Link href="/insights/mumbai-apartment-renovation-society-noc" className="text-sandstone-600 font-semibold underline underline-offset-2 hover:text-sandstone-700">
+                  society NOCs and renovation rules in Mumbai
+                </Link>
+                .
+              </p>
+            </RevealOnScroll>
+            <RevealOnScroll delay={0.1}>
+              <div className="space-y-6">
+                {MUMBAI_AREAS.map(({ group, areas }) => (
+                  <div key={group}>
+                    <div className="text-xs font-semibold tracking-widest uppercase text-sandstone-600 mb-3">{group}</div>
+                    <ul className="flex flex-wrap gap-2" aria-label={`${group} areas`}>
+                      {areas.map((area) => (
+                        <li key={area} className="flex items-center gap-1.5 rounded-full bg-white border border-ivory-300 px-3.5 py-1.5 text-sm text-charcoal-800">
+                          <MapPin size={13} className="text-sandstone-600" aria-hidden="true" />
+                          {area}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ── MUMBAI → ALIBAG ── */}
+      <section className="py-24 bg-charcoal-800">
+        <div className="container-luxury grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
+          <RevealOnScroll>
+            <div className="section-label text-sandstone-400">For Mumbai Families</div>
+            <h2 className="font-serif text-display-md text-white mb-5">
+              Building a Second Home in {ALIBAG.name}?
+            </h2>
+            <p className="text-warmgray-300 leading-relaxed mb-4">
+              Alibag is our home base. Most of our villa clients live in Mumbai and build across the
+              harbour — and the hardest part is not design, it is running a coastal site you can only
+              visit at weekends. HSIOS™ closes that distance with daily site photos, a live budget and
+              digital approvals.
+            </p>
+            <p className="text-warmgray-300 leading-relaxed">
+              {FACTS.villasDelivered} villas delivered in and around Alibag, including Casa Frangipani —
+              handed over three months ahead of schedule.
+            </p>
+          </RevealOnScroll>
+          <RevealOnScroll delay={0.1}>
+            <div className="flex flex-col gap-4">
+              <Link href="/alibag-villa-interiors" className="btn-bronze justify-center">
+                Alibag Villa Interiors <ArrowRight size={15} />
+              </Link>
+              <Link href="/insights/alibag-second-home-from-mumbai" className="btn btn-outline-white justify-center">
+                Guide: Building in Alibag from Mumbai
+              </Link>
+            </div>
           </RevealOnScroll>
         </div>
       </section>

@@ -127,6 +127,8 @@ The website is **not** a design portfolio. It is a precision-positioned brand pl
 | `/second-home-interior-design` | SEO landing — Second home interiors |
 | `/turnkey-home-interiors` | SEO landing — Turnkey interiors |
 | `/villa-interior-project-management` | SEO landing — Villa project management |
+| `/insights/alibag-second-home-from-mumbai` | Guide — building an Alibag villa from Mumbai |
+| `/insights/mumbai-apartment-renovation-society-noc` | Guide — Mumbai society NOC & renovation rules |
 | `/privacy`, `/terms` | Legal pages |
 
 ---
@@ -274,6 +276,13 @@ Three schemas are injected in `layout.tsx` for every page:
 3. **WebSite** — links to the LocalBusiness publisher via `@id`.
 
 > `aggregateRating` is intentionally omitted — Google requires reviews to be visibly rendered on the same page.
+
+### Local SEO (Mumbai & Alibag)
+
+- Location entities (names, Alibaug/Alibagh spellings, Wikipedia `sameAs`, micro-areas) live in `src/content/locations.ts`; use `placeSchema()` for `areaServed` / `about`.
+- Keyword-to-page map and off-site playbook: `docs/SEO-MUMBAI-ALIBAG.md`. One page per search intent — don't add pages that compete with an owner page.
+- `/alibaug-villa` is a paid landing page and is `noindex, follow` on purpose.
+- Articles use `articleSchema()` from `seo.ts` (BlogPosting) with real publish dates.
 
 ### Per-page JSON-LD (via `src/lib/JsonLd.tsx`)
 

@@ -33,59 +33,56 @@ export function serviceSchema(opts: {
   name: string
   description: string
   url: string
-  areaServed?: string[]
+  /** Plain place names, or full Place objects (e.g. from placeSchema()). */
+  areaServed?: Array<string | Record<string, unknown>>
+  serviceType?: string
 }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'Luxury Interior Execution & Project Management',
+    serviceType: opts.serviceType ?? 'Luxury Interior Execution & Project Management',
     name: opts.name,
     description: opts.description,
     url: opts.url,
-    provider: { '@id': `${BASE}/#organization` },
-    areaServed: (opts.areaServed ?? ['Alibag', 'Mumbai', 'Pune', 'Goa', 'Bangalore']).map((name) => ({
-      '@type': 'Place',
-      name,
-    })),
+    provider: { '@id': `${BASE}/#business` },
+    areaServed: (opts.areaServed ?? ['Alibag', 'Mumbai', 'Pune', 'Goa', 'Bangalore']).map((place) =>
+      typeof place === 'string' ? { '@type': 'Place', name: place } : place,
+    ),
   }
 }
 
-/** Master Organization Schema for AI Knowledge Graphs (SearchGPT, Claude, Perplexity, Gemini, Google). */
-export const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${BASE}/#organization`,
-  name: 'Hestia Smart Interiors',
-  alternateName: ['HSI', 'HSIOS', 'Hestia Smart Interiors Operating System'],
-  url: BASE,
-  logo: `${BASE}/favicon.ico`,
-  description: 'India\'s premier luxury home interior execution management firm, powered by HSIOS™ execution intelligence platform.',
-  founder: {
-    '@type': 'Person',
-    name: 'Nishant Mhatre',
-    jobTitle: 'Founder & CEO',
-  },
-  knowsAbout: [
-    'Luxury Villa Interior Execution',
-    'HSIOS Execution Operating System',
-    'Trade Sequencing & Clash Detection',
-    'NRI Remote Property Build Management',
-    'Alibag Monsoon-Proof Luxury Interiors',
-    'High-Rise Penthouse Interior Governance',
-    'Circular Sustainable Luxury Interiors',
-  ],
-  areaServed: [
-    { '@type': 'Place', name: 'Alibag, Maharashtra' },
-    { '@type': 'Place', name: 'Mumbai, Maharashtra' },
-    { '@type': 'Place', name: 'Pune, Maharashtra' },
-    { '@type': 'Place', name: 'Goa' },
-    { '@type': 'Place', name: 'Bangalore, Karnataka' },
-  ],
-  sameAs: [
-    'https://www.instagram.com/hestiavillas',
-    'https://www.linkedin.com/company/hestiasmartinteriors',
-    'https://os.hsios.in',
-  ],
+/** Builds a Schema.org BlogPosting for an /insights article. */
+export function articleSchema(opts: {
+  slug: string
+  headline: string
+  description: string
+  datePublished: string
+  dateModified: string
+  /** Places the article is about — strengthens local relevance. */
+  about?: Array<Record<string, unknown>>
+  image?: string
+}) {
+  const url = `${BASE}/insights/${opts.slug}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: opts.headline,
+    description: opts.description,
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    image: `${BASE}${opts.image ?? '/opengraph-image.jpg'}`,
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified,
+    inLanguage: 'en-IN',
+    author: { '@type': 'Organization', '@id': `${BASE}/#organization`, name: 'Hestia Smart Interiors', url: BASE },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${BASE}/#organization`,
+      name: 'Hestia Smart Interiors',
+      logo: { '@type': 'ImageObject', url: `${BASE}/logo.png` },
+    },
+    ...(opts.about ? { about: opts.about } : {}),
+  }
 }
 
 /** SoftwareApplication Schema for HSIOS™ Platform AI Discovery. */

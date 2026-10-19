@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { ALIBAG, placeSchema } from '@/content/locations'
 import { JsonLd } from '@/lib/JsonLd'
-import { OG_IMAGE } from '@/lib/seo'
+import { OG_IMAGE, articleSchema as blogPosting, breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'How Much Does a Villa Interior Cost in Alibag?',
@@ -19,22 +20,23 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogAlibagVillaCostPage() {
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  const articleSchema = blogPosting({
+    slug: 'alibag-villa-cost',
     headline: 'How Much Does a Villa Interior Cost in Alibag?',
     description: 'A transparent breakdown of premium villa interior costs in Alibag.',
-    author: { '@type': 'Organization', name: 'Hestia Smart Interiors' },
-    // [CONFIRM] real original publish date (placeholder below); dateModified = today
-    datePublished: '2025-01-01',
-    dateModified: '2026-09-22',
-    publisher: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
-    url: 'https://www.hsios.in/insights/alibag-villa-cost',
-  }
+    datePublished: '2026-04-13',
+    dateModified: '2026-10-19',
+    about: [placeSchema(ALIBAG)],
+  })
+
 
   return (
     <>
-      <JsonLd data={articleSchema} />
+      <JsonLd data={[articleSchema, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Insights', url: 'https://www.hsios.in/insights' },
+        { name: 'Alibag Villa Interior Cost', url: 'https://www.hsios.in/insights/alibag-villa-cost' },
+      ])]} />
 
       {/* ── ARTICLE HERO ── */}
       <section className="pt-40 pb-16 bg-charcoal-900">

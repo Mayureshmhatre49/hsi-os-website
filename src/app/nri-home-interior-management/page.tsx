@@ -134,7 +134,7 @@ export default async function NriHomeInteriorManagementPage() {
                 >
                   Start Your Remote Project
                 </a>
-                <Link href="/for-homeowners" className="btn btn-outline-light">
+                <Link href="/for-homeowners" className="btn btn-outline-white">
                   How It Works for Homeowners
                 </Link>
               </div>

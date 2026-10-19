@@ -41,6 +41,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // /second-home-interior-design canonicalise to the page above, so they are
     // deliberately left out — sitemaps should list canonical URLs only.
     // Blog posts
+    { url: '/insights/alibag-second-home-from-mumbai',          priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/insights/mumbai-apartment-renovation-society-noc', priority: 0.8, changeFrequency: 'monthly' as const },
     { url: '/insights/alibag-villa-guide',     priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/insights/alibag-villa-cost',      priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/insights/alibag-challenges',      priority: 0.7, changeFrequency: 'monthly' as const },
