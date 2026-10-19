@@ -62,6 +62,9 @@ export const FACTS = {
    * JSON-LD description.
    */
   casaFrangipaniOutcome: '3 Months Ahead of Schedule',
+
+  /** Confirmed by Nishant (2026-10-19): Casa Frangipani built-up area. */
+  casaFrangipaniArea: '8,500 sq ft',
 } as const
 
 export type Facts = typeof FACTS

@@ -19,12 +19,12 @@ const projects = [
     location: 'Alibag',
     tag: '6 Bedrooms',
     image: '/projects-casa-frangipani-1.jpg',
-    desc: 'A complete end-to-end 6-bedroom villa in Alibag — bespoke interiors, documented accountability, and complex multi-trade coordination across 6,500 sq ft.',
+    desc: 'A complete end-to-end 6-bedroom villa in Alibag — bespoke interiors, documented accountability, and complex multi-trade coordination across 8,500 sq ft.',
     href: '/projects/casa-frangipani',
     featured: true,
     metrics: [
       { label: 'Conflicts Detected Pre-Execution', value: '12' },
-      { label: 'Built-Up Area', value: '6,500 sq ft' },
+      { label: 'Built-Up Area', value: '8,500 sq ft' },
       { label: 'Delivery', value: '3 Months Early' },
     ],
   },
@@ -115,7 +115,7 @@ const spotlights = [
     location: 'Alibag · 6 Bedrooms · Complete Execution',
     image: '/projects-casa-frangipani-1.jpg',
     href: 'https://hestiavillas.in/case_study/casa-frangipani-rent-and-buy/',
-    challenge: 'A 6-bedroom complete execution villa demanding precise coordination across civil, plumbing, HVAC, electrical, carpentry, and finishing trades — simultaneously. Over 6,500 sq ft of premium space with zero margin for rework.',
+    challenge: 'A 6-bedroom complete execution villa demanding precise coordination across civil, plumbing, HVAC, electrical, carpentry, and finishing trades — simultaneously. Over 8,500 sq ft of premium space with zero margin for rework.',
     interventions: [
       'HVAC duct routing vs false ceiling depth — flagged and re-routed before site work',
       'Plumbing vs kitchen island conflict — resolved at planning stage, saving 3+ weeks',

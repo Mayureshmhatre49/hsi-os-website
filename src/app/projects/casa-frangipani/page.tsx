@@ -10,7 +10,7 @@ const PAGE_URL = 'https://www.hsios.in/projects/casa-frangipani'
 export const metadata: Metadata = {
   title: 'Casa Frangipani — 6-Bedroom Villa Case Study, Alibag',
   description:
-    'How HSIOS™ delivered Casa Frangipani, a 6,500 sq ft, 6-bedroom villa in Alibag, three months ahead of schedule — with 12 conflicts caught before execution.',
+    'How HSIOS™ delivered Casa Frangipani, a 8,500 sq ft, 6-bedroom villa in Alibag, three months ahead of schedule — with 12 conflicts caught before execution.',
   alternates: getAlternates('/projects/casa-frangipani'),
   openGraph: {
     title: 'Casa Frangipani — Luxury Villa Interior Case Study, Alibag',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 }
 
 const stats = [
-  { value: '6,500', unit: 'sq ft', label: 'Total Built-Up Area' },
+  { value: '8,500', unit: 'sq ft', label: 'Total Built-Up Area' },
   { value: '6',     unit: 'BR',     label: 'Bedrooms' },
   { value: '12',    unit: '',       label: 'Conflicts Caught Pre-Execution' },
   { value: 'Minimal', unit: '',     label: 'On-Site Surprises' },
@@ -77,7 +77,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Casa Frangipani — 6-Bedroom Villa Case Study, Alibag',
   description:
-    'How HSIOS™ delivered a 6,500 sq ft luxury villa interior on the Konkan coast — 12 conflicts detected pre-execution, 0 on-site surprises, 3 months ahead of schedule.',
+    'How HSIOS™ delivered a 8,500 sq ft luxury villa interior on the Konkan coast — 12 conflicts detected pre-execution, 0 on-site surprises, 3 months ahead of schedule.',
   image: ['https://www.hsios.in/projects-casa-frangipani-1.jpg'],
   url: PAGE_URL,
   author: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
@@ -91,7 +91,7 @@ const creativeWorkSchema = {
   '@type': 'CreativeWork',
   '@id': `${PAGE_URL}#case-study`,
   name: 'Casa Frangipani — 6-Bedroom Luxury Villa, Alibag',
-  description: 'A 6,500 sq ft luxury villa interior executed end-to-end by Hestia Smart Interiors using HSIOS™.',
+  description: 'A 8,500 sq ft luxury villa interior executed end-to-end by Hestia Smart Interiors using HSIOS™.',
   url: PAGE_URL,
   image: 'https://www.hsios.in/projects-casa-frangipani-1.jpg',
   locationCreated: {
@@ -142,7 +142,7 @@ export default async function CasaFrangipaniPage() {
                 <em className="not-italic text-sandstone-300">Alibag.</em>
               </h1>
               <p className="text-lg sm:text-xl text-warmgray-300 max-w-2xl mb-8 leading-relaxed">
-                A 6,500 sq ft luxury villa, end-to-end interior execution. Twelve conflicts caught before
+                A 8,500 sq ft luxury villa, end-to-end interior execution. Twelve conflicts caught before
                 site work began. Zero surprises through handover. Three months ahead of schedule.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -184,14 +184,14 @@ export default async function CasaFrangipaniPage() {
           <RevealOnScroll>
             <div className="section-label">The Brief</div>
             <h2 className="font-serif text-display-lg text-charcoal-800 mt-3 mb-8">
-              A 6,500 sq ft Coastal Villa.<br />
+              A 8,500 sq ft Coastal Villa.<br />
               <span className="text-sandstone-600">Zero Margin for Rework.</span>
             </h2>
             <div className="space-y-5 text-warmgray-700 text-lg leading-relaxed">
               <p>
                 Casa Frangipani was conceived as a complete end-to-end execution project — six bedrooms,
                 an open-plan kitchen-and-living core, twin terraces, an outdoor pool deck, and a service
-                wing — across 6,500 sq ft on the Konkan coast at Alibag.
+                wing — across 8,500 sq ft on the Konkan coast at Alibag.
               </p>
               <p>
                 The owner&apos;s brief was simple in intent and exacting in standard: deliver the architect&apos;s

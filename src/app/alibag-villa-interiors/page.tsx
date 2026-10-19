@@ -284,7 +284,7 @@ export default async function AlibagVillaInteriorsPage() {
                   Casa Frangipani — delivered three months early
                 </h2>
                 <p className="text-warmgray-600 leading-relaxed">
-                  A 6,500 sq ft, 6-bedroom villa in Alibag. Twelve trade conflicts caught in HSIOS™
+                  A 8,500 sq ft, 6-bedroom villa in Alibag. Twelve trade conflicts caught in HSIOS™
                   before site work began, coastal-grade materials verified at entry.
                 </p>
               </div>

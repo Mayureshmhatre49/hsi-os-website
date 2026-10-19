@@ -640,7 +640,7 @@ function ALibaugTestimonialSection() {
             </div>
 
             <p className="text-warmgray-700 text-lg leading-relaxed mb-8 border-l-4 border-sandstone-400 pl-6">
-              Casa Frangipani, a 6,500 sq ft villa in Alibag, was handed over three months ahead of
+              Casa Frangipani, a 8,500 sq ft villa in Alibag, was handed over three months ahead of
               schedule. Twelve trade conflicts were caught in HSIOS™ before site work began, and every
               material approval, trade sequence and budget decision was visible to the owner as it
               happened.
