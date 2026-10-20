@@ -219,8 +219,8 @@ export default async function ProjectsPage() {
       <section className="py-12 bg-sandstone-700">
         <div className="container-luxury grid grid-cols-2 sm:grid-cols-4 gap-8 text-center text-white">
           {[
-            { val: '7+',   label: 'Premium Villas Delivered' },
-            { val: '75+',  label: 'Trade Conflicts Resolved Pre-Execution' },
+            { val: '7',    label: 'Premium Villas Delivered' },
+            { val: '75',   label: 'Trade Conflicts Resolved Pre-Execution' },
             { val: '₹100Cr+', label: 'Execution Value Delivered' },
             { val: '30% Lower', label: 'Cost Overruns vs Industry' },
           ].map(({ val, label }) => (
@@ -250,7 +250,7 @@ export default async function ProjectsPage() {
             </h2>
           </RevealOnScroll>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
             {projects.map(({ name, location, tag, image, desc, href, featured, metrics }, i) => {
               const isInternal = href.startsWith('/')
               const cardClassName = 'group card-luxury flex h-full flex-col'
@@ -284,7 +284,7 @@ export default async function ProjectsPage() {
                       {metrics.map(({ label, value }) => (
                         <div key={label} className="text-center">
                           <div className="font-serif text-lg font-bold text-sandstone-600">{value}</div>
-                          <div className="text-[10px] leading-tight text-warmgray-500 mt-0.5 min-h-[2.5em]">{label}</div>
+                          <div className="text-[11px] leading-tight text-warmgray-500 mt-0.5 min-h-[2.5em]">{label}</div>
                         </div>
                       ))}
                     </div>

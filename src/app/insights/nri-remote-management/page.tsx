@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.hsios.in/insights/nri-remote-management' },
   openGraph: {
     title: 'Remote Interior Project Management: What NRIs Need to Know',
-    description: 'The fundamental difference between hoping your contractor performs and guaranteeing your execution remotely.',
+    description: 'The fundamental difference between hoping your contractor performs and controlling your execution remotely.',
     url: 'https://www.hsios.in/insights/nri-remote-management',
     type: 'article',
     images: [OG_IMAGE],
@@ -48,7 +48,7 @@ export default async function BlogNriRemoteManagementPage() {
               <span className="text-sandstone-400">What NRIs Need to Know</span>
             </h1>
             <p className="text-xl text-warmgray-300">
-              The fundamental difference between hoping your contractor performs and guaranteeing
+              The fundamental difference between hoping your contractor performs and controlling
               your execution from abroad.
             </p>
           </RevealOnScroll>

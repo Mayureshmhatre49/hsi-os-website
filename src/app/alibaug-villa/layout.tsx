@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getAlternates } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Build Your Luxury Villa in Alibaug | Hestia Villas',
+  title: { absolute: 'Build Your Luxury Villa in Alibaug | Hestia Villas' },
   description:
     'Architecture, construction, interiors, and Digital Twin — one integrated ecosystem for discerning villa owners in Alibaug. Backed by HSIOS™. Book a private consultation.',
   alternates: getAlternates('/alibaug-villa'),

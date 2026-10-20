@@ -143,7 +143,7 @@ export default async function SecurityPage() {
             {principles.map(({ title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.05}>
                 <div className="h-full p-7 rounded-2xl bg-white border border-ivory-300">
-                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-600 mb-3">
+                  <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-sandstone-600 mb-3">
                     {`0${i + 1}`}
                   </div>
                   <h3 className="font-serif text-xl text-charcoal-800 mb-3">{title}</h3>

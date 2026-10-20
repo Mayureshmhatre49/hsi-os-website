@@ -170,7 +170,7 @@ const faqs = [
   },
   {
     q: 'Is the HSIOS™ fee worth it compared to a traditional contractor?',
-    a: 'The HSI management fee is typically recovered — and more — through early conflict detection alone. A single structural conflict discovered mid-execution can cost ₹5–20L in rework and 4–8 weeks of delay. Budget surprises at handover on premium projects routinely run 15–30% over the original estimate. Transparent execution does not cost more. Opaque execution does.',
+    a: 'The HSI management fee is typically recovered — and more — through early conflict detection alone. A single structural conflict discovered mid-execution can cost ₹5–20L in rework and 4–8 weeks of delay. Budget surprises at handover on premium projects routinely run 30–40% over the original estimate. Transparent execution does not cost more. Opaque execution does.',
   },
 ]
 
@@ -240,7 +240,7 @@ export default async function PricingPage() {
               sits on the investment spectrum.
             </p>
           </RevealOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {drivers.map(({ Icon, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
@@ -439,14 +439,14 @@ export default async function PricingPage() {
                     {/* Mobile: side-by-side before/after */}
                     <div className="grid grid-cols-2 divide-x divide-ivory-200 sm:hidden">
                       <div className="p-4">
-                        <div className="text-[10px] font-bold tracking-widest uppercase text-warmgray-400 mb-1.5">Traditional</div>
+                        <div className="text-[11px] font-bold tracking-widest uppercase text-warmgray-400 mb-1.5">Traditional</div>
                         <div className="flex items-start gap-2 text-xs text-warmgray-500 leading-relaxed">
                           <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5 block" />
                           {traditional}
                         </div>
                       </div>
                       <div className="p-4 bg-sandstone-50/40">
-                        <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600 mb-1.5">HSIOS™</div>
+                        <div className="text-[11px] font-bold tracking-widest uppercase text-sandstone-600 mb-1.5">HSIOS™</div>
                         <div className="flex items-start gap-2 text-xs text-warmgray-700 font-medium leading-relaxed">
                           <span className="w-1.5 h-1.5 rounded-full bg-sandstone-500 flex-shrink-0 mt-1.5 block" />
                           {hsi}

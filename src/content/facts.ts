@@ -45,7 +45,7 @@ export const FACTS = {
   qaCheckpoints: 104,
 
   /** Human-readable service area. Used wherever "where we work" is listed. */
-  serviceArea: 'Alibag & the Konkan coast · Mumbai owners · Karjat/Lonavala · NRI clients',
+  serviceArea: 'Alibag & the Konkan coast · Mumbai owners · Pune · Karjat/Lonavala · NRI clients',
 
   /** Phones (display form) — sourced from '@/lib/contact'. */
   phone: PHONES.map((p) => p.display),

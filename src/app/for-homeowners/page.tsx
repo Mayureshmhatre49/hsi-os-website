@@ -140,7 +140,7 @@ export default async function ForHomeownersPage() {
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
                   <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
-                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                    <span className="font-bold text-[11px] tracking-widest text-sandstone-600">{code}</span>
                   </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>

@@ -155,7 +155,7 @@ function StickyCTA() {
         <div className="container-luxury flex items-center justify-between gap-4 py-3">
           <div className="hidden sm:block">
             <div className="text-white font-semibold text-sm">Hestia Villas — Alibaug</div>
-            <div className="text-warmgray-500 text-xs">₹1 Cr+ · Digital Twin · End-to-End Accountability</div>
+            <div className="text-warmgray-500 text-xs">₹50 Lakh+ · Digital Twin · End-to-End Accountability</div>
           </div>
           <div className="flex items-center gap-3 ml-auto">
             <a
@@ -304,7 +304,7 @@ function HeroSection() {
             suppressHydrationWarning
           >
             <span className="text-display-lg">Monsoon-Proof Delivery.</span><br />
-            <em className="not-italic text-sandstone-300 text-display-xl">Zero Rework.</em><br />
+            <em className="not-italic text-sandstone-300 text-display-xl">Minimal Rework.</em><br />
             <span className="text-display-xl">Coastal Mastery.</span>
           </motion.h1>
 
@@ -371,9 +371,9 @@ function HeroSection() {
             className="flex flex-wrap gap-x-7 gap-y-2.5 pt-6 border-t border-white/12"
           >
             {[
-              { label: '1 Cr+ Minimum Project Scope', Icon: IndianRupee },
+              { label: '₹50 Lakh+ Minimum Project Scope', Icon: IndianRupee },
               { label: 'End-To-End Accountability', Icon: Shield },
-              { label: 'Digital Twin Enabled', Icon: Database },
+              { label: 'Digital Twin at Handover', Icon: Database },
               { label: 'Powered By HSIOS™', Icon: Zap },
             ].map(({ label, Icon }) => (
               <div key={label} className="flex items-center gap-2 text-white/50 text-xs">
@@ -410,10 +410,10 @@ function HeroSection() {
 ══════════════════════════════════════════════════════════════ */
 function StatsBar() {
   const stats = [
-    { value: '6+', label: 'Villas Delivered' },
-    { value: '₹20 Cr+', label: 'Project Value Managed' },
+    { value: '7', label: 'Villas Delivered' },
+    { value: '₹100Cr+', label: 'Execution Value Delivered' },
     { value: '104', label: 'QA Checkpoints / Project' },
-    { value: '100%', label: 'Digital Twin Coverage' },
+    { value: '75', label: 'Clashes Caught Pre-Site' },
     { value: 'Minimal', label: 'Rework Incidents' },
   ]
   return (
@@ -697,14 +697,14 @@ function PricingTransparencySection() {
             <FadeUp delay={0.08}>
               <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
                 <div className="text-sandstone-300 text-xs font-semibold uppercase tracking-wider mb-4">Typical Alibag Villa</div>
-                <div className="font-serif text-4xl text-white font-bold mb-2">₹1.5 – 3 Cr</div>
+                <div className="font-serif text-4xl text-white font-bold mb-2">₹1.5 – 3.5 Cr</div>
                 <div className="text-warmgray-400 text-sm mb-6">
-                  Total interior budget (design + materials + execution) for a luxury villa in Alibag
+                  Total interior budget (design + materials + execution) for a typical luxury villa in Alibag
                 </div>
                 <div className="space-y-3 text-sm text-warmgray-300">
                   <div className="flex items-start gap-2">
                     <Check size={14} className="text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>5,000–10,000 sqft interior</span>
+                    <span>Typical 4,000 sq ft villa interior</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Check size={14} className="text-green-400 mt-0.5 flex-shrink-0" />
@@ -722,9 +722,9 @@ function PricingTransparencySection() {
             <FadeUp delay={0.14}>
               <div className="bg-white/5 border border-sandstone-400/30 rounded-3xl p-8">
                 <div className="text-sandstone-300 text-xs font-semibold uppercase tracking-wider mb-4">Our Fee Structure</div>
-                <div className="font-serif text-4xl text-white font-bold mb-2">8–12%</div>
+                <div className="font-serif text-4xl text-white font-bold mb-2">Fixed Fee</div>
                 <div className="text-warmgray-400 text-sm mb-6">
-                  Of total project budget. No hidden markup. Baked in from day 1.
+                  A management fee on the approved execution value, fixed at engagement — known before any work starts. No hidden markup.
                 </div>
                 <div className="space-y-3 text-sm text-warmgray-300">
                   <div className="flex items-start gap-2">
@@ -771,13 +771,13 @@ function CoastalChallengesSection() {
       challenge: 'Marine-Grade Material Intelligence',
       problem: 'Standard ply degrades. Hardware oxidizes. Local material suppliers lack coastal specifications.',
       proof: 'SS-304, marine-grade ply, and salt-resistant finishes standard on every project.',
-      outcome: 'Your villa withstands 20+ years of coastal exposure. Not a temporary fix.'
+      outcome: 'Specified for decades of coastal exposure — not a temporary fix.'
     },
     {
       challenge: 'Remote Owner Visibility',
       problem: 'NRI owners can\'t camp on-site. You need daily proof your money is being spent wisely.',
       proof: 'HSIOS™ platform: real-time budget dashboard, milestone approvals, photo-verified progress.',
-      outcome: 'Manage your ₹3Cr villa from Mumbai (or Singapore). Zero surprises.'
+      outcome: 'Manage your villa from Mumbai (or Singapore) — every decision on record.'
     },
   ]
 
@@ -972,7 +972,7 @@ function AlibaugTimelineSection() {
         <FadeUp delay={0.32}>
           <div className="rounded-3xl bg-white border border-charcoal-200 p-8 text-center">
             <p className="text-warmgray-600 text-lg mb-3">
-              <span className="text-charcoal-800 font-semibold">Casa Frangipani followed this exact timeline.</span> Started Month 1. Finished Month 17. Handed over in June (before monsoon). Owner moved in with zero water damage, zero rework.
+              <span className="text-charcoal-800 font-semibold">Casa Frangipani followed this timeline</span> — and was handed over three months ahead of schedule, in June, before the monsoon, with minimal rework.
             </p>
             <div className="flex items-center justify-center gap-2 text-sm text-sandstone-700 font-medium">
               <Check size={14} /> This is not theory. This is our proven system.
@@ -1051,11 +1051,11 @@ function DifferenceSection() {
 function FeaturedProjectSection() {
   const stats = [
     { label: 'Interior Budget', value: '₹2.8 Cr', detail: 'Luxury villa interiors, fully furnished' },
-    { label: 'Timeline', value: '18 Months', detail: 'From design to handover, monsoon-inclusive' },
+    { label: 'Planned Timeline', value: '18 Months', detail: 'Design to handover, monsoon-inclusive' },
     { label: 'Completion Status', value: '3 Months Early', detail: 'Despite 4 monsoon-critical phases' },
     { label: 'Overruns vs Industry', value: '30% Lower', detail: '30% below industry overrun standard' },
     { label: 'Post-Handover Callbacks', value: 'Minimal', detail: 'Minimal material defects' },
-    { label: 'Owner Satisfaction', value: '10/10', detail: 'Delivered exactly as designed' },
+    { label: 'Conflicts Caught', value: '12', detail: 'Before site work began' },
   ]
 
   return (
@@ -1070,8 +1070,8 @@ function FeaturedProjectSection() {
               <em className="not-italic text-sandstone-600">When Everything Works.</em>
             </h2>
             <p className="text-warmgray-600 text-lg leading-relaxed">
-              Our flagship Alibag project. ₹2.8 Cr luxury villa interior, delivered 3 months early, zero rework,
-              zero cost surprises. This is what Alibag execution looks like when system meets mastery.
+              Our flagship Alibag project. A ₹2.8 Cr luxury villa interior, delivered three months early with
+              minimal rework and every cost tracked live. This is what Alibag execution looks like when system meets mastery.
             </p>
           </div>
         </FadeUp>
@@ -1098,7 +1098,7 @@ function FeaturedProjectSection() {
                 <div className="text-charcoal-600 text-xs font-semibold uppercase tracking-wider mb-3">The Challenge</div>
                 <h3 className="font-serif text-xl text-charcoal-800 mb-2">Monsoon-Critical Sequencing</h3>
                 <p className="text-warmgray-600 text-sm leading-relaxed">
-                  Casa Frangipani spans 4 monsoon-critical phases. One unmanaged rain event could destroy finishes worth ₹50+ Lakh. Typical contractors panic. We execute.
+                  Casa Frangipani spans 4 monsoon-critical phases. One unmanaged rain event could destroy finishes worth ₹50+ Lakh. So every monsoon-critical phase is planned months ahead.
                 </p>
               </div>
 
@@ -1116,7 +1116,7 @@ function FeaturedProjectSection() {
                 <div className="text-green-600 text-xs font-semibold uppercase tracking-wider mb-3">The Result</div>
                 <h3 className="font-serif text-xl text-charcoal-800 mb-2">Delivered 3 Months Early</h3>
                 <p className="text-warmgray-600 text-sm leading-relaxed">
-                  Owner moved in June (2 months before monsoon season). All finishes weather-tested. Zero water damage. Zero rework. This is what happens when discipline meets coastal execution.
+                  Handed over in June, before the monsoon. All finishes weather-tested, with minimal rework. This is what happens when discipline meets coastal execution.
                 </p>
               </div>
             </div>
@@ -1158,7 +1158,7 @@ function AlibaugFaqSection() {
     },
     {
       q: 'How much does a typical Alibag villa interior cost?',
-      a: 'Typical budget: ₹1.5–3 Crore for a 5,000–10,000 sqft villa with full furnishing and smart systems. Our fee is 8–12% of total budget, baked in from day 1 — no hidden costs. For a ₹2 Cr project, expect a 8–10% fee (₹16–20 Lakh). This covers execution intelligence, platform access, real-time dashboards, and post-handover support.'
+      a: 'Typical budget: ₹1.5–3.5 Crore for a 4,000 sq ft villa with full furnishing and smart systems. Our management fee is calculated on the approved execution value and fixed at engagement — so you know it before any work starts, with no hidden costs. This covers execution intelligence, platform access, real-time dashboards, and post-handover support.'
     },
     {
       q: 'What happens if I want to change materials mid-project?',
@@ -1686,7 +1686,7 @@ function HsiOsSection() {
           <div className="space-y-4">
             <FadeUp>
               <DashboardCard
-                projectName="Casa Frangipani — Live Dashboard"
+                projectName="Sample Villa — Live Dashboard"
                 data={[
                   { label: 'Civil & Structure', pct: 100 },
                   { label: 'Electrical Works',  pct: 88 },
@@ -1698,7 +1698,7 @@ function HsiOsSection() {
 
             <FadeUp delay={0.08}>
               <DashboardCard
-                projectName="Bellissimo — Active Project"
+                projectName="Sample Villa — Active Project"
                 status="In Progress"
                 data={[
                   { label: 'Foundation & Slab', pct: 95 },
@@ -1708,6 +1708,7 @@ function HsiOsSection() {
                 ]}
               />
             </FadeUp>
+            <p className="text-xs text-warmgray-600 px-1">Illustrative views of the HSIOS™ client dashboard.</p>
           </div>
 
           {/* Right: Copy */}

@@ -139,7 +139,7 @@ export default async function AboutPage() {
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
               <div className="relative mx-4">
                 <div className="absolute -inset-3 bg-sandstone-100 rounded-[2rem] -rotate-1 opacity-80" />
-                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl max-w-sm mx-auto lg:max-w-none">
                   <Image
                     src="/nishant-mhatre.jpg"
                     alt="Nishant Mhatre — Founder of Hestia Smart Interiors"
@@ -229,7 +229,7 @@ export default async function AboutPage() {
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
               <div className="relative mx-4">
                 <div className="absolute -inset-3 bg-white rounded-[2rem] -rotate-1 shadow-sm" />
-                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl max-w-sm mx-auto lg:max-w-none">
                   <Image
                     src="/sanjay-joshi.jpg"
                     alt="Sanjay Joshi — Co-founder & CTO, Hestia Smart Interiors"
@@ -310,7 +310,7 @@ export default async function AboutPage() {
             <RevealOnScroll className="lg:col-span-5 lg:sticky lg:top-32">
               <div className="relative mx-4">
                 <div className="absolute -inset-3 bg-ivory-100 rounded-[2rem] rotate-1 shadow-sm" />
-                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl">
+                <div className="relative bg-charcoal-800 aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-2xl max-w-sm mx-auto lg:max-w-none">
                   <Image
                     src="/vishal-patil.jpg"
                     alt="Vishal Patil — COO, Hestia Smart Interiors"

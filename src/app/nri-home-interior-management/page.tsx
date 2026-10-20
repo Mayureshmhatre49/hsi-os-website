@@ -263,7 +263,7 @@ export default async function NriHomeInteriorManagementPage() {
             ].map(({ title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.05}>
                 <div className="h-full p-7 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-400/40 transition-colors">
-                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-400 mb-3">
+                  <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-sandstone-400 mb-3">
                     {`Feature 0${i + 1}`}
                   </div>
                   <h3 className="font-serif text-xl text-white mb-3 leading-snug">{title}</h3>

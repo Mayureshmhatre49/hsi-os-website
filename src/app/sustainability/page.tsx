@@ -608,7 +608,7 @@ export default function SustainabilityPage() {
                 <div className="flex justify-center mb-6">
                   <div className="w-20 h-20 rounded-2xl bg-sandstone-400 flex flex-col items-center justify-center shadow-lg">
                     <span className="font-serif text-xs font-bold text-white">HSIOS™</span>
-                    <span className="text-white/70 text-[9px] mt-0.5">Platform</span>
+                    <span className="text-white/70 text-[11px] mt-0.5">Platform</span>
                   </div>
                 </div>
                 {/* Spokes */}
@@ -616,7 +616,7 @@ export default function SustainabilityPage() {
                   {ecosystem.map(({ role, desc }) => (
                     <div key={role} className="flex flex-col items-center text-center p-3 rounded-xl bg-white border border-ivory-300 shadow-sm">
                       <span className="font-semibold text-charcoal-700 text-xs">{role}</span>
-                      <span className="text-warmgray-500 text-[10px] mt-1 leading-tight">{desc}</span>
+                      <span className="text-warmgray-500 text-[11px] mt-1 leading-tight">{desc}</span>
                     </div>
                   ))}
                 </div>

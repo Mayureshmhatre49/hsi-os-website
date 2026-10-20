@@ -130,11 +130,32 @@ const localBusinessSchema = {
   ],
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Mhatre Road, Dhokawade',
     addressLocality: 'Alibag',
     addressRegion: 'Maharashtra',
     postalCode: '402201',
     addressCountry: 'IN',
   },
+  // Second HSI office. International offices on /contact are partner companies,
+  // so they are deliberately not listed as HSI locations here.
+  department: [
+    {
+      '@type': 'HomeAndConstructionBusiness',
+      '@id': 'https://www.hsios.in/#pune-office',
+      name: 'Hestia Smart Interiors — Pune Office',
+      telephone: '+91-9766645771',
+      email: 'hello@hsios.in',
+      url: 'https://www.hsios.in/contact',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'C 706, Teerth Technospace, Behind Mercedes Benz Showroom, Baner',
+        addressLocality: 'Pune',
+        addressRegion: 'Maharashtra',
+        postalCode: '411045',
+        addressCountry: 'IN',
+      },
+    },
+  ],
   geo: {
     '@type': 'GeoCoordinates',
     latitude: 18.6408,

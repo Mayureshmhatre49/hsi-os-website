@@ -106,7 +106,7 @@ export default function EngagementModels({
               <div className="w-8 h-8 rounded-lg bg-sandstone-400/15 border border-sandstone-300 flex items-center justify-center text-sandstone-600">
                 <Network size={14} strokeWidth={1.75} />
               </div>
-              <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-600">
+              <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-sandstone-600">
                 Execution Network
               </div>
             </div>
@@ -168,7 +168,7 @@ function ModelColumn({
         <div className="flex items-center justify-between mb-6">
           <div
             className={`
-              text-[10px] font-bold tracking-[0.18em] uppercase
+              text-[11px] font-bold tracking-[0.18em] uppercase
               ${isManaged ? 'text-sandstone-400' : 'text-sandstone-600'}
             `}
           >
@@ -221,7 +221,7 @@ function ModelColumn({
         {/* Includes label */}
         <div
           className={`
-            text-[10px] font-bold tracking-[0.18em] uppercase mb-4
+            text-[11px] font-bold tracking-[0.18em] uppercase mb-4
             ${isManaged ? 'text-sandstone-400' : 'text-sandstone-600'}
           `}
         >

@@ -221,7 +221,7 @@ function EnquiryFunnel() {
             </div>
             <div>
               <div className="font-serif font-bold text-lg leading-none tracking-tight">Hestia Smart Interiors</div>
-              <div className="font-sans text-[9px] font-semibold tracking-[0.2em] uppercase mt-0.5 text-sandstone-300">Powered by HSIOS™</div>
+              <div className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase mt-0.5 text-sandstone-300">Powered by HSIOS™</div>
             </div>
           </Link>
         </div>
@@ -277,7 +277,7 @@ function EnquiryFunnel() {
                 >
                   <ArrowLeft size={14} /> Back
                 </button>
-                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-warmgray-400">
+                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-warmgray-400">
                   <span className="hidden sm:inline">{progress.label}</span>
                   <span className="font-mono text-sandstone-600">{progress.progressText}</span>
                 </div>
@@ -306,7 +306,7 @@ function EnquiryFunnel() {
                       H
                     </div>
                     <div className="font-serif font-bold text-xl leading-none text-charcoal-800">Hestia Smart Interiors</div>
-                    <div className="font-sans text-[9px] font-bold tracking-[0.2em] uppercase mt-1 text-sandstone-600">Powered by HSIOS™</div>
+                    <div className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase mt-1 text-sandstone-600">Powered by HSIOS™</div>
                   </div>
 
                   {/* Icon details */}
@@ -314,7 +314,7 @@ function EnquiryFunnel() {
                     <Sparkles size={22} className="animate-float" />
                   </div>
 
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-sandstone-600 mb-3 block">Luxury Sustainable Interiors</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sandstone-600 mb-3 block">Luxury Sustainable Interiors</span>
                   <h1 className="font-serif text-3xl sm:text-[2.25rem] leading-[1.15] font-bold text-charcoal-800 mb-4 tracking-tight max-w-md mx-auto">
                     Conscious Homes.<br />Exceptional Living.
                   </h1>
@@ -332,7 +332,7 @@ function EnquiryFunnel() {
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                   
-                  <p className="text-[10.5px] text-warmgray-400 mt-6 max-w-xs leading-relaxed">
+                  <p className="text-[11px] text-warmgray-400 mt-6 max-w-xs leading-relaxed">
                     A Hestia Advisor will analyze your responses to customize your design blueprint. Takes 90 seconds.
                   </p>
                 </motion.div>
@@ -411,7 +411,7 @@ function EnquiryFunnel() {
                     </div>
 
                     <div className="pt-4 flex justify-between items-center">
-                      <span className="text-[10px] text-warmgray-400 flex items-center gap-1">
+                      <span className="text-[11px] text-warmgray-400 flex items-center gap-1">
                         <Shield size={12} className="text-sandstone-500" /> Privacy protected. Zero spam.
                       </span>
                       <button
@@ -552,7 +552,7 @@ function EnquiryFunnel() {
                             <Wallet className={`w-5 h-5 flex-shrink-0 ${Selected ? 'text-sandstone-500' : 'text-warmgray-400'}`} />
                             <div>
                               <span className="font-serif font-bold text-sm block text-charcoal-800">{item.label}</span>
-                              <span className="text-[10px] text-warmgray-400 mt-0.5 block">{item.desc}</span>
+                              <span className="text-[11px] text-warmgray-400 mt-0.5 block">{item.desc}</span>
                             </div>
                           </div>
                           <div className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${
@@ -604,7 +604,7 @@ function EnquiryFunnel() {
                             <Clock className={`w-5 h-5 flex-shrink-0 ${Selected ? 'text-sandstone-500' : 'text-warmgray-400'}`} />
                             <div>
                               <span className="font-serif font-bold text-sm block text-charcoal-800">{item.label}</span>
-                              <span className="text-[10px] text-warmgray-400 mt-0.5 block">{item.desc}</span>
+                              <span className="text-[11px] text-warmgray-400 mt-0.5 block">{item.desc}</span>
                             </div>
                           </div>
                           <div className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${
@@ -694,7 +694,7 @@ function EnquiryFunnel() {
                     <CheckCircle2 size={30} strokeWidth={1.5} className="animate-float" />
                   </div>
 
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-sandstone-600 mb-2 block">Request Received</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sandstone-600 mb-2 block">Request Received</span>
                   <h3 className="font-serif text-3xl font-bold text-charcoal-800 mb-4 tracking-tight">
                     Thank You.
                   </h3>
@@ -734,7 +734,7 @@ function EnquiryFunnel() {
 
           {/* Secure details tag */}
           {step < 8 && (
-            <div className="text-center text-[10px] text-warmgray-400 mt-6 pt-4 border-t border-ivory-200 flex items-center justify-center gap-2">
+            <div className="text-center text-[11px] text-warmgray-400 mt-6 pt-4 border-t border-ivory-200 flex items-center justify-center gap-2">
               <Shield size={10} className="text-sandstone-400" />
               <span>Your project parameters are protected by HSIOS™ data encryption.</span>
             </div>

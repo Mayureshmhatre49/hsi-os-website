@@ -143,7 +143,7 @@ export default async function CasaFrangipaniPage() {
               </h1>
               <p className="text-lg sm:text-xl text-warmgray-300 max-w-2xl mb-8 leading-relaxed">
                 A 8,500 sq ft luxury villa, end-to-end interior execution. Twelve conflicts caught before
-                site work began. Zero surprises through handover. Three months ahead of schedule.
+                site work began. Minimal surprises through handover. Three months ahead of schedule.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn btn-bronze">Discuss a Similar Project</Link>
@@ -170,7 +170,7 @@ export default async function CasaFrangipaniPage() {
                 {value}
                 {unit && <span className="text-base font-medium ml-1 opacity-80">{unit}</span>}
               </div>
-              <div className="text-[10px] sm:text-xs text-white/85 mt-2 uppercase tracking-wider leading-tight">
+              <div className="text-[11px] sm:text-xs text-white/85 mt-2 uppercase tracking-wider leading-tight">
                 {label}
               </div>
             </div>

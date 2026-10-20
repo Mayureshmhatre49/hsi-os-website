@@ -73,7 +73,7 @@ const posts = [
     slug: 'insights/nri-remote-management',
     category: 'Guide · NRI Series',
     title: 'Remote Interior Project Management: What NRIs Need to Know',
-    excerpt: 'The fundamental difference between hoping your contractor performs and guaranteeing your execution from abroad.',
+    excerpt: 'The fundamental difference between hoping your contractor performs and controlling your execution from abroad.',
     readTime: '10 min read',
   },
   {

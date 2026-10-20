@@ -172,7 +172,7 @@ export default async function ForBimManagersPage() {
               <RevealOnScroll key={title} delay={i * 0.05}>
                 <div className="h-full p-7 rounded-2xl bg-white border border-ivory-300">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-600">
+                    <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-sandstone-600">
                       {`Capability 0${i + 1}`}
                     </div>
                     <div className="text-xs font-semibold text-sandstone-700">{metric}</div>

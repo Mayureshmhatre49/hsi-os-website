@@ -170,7 +170,7 @@ export default async function ForArchitectsPage() {
               <div className="bg-charcoal-900 rounded-2xl border border-white/10 p-8">
                 <div className="flex items-center justify-between gap-3 mb-6">
                   <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400">Conflict Scan Results</div>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-warmgray-400 border border-white/15 rounded-full px-2.5 py-1">Example</span>
+                  <span className="text-[11px] font-bold tracking-widest uppercase text-warmgray-400 border border-white/15 rounded-full px-2.5 py-1">Example</span>
                 </div>
                 {[
                   { clash: 'HVAC duct vs false ceiling depth',  severity: 'High',   status: 'Resolved', statusClr: 'text-green-400 bg-green-400/10' },
@@ -213,7 +213,7 @@ export default async function ForArchitectsPage() {
               <RevealOnScroll key={title} delay={i * 0.07}>
                 <div className="card-warm p-8 h-full">
                   <div className="w-10 h-10 rounded-lg bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mb-5">
-                    <span className="font-bold text-[9px] tracking-widest text-sandstone-600">{code}</span>
+                    <span className="font-bold text-[11px] tracking-widest text-sandstone-600">{code}</span>
                   </div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-3">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{desc}</p>

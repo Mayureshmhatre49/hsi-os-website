@@ -154,8 +154,8 @@ export default async function CommercialInteriorsPage() {
               <div className="bg-charcoal-800/80 rounded-2xl border border-white/8 p-7 backdrop-blur-sm">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400">Zone Execution Status</div>
-                    <div className="text-white font-medium mt-0.5">Flagship Store — Bandra West</div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400">Zone Execution Status · Illustrative</div>
+                    <div className="text-white font-medium mt-0.5">Sample Flagship Store</div>
                   </div>
                   <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-sandstone-400/15 text-sandstone-300">Live</span>
                 </div>
@@ -180,15 +180,15 @@ export default async function CommercialInteriorsPage() {
                 <div className="mt-6 pt-5 border-t border-white/8 grid grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="text-xl font-serif font-bold text-white">58%</div>
-                    <div className="text-[10px] text-warmgray-500 mt-0.5">Overall Progress</div>
+                    <div className="text-[11px] text-warmgray-500 mt-0.5">Overall Progress</div>
                   </div>
                   <div>
                     <div className="text-xl font-serif font-bold text-sandstone-300">Day 34</div>
-                    <div className="text-[10px] text-warmgray-500 mt-0.5">of 60-Day Schedule</div>
+                    <div className="text-[11px] text-warmgray-500 mt-0.5">of 60-Day Schedule</div>
                   </div>
                   <div>
                     <div className="text-xl font-serif font-bold text-green-400">On Track</div>
-                    <div className="text-[10px] text-warmgray-500 mt-0.5">Launch: June 15</div>
+                    <div className="text-[11px] text-warmgray-500 mt-0.5">Launch: June 15</div>
                   </div>
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default async function CommercialInteriorsPage() {
             <RevealOnScroll delay={0.1}>
               <div className="space-y-3">
                 {/* Column header — hidden on mobile */}
-                <div className="hidden sm:grid sm:grid-cols-3 gap-4 px-5 pb-1 text-[10px] font-semibold tracking-widest uppercase text-warmgray-400">
+                <div className="hidden sm:grid sm:grid-cols-3 gap-4 px-5 pb-1 text-[11px] font-semibold tracking-widest uppercase text-warmgray-400">
                   <div />
                   <div>Residential</div>
                   <div className="text-sandstone-600">Commercial</div>
@@ -336,11 +336,11 @@ export default async function CommercialInteriorsPage() {
                     {/* Mobile: 2-col side-by-side */}
                     <div className="sm:hidden grid grid-cols-2 divide-x divide-ivory-200">
                       <div className="p-3.5">
-                        <div className="text-[10px] font-bold uppercase tracking-wider text-warmgray-400 mb-1">Residential</div>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-warmgray-400 mb-1">Residential</div>
                         <div className="text-xs text-warmgray-600">{residential}</div>
                       </div>
                       <div className="p-3.5">
-                        <div className="text-[10px] font-bold uppercase tracking-wider text-sandstone-600 mb-1">Commercial</div>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-sandstone-600 mb-1">Commercial</div>
                         <div className="text-xs text-charcoal-800 font-medium">{commercial}</div>
                       </div>
                     </div>

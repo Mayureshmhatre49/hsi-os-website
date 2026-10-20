@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import BrandLogo from '@/components/ui/BrandLogo'
-import { PHONES, WHATSAPP_NUMBER, EMAIL } from '@/lib/contact'
+import { PHONES, WHATSAPP_NUMBER, EMAIL, INDIA_OFFICES } from '@/lib/contact'
 
 type FooterLink = { href: string; label: string; external?: boolean }
 
@@ -20,6 +20,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   Products: [
     { href: '/digital-twin',   label: 'HSIOS™ Digital Twin' },
     { href: '/hsi-os',         label: 'Our Platform' },
+    { href: 'https://os.hsios.in/', label: 'Client Login', external: true },
   ],
   Company: [
     { href: '/about',          label: 'About' },
@@ -36,26 +37,33 @@ const footerLinks: Record<string, FooterLink[]> = {
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal-800 text-white" aria-label="Site footer">
+    <footer className="bg-charcoal-800 text-white pb-[calc(3.5rem+env(safe-area-inset-bottom))] lg:pb-0" aria-label="Site footer">
       <div className="h-px bg-gradient-to-r from-transparent via-sandstone-400 to-transparent" />
 
       <div className="container-luxury py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-7 gap-10 xl:gap-8">
 
           {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-2">
+          <div className="col-span-2 sm:col-span-3 xl:col-span-2">
             <Link href="/" aria-label="Hestia Smart Interiors — Home" className="flex items-center mb-6 w-fit">
               <BrandLogo tone="light" />
             </Link>
 
             <p className="text-warmgray-300 text-sm leading-relaxed max-w-xs mb-4">
-              Turnkey luxury interior execution for villas and second homes — every rupee,
+              Complete luxury interior execution for villas and second homes — every rupee,
               decision and site day documented and visible to you, delivered through HSIOS™,
               our in-house platform.
             </p>
-            <p className="text-warmgray-400 text-sm leading-relaxed max-w-xs mb-8">
-              Based in Alibag · Serving Alibag, the Konkan coast &amp; Mumbai owners · NRI projects welcome
-            </p>
+            <div className="grid grid-cols-2 gap-5 max-w-sm mb-8">
+              {INDIA_OFFICES.map((o) => (
+                <address key={o.label} className="not-italic text-warmgray-400 text-xs leading-relaxed">
+                  <span className="block text-sandstone-400 font-semibold uppercase tracking-wider mb-1">{o.label.replace(' Office', '')}</span>
+                  {o.addressLines.map((line) => (
+                    <span key={line} className="block">{line}</span>
+                  ))}
+                </address>
+              ))}
+            </div>
 
             {/* Contact */}
             <div className="space-y-3 mb-8">
@@ -127,7 +135,7 @@ export default function Footer() {
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
               <h4 className="text-xs font-semibold tracking-[0.14em] uppercase text-sandstone-400 mb-5">{heading}</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-1">
                 {links.map(({ href, label, external }) => (
                   <li key={href}>
                     {external ? (
@@ -136,12 +144,12 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${label.replace(/[→]/g, '').trim()} (opens in new tab)`}
-                        className="text-sm text-sandstone-400 hover:text-sandstone-300 transition-colors duration-200 font-medium"
+                        className="inline-block py-1 text-sm text-sandstone-400 hover:text-sandstone-300 transition-colors duration-200 font-medium"
                       >
                         {label}
                       </a>
                     ) : (
-                      <Link href={href} className="text-sm text-warmgray-400 hover:text-white transition-colors duration-200">
+                      <Link href={href} className="inline-block py-1 text-sm text-warmgray-400 hover:text-white transition-colors duration-200">
                         {label}
                       </Link>
                     )}
@@ -160,10 +168,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Hestia Smart Interiors. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-xs text-warmgray-400 hover:text-warmgray-300 transition-colors">
+            <Link href="/privacy" className="inline-block py-1.5 text-xs text-warmgray-400 hover:text-warmgray-300 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs text-warmgray-400 hover:text-warmgray-300 transition-colors">
+            <Link href="/terms" className="inline-block py-1.5 text-xs text-warmgray-400 hover:text-warmgray-300 transition-colors">
               Terms of Service
             </Link>
             <span className="text-xs text-warmgray-400">Made in India</span>

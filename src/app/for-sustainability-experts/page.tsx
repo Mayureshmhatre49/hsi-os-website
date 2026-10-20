@@ -192,7 +192,7 @@ export default async function ForSustainabilityExpertsPage() {
             {capabilities.map(({ title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.04}>
                 <div className="h-full p-6 rounded-2xl bg-white/5 border border-white/8 hover:border-sandstone-400/40 transition-colors">
-                  <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-sandstone-400 mb-3">
+                  <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-sandstone-400 mb-3">
                     {`Capability 0${i + 1}`}
                   </div>
                   <h3 className="font-serif text-lg text-white mb-3 leading-snug">{title}</h3>

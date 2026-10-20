@@ -53,7 +53,7 @@ const phases = [
     num: '05',
     weeks: 'Weeks 17–18',
     title: 'Styling, Snagging & Handover',
-    desc: 'The final 5% of execution takes 20% of the effort. Deep villa cleaning. A 200-point digital snagging process conducted by our internal engineers. Loose furniture arrival, curtains hung, final styling complete.',
+    desc: 'The final 5% of execution takes 20% of the effort. Deep villa cleaning. A digital snagging process — part of the 104 QA checkpoints on every project — conducted by our internal engineers. Loose furniture arrival, curtains hung, final styling complete.',
     ownerView: 'You receive the snagging report digitally. Every item is marked resolved before we schedule the handover walk-through.',
   },
 ]

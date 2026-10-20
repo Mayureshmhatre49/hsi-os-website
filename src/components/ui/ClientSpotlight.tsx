@@ -26,12 +26,12 @@ function Logo({ className = '' }: { className?: string }) {
 export function ClientStrip() {
   return (
     <section className="py-10 bg-white border-y border-ivory-200" aria-label="Current client">
-      <div className="container-luxury flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+      <div className="container-luxury flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8">
         <div className="flex items-center gap-4 flex-shrink-0">
           <span className="text-xs font-semibold tracking-widest uppercase text-warmgray-600">Now executing</span>
           <Logo />
         </div>
-        <p className="text-warmgray-600 leading-relaxed md:flex-1">
+        <p className="text-warmgray-600 leading-relaxed lg:flex-1">
           <span className="font-semibold text-charcoal-800">{client.name}</span>, a {client.descriptor.toLowerCase()} in{' '}
           {client.location}, is building with HSI — interiors executed and every residence delivered on HSIOS™.
         </p>

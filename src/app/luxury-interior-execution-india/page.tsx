@@ -102,10 +102,10 @@ export default async function LuxuryInteriorExecutionIndiaPage() {
             <div className="max-w-3xl">
               <div className="section-label text-sandstone-400">National · Luxury Execution</div>
               <h1 className="font-serif text-display-xl text-white mb-6">
-                India&apos;s Premium{' '}
+                Premium{' '}
                 <span className="text-sandstone-400">Interior Execution</span>
                 <br />
-                Company
+                Across India
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 HSIOS™ delivers structured, technology-driven execution for luxury residences across

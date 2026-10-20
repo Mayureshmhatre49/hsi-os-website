@@ -73,7 +73,7 @@ export default async function BlogAlibagVillaCostPage() {
               </h2>
               <p>
                 A premium villa interior in Alibag generally requires an investment of{' '}
-                <strong className="text-charcoal-800">₹4,500 to ₹7,500+ per square foot</strong>{' '}
+                <strong className="text-charcoal-800">₹3,000 to ₹8,000+ per square foot</strong>{' '}
                 of carpet area. This variation depends heavily on whether you are doing standard
                 carpentry or importing Italian stone and European fixtures.
               </p>
@@ -90,7 +90,7 @@ export default async function BlogAlibagVillaCostPage() {
                   </Link>
                   , you cannot use commercial ply. 100% of the carcass must be BWP Marine Grade.
                   High-grade waterproofing chemicals must be integrated into civil work. Hardware
-                  must be SS-304/316 grade. These material upgrades alone add 15–20% to the core
+                  must be SS-304/316 grade. These material upgrades alone add 15–25% to the core
                   execution cost.
                 </li>
                 <li>

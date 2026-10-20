@@ -34,10 +34,11 @@ Each search intent has exactly one page that should rank. Don't create new pages
 
 ## 3. Google Business Profile (highest impact — do first)
 
-1. Create or claim the profile as a **service-area business**. Hide the street address, since none is published on the site, and set the service areas to Alibag, Raigad, Mumbai, Navi Mumbai and Thane.
+1. Create or claim the Alibag profile at **Mhatre Road, Dhokawade, Alibag 402201**, using exactly the address on the site, footer and schema. Add service areas: Alibag, Raigad, Mumbai, Navi Mumbai, Thane.
+   - Create a **second profile for the Pune office** (C 706, Teerth Technospace, Baner, Pune 411045, +91-9766645771). Each profile needs its own verification.
 2. **Primary category**: Interior designer. **Secondary**: Interior construction contractor, Construction company, General contractor.
 3. **Name**: exactly `Hestia Smart Interiors`. No keywords in the name (Google suspends for this).
-4. **Phone**: +91-8010234802 (matches the site). **Website**: `https://www.hsios.in/alibag-villa-interiors`, with UTM `?utm_source=gbp`.
+4. **Phone**: +91-8010234802 for Alibag, +91-9766645771 for Pune (both match the site). **Website**: `https://www.hsios.in/alibag-villa-interiors`, with UTM `?utm_source=gbp`.
 5. **Hours**: Mon–Fri 09:00–18:00 and Sat 10:00–15:00, the same as the site schema.
 6. Add services with short descriptions, matching the keyword map above.
 7. Upload real project photos (Casa Frangipani, Bellissimo, Serenity, Awas), with at least 10 to start and a few new ones each month.

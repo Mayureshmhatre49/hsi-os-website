@@ -107,7 +107,7 @@ function HeroSection() {
         <div className="max-w-3xl">
           <div className="flex items-center gap-3 mb-6 animate-fade-up">
             <div className="w-7 h-px bg-sandstone-400 flex-shrink-0" />
-            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.16em] uppercase text-sandstone-300 leading-snug">
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.16em] uppercase text-sandstone-300 leading-snug">
               Luxury Villa Interiors · Alibag
             </span>
           </div>
@@ -399,8 +399,8 @@ function HowWeWork() {
         </RevealOnScroll>
 
         <div className="relative">
-          <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-sandstone-600/20 via-sandstone-500/40 to-sandstone-600/20 pointer-events-none" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="hidden xl:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-sandstone-600/20 via-sandstone-500/40 to-sandstone-600/20 pointer-events-none" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
             {workflowSteps.map(({ step, desc }, i) => (
               <RevealOnScroll key={step} delay={i * 0.07}>
                 <div className="relative flex gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-sandstone-500/30 hover:bg-white/8 transition-all duration-300 h-full">

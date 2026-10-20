@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: 'How long does a villa interior take in Alibag?',
-    a: 'Interior execution typically runs around 18 weeks once the shell is ready — from mobilisation to handover. The real constraint is the monsoon: anything weather-sensitive must be sealed before June, so the schedule is planned backwards from the rains.',
+    a: 'On-site interior execution typically runs around 18 weeks once the shell is ready — from mobilisation to handover; planning and procurement add lead time before that. The real constraint is the monsoon: anything weather-sensitive must be sealed before June, so the schedule is planned backwards from the rains.',
   },
   {
     q: 'How do you handle material procurement for a remote location like Alibag?',

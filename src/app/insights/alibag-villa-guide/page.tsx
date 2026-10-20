@@ -296,9 +296,11 @@ export default async function BlogAlibagVillaGuidePage() {
               </div>
               <p>
                 These figures include materials and labour but exclude loose furniture, landscape,
-                and external civil. Add 15–20% for the Alibag coastal material premium
+                and external civil. Add 15–25% for the Alibag coastal material premium
                 (marine ply, SS hardware, elastomeric paints). Add logistics cost for
-                city-side vendor mobilisation if specialist tradespeople are required.
+                city-side vendor mobilisation if specialist tradespeople are required. All-in,
+                the villas HSI executes typically land between ₹3,000 and ₹8,000+ per sq ft — see{' '}
+                <Link href="/pricing" className="text-bronze-700 underline underline-offset-2 hover:text-bronze-900">pricing</Link>.
               </p>
               <p>
                 Budget overruns in Alibag are almost always caused by one of three things:

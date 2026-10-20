@@ -232,11 +232,11 @@ export default async function DesignerVsExecutionFirmPage() {
                   </div>
                   <div className="grid grid-cols-1 divide-y divide-ivory-200">
                     <div className="p-4">
-                      <div className="text-[10px] font-bold tracking-widest uppercase text-warmgray-500 mb-2">Designer</div>
+                      <div className="text-[11px] font-bold tracking-widest uppercase text-warmgray-500 mb-2">Designer</div>
                       <p className="text-sm text-warmgray-700 leading-relaxed">{designer}</p>
                     </div>
                     <div className="p-4 bg-sandstone-50/50">
-                      <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-700 mb-2">Execution Firm</div>
+                      <div className="text-[11px] font-bold tracking-widest uppercase text-sandstone-700 mb-2">Execution Firm</div>
                       <p className="text-sm text-charcoal-800 leading-relaxed font-medium">{execution}</p>
                     </div>
                   </div>

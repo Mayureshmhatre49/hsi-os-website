@@ -25,7 +25,7 @@ export default function StickyMobileCTA() {
           href="/contact"
           className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-semibold text-white bg-bronze-700 hover:bg-bronze-800 transition-colors active:scale-95"
         >
-          Book Consultation
+          Speak to Our Team
         </Link>
         <a
           href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project"

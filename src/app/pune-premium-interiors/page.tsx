@@ -108,8 +108,8 @@ export default async function PunePremiumInteriorsPage() {
                 Execution That Matches Global Standards
               </h1>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
-                Koregaon Park. Kalyani Nagar. Prabhat Road. Delivering Pune&apos;s finest residences
-                with absolute execution intelligence and zero surprises.
+                Koregaon Park. Kalyani Nagar. Baner. Premium Pune residences, run from our Baner office
+                with every rupee tracked and every decision on record.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a

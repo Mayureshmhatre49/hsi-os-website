@@ -33,7 +33,7 @@ const included = [
   { icon: GitBranch,  title: 'A clash check before any site work begins',    desc: 'Drawings are reconciled across trades so conflicts are caught on paper, not on site.' },
   { icon: BarChart2,  title: 'A live budget dashboard, updated as you go',   desc: 'Every rupee spent and committed, visible to you at any time — from anywhere.' },
   { icon: Camera,     title: 'Daily photo documentation tied to the schedule', desc: 'A dated photo record of progress against each milestone.' },
-  { icon: CheckSquare, title: `Milestone quality inspections`,               desc: `${FACTS.qaCheckpoints} QA checkpoints across 12 phases, signed off before the next phase begins.` },
+  { icon: CheckSquare, title: `Milestone quality inspections`,               desc: `${FACTS.qaCheckpoints} QA checkpoints across 12 execution stages, each signed off before the next begins.` },
   { icon: Archive,    title: 'A handover dossier with warranties and AMC',   desc: 'Finishes, installations and warranty dates documented and handed over as a permanent record.' },
 ]
 
@@ -171,13 +171,14 @@ export default function ServicesPage() {
           <RevealOnScroll>
             <div className="section-label">Where we work</div>
             <h2 className="font-serif text-display-md text-charcoal-800 mb-8">
-              Based in Alibag. Delivering across the Konkan coast.
+              Offices in Alibag and Pune. Delivering across the Konkan coast.
             </h2>
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               'Alibag & the Konkan coast',
               'Karjat / Lonavala',
+              'Pune',
               'Mumbai owners building in Alibag',
               'NRI clients, managed remotely',
             ].map((place, i) => (

@@ -1,512 +1,296 @@
-'use client'
-
-import { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { MessageCircle, Mail, MapPin, CheckCircle2, Phone } from 'lucide-react'
-import { PHONES, EMAIL } from '@/lib/contact'
+import { MessageCircle, Mail, Phone, MapPin, ArrowUpRight, Check, Clock } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getVerifiedTestimonial } from '@/content/testimonials'
+import TrackedContactLink from '@/components/ui/TrackedContactLink'
+import { PHONES, EMAIL, WHATSAPP_NUMBER, INDIA_OFFICES, OFFICES, type Office } from '@/lib/contact'
 import { FACTS } from '@/content/facts'
 
-const projectTypes = [
-  'Villa — Complete End-to-End Interior',
-  'Premium Apartment',
-  'Holiday Home / Farmhouse',
-  'Luxury Renovation',
-  'Penthouse',
-  'Developer Project / Sample Villa',
-  'Boutique Hospitality',
-  'Other',
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi HSI, I'd like to discuss my project")}`
+const HOURS = 'Mon–Fri 9am–6pm · Sat 10am–3pm IST'
+
+const whatToSend = [
+  'Where the property is — Alibag, Mumbai, Pune or elsewhere',
+  'Its size and stage: bare shell, design in progress or drawings ready',
+  'Drawings or a few site photos, if you have them',
+  'When you would like to move in',
 ]
 
-const locations = [
-  'Alibag', 'Mumbai', 'Pune', 'Goa', 'Bangalore',
-  'Karjat / Lonavala', 'NRI — Managing Remotely', 'Other',
+const steps = [
+  { n: '01', title: 'We reply on WhatsApp', desc: 'A member of our team — not a bot — usually replies within 2 hours during working hours.' },
+  { n: '02', title: 'A 45-minute discovery call', desc: 'In person in Alibag or Pune, or over video if you are in another city or abroad.' },
+  { n: '03', title: 'Scope and an honest range', desc: 'A structured scope and a realistic investment range — and a straight answer if we are not the right fit.' },
 ]
 
-const budgetRanges = [
-  '₹25 – 50 Lakhs',
-  '₹50 Lakhs – 1 Crore',
-  '₹1 – 2 Crore',
-  '₹2 – 5 Crore',
-  '₹5 Crore+',
-  'Not yet determined',
+const faqs = [
+  {
+    q: 'Do I need to have a design already?',
+    a: 'No. We work with your existing architect or designer, or help you coordinate one. We are execution specialists — we work from whatever stage you are at.',
+  },
+  {
+    q: 'Can you manage a project remotely if I am an NRI?',
+    a: 'Yes. HSIOS™ was built with remote owners in mind: a live budget, a daily photo record and digital approvals, wherever you are.',
+  },
+  {
+    q: 'What is the minimum project size you work with?',
+    a: `We focus on premium residential projects — typically ${FACTS.minProjectValue} and above in interior execution value.`,
+  },
 ]
 
-interface FormState {
-  name: string
-  email: string
-  phone: string
-  projectType: string
-  location: string
-  area: string
-  stage: string
-  residence: string
-  budget: string
-  preferredContact: string
-  message: string
-  honeypot: string // anti-spam
+function OfficeCard({ office, featured = false }: { office: Office; featured?: boolean }) {
+  return (
+    <div className={`h-full flex flex-col p-7 rounded-2xl border ${featured ? 'bg-white border-ivory-300 shadow-card' : 'bg-ivory-100 border-ivory-300'}`}>
+      <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-1">{office.country}</div>
+      <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-4">{office.label}</h3>
+      <address className="not-italic text-warmgray-700 leading-relaxed mb-6">
+        <span className="block font-semibold text-charcoal-800">{office.company}</span>
+        {office.addressLines.map((line) => (
+          <span key={line} className="block">{line}</span>
+        ))}
+      </address>
+      <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
+        <TrackedContactLink
+          href={`tel:${office.phone.e164}`}
+          kind="phone"
+          source={`contact-office-${office.label}`}
+          className="inline-flex items-center gap-2 font-semibold text-sandstone-600 hover:text-sandstone-700 transition-colors"
+        >
+          <Phone size={15} strokeWidth={1.75} aria-hidden="true" />
+          {office.phone.display}
+        </TrackedContactLink>
+        {office.mapsUrl && (
+          <a
+            href={office.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-charcoal-700 hover:text-sandstone-700 transition-colors"
+          >
+            Get directions <ArrowUpRight size={14} aria-hidden="true" />
+            <span className="sr-only">(opens Google Maps in a new tab)</span>
+          </a>
+        )}
+      </div>
+    </div>
+  )
 }
-
-const initialForm: FormState = {
-  name: '', email: '', phone: '', projectType: '',
-  location: '', area: '', stage: '', residence: '',
-  budget: '', preferredContact: '', message: '', honeypot: '',
-}
-
-const stageOptions = [
-  'Drawings ready (GFC / for construction)',
-  'Design in progress',
-  'Bare shell / not yet designed',
-  'Not sure',
-]
-
-const preferredContactOptions = ['Phone call', 'WhatsApp', 'Video call']
 
 export default function ContactPage() {
-  const [form, setForm] = useState<FormState>(initialForm)
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-  const [errorMsg, setErrorMsg] = useState('')
-
-  const handleChange = useCallback((
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }, [])
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Honeypot check
-    if (form.honeypot) return
-
-    setStatus('sending')
-    setErrorMsg('')
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json() as { ok?: boolean; error?: string }
-      if (res.ok && data.ok) {
-        setStatus('success')
-        setForm(initialForm)
-      } else {
-        throw new Error(data.error ?? 'Submission failed')
-      }
-    } catch (err) {
-      setStatus('error')
-      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
-    }
-  }
-
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="py-20 md:py-32 bg-charcoal-800">
-        <div className="container-luxury">
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-charcoal-900 relative overflow-hidden">
+        <div className="container-luxury grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
           <RevealOnScroll>
-            <div className="max-w-xl">
-              <div className="section-label text-sandstone-400">Let&apos;s Talk</div>
-              <h1 className="font-serif text-display-xl text-white mb-5">
-                Book Your<br />
-                <em className="not-italic text-sandstone-300">Private Consultation.</em>
-              </h1>
-              <p className="text-warmgray-300 text-lg leading-relaxed">
-                Share your project vision with us. We will come back to you within 24 hours
-                to schedule a call and show you exactly how HSI would work for your home.
+            <div className="section-label text-sandstone-400">Contact</div>
+            <h1 className="font-serif text-display-xl text-white mb-6">
+              Talk to the team that will{' '}
+              <em className="not-italic text-sandstone-300">build your home.</em>
+            </h1>
+            <p className="text-warmgray-300 text-lg leading-relaxed mb-8 max-w-xl">
+              WhatsApp is the fastest way to reach us. A member of our team replies — usually within
+              2 hours — and we take it from there: a call, a site visit or a video walkthrough of
+              your drawings.
+            </p>
+            <div className="flex flex-wrap gap-4 mb-6">
+              <TrackedContactLink
+                href={WHATSAPP_URL}
+                kind="whatsapp"
+                source="contact-hero"
+                className="btn bg-[#25D366] text-charcoal-900 hover:brightness-95 shadow-luxury-md"
+              >
+                <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
+                WhatsApp to Discuss
+              </TrackedContactLink>
+              <TrackedContactLink
+                href={`tel:${PHONES[0].e164}`}
+                kind="phone"
+                source="contact-hero"
+                className="btn btn-outline-white"
+              >
+                <Phone size={16} strokeWidth={1.75} aria-hidden="true" />
+                Call {PHONES[0].display}
+              </TrackedContactLink>
+            </div>
+            <p className="flex items-start gap-2 text-sm text-warmgray-400">
+              <Clock size={14} className="mt-[3px] flex-shrink-0" aria-hidden="true" />
+              {HOURS} · WhatsApp and video calls outside these hours for NRI clients
+            </p>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <div className="rounded-3xl bg-white/5 border border-white/10 p-8">
+              <div className="text-xs font-bold tracking-widest uppercase text-sandstone-400 mb-4">
+                Helpful to send in your first message
+              </div>
+              <ul className="space-y-4">
+                {whatToSend.map((item) => (
+                  <li key={item} className="flex gap-3 text-warmgray-200 leading-relaxed">
+                    <span className="mt-1 w-5 h-5 rounded-full bg-sandstone-400/20 flex items-center justify-center flex-shrink-0">
+                      <Check size={12} className="text-sandstone-300" aria-hidden="true" />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 pt-6 border-t border-white/10 text-sm text-warmgray-400">
+                Not ready to share details? A simple &ldquo;hello&rdquo; is fine — we&apos;ll ask the right questions.
               </p>
             </div>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── CONTACT LAYOUT ────────────────────────────────── */}
+      {/* ── WAYS TO REACH US ─────────────────────────────────── */}
+      <section className="py-16 bg-white border-b border-ivory-200" aria-label="Ways to reach us">
+        <div className="container-luxury grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <TrackedContactLink
+            href={WHATSAPP_URL}
+            kind="whatsapp"
+            source="contact-card"
+            className="group p-7 rounded-2xl bg-sandstone-50 border border-sandstone-200 hover:shadow-card transition-all"
+          >
+            <MessageCircle className="text-sandstone-600 mb-4" size={22} strokeWidth={1.75} aria-hidden="true" />
+            <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-1">WhatsApp · Fastest</div>
+            <div className="font-serif text-xl font-bold text-charcoal-800 group-hover:text-sandstone-700 transition-colors whitespace-nowrap">{PHONES[0].display}</div>
+            <div className="text-sm text-warmgray-600 mt-1">Usually replies within 2 hours</div>
+          </TrackedContactLink>
+
+          <div className="p-7 rounded-2xl bg-ivory-100 border border-ivory-300">
+            <Phone className="text-sandstone-600 mb-4" size={22} strokeWidth={1.75} aria-hidden="true" />
+            <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">Call</div>
+            <div className="space-y-1.5">
+              {INDIA_OFFICES.map((o) => (
+                <TrackedContactLink
+                  key={o.label}
+                  href={`tel:${o.phone.e164}`}
+                  kind="phone"
+                  source={`contact-card-${o.label}`}
+                  className="flex items-baseline justify-between gap-3 font-semibold text-charcoal-800 hover:text-sandstone-700 transition-colors whitespace-nowrap"
+                >
+                  {o.phone.display}
+                  <span className="text-xs font-medium text-warmgray-600">{o.label.replace(' Office', '')}</span>
+                </TrackedContactLink>
+              ))}
+            </div>
+            <div className="text-sm text-warmgray-600 mt-2">{HOURS}</div>
+          </div>
+
+          <TrackedContactLink
+            href={`mailto:${EMAIL}`}
+            kind="email"
+            source="contact-card"
+            className="group p-7 rounded-2xl bg-ivory-100 border border-ivory-300 hover:shadow-card transition-all"
+          >
+            <Mail className="text-sandstone-600 mb-4" size={22} strokeWidth={1.75} aria-hidden="true" />
+            <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-1">Email</div>
+            <div className="font-serif text-xl font-bold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{EMAIL}</div>
+            <div className="text-sm text-warmgray-600 mt-1">Drawings and documents welcome · reply within 24 hours</div>
+          </TrackedContactLink>
+        </div>
+      </section>
+
+      {/* ── WHAT HAPPENS NEXT ────────────────────────────────── */}
       <section className="section-py bg-ivory-100">
         <div className="container-luxury">
-          <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
-
-            {/* Info Column */}
-            <div className="lg:col-span-2">
-              <RevealOnScroll>
-                <div className="space-y-8 lg:sticky lg:top-28">
-                  <div>
-                    <h2 className="font-serif text-display-sm text-charcoal-800 mb-4">
-                      Tell Us What You&apos;re Building.
-                    </h2>
-                    <p className="text-warmgray-600 leading-relaxed">
-                      Whether it is a villa in Alibag, an apartment in Mumbai or a holiday
-                      home you are planning from abroad — we&apos;ll show you how we would run it: scope, sequence and budget.
-                    </p>
-                  </div>
-
-                  {/* Contact blocks */}
-                  <div className="space-y-4">
-                    {PHONES.map(({ display, e164 }, i) => (
-                      <a
-                        key={e164}
-                        href={`tel:${e164}`}
-                        className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
-                      >
-                        <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
-                          <Phone size={18} strokeWidth={1.75} />
-                        </div>
-                        <div>
-                          <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">
-                            {i === 0 ? 'Call Us' : 'Alternate Line'}
-                          </div>
-                          <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{display}</div>
-                          <div className="text-xs text-warmgray-500">Mon–Fri 9am–6pm · Sat 10am–3pm</div>
-                        </div>
-                      </a>
-                    ))}
-
-                    <a
-                      href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27d%20like%20to%20book%20a%20consultation"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
-                    >
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
-                        <MessageCircle size={18} strokeWidth={1.75} />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">WhatsApp</div>
-                        <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{PHONES[0].display}</div>
-                        <div className="text-xs text-warmgray-500">Typically replies within 2 hours</div>
-                      </div>
-                    </a>
-
-                    <a
-                      href={`mailto:${EMAIL}`}
-                      className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 hover:shadow-card transition-all duration-300 group"
-                    >
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
-                        <Mail size={18} strokeWidth={1.75} />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">Email</div>
-                        <div className="font-semibold text-charcoal-800 group-hover:text-sandstone-700 transition-colors">{EMAIL}</div>
-                        <div className="text-xs text-warmgray-500">We respond within 24 hours</div>
-                      </div>
-                    </a>
-
-                    <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-ivory-300">
-                      <div className="w-11 h-11 rounded-xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center flex-shrink-0 text-sandstone-600">
-                        <MapPin size={18} strokeWidth={1.75} />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-0.5">We Serve</div>
-                        <div className="font-semibold text-charcoal-800 leading-snug">{FACTS.serviceArea}</div>
-                      </div>
-                    </div>
-
-                    {/* [CONFIRM] outside-hours availability for NRI clients */}
-                    <p className="text-xs text-warmgray-500 leading-relaxed px-1">
-                      WhatsApp and video calls are available outside these hours for NRI clients.
-                    </p>
-                  </div>
-
-                  {/* Social proof stats */}
-                  <div className="grid grid-cols-3 gap-3">
-                    {[
-                      { val: `${FACTS.villasDelivered}`, label: 'Luxury Villas Delivered' },
-                      { val: `${FACTS.conflictsCaughtPreExecution}`, label: 'Clashes Caught Pre-Site' },
-                      { val: FACTS.budgetClaimStat.value, label: FACTS.budgetClaimStat.label },
-                    ].map(({ val, label }) => (
-                      <div key={label} className="p-4 rounded-xl bg-ivory-100 text-center">
-                        <div className="font-serif text-2xl font-bold text-sandstone-600 mb-0.5">{val}</div>
-                        <div className="text-[10px] font-semibold uppercase tracking-wider text-warmgray-500 leading-snug">{label}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Testimonial pull-quote — renders only when verified (src/content/testimonials.ts) */}
-                  {(() => {
-                    const t = getVerifiedTestimonial('abhishek-bajoria')
-                    if (!t) return null
-                    return (
-                      <blockquote className="p-5 rounded-2xl bg-sandstone-50 border border-sandstone-200">
-                        <p className="text-sm text-warmgray-700 leading-relaxed italic mb-3">
-                          &ldquo;{t.quote}&rdquo;
-                        </p>
-                        <div className="text-[10px] font-bold tracking-widest uppercase text-sandstone-600">
-                          {t.name} — {t.location ? `${t.role} · ${t.location}` : t.role}
-                        </div>
-                      </blockquote>
-                    )
-                  })()}
-
-                  {/* Trust note */}
-                  <div className="p-5 rounded-2xl bg-white border border-ivory-200">
-                    <p className="text-sm text-warmgray-700 leading-relaxed">
-                      <span className="font-semibold text-charcoal-800">No pressure, no sales pitch.</span>{' '}
-                      Our first call is purely to understand your project and confirm whether HSI
-                      is the right fit. We only take on projects where we can deliver genuine value.
-                    </p>
-                  </div>
+          <RevealOnScroll>
+            <div className="section-label">What Happens Next</div>
+            <h2 className="font-serif text-display-md text-charcoal-800 mb-4">
+              No forms. No sales pitch.
+            </h2>
+            <p className="text-warmgray-600 text-lg leading-relaxed max-w-2xl mb-12">
+              Our first conversation is purely to understand your project and whether HSI is the
+              right fit. We only take on projects where we can deliver genuine value.
+            </p>
+          </RevealOnScroll>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {steps.map((s, i) => (
+              <RevealOnScroll key={s.n} delay={i * 0.08}>
+                <div className="h-full p-7 rounded-2xl bg-white border border-ivory-300">
+                  <div className="font-serif text-3xl font-bold text-sandstone-600 mb-4">{s.n}</div>
+                  <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-2">{s.title}</h3>
+                  <p className="text-warmgray-600 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </RevealOnScroll>
-            </div>
-
-            {/* Form Column */}
-            <div className="lg:col-span-3">
-              <RevealOnScroll delay={0.1}>
-                <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-10 border border-ivory-300 shadow-luxury">
-
-                  {status === 'success' ? (
-                    <div className="text-center py-16">
-                      <div className="w-16 h-16 rounded-2xl bg-sandstone-100 border border-sandstone-200 flex items-center justify-center mx-auto mb-6 text-sandstone-600">
-                        <CheckCircle2 size={28} strokeWidth={1.5} />
-                      </div>
-                      <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-3">
-                        Thank You — We&apos;ll Be in Touch.
-                      </h3>
-                      <p className="text-warmgray-600 leading-relaxed mb-8 max-w-sm mx-auto">
-                        We&apos;ve received your enquiry and will reach out within 24 hours
-                        to schedule your consultation.
-                      </p>
-                      <a
-                        href="https://wa.me/918010234802?text=Hi%20HSI%2C%20I%27ve%20just%20submitted%20an%20enquiry%20via%20your%20website"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-bronze"
-                      >
-                        Message Us on WhatsApp
-                      </a>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} noValidate>
-                      <h2 className="font-serif text-2xl font-bold text-charcoal-800 mb-2">
-                        Tell Us About Your Project
-                      </h2>
-                      <p className="text-warmgray-500 text-sm mb-8">
-                        Fields marked * are required — we&apos;ll call you back within 24 hours. Your information is kept strictly private.
-                      </p>
-
-                      {/* Honeypot — hidden from humans */}
-                      <input
-                        type="text"
-                        name="honeypot"
-                        value={form.honeypot}
-                        onChange={handleChange}
-                        className="hidden"
-                        tabIndex={-1}
-                        autoComplete="off"
-                        aria-hidden="true"
-                      />
-
-                      <div className="grid sm:grid-cols-2 gap-5">
-                        {/* Name */}
-                        <div className="sm:col-span-2">
-                          <label htmlFor="name" className="form-label">Full Name *</label>
-                          <input
-                            id="name" type="text" name="name"
-                            value={form.name} onChange={handleChange}
-                            placeholder="Your full name"
-                            required className="form-input"
-                          />
-                        </div>
-
-                        {/* Phone */}
-                        <div>
-                          <label htmlFor="phone" className="form-label">Phone / WhatsApp *</label>
-                          <input
-                            id="phone" type="tel" name="phone"
-                            value={form.phone} onChange={handleChange}
-                            placeholder="+91 98765 43210"
-                            required className="form-input"
-                          />
-                        </div>
-
-                        {/* Email */}
-                        <div>
-                          <label htmlFor="email" className="form-label">Email Address</label>
-                          <input
-                            id="email" type="email" name="email"
-                            value={form.email} onChange={handleChange}
-                            placeholder="hello@example.com"
-                            className="form-input"
-                          />
-                        </div>
-
-                        {/* Project Type */}
-                        <div>
-                          <label htmlFor="projectType" className="form-label">Project Type</label>
-                          <select
-                            id="projectType" name="projectType"
-                            value={form.projectType} onChange={handleChange}
-                            className="form-input"
-                          >
-                            <option value="">Select project type (optional)</option>
-                            {projectTypes.map((t) => (
-                              <option key={t} value={t}>{t}</option>
-                            ))}
-                          </select>
-                        </div>
-
-                        {/* Location */}
-                        <div>
-                          <label htmlFor="location" className="form-label">Project Location</label>
-                          <select
-                            id="location" name="location"
-                            value={form.location} onChange={handleChange}
-                            className="form-input"
-                          >
-                            <option value="">Select location (optional)</option>
-                            {locations.map((l) => (
-                              <option key={l} value={l}>{l}</option>
-                            ))}
-                          </select>
-                        </div>
-
-                        {/* Approx area */}
-                        <div>
-                          <label htmlFor="area" className="form-label">Approx. area (sq ft)</label>
-                          <input
-                            id="area" name="area" type="text" inputMode="numeric"
-                            value={form.area} onChange={handleChange}
-                            placeholder="e.g. 4,000"
-                            className="form-input"
-                          />
-                        </div>
-
-                        {/* Stage */}
-                        <div>
-                          <label htmlFor="stage" className="form-label">Stage</label>
-                          <select
-                            id="stage" name="stage"
-                            value={form.stage} onChange={handleChange}
-                            className="form-input"
-                          >
-                            <option value="">Select stage (optional)</option>
-                            {stageOptions.map((s) => (
-                              <option key={s} value={s}>{s}</option>
-                            ))}
-                          </select>
-                        </div>
-
-                        {/* Where you live */}
-                        <div>
-                          <label htmlFor="residence" className="form-label">Where you live</label>
-                          <input
-                            id="residence" name="residence" type="text"
-                            value={form.residence} onChange={handleChange}
-                            placeholder="India city, or country if abroad"
-                            className="form-input"
-                          />
-                        </div>
-
-                        {/* Preferred contact */}
-                        <div>
-                          <label htmlFor="preferredContact" className="form-label">Preferred contact</label>
-                          <select
-                            id="preferredContact" name="preferredContact"
-                            value={form.preferredContact} onChange={handleChange}
-                            className="form-input"
-                          >
-                            <option value="">Select (optional)</option>
-                            {preferredContactOptions.map((p) => (
-                              <option key={p} value={p}>{p}</option>
-                            ))}
-                          </select>
-                        </div>
-
-                        {/* Budget */}
-                        <div className="sm:col-span-2">
-                          <label htmlFor="budget" className="form-label">Approximate Budget</label>
-                          <select
-                            id="budget" name="budget"
-                            value={form.budget} onChange={handleChange}
-                            className="form-input"
-                          >
-                            <option value="">Select a range (optional)</option>
-                            {budgetRanges.map((b) => (
-                              <option key={b} value={b}>{b}</option>
-                            ))}
-                          </select>
-                        </div>
-
-                        {/* Message */}
-                        <div className="sm:col-span-2">
-                          <label htmlFor="message" className="form-label">Project Description *</label>
-                          <textarea
-                            id="message" name="message"
-                            value={form.message} onChange={handleChange}
-                            placeholder="Tell us about your property, your vision and any specific requirements..."
-                            required rows={5}
-                            className="form-input resize-none"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Error */}
-                      {status === 'error' && (
-                        <div className="mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-sm text-red-700">
-                          {errorMsg || 'Something went wrong. Please try WhatsApp or email directly.'}
-                        </div>
-                      )}
-
-                      {/* Submit */}
-                      <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
-                        <button
-                          type="submit"
-                          disabled={status === 'sending'}
-                          className="btn btn-bronze disabled:opacity-60 disabled:cursor-not-allowed text-base px-10 py-4"
-                        >
-                          {status === 'sending' ? 'Sending…' : 'Request a Call Back →'}
-                        </button>
-                        <p className="text-xs text-warmgray-600 self-center">
-                          By submitting, you agree that HSI may contact you about your enquiry.
-                          We never share your data.
-                        </p>
-                      </div>
-                    </form>
-                  )}
-                </div>
-              </RevealOnScroll>
-            </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-3 gap-4 max-w-3xl">
+            {[
+              { val: `${FACTS.villasDelivered}`, label: 'Villas delivered in Alibag' },
+              { val: `${FACTS.conflictsCaughtPreExecution}`, label: 'Clashes caught before site' },
+              { val: FACTS.budgetClaimStat.value, label: FACTS.budgetClaimStat.label },
+            ].map(({ val, label }) => (
+              <div key={label}>
+                <div className="font-serif text-2xl sm:text-3xl font-bold text-charcoal-800">{val}</div>
+                <div className="text-xs sm:text-sm text-warmgray-600 leading-snug mt-1">{label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── FAQ QUICK ─────────────────────────────────────── */}
-      <section className="py-20 bg-ivory-200">
+      {/* ── OFFICES ──────────────────────────────────────────── */}
+      <section className="section-py bg-white" aria-labelledby="offices-heading">
+        <div className="container-luxury">
+          <RevealOnScroll>
+            <div className="section-label">Our Offices</div>
+            <h2 id="offices-heading" className="font-serif text-display-md text-charcoal-800 mb-10">
+              Visit us in Alibag or Pune.
+            </h2>
+          </RevealOnScroll>
+          <div className="grid md:grid-cols-2 gap-6 mb-14">
+            {INDIA_OFFICES.map((o) => (
+              <RevealOnScroll key={o.label}>
+                <OfficeCard office={o} featured />
+              </RevealOnScroll>
+            ))}
+          </div>
+
+          <RevealOnScroll>
+            <div className="flex items-center gap-3 mb-6">
+              <MapPin size={16} className="text-sandstone-600" aria-hidden="true" />
+              <h3 className="text-xs font-bold tracking-widest uppercase text-warmgray-600">International</h3>
+            </div>
+          </RevealOnScroll>
+          <div className="grid md:grid-cols-2 gap-6">
+            {OFFICES.map((o) => (
+              <RevealOnScroll key={o.label}>
+                <OfficeCard office={o} />
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────── */}
+      <section className="section-py bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
             <div className="section-label">Quick Answers</div>
             <h2 className="font-serif text-display-sm text-charcoal-800 mb-10">
-              Common Questions Before You Reach Out
+              Before You Reach Out
             </h2>
           </RevealOnScroll>
           <div className="space-y-4">
-            {[
-              {
-                q: 'Do I need to have a design already?',
-                a: 'No. We can work with your existing architect or designer, or help you coordinate one. We are execution specialists — we work with whatever stage you are at.',
-              },
-              {
-                q: 'Can you manage a project remotely if I am an NRI?',
-                a: 'Absolutely. HSIOS™ was built with remote management in mind. You will have full visibility via your dashboard — and we keep you updated at every key milestone.',
-              },
-              {
-                q: 'What is the minimum project size you work with?',
-                a: `We focus on premium residential projects — typically ${FACTS.minProjectValue} and above in interior execution value. Our process is designed for projects where structure and quality genuinely matter.`,
-              },
-            ].map(({ q, a }) => (
+            {faqs.map(({ q, a }) => (
               <RevealOnScroll key={q}>
-                <div className="p-7 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 transition-colors">
+                <div className="p-7 rounded-2xl bg-white border border-ivory-300">
                   <h3 className="font-serif font-bold text-charcoal-800 mb-2">{q}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed">{a}</p>
                 </div>
               </RevealOnScroll>
             ))}
           </div>
-          <RevealOnScroll className="mt-8">
-            <Link href="/insights" className="text-sm font-semibold text-sandstone-600 hover:text-sandstone-800 flex items-center gap-2 transition-colors">
-              More questions answered in our Insights →
+          <RevealOnScroll className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <TrackedContactLink
+              href={WHATSAPP_URL}
+              kind="whatsapp"
+              source="contact-faq"
+              className="btn bg-[#25D366] text-charcoal-900 hover:brightness-95"
+            >
+              <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
+              Ask us on WhatsApp
+            </TrackedContactLink>
+            <Link href="/insights" className="text-sm font-semibold text-sandstone-600 hover:text-sandstone-700 transition-colors">
+              More answers in our Insights →
             </Link>
           </RevealOnScroll>
         </div>

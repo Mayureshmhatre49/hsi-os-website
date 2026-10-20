@@ -294,7 +294,7 @@ export default function ExecutionDisciplines({
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isActive ? 'bg-sandstone-400/20 text-sandstone-300' : 'bg-sandstone-100 border border-sandstone-200 text-sandstone-600'}`}>
                           <Icon size={15} strokeWidth={1.75} />
                         </div>
-                        <span className={`text-[10px] font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? 'text-sandstone-400' : 'text-sandstone-600'}`}>
+                        <span className={`text-[11px] font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? 'text-sandstone-400' : 'text-sandstone-600'}`}>
                           {label}
                         </span>
                       </div>
@@ -320,7 +320,7 @@ export default function ExecutionDisciplines({
                       <div className="pt-5 grid sm:grid-cols-2 gap-6">
                         {/* Services list */}
                         <div>
-                          <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-sandstone-400 mb-3">
+                          <div className="text-[11px] font-bold tracking-[0.15em] uppercase text-sandstone-400 mb-3">
                             Execution Scope
                           </div>
                           <ul className="space-y-2">
@@ -335,7 +335,7 @@ export default function ExecutionDisciplines({
 
                         {/* HSIOS™ integration note */}
                         <div>
-                          <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-sandstone-400 mb-3">
+                          <div className="text-[11px] font-bold tracking-[0.15em] uppercase text-sandstone-400 mb-3">
                             HSIOS™ Integration
                           </div>
                           <div className="p-4 rounded-xl bg-white/6 border border-sandstone-400/20">

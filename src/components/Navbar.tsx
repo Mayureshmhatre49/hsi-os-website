@@ -182,19 +182,9 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden xl:flex items-center gap-2.5 flex-shrink-0">
-            <a
-              href="https://os.hsios.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Client login to the HSIOS platform (opens in new tab)"
-              className={`text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
-                transparent ? 'text-white/80 hover:text-white' : 'text-sandstone-700 hover:text-sandstone-800'
-              }`}
-            >
-              Client Login
-            </a>
             <Link
               href="/contact"
+              aria-current={pathname === '/contact' ? 'page' : undefined}
               className={`
                 btn text-sm px-4 py-2.5 whitespace-nowrap
                 ${transparent
@@ -203,7 +193,7 @@ export default function Navbar() {
                 }
               `}
             >
-              Book a Consultation
+              Speak to Our Team
             </Link>
           </div>
 
@@ -229,7 +219,7 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Navigation menu"
         suppressHydrationWarning
-        className={`fixed inset-0 z-40 xl:hidden transition-all duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 z-40 xl:hidden transition-all duration-400 ${menuOpen ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none'}`}
       >
         {/* Backdrop */}
         <div className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm" onClick={() => setMenuOpen(false)} />
@@ -276,16 +266,7 @@ export default function Navbar() {
 
           {/* CTAs */}
           <div className="px-4 py-5 border-t border-ivory-200 space-y-3" style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}>
-            <Link href="/contact" className="btn btn-bronze w-full justify-center text-sm">Book a Consultation</Link>
-            <a
-              href="https://os.hsios.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Client login to the HSIOS platform (opens in new tab)"
-              className="btn btn-outline-dark w-full justify-center text-sm"
-            >
-              Client Login
-            </a>
+            <Link href="/contact" className="btn btn-bronze w-full justify-center text-sm">Speak to Our Team</Link>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20HSI%2C%20I%27m%20interested%20in%20discussing%20my%20project`}
               target="_blank"

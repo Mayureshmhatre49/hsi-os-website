@@ -3,9 +3,9 @@ import { getAlternates, breadcrumb } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Contact — Book a Consultation | Hestia Smart Interiors',
+  title: 'Contact — Book a Private Consultation',
   description:
-    'Start your luxury interior project conversation with Hestia Smart Interiors. Book a private consultation, WhatsApp us, or fill in the project brief form.',
+    'WhatsApp, call or visit Hestia Smart Interiors — offices in Alibag and Pune. A member of our team usually replies on WhatsApp within 2 hours.',
   alternates: getAlternates('/contact'),
 }
 

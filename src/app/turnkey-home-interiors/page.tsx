@@ -65,7 +65,7 @@ const faqs = [
   },
   {
     q: 'What is the typical timeline for a turnkey luxury home interior?',
-    a: 'For a 3,000–5,000 sq. ft. luxury apartment or villa, a well-managed turnkey execution typically runs 5–9 months. For larger independent villas, 9–14 months. The Planning Engine builds the precise timeline for your specific project scope during the onboarding phase.',
+    a: 'For a 3,000–5,000 sq. ft. luxury apartment or villa, a well-managed turnkey execution typically runs 5–9 months end to end — including planning and procurement lead times, with on-site work of around 18 weeks for a typical villa. For larger independent villas, 9–14 months. The Planning Engine builds the precise timeline for your specific project scope during the onboarding phase.',
   },
   {
     q: 'How do I stay involved without micromanaging the project?',
@@ -185,7 +185,7 @@ export default async function TurnkeyHomeInteriorsPage() {
             <p className="text-warmgray-600 leading-relaxed mb-10">
               HSIOS™ provides exactly that. When you engage us as your turnkey execution
               partner, you are not hiring a contractor who promises to handle everything.
-              You are plugging into a delivery engine that structurally guarantees transparency,
+              You are plugging into a delivery engine built to deliver transparency,
               accountability, and a finished home that matches the drawings.
             </p>
           </RevealOnScroll>
