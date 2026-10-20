@@ -3,6 +3,7 @@ import { getAlternates } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Start Your Consultation',
+  robots: { index: false, follow: true },
   description:
     'Begin your luxury interior project. Tell us about your apartment, villa, or holiday home in Mumbai, Alibag, and beyond, and configure your consultation.',
   alternates: getAlternates('/enquiry'),

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import { JsonLd } from '@/lib/JsonLd'
+import { breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Sustainability Built Into Every Decision — HSIOS™',
@@ -168,6 +170,10 @@ const myths = [
 export default function SustainabilityPage() {
   return (
     <>
+      <JsonLd data={breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Sustainability', url: 'https://www.hsios.in/sustainability' },
+      ])} />
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-charcoal-900">
         <div className="absolute inset-0">
@@ -210,6 +216,10 @@ export default function SustainabilityPage() {
                 <Link href="/contact" className="btn btn-bronze">Book a Consultation</Link>
                 <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
               </div>
+              <p className="mt-6 text-sm text-warmgray-300">
+                Sustainability consultant?{' '}
+                <Link href="/for-sustainability-experts" className="font-semibold text-sandstone-300 underline underline-offset-2 hover:text-white">See HSIOS™ for sustainability experts →</Link>
+              </p>
             </div>
           </RevealOnScroll>
         </div>

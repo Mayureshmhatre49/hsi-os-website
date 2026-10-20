@@ -15,6 +15,11 @@ const whatToSend = [
   'When you would like to move in',
 ]
 
+const CITY_PAGE: Record<string, { href: string; label: string }> = {
+  'Alibag Office': { href: '/alibag-villa-interiors', label: 'Alibag villa interiors' },
+  'Pune Office': { href: '/pune-premium-interiors', label: 'Pune interiors' },
+}
+
 const steps = [
   { n: '01', title: 'We reply on WhatsApp', desc: 'A member of our team — not a bot — usually replies within 2 hours during working hours.' },
   { n: '02', title: 'A 45-minute discovery call', desc: 'In person in Alibag or Pune, or over video if you are in another city or abroad.' },
@@ -57,6 +62,11 @@ function OfficeCard({ office, featured = false }: { office: Office; featured?: b
           <Phone size={15} strokeWidth={1.75} aria-hidden="true" />
           {office.phone.display}
         </TrackedContactLink>
+        {CITY_PAGE[office.label] && (
+          <Link href={CITY_PAGE[office.label].href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-charcoal-700 hover:text-sandstone-700 transition-colors">
+            {CITY_PAGE[office.label].label} →
+          </Link>
+        )}
         {office.mapsUrl && (
           <a
             href={office.mapsUrl}

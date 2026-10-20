@@ -94,7 +94,7 @@ export function ClientFeature({ context }: { context: keyof typeof COPY }) {
               </span>
             </div>
             <div className="section-label">{c.label}</div>
-            <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">{c.heading}</h3>
+            <h2 className="font-serif text-display-sm text-charcoal-800 mb-4">{c.heading}</h2>
             <p className="text-warmgray-600 leading-relaxed mb-6">{c.body}</p>
             <ul className="flex flex-wrap gap-2 mb-8" aria-label="HSI scope at Cerulean">
               {client.scope.map((s) => (

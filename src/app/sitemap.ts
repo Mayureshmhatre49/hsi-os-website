@@ -1,6 +1,26 @@
 import type { MetadataRoute } from 'next'
+import { execFileSync } from 'child_process'
+import { existsSync } from 'fs'
 
 const BASE_URL = 'https://www.hsios.in'
+
+/*
+ * Accurate <lastmod> per URL: the date of the last commit touching that
+ * route's source (the sitemap is generated at build time, inside the git
+ * checkout that deploy.sh builds from). Search engines only trust lastmod
+ * when it changes with real edits, so a blanket "now" is worse than none.
+ * Falls back to the build time when git history isn't available.
+ */
+function lastCommitDate(url: string, fallback: Date): Date {
+  const path = url === '/' ? 'src/app/page.tsx' : `src/app${url}`
+  if (!existsSync(path)) return fallback
+  try {
+    const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', path], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
+    return iso ? new Date(iso) : fallback
+  } catch {
+    return fallback
+  }
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -55,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return staticRoutes.map(({ url, priority, changeFrequency }) => ({
     url: `${BASE_URL}${url}`,
-    lastModified: now,
+    lastModified: lastCommitDate(url, now),
     changeFrequency,
     priority,
   }))

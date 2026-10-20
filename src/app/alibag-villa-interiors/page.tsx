@@ -5,6 +5,8 @@ import { ArrowRight, MapPin } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import LocationLinks from '@/components/ui/LocationLinks'
+import OfficeBlock from '@/components/ui/OfficeBlock'
 import { ClientFeature } from '@/components/ui/ClientSpotlight'
 import { FACTS } from '@/content/facts'
 import { ALIBAG, ALIBAG_AREAS, placeSchema } from '@/content/locations'
@@ -303,6 +305,9 @@ export default async function AlibagVillaInteriorsPage() {
         </div>
       </section>
 
+      {/* ── OFFICE (NAP) ── */}
+      <OfficeBlock office="Alibag Office" heading="Our Alibag office" />
+
       {/* ── FAQ ── */}
       <section className="py-24 bg-sandstone-50">
         <div className="container-luxury max-w-3xl">
@@ -350,6 +355,9 @@ export default async function AlibagVillaInteriorsPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/alibag-villa-interiors" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-charcoal-900 text-center">

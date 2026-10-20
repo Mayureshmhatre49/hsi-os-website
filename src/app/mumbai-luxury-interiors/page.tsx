@@ -5,6 +5,7 @@ import { ArrowRight, MapPin } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import LocationLinks from '@/components/ui/LocationLinks'
 import { FACTS } from '@/content/facts'
 import { MUMBAI, MUMBAI_AREAS, ALIBAG, placeSchema } from '@/content/locations'
 
@@ -335,6 +336,9 @@ export default async function MumbaiLuxuryInteriorsPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/mumbai-luxury-interiors" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-charcoal-900 text-center">

@@ -99,6 +99,10 @@ export default async function ForArchitectsPage() {
                 <Link href="/contact" className="btn btn-bronze">Discuss a Project</Link>
                 <Link href="/hsi-os" className="btn btn-outline-white">Explore Our Platform</Link>
               </div>
+              <p className="mt-6 text-sm text-warmgray-300">
+                BIM manager?{' '}
+                <Link href="/for-bim-managers" className="font-semibold text-sandstone-300 underline underline-offset-2 hover:text-white">See HSIOS™ for BIM managers →</Link>
+              </p>
             </div>
           </RevealOnScroll>
         </div>

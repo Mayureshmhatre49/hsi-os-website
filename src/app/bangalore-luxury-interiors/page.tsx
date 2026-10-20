@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import LocationLinks from '@/components/ui/LocationLinks'
+import { BANGALORE, placeSchema } from '@/content/locations'
 
 export const metadata: Metadata = {
   title: 'Luxury Interiors in Bangalore — HSIOS™ Execution',
@@ -80,9 +82,17 @@ export default async function BangaloreLuxuryInteriorsPage() {
     })),
   }
 
+  const service = serviceSchema({
+    name: 'Luxury Interior Execution in Bangalore',
+    serviceType: 'Apartment & Villa Interior Execution',
+    description: 'Interior execution for Bangalore villas and apartments — multi-trade coordination, smart home integration and live budget tracking through HSIOS™.',
+    url: 'https://www.hsios.in/bangalore-luxury-interiors',
+    areaServed: [placeSchema(BANGALORE)],
+  })
+
   return (
     <>
-      <JsonLd data={[faqSchema, breadcrumb([
+      <JsonLd data={[faqSchema, service, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
         { name: 'Bangalore Luxury Interiors', url: 'https://www.hsios.in/bangalore-luxury-interiors' },
       ])]} />
@@ -255,6 +265,9 @@ export default async function BangaloreLuxuryInteriorsPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/bangalore-luxury-interiors" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-sandstone-700 text-center">

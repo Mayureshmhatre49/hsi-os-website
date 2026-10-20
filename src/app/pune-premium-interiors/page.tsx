@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import LocationLinks from '@/components/ui/LocationLinks'
+import OfficeBlock from '@/components/ui/OfficeBlock'
+import { PUNE, placeSchema } from '@/content/locations'
 
 export const metadata: Metadata = {
   title: 'Premium Interiors in Pune — Villas & Apartments',
@@ -76,9 +79,17 @@ export default async function PunePremiumInteriorsPage() {
     })),
   }
 
+  const service = serviceSchema({
+    name: 'Premium Interior Execution in Pune',
+    serviceType: 'Apartment & Villa Interior Execution',
+    description: "Interior execution for premium apartments, villas and penthouses in Pune, run from HSI's Baner office and tracked end to end in HSIOS™.",
+    url: 'https://www.hsios.in/pune-premium-interiors',
+    areaServed: [placeSchema(PUNE), ...['Koregaon Park', 'Kalyani Nagar', 'Baner', 'Prabhat Road'].map((name) => ({ '@type': 'Place', name: `${name}, Pune` }))],
+  })
+
   return (
     <>
-      <JsonLd data={[faqSchema, breadcrumb([
+      <JsonLd data={[faqSchema, service, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
         { name: 'Pune Premium Interiors', url: 'https://www.hsios.in/pune-premium-interiors' },
       ])]} />
@@ -177,6 +188,9 @@ export default async function PunePremiumInteriorsPage() {
         </div>
       </section>
 
+      {/* ── OFFICE (NAP) ── */}
+      <OfficeBlock office="Pune Office" heading="Our Pune office, in Baner" />
+
       {/* ── FAQ ── */}
       <section className="py-24 bg-sandstone-50">
         <div className="container-luxury max-w-3xl">
@@ -200,6 +214,9 @@ export default async function PunePremiumInteriorsPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/pune-premium-interiors" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-charcoal-900 text-center">

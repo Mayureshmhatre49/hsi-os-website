@@ -3,7 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
-import { OG_IMAGE } from '@/lib/seo'
+import LocationLinks from '@/components/ui/LocationLinks'
+import { ALIBAG, MUMBAI, PUNE, placeSchema } from '@/content/locations'
+import { OG_IMAGE, serviceSchema, breadcrumb } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Luxury Interior Execution Company in India — HSIOS™',
@@ -79,9 +81,20 @@ export default async function LuxuryInteriorExecutionIndiaPage() {
     })),
   }
 
+  const service = serviceSchema({
+    name: 'Luxury Interior Execution in India',
+    serviceType: 'Luxury Interior Execution',
+    description: 'Structured luxury interior execution for premium villas and residences across India — project management, live cost tracking and multi-trade coordination through HSIOS™.',
+    url: 'https://www.hsios.in/luxury-interior-execution-india',
+    areaServed: [placeSchema(ALIBAG), placeSchema(MUMBAI), placeSchema(PUNE), { '@type': 'Country', name: 'India' }],
+  })
+
   return (
     <>
-      <JsonLd data={faqSchema} />
+      <JsonLd data={[faqSchema, service, breadcrumb([
+        { name: 'Home', url: 'https://www.hsios.in' },
+        { name: 'Luxury Interior Execution India', url: 'https://www.hsios.in/luxury-interior-execution-india' },
+      ])]} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
@@ -271,6 +284,9 @@ export default async function LuxuryInteriorExecutionIndiaPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/luxury-interior-execution-india" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-sandstone-700 text-center">

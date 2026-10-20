@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import LocationLinks from '@/components/ui/LocationLinks'
+import { LONAVALA, KARJAT, placeSchema } from '@/content/locations'
 
 export const metadata: Metadata = {
   title: 'Villa Interiors in Lonavala & Karjat',
@@ -80,9 +82,17 @@ export default async function LonavalaVillaInteriorsPage() {
     })),
   }
 
+  const service = serviceSchema({
+    name: 'Villa Interior Execution in Lonavala & Karjat',
+    serviceType: 'Villa Interior Execution',
+    description: 'Villa interior execution in Lonavala, Khandala and Karjat — hill-climate specifications, remote owner dashboards and multi-trade coordination through HSIOS™.',
+    url: 'https://www.hsios.in/lonavala-villa-interiors',
+    areaServed: [placeSchema(LONAVALA), placeSchema(KARJAT), { '@type': 'Place', name: 'Khandala' }],
+  })
+
   return (
     <>
-      <JsonLd data={[faqSchema, breadcrumb([
+      <JsonLd data={[faqSchema, service, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
         { name: 'Lonavala Villa Interiors', url: 'https://www.hsios.in/lonavala-villa-interiors' },
       ])]} />
@@ -234,6 +244,9 @@ export default async function LonavalaVillaInteriorsPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/lonavala-villa-interiors" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-charcoal-900 text-center">

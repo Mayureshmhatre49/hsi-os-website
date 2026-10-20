@@ -1,14 +1,15 @@
 {
   "name": "hsios-website",
   "version": "2.0.0",
-  "description": "Hestia Smart Interiors — Luxury Interior Execution powered by HSIOS™",
+  "description": "Hestia Smart Interiors \u2014 Luxury Interior Execution powered by HSIOS\u2122",
   "private": true,
   "scripts": {
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start -p 4000",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

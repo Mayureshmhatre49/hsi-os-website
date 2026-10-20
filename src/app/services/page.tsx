@@ -176,17 +176,17 @@ export default function ServicesPage() {
           </RevealOnScroll>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              'Alibag & the Konkan coast',
-              'Karjat / Lonavala',
-              'Pune',
-              'Mumbai owners building in Alibag',
-              'NRI clients, managed remotely',
-            ].map((place, i) => (
+              { place: 'Alibag & the Konkan coast',        href: '/alibag-villa-interiors' },
+              { place: 'Karjat / Lonavala',                href: '/lonavala-villa-interiors' },
+              { place: 'Pune',                             href: '/pune-premium-interiors' },
+              { place: 'Mumbai owners building in Alibag', href: '/mumbai-luxury-interiors' },
+              { place: 'NRI clients, managed remotely',    href: '/nri-home-interior-management' },
+            ].map(({ place, href }, i) => (
               <RevealOnScroll key={place} delay={i * 0.06}>
-                <div className="flex items-center gap-3 p-5 rounded-xl bg-ivory-100">
+                <Link href={href} className="group flex items-center gap-3 p-5 rounded-xl bg-ivory-100 hover:bg-sandstone-50 transition-colors">
                   <MapPin className="text-sandstone-600 flex-shrink-0" size={18} />
-                  <span className="text-charcoal-800 font-medium">{place}</span>
-                </div>
+                  <span className="text-charcoal-800 font-medium group-hover:text-sandstone-700 transition-colors">{place}</span>
+                </Link>
               </RevealOnScroll>
             ))}
           </div>

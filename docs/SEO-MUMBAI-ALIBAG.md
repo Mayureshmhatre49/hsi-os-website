@@ -74,8 +74,10 @@ Any old listing that shows +91-9881149629 must be updated, because mismatched ph
 
 ## 7. Measurement
 
-1. **Google Search Console**: verify `https://www.hsios.in` (the env var `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` is already supported), submit `/sitemap.xml`, and request indexing for the two new guides and both location pages.
-2. **Bing Webmaster Tools**: import from Search Console.
+1. **Google Search Console**: verify `https://www.hsios.in` by setting `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` on the server, then submit `/sitemap.xml`. Use URL Inspection to request indexing for `/contact`, `/alibag-villa-interiors`, `/pune-premium-interiors`, `/mumbai-luxury-interiors` and the two new guides.
+2. **Bing Webmaster Tools**: import from Search Console, or verify with `NEXT_PUBLIC_BING_SITE_VERIFICATION` (msvalidate.01).
+   - **After every production deploy, run `npm run indexnow`.** It pushes every sitemap URL to Bing, Yandex and the other IndexNow engines, using the key file in `public/`. Ideally add it to the end of `deploy.sh`.
+   - Sitemap `<lastmod>` dates come from git history, so they only change when a page really changes.
 3. Track monthly in Search Console:
    - Impressions and position for queries containing *alibag*, *alibaug* and *mumbai*.
    - Clicks to the keyword-map pages.
@@ -89,5 +91,4 @@ Only publish what is genuinely useful and accurate. Thin "interior designer in [
 1. **Casa Frangipani**: expand the case study with more photos and a short owner quote, once a verified quote exists.
 2. **Alibag monsoon-proofing checklist**: very high intent from April to May each year.
 3. **Mumbai penthouse fit-out**: a case study as soon as a Mumbai project can be shown with permission.
-4. **Bring the Alibag cost guide in line with the pricing page.** The guide says ₹4,500–7,500/sq ft for villas; the pricing page says ₹3,000–8,000+.
-5. **Marathi and Hindi**: only if you'll keep them maintained. At that point hreflang can be extended beyond `en-IN`.
+4. **Marathi and Hindi**: only if you'll keep them maintained. At that point hreflang can be extended beyond `en-IN`.

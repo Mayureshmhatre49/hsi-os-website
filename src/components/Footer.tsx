@@ -16,6 +16,7 @@ const footerLinks: Record<string, FooterLink[]> = {
     { href: '/nri-home-interior-management', label: 'NRI Owners' },
     { href: '/for-architects',               label: 'Architects & Designers' },
     { href: '/for-developers',               label: 'Developers' },
+    { href: '/commercial-interiors',         label: 'Commercial Spaces' },
   ],
   Products: [
     { href: '/digital-twin',   label: 'HSIOS™ Digital Twin' },
@@ -29,9 +30,14 @@ const footerLinks: Record<string, FooterLink[]> = {
     { href: '/security',       label: 'Security' },
   ],
   Locations: [
-    { href: '/alibag-villa-interiors',   label: 'Alibag' },
-    { href: '/mumbai-luxury-interiors',  label: 'Mumbai' },
-    { href: '/lonavala-villa-interiors', label: 'Karjat & Lonavala' },
+    { href: '/alibag-villa-interiors',          label: 'Alibag' },
+    { href: '/mumbai-luxury-interiors',         label: 'Mumbai' },
+    { href: '/pune-premium-interiors',          label: 'Pune' },
+    { href: '/lonavala-villa-interiors',        label: 'Karjat & Lonavala' },
+    { href: '/goa-villa-interiors',             label: 'Goa' },
+    { href: '/nashik-villa-interiors',          label: 'Nashik' },
+    { href: '/bangalore-luxury-interiors',      label: 'Bangalore' },
+    { href: '/luxury-interior-execution-india', label: 'Across India' },
   ],
 }
 

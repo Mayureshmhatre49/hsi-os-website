@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
-import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
+import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
+import LocationLinks from '@/components/ui/LocationLinks'
+import { GOA, placeSchema } from '@/content/locations'
 
 export const metadata: Metadata = {
   title: 'Goa Villa Interiors — Holiday Home Execution',
@@ -76,9 +78,17 @@ export default async function GoaVillaInteriorsPage() {
     })),
   }
 
+  const service = serviceSchema({
+    name: 'Villa Interior Execution in Goa',
+    serviceType: 'Villa Interior Execution',
+    description: 'Villa interior execution for holiday homes in Goa — transparent project management, live cost tracking and milestone-verified timelines, managed remotely through HSIOS™.',
+    url: 'https://www.hsios.in/goa-villa-interiors',
+    areaServed: [placeSchema(GOA)],
+  })
+
   return (
     <>
-      <JsonLd data={[faqSchema, breadcrumb([
+      <JsonLd data={[faqSchema, service, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
         { name: 'Goa Villa Interiors', url: 'https://www.hsios.in/goa-villa-interiors' },
       ])]} />
@@ -204,6 +214,9 @@ export default async function GoaVillaInteriorsPage() {
           </div>
         </div>
       </section>
+
+      <LocationLinks current="/goa-villa-interiors" />
+
 
       {/* ── CTA ── */}
       <section className="py-24 bg-charcoal-900 text-center">
