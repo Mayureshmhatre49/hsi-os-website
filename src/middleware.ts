@@ -25,16 +25,16 @@ export function middleware(request: NextRequest) {
    * for browsers without CSP3 support; CSP3-aware browsers ignore it entirely.
    */
   const scriptSrc = isProd
-    ? `'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://*.google-analytics.com`
-    : `'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com`
+    ? `'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://*.google-analytics.com https://connect.facebook.net`
+    : `'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://connect.facebook.net`
 
   const csp = [
     "default-src 'self'",
     `script-src ${scriptSrc}`,
     "style-src 'self' 'unsafe-inline'",
     "font-src 'self' data:",
-    "img-src 'self' data: blob: https://hestiavillas.in https://www.hsios.in",
-    "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
+    "img-src 'self' data: blob: https://hestiavillas.in https://www.hsios.in https://www.facebook.com",
+    "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com https://connect.facebook.net",
     "frame-src 'none'",
     "frame-ancestors 'none'",
     "form-action 'self'",

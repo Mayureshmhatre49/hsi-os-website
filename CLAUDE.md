@@ -29,7 +29,7 @@ The website is **not** a design portfolio. It is a precision-positioned brand pl
 | Icons | **Lucide React 1.14** |
 | Fonts | Playfair Display + Inter via `next/font/google` |
 | Email | **Nodemailer 8** via SMTP (Hostinger) |
-| Analytics | **GA4** via `gtag` (nonce-injected) |
+| Analytics | **GA4** via `gtag` + **Meta Pixel** via `fbq` (both nonce-injected; pixel ID hardcoded in `layout.tsx`) |
 | Performance | `web-vitals` via `WebVitals` component |
 | Testing | **Playwright 1.59** |
 | Hosting | VPS behind Nginx + HTTPS enforcement |
@@ -209,8 +209,8 @@ Hashed build assets (`/_next/static/*`) receive `Cache-Control: public, max-age=
 
 - A **per-request nonce** is generated via `btoa(crypto.randomUUID())` (Web Crypto, Edge-compatible).
 - Forwarded to server components via the `x-nonce` request header.
-- **Production** `script-src`: `'nonce-{nonce}' 'strict-dynamic' https://www.googletagmanager.com https://*.google-analytics.com`
-- **Development** `script-src`: `'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com`
+- **Production** `script-src`: `'nonce-{nonce}' 'strict-dynamic' https://www.googletagmanager.com https://*.google-analytics.com https://connect.facebook.net`
+- **Development** `script-src`: `'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://connect.facebook.net`
 
 Full CSP directives:
 ```
@@ -218,8 +218,8 @@ default-src 'self'
 script-src  {see above}
 style-src   'self' 'unsafe-inline'
 font-src    'self' data:
-img-src     'self' data: blob: https://hestiavillas.in https://www.hsios.in
-connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com
+img-src     'self' data: blob: https://hestiavillas.in https://www.hsios.in https://www.facebook.com
+connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com https://connect.facebook.net
 frame-src   'none'
 frame-ancestors 'none'
 form-action 'self'
@@ -532,7 +532,7 @@ Located in `/admin/`. This is a **legacy PHP dashboard** that predates the Next.
 
 3. **Font variable chain**: `--font-playfair` / `--font-inter` (set by next/font on `<html>`) → `--font-serif` / `--font-sans` (mapped in `globals.css` `:root`) → `font-serif` / `font-sans` (consumed via Tailwind). Both font vars must be present on the `<html>` element.
 
-4. **GA4 nonce**: The GA4 `gtag` scripts in `layout.tsx` use the nonce — do not convert them to third-party `<Script>` components without ensuring nonce compatibility.
+4. **GA4 / Meta Pixel nonce**: The GA4 `gtag` and Meta Pixel `fbq` scripts in `layout.tsx` use the nonce — do not convert them to third-party `<Script>` components without ensuring nonce compatibility.
 
 5. **No `<img>` tags**: Always use `next/image` `<Image>` component. Raw `<img>` tags bypass optimisation and will cause lint warnings.
 

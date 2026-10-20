@@ -281,6 +281,8 @@ const websiteSchema = {
 /* JSON.stringify with '<' escaped so a future stray '</script>' can't break out of the tag. */
 const ldJson = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c')
 
+const META_PIXEL_ID = '3369912693196561'
+
 // Routes that suppress the site Navbar, Footer, and StickyMobileCTA
 const SHELL_EXEMPT_EXACT    = ['/alibaug-villa', '/enquiry']
 const SHELL_EXEMPT_PREFIXES = ['/admin', '/partner']
@@ -306,6 +308,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* Performance: pre-connect to analytics origins */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
         <link rel="dns-prefetch" href="https://wa.me" />
 
         {/* JSON-LD Schemas — nonce required for nonce-based CSP in production.
@@ -348,8 +351,28 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             />
           </>
         )}
+
+        {/* Meta Pixel — fbevents.js also fires PageView on client-side
+            (pushState) navigations, so no route-change hook is needed. */}
+        <script
+          nonce={nonce}
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`,
+          }}
+        />
       </head>
       <body className="bg-ivory-100 text-charcoal-800 font-sans antialiased" suppressHydrationWarning>
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element -- 1×1 tracking beacon, not content */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            alt=""
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
         {!isLanding && <SkipToContent />}
         {!isLanding && <Navbar />}
         <main id="main-content">{children}</main>
