@@ -11,6 +11,7 @@ import { WHATSAPP_NUMBER } from '@/lib/contact'
 const navLinks: { href: string; label: string; badge?: string; mobileOnly?: boolean }[] = [
   { href: '/projects',     label: 'Projects' },
   { href: '/services',     label: 'Services' },
+  { href: '/hsi-os',       label: 'HSIOS™' },
   { href: '/how-it-works', label: 'How We Work' },
   { href: '/pricing',      label: 'Pricing' },
   { href: '/digital-twin', label: 'Digital Twin', badge: 'New' },
