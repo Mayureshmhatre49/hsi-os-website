@@ -11,6 +11,7 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import { JsonLd } from '@/lib/JsonLd'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 import PlatformPreview from '@/components/ui/PlatformPreview'
+import ClientViewMockup, { type ClientViewKey } from '@/components/ui/ClientViewMockups'
 import EngagementModels from '@/components/ui/EngagementModels'
 import { getAlternates, breadcrumb } from '@/lib/seo'
 import { WHATSAPP_NUMBER } from '@/lib/contact'
@@ -136,6 +137,7 @@ const benefits: {
   title: string
   desc: string
   shot: string
+  view: ClientViewKey
   link?: { href: string; label: string }
 }[] = [
   {
@@ -143,30 +145,35 @@ const benefits: {
     title: 'A live budget dashboard',
     desc: 'Every rupee spent and committed on your project, updated as it happens. Change orders are priced and approved before any money moves — so there are no surprise invoices at handover.',
     shot: 'Client budget view',
+    view: 'budget',
   },
   {
     Icon: Camera,
     title: 'A daily photo timeline',
     desc: 'A dated photo record of every day on site, tied to the schedule. You can see exactly what happened and when, without asking anyone for an update.',
     shot: 'Daily site timeline',
+    view: 'timeline',
   },
   {
     Icon: CheckCircle2,
     title: 'Digital change approvals',
     desc: 'Approve materials and changes from wherever you are. Every approval is logged with a date and kept as a permanent record you can refer back to.',
     shot: 'Approval request',
+    view: 'approval',
   },
   {
     Icon: GitBranch,
     title: 'Clash detection before site work',
     desc: 'Drawings are reconciled across trades so conflicts are caught on paper, before anyone starts cutting.',
     shot: 'Clash check summary',
+    view: 'clash',
   },
   {
     Icon: Archive,
     title: 'A handover dossier',
     desc: 'Every finish, installation and warranty date documented and handed to you as a permanent record of your home.',
     shot: 'Handover dossier',
+    view: 'dossier',
     link: { href: '/digital-twin', label: 'It becomes your home’s HSIOS™ Digital Twin →' },
   },
 ]
@@ -308,7 +315,7 @@ export default function HSIOSPage() {
           </RevealOnScroll>
 
           <div className="space-y-12 lg:space-y-20">
-            {benefits.map(({ Icon, title, desc, shot, link }, i) => (
+            {benefits.map(({ Icon, title, desc, view, link }, i) => (
               <RevealOnScroll key={title}>
                 <div className={`grid lg:grid-cols-2 gap-8 lg:gap-14 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                   <div>
@@ -324,16 +331,12 @@ export default function HSIOSPage() {
                     )}
                   </div>
 
-                  {/* Feature panel. Swap for a real client-view screenshot of `shot` when available. */}
+                  {/* Illustrative client-view mockup. Swap for a real os.hsios.in screenshot of `shot` when available. */}
                   <div
-                    className="relative rounded-3xl overflow-hidden aspect-[16/10] bg-gradient-to-br from-ivory-100 via-sandstone-50 to-sandstone-100 border border-ivory-300 flex flex-col items-center justify-center text-center p-6"
+                    className="relative rounded-3xl overflow-hidden flex min-h-[16rem] sm:min-h-[20rem] bg-gradient-to-br from-ivory-100 via-sandstone-50 to-sandstone-100 border border-ivory-300 p-3 sm:p-6 lg:p-8"
                     aria-hidden="true"
                   >
-                    <div className="w-20 h-20 rounded-2xl bg-white shadow-luxury flex items-center justify-center mb-4">
-                      <Icon className="text-sandstone-600" size={34} strokeWidth={1.5} />
-                    </div>
-                    <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600">HSIOS™ · Client view</div>
-                    <div className="text-sm text-warmgray-600 mt-1">{shot}</div>
+                    <ClientViewMockup view={view} />
                   </div>
                 </div>
               </RevealOnScroll>
