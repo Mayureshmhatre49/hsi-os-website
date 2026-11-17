@@ -536,21 +536,8 @@ export default function DigitalTwinPage() {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="text-xs text-warmgray-400">
-                    Available now on <strong className="text-white">Android</strong>. iPhone version coming soon.
-                  </div>
-                  <a
-                    href="#TODO-play-store-link"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white text-charcoal-900 text-xs font-semibold hover:bg-sandstone-200 transition-colors"
-                    title="TODO: Play Store link"
-                  >
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M3.609 1.814L13.792 12 3.61 22.186a2.38 2.38 0 0 1-.61-1.64V3.454c0-.64.22-1.22.61-1.64zm11.233 11.234l2.128 2.128-11.89 6.84 9.762-8.968zM4.08 2.05l11.89 6.84-2.128 2.128L4.08 2.05zm14.372 8.784l2.84 1.632a1.2 1.2 0 0 1 0 2.068l-2.84 1.632-2.348-2.348 2.348-2.348z" />
-                    </svg>
-                    <span>Google Play</span>
-                    <span className="text-[10px] text-warmgray-500 font-normal">(TODO: Play Store link)</span>
-                  </a>
+                <div className="pt-5 border-t border-white/10 text-xs text-warmgray-400">
+                  Available now on <strong className="text-white">Android</strong>. iPhone version coming soon.
                 </div>
               </div>
             </RevealOnScroll>
