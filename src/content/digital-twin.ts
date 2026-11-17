@@ -41,6 +41,22 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Does it control smart devices or monitor energy?',
-    a: 'Not in the first release. Water-leak detection with automatic shut-off, safety sensors, remote switching of high-draw appliances and per-appliance energy metering are planned for the next phase, built on the open Matter standard rather than any one brand’s cloud.',
+    a: 'Yes, it monitors energy. A 3-phase smart meter tracks your whole home’s power use in real time, and metering relays track individual high-load appliances such as ACs, geysers and pool pumps. You see live use, cost in rupees and alerts on the HSIOS™ app. Controlling devices remotely isn’t part of the current release. [CONFIRM: remote switching or control of appliances]',
+  },
+  {
+    q: 'Can it tell me if someone is using my villa while I’m away?',
+    a: 'It tells you when the house is using power you didn’t expect, for example ACs or geysers running while the villa is marked vacant. You get an alert with the time and appliance, so you can check with your caretaker straight away.',
+  },
+  {
+    q: 'Which appliances can be monitored individually?',
+    a: 'Any high-load appliance on its own circuit. Typically that means air conditioners, geysers, the swimming-pool filter pump, the borewell pump, kitchen appliances and EV chargers. We recommend which ones are worth monitoring during the site visit.',
+  },
+  {
+    q: 'Do I need the app?',
+    a: 'Owners and villa managers use the HSIOS™ app for live energy, alerts and scanning. Caretakers don’t need it. A QR label scan works on any phone camera.',
+  },
+  {
+    q: 'Does monitoring need internet at the villa?',
+    a: '[CONFIRM: Wi-Fi / SIM connectivity, and what happens during outages, e.g. data stored and synced later]',
   },
 ]
