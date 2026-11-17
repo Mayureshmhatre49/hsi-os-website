@@ -158,7 +158,7 @@ export default function DigitalTwinPage() {
         <div className="container-luxury relative z-10">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
             <RevealOnScroll>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.16em] uppercase mb-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-sandstone-300 animate-pulse" />
                 Early Access · Alibag Pilot Live
               </div>
@@ -281,7 +281,7 @@ export default function DigitalTwinPage() {
                       <div className="w-10 h-10 rounded-lg bg-sandstone-100 flex items-center justify-center mb-4 text-sandstone-700">
                         <Icon size={20} strokeWidth={1.75} />
                       </div>
-                      <h4 className="font-serif font-bold text-charcoal-800 mb-2">{title}</h4>
+                      <h4 className="font-serif text-lg font-bold text-charcoal-800 mb-2">{title}</h4>
                       <p className="text-warmgray-600 text-xs leading-relaxed flex-1">{desc}</p>
                     </div>
                   </RevealOnScroll>
@@ -296,7 +296,7 @@ export default function DigitalTwinPage() {
                       <span className="text-[11px] font-bold tracking-wider uppercase text-sandstone-600">Asset Hierarchy</span>
                       <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold">Casa Frangipani · Alibag</span>
                     </div>
-                    <div className="space-y-3 font-mono text-xs">
+                    <div className="space-y-3 font-sans text-xs">
                       <div className="p-3 rounded-xl bg-ivory-100 text-charcoal-800">
                         <div className="text-[10px] uppercase font-bold text-warmgray-500 mb-1">House Record</div>
                         <div className="font-semibold text-sm">Villa Ground + First Floor · 5,200 sq.ft</div>
@@ -405,7 +405,7 @@ export default function DigitalTwinPage() {
               <RevealOnScroll>
                 <div className="h-full p-8 rounded-3xl bg-charcoal-800 text-white flex flex-col justify-between">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.16em] uppercase mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-4">
                       <AlertTriangle size={14} className="text-sandstone-300" />
                       Unusual-Use Alerts
                     </div>
@@ -633,7 +633,7 @@ export default function DigitalTwinPage() {
             <RevealOnScroll>
               <div className="h-full p-8 md:p-10 rounded-3xl bg-charcoal-800 text-white flex flex-col justify-between">
                 <div>
-                  <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-sandstone-300 mb-3">For HSI clients</div>
+                  <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-300 mb-3">For HSI clients</div>
                   <h3 className="font-serif text-2xl font-bold mb-4">Handed over with your villa</h3>
                   <p className="text-warmgray-300 leading-relaxed text-sm mb-6">
                     HSIOS™ already records your BOQ, vendors and handover dossier during execution. Your
@@ -652,7 +652,7 @@ export default function DigitalTwinPage() {
             <RevealOnScroll delay={0.08}>
               <div className="h-full p-8 md:p-10 rounded-3xl bg-ivory-100 border border-ivory-300 flex flex-col justify-between">
                 <div>
-                  <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-sandstone-600 mb-3">For any villa or second home</div>
+                  <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-3">For any villa or second home</div>
                   <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-4">Onboarded by our team</h3>
                   <p className="text-warmgray-600 leading-relaxed text-sm mb-6">
                     Our onboarding team visits the home, captures the 360° walkthrough, scans and
@@ -708,7 +708,7 @@ export default function DigitalTwinPage() {
             <RevealOnScroll>
               <div className="p-8 rounded-3xl bg-charcoal-800 text-white flex flex-col justify-between">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.16em] uppercase mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-4">
                     Live Demo
                   </div>
                   <h4 className="font-serif text-2xl font-bold mb-3">See it live at Casa Frangipani</h4>
@@ -738,7 +738,7 @@ export default function DigitalTwinPage() {
                         <span className="text-[11px] font-bold uppercase tracking-wider text-sandstone-700">{phase}</span>
                         <span className={`text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${current ? 'bg-sandstone-200 text-sandstone-900' : 'bg-ivory-200 text-warmgray-600'}`}>{status}</span>
                       </div>
-                      <div className="font-serif font-bold text-charcoal-800 text-sm mb-2">{name}</div>
+                      <div className="font-serif font-bold text-charcoal-800 text-base mb-2">{name}</div>
                       <ul className="space-y-1 text-xs text-warmgray-600">
                         {items.slice(0, 3).map(it => (
                           <li key={it} className="flex items-center gap-1.5">
@@ -837,7 +837,7 @@ function AssetCardMock() {
             {p.active && <span className="absolute inset-0 rounded-full bg-sandstone-300/50 animate-ping" />}
           </span>
         ))}
-        <div className="absolute top-3 left-4 text-[10px] font-bold tracking-[0.16em] uppercase text-white/70">360° · Master bathroom</div>
+        <div className="absolute top-3 left-4 text-[10px] font-bold tracking-[0.14em] uppercase text-white/70">360° · Master bathroom</div>
       </div>
       {/* Asset card */}
       <div className="rounded-b-3xl bg-white p-6 shadow-luxury-lg">
