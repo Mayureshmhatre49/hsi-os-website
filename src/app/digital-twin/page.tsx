@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   Layers, Rotate3d, ScanText, QrCode, BellRing, Siren,
-  FileSearch, PhoneCall, CalendarX2,
+  FileSearch, PhoneCall, CalendarX2, Zap,
   Home, HardHat, Building2, Briefcase,
   Download, UserCheck, MapPin, EyeOff, Check, X,
+  Smartphone, ShieldCheck, Activity, Gauge, AlertTriangle,
 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import FAQAccordion from '@/components/ui/FAQAccordion'
@@ -15,15 +16,15 @@ import { twinFaqs } from '@/content/digital-twin'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'HSIOS™ Digital Twin — A Verified Record of Your Home | HSI',
+    absolute: 'HSIOS™ Digital Twin — Home Records & Live Energy Monitoring | Hestia Smart Interiors',
   },
   description:
-    'Every appliance, warranty, AMC and repair contact in your villa on one verified record — 360° walkthrough, QR labels and WhatsApp reminders. Early access.',
+    'A verified record of your villa’s assets plus live 24/7 energy monitoring of the whole house and every major appliance. Get alerts when your second home uses power it shouldn’t. Pilot live in Alibag.',
   alternates: getAlternates('/digital-twin'),
   openGraph: {
-    title: 'HSIOS™ Digital Twin — A Verified Record of Your Home',
+    title: 'HSIOS™ Digital Twin — Home Records & Live Energy Monitoring | Hestia Smart Interiors',
     description:
-      'Every asset in your villa, on record and one scan away. 360° walkthrough, AI-read invoices, caretaker QR labels and WhatsApp reminders.',
+      'A verified record of your villa’s assets plus live 24/7 energy monitoring of the whole house and every major appliance. Get alerts when your second home uses power it shouldn’t. Pilot live in Alibag.',
     url: 'https://www.hsios.in/digital-twin',
     images: [OG_IMAGE],
   },
@@ -38,7 +39,7 @@ const softwareSchema = {
   operatingSystem: 'Web, iOS, Android',
   url: 'https://www.hsios.in/digital-twin',
   description:
-    'A verified digital record of a home: room-by-room asset register, 360° walkthrough with pinned assets, AI extraction of invoices and warranty cards, no-app QR labels for caretakers and WhatsApp warranty and AMC reminders.',
+    'A verified digital record of a home: room-by-room asset register, 360° walkthrough with pinned assets, 24/7 whole-house and per-appliance live energy monitoring, AI extraction of invoices and warranty cards, no-app QR labels for caretakers, unusual-use power alerts and WhatsApp warranty and AMC reminders.',
   creator: { '@id': 'https://www.hsios.in/#business' },
   isPartOf: { '@type': 'SoftwareApplication', name: 'HSIOS™', url: 'https://www.hsios.in/hsi-os' },
   areaServed: { '@type': 'Country', name: 'India' },
@@ -50,6 +51,9 @@ const softwareSchema = {
     'No-app QR labels for caretakers in English, Hindi and Marathi',
     'Warranty and AMC reminders on WhatsApp',
     'Emergency points: main valve, DB, gas shut-off',
+    '24/7 whole-house live energy monitoring (3-phase smart meter)',
+    'Per-appliance monitoring on heavy loads (ACs, geysers, pumps)',
+    'Unusual-use power alerts on the HSIOS™ app and WhatsApp',
   ],
 }
 
@@ -84,6 +88,11 @@ const problems = [
     Icon: CalendarX2,
     title: 'AMCs lapse without anyone noticing',
     desc: 'The pre-monsoon service is missed because the renewal date was on a paper contract no one looked at.',
+  },
+  {
+    Icon: Zap,
+    title: 'The bill is the first you hear of it',
+    desc: 'An AC left on for a week, a pool pump that never switches off, someone using the villa while you’re away. In a second home, you usually find out a month later, on the electricity bill.',
   },
 ]
 
@@ -129,25 +138,48 @@ const audiences = [
 
 const roadmap = [
   {
-    phase: 'Phase 1', name: 'Home Ledger', status: 'In pilot',
-    items: ['Asset register and emergency points', '360° walkthrough with pins', 'AI invoice and warranty reading', 'Caretaker QR labels', 'WhatsApp reminders'],
+    phase: 'Phase 1', name: 'Home Ledger + Live Energy', status: 'In pilot',
+    items: [
+      'Asset register and emergency points',
+      '360° walkthrough with pins',
+      'AI invoice and warranty reading',
+      'Caretaker QR labels',
+      'WhatsApp reminders',
+      'Live whole-house energy monitoring (3-phase smart meter)',
+      'Per-appliance monitoring on high-load appliances [CONFIRM: live now at Casa Frangipani, or Phase 2]',
+      'Unusual-use power alerts',
+      'The HSIOS™ app',
+    ],
   },
   {
     phase: 'Phase 2', name: 'Service & Safety', status: 'Next',
-    items: ['Caretaker tickets from a QR scan, with photo and voice note', 'Vendor dispatch and repair history', 'Water-leak detection with automatic shut-off', 'Per-appliance energy use in rupees'],
+    items: [
+      'Caretaker tickets from a QR scan, with photo and voice note',
+      'Vendor dispatch and repair history',
+      'Water-leak detection with automatic shut-off',
+      'Energy-based service prompts, e.g. "your AC is using 25% more than last month, so book a service"',
+    ],
   },
   {
     phase: 'Phase 3', name: 'Marketplace', status: 'Planned',
-    items: ['AMC renewals and repair bookings with vetted vendors', 'Energy-efficient replacements with real payback figures', 'Measured 3D layer of the home'],
+    items: [
+      'AMC renewals and repair bookings with vetted vendors',
+      'Energy-efficient replacements with real payback figures (using measured consumption)',
+      'Measured 3D layer of the home',
+    ],
   },
   {
     phase: 'Phase 4', name: 'Scale', status: 'Planned',
-    items: ['Self-onboarding with a phone scan', 'Developer handover portal', 'Transferable home passport on sale'],
+    items: [
+      'Self-onboarding with a phone scan',
+      'Developer handover portal',
+      'Transferable home passport on sale (including energy history)',
+    ],
   },
 ]
 
 const scanShows = ['Item name and room', 'Care steps and troubleshooting', 'Repair contact', 'Warranty and AMC status']
-const scanHides = ['Invoice values', 'The owner’s identity', 'The home’s full address', 'Photos of the interior']
+const scanHides = ['Invoice values', 'The owner’s identity', 'The home’s full address', 'Photos of the interior', 'Live energy data and alerts']
 
 /* ── Page ──────────────────────────────────────────────────── */
 export default function DigitalTwinPage() {
@@ -166,20 +198,20 @@ export default function DigitalTwinPage() {
                 Early Access
               </div>
               <h1 className="font-serif text-display-xl text-white leading-[1.08] mb-6">
-                HSIOS™ Digital Twin.{' '}
-                <span className="text-sandstone-300">Every asset in your home, on record.</span>
+                Every asset in your home, on record.{' '}
+                <span className="text-sandstone-300">Every unit of power, on watch.</span>
               </h1>
               <p className="text-lg text-warmgray-300 leading-relaxed mb-8 max-w-2xl">
-                A verified record of your villa — every appliance, warranty, AMC and repair contact,
-                pinned inside a 360° walkthrough and one QR scan away for your caretaker. Built for
-                homes you don’t live in every day.
+                A verified record of your villa’s appliances, warranties, AMCs and repair contacts,
+                pinned to a 360° walkthrough, plus live energy monitoring of the whole house and its
+                biggest appliances, 24/7. Built for homes their owners don’t live in full time.
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
                 <a href="#get-access" className="btn btn-bronze">Join Early Access</a>
                 <a href="#walkthrough" className="btn btn-outline-white">Book a Walkthrough</a>
               </div>
               <p className="text-sm text-warmgray-400">
-                Walkthroughs are for HSI clients. Piloting first on{' '}
+                Walkthroughs are for HSI clients. Live in pilot at{' '}
                 <Link href="/projects/casa-frangipani" className="text-sandstone-300 underline underline-offset-2 hover:text-sandstone-200">
                   Casa Frangipani, Alibag
                 </Link>.
@@ -209,7 +241,7 @@ export default function DigitalTwinPage() {
               </p>
             </div>
           </RevealOnScroll>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {problems.map(({ Icon, title, desc }, i) => (
               <RevealOnScroll key={title} delay={i * 0.06}>
                 <div className="card-warm h-full p-7 rounded-2xl">
@@ -252,6 +284,284 @@ export default function DigitalTwinPage() {
               </RevealOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── LIVE ENERGY MONITORING ─────────────────────────────── */}
+      <section className="section-py bg-white relative overflow-hidden" aria-label="Live energy monitoring">
+        <div className="container-luxury">
+          <RevealOnScroll>
+            <div className="max-w-2xl mb-12 lg:mb-16">
+              <div className="section-label">LIVE ENERGY MONITORING</div>
+              <h2 className="font-serif text-display-lg text-charcoal-800 mb-4">
+                Know what your home is using,{' '}
+                <span className="text-sandstone-600">right now, from anywhere.</span>
+              </h2>
+              <p className="text-warmgray-600 text-lg leading-relaxed">
+                A smart 3-phase energy meter on your main supply streams readings to your Digital Twin
+                around the clock. Metering relays on your highest-load appliances show exactly where the
+                power goes, and what it costs.
+              </p>
+            </div>
+          </RevealOnScroll>
+
+          {/* 3a. Three layers (3 cards) */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            <RevealOnScroll delay={0}>
+              <div className="h-full p-7 rounded-2xl bg-ivory-50 border border-ivory-300 hover:border-sandstone-300 transition-colors duration-300 flex flex-col">
+                <div className="w-12 h-12 rounded-xl bg-sandstone-100 flex items-center justify-center mb-5">
+                  <Activity className="text-sandstone-700" size={22} strokeWidth={1.75} />
+                </div>
+                <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-2">Layer 1</div>
+                <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-4">The whole house, live</h3>
+                <ul className="space-y-3 text-sm text-warmgray-600 leading-relaxed flex-1">
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Real-time power across all three phases</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Today’s, this month’s and this year’s consumption in kWh and ₹</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>
+                      Power-quality checks (voltage, phase balance, power factor) that protect costly appliances{' '}
+                      <span className="text-xs text-sandstone-600 font-semibold">[CONFIRM: which readings Casa Energy shows]</span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={0.06}>
+              <div className="h-full p-7 rounded-2xl bg-ivory-50 border border-ivory-300 hover:border-sandstone-300 transition-colors duration-300 flex flex-col">
+                <div className="w-12 h-12 rounded-xl bg-sandstone-100 flex items-center justify-center mb-5">
+                  <Gauge className="text-sandstone-700" size={22} strokeWidth={1.75} />
+                </div>
+                <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-2">Layer 2</div>
+                <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-4">Appliance by appliance</h3>
+                <ul className="space-y-3 text-sm text-warmgray-600 leading-relaxed flex-1">
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>
+                      Metering relays fitted to high-load appliances: <strong>air conditioners, geysers, swimming-pool filter pump, borewell pump</strong> and other heavy loads
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Running hours, energy use and cost for each one</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Spot an appliance using more than it should — an early sign it needs service</span>
+                  </li>
+                </ul>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={0.12}>
+              <div className="h-full p-7 rounded-2xl bg-ivory-50 border border-ivory-300 hover:border-sandstone-300 transition-colors duration-300 flex flex-col">
+                <div className="w-12 h-12 rounded-xl bg-sandstone-100 flex items-center justify-center mb-5">
+                  <Layers className="text-sandstone-700" size={22} strokeWidth={1.75} />
+                </div>
+                <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-2">Layer 3</div>
+                <h3 className="font-serif text-xl font-bold text-charcoal-800 mb-4">Room by room</h3>
+                <ul className="space-y-3 text-sm text-warmgray-600 leading-relaxed flex-1">
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Energy grouped by floor and room, using the same house → floor → room structure as your asset register</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Each appliance’s energy data sits directly on its asset card, next to its warranty and AMC</span>
+                  </li>
+                </ul>
+              </div>
+            </RevealOnScroll>
+          </div>
+
+          {/* 3b. Caught while you're away */}
+          <div className="mb-16 p-8 md:p-10 rounded-3xl bg-charcoal-800 text-white">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <RevealOnScroll>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.16em] uppercase mb-4">
+                  <AlertTriangle size={14} className="text-sandstone-300" />
+                  Unusual-Use Alerts
+                </div>
+                <h3 className="font-serif text-display-md text-white mb-4">
+                  If your house is using power,{' '}
+                  <span className="text-sandstone-300">you’ll know.</span>
+                </h3>
+                <p className="text-warmgray-300 leading-relaxed mb-6">
+                  Because the supply to your home is watched 24/7, any use you didn’t expect shows up at
+                  once. That means an AC running in a locked villa, a geyser switched on in the middle of
+                  the night, or a sudden rise in load when the house should be empty. You get an alert on
+                  the app and WhatsApp, with the time, the appliance and how much it’s using.
+                </p>
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-warmgray-400 leading-relaxed">
+                  <strong className="text-sandstone-300 font-semibold block mb-1">Your rules, your privacy</strong>
+                  You set what counts as normal: occupied or vacant mode, guest bookings, caretaker hours,
+                  quiet hours. Alerts are about your property’s power use, not about watching people.
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={0.08}>
+                <div className="space-y-3">
+                  <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-300 mb-2 flex items-center justify-between">
+                    <span>Alert examples</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-white/10 text-warmgray-300">Example</span>
+                  </div>
+                  {[
+                    { title: 'Master-bedroom AC running for 6 hours', meta: 'The villa is marked Vacant' },
+                    { title: 'Load jumped to [x] kW at 02:14', meta: 'No booking or visit is scheduled' },
+                    { title: 'Pool filter pump has run continuously for 20 hours', meta: 'Exceeds standard cycle' },
+                    { title: 'Geyser 2 drawing power', meta: 'No hot-water use expected' },
+                  ].map((alert, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-white/10 border border-white/15 flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <BellRing size={16} />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">{alert.title}</div>
+                        <div className="text-xs text-warmgray-300 mt-0.5">{alert.meta}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </RevealOnScroll>
+            </div>
+          </div>
+
+          {/* 3c. See your bill before it arrives & 3d. CTA strip */}
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+            <RevealOnScroll>
+              <div className="h-full p-8 rounded-3xl bg-ivory-100 border border-ivory-300 flex flex-col justify-between">
+                <div>
+                  <div className="section-label">Bill projections</div>
+                  <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-4">
+                    See your bill before it arrives
+                  </h3>
+                  <ul className="space-y-3.5 text-sm text-warmgray-600 mb-6">
+                    <li className="flex items-start gap-2.5">
+                      <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                      <span>
+                        Live cost in ₹ at your electricity tariff{' '}
+                        <span className="text-xs text-sandstone-600 font-semibold">[CONFIRM: MSEDCL tariff applied automatically or entered by owner]</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                      <span>Month-to-date spend and a projected monthly bill</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                      <span>Monthly report: top 5 appliances by cost, and changes from last month</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="text-xs text-warmgray-500 bg-white p-3.5 rounded-xl border border-ivory-200">
+                  <span className="font-semibold text-charcoal-800">No bill surprises:</span> Catch faulty compressors, runaway pumps, or unintended standby consumption before the utility meter reads it.
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={0.08}>
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-charcoal-800 to-charcoal-900 text-white flex flex-col justify-between border border-white/10">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.16em] uppercase mb-4">
+                    Live Demo
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-white mb-3">
+                    See it live at Casa Frangipani
+                  </h3>
+                  <p className="text-warmgray-300 text-sm leading-relaxed mb-6">
+                    Book a walkthrough and we’ll show you the live Casa Energy dashboard in action on an operating luxury villa in Alibag.
+                  </p>
+                  <div className="text-xs text-warmgray-400 bg-white/5 p-3.5 rounded-xl border border-white/10 mb-6">
+                    <span className="text-sandstone-300 font-semibold block mb-0.5">Note:</span>
+                    Public walkthroughs are conducted privately with our engineering team.{' '}
+                    <span className="text-warmgray-400">[CONFIRM: whether to add 2–3 static screenshots of the Casa Energy dashboard with realistic data instead]</span>
+                  </div>
+                </div>
+                <a href="#walkthrough" className="btn btn-bronze self-start">
+                  Book a Walkthrough
+                </a>
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE HSIOS APP ─────────────────────────────────────── */}
+      <section className="section-py bg-ivory-100" aria-label="The HSIOS App">
+        <div className="container-luxury">
+          <RevealOnScroll>
+            <div className="max-w-2xl mb-12 lg:mb-16">
+              <div className="section-label">THE HSIOS™ APP</div>
+              <h2 className="font-serif text-display-lg text-charcoal-800 mb-4">
+                One app for your home’s record{' '}
+                <span className="text-sandstone-600">and its power.</span>
+              </h2>
+              <p className="text-warmgray-600 text-lg leading-relaxed">
+                Owners, villa managers and HSI’s onboarding team use the HSIOS™ app to build, run and
+                check on the Digital Twin.
+              </p>
+            </div>
+          </RevealOnScroll>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            {[
+              {
+                title: 'Scan to add',
+                desc: 'Scan an appliance’s barcode or model label to create its asset card. The make, model and specs fill in, and you confirm before saving.',
+                confirm: '[CONFIRM: barcode auto-fill is live or planned]',
+              },
+              {
+                title: 'Scan to open',
+                desc: 'Scan any HSIOS™ QR label to open the full record: invoice, warranty, AMC, service history and live energy.',
+              },
+              {
+                title: 'Live energy',
+                desc: 'Whole-house and per-appliance readings, cost in rupees and complete historical consumption.',
+              },
+              {
+                title: 'Alerts',
+                desc: 'Unusual use, appliances left running, AMC and warranty expiry, delivered instantly on the app and on WhatsApp.',
+              },
+              {
+                title: 'Every home in one place',
+                desc: 'Villa managers can switch between properties effortlessly in a single tap.',
+              },
+              {
+                title: 'Your language',
+                desc: 'Full multi-language support in English, Hindi and Marathi across interfaces and care guides.',
+              },
+            ].map(({ title, desc, confirm }, i) => (
+              <RevealOnScroll key={title} delay={(i % 3) * 0.05}>
+                <div className="h-full p-7 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 transition-colors flex flex-col">
+                  <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-2">Feature 0{i + 1}</div>
+                  <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-2.5">{title}</h3>
+                  <p className="text-warmgray-600 text-sm leading-relaxed mb-2 flex-1">{desc}</p>
+                  {confirm && (
+                    <div className="text-xs text-sandstone-700 font-semibold mt-2 pt-2 border-t border-ivory-200">{confirm}</div>
+                  )}
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+
+          <RevealOnScroll>
+            <div className="p-6 rounded-2xl bg-white border border-ivory-300 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="text-sm text-warmgray-700">
+                <strong className="text-charcoal-800 font-semibold">Caretakers don’t need the app:</strong> A scan with any phone camera still shows care steps and the repair contact without login.
+              </div>
+              <div className="text-xs font-semibold text-sandstone-700 bg-sandstone-100/60 px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-2">
+                <Smartphone size={15} className="flex-shrink-0" />
+                <span>Platforms: [CONFIRM: Android / iOS / installable web app; launch status]</span>
+              </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -298,7 +608,8 @@ export default function DigitalTwinPage() {
                 </div>
               </div>
               <p className="text-sm text-warmgray-400 mt-5">
-                Owners and managers who are signed in see the full record from the same label.
+                Owners and managers who are signed in see the full record from the same label. Caretakers never see energy data, invoices or owner details. Energy readings and alerts are for owners and managers only.{' '}
+                <span className="text-sandstone-300 font-semibold text-xs">[CONFIRM: caretaker visibility]</span>
               </p>
             </RevealOnScroll>
           </div>
@@ -322,11 +633,16 @@ export default function DigitalTwinPage() {
               <div className="h-full p-8 md:p-10 rounded-3xl bg-charcoal-800 text-white flex flex-col">
                 <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-sandstone-300 mb-4">For HSI clients</div>
                 <h3 className="font-serif text-display-sm mb-4">Handed over with your villa</h3>
-                <p className="text-warmgray-300 leading-relaxed mb-8 flex-1">
+                <p className="text-warmgray-300 leading-relaxed mb-6 flex-1">
                   HSIOS™ already records your BOQ, vendors and handover dossier during execution. Your
                   Digital Twin is built from that record, so it is complete on the day you receive
                   the keys — with no separate data entry.
                 </p>
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 text-xs text-warmgray-300 leading-relaxed">
+                  <span className="text-sandstone-300 font-semibold block mb-1">Energy monitoring add-on:</span>
+                  Our team fits a 3-phase smart meter at your main supply and metering relays on your chosen high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.{' '}
+                  <span className="text-sandstone-300 font-semibold text-[11px]">[CONFIRM: installation wording, typical time, and whether it’s an add-on or included]</span>
+                </div>
                 <a href="#walkthrough" className="btn btn-bronze self-start">Book a Walkthrough</a>
               </div>
             </RevealOnScroll>
@@ -334,11 +650,16 @@ export default function DigitalTwinPage() {
               <div className="h-full p-8 md:p-10 rounded-3xl bg-ivory-100 border border-ivory-300 flex flex-col">
                 <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-sandstone-600 mb-4">For any villa or second home</div>
                 <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">Onboarded by our team</h3>
-                <p className="text-warmgray-600 leading-relaxed mb-8 flex-1">
+                <p className="text-warmgray-600 leading-relaxed mb-6 flex-1">
                   Our onboarding team visits the home, captures the 360° walkthrough, registers and
                   labels each asset and reads your existing invoices and warranty cards. Standalone
                   homes are opening in stages.
                 </p>
+                <div className="p-4 rounded-xl bg-white border border-ivory-300 mb-6 text-xs text-warmgray-600 leading-relaxed">
+                  <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring add-on:</span>
+                  Our team fits a 3-phase smart meter at your main supply and metering relays on your chosen high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.{' '}
+                  <span className="text-sandstone-700 font-semibold text-[11px]">[CONFIRM: installation wording, typical time, and whether it’s an add-on or included]</span>
+                </div>
                 <a href="#get-access" className="btn btn-outline-dark self-start">Join Early Access</a>
               </div>
             </RevealOnScroll>
@@ -438,10 +759,12 @@ export default function DigitalTwinPage() {
             <RevealOnScroll delay={0.08}>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { Icon: Download,  title: 'Export at any time',   desc: 'The complete record — data, original documents and media — in one download.' },
-                  { Icon: UserCheck, title: 'Consent per purpose',  desc: 'Reminders, sharing and marketing are each opted into separately, and can be withdrawn.' },
-                  { Icon: MapPin,    title: 'Stored in India',      desc: 'Indian homes’ data is held in an Indian cloud region.' },
-                  { Icon: EyeOff,    title: 'Private by default',   desc: 'Public QR views exclude costs, identity, address and interior photos.' },
+                  { Icon: Download,    title: 'Export at any time',       desc: 'The complete record — data, original documents, media and energy logs — in one download.' },
+                  { Icon: UserCheck,   title: 'Consent per purpose',      desc: 'Reminders, sharing and marketing are each opted into separately, and can be withdrawn.' },
+                  { Icon: MapPin,      title: 'Stored in India',          desc: 'Energy readings are stored in an Indian cloud region, like the rest of your record.' },
+                  { Icon: EyeOff,      title: 'Private by default',       desc: 'Public QR views exclude costs, identity, address, interior photos and energy data.' },
+                  { Icon: ShieldCheck, title: 'Controlled energy access', desc: 'You choose who sees energy data and alerts: owner, family, villa manager. Caretakers don’t see it by default.' },
+                  { Icon: Activity,    title: 'Monitoring & alerts only', desc: 'Real-time observation and anomaly detection without remote appliance switching or control.' },
                 ].map(({ Icon, title, desc }) => (
                   <div key={title} className="p-5 rounded-2xl bg-white/5 border border-white/10">
                     <Icon className="text-sandstone-300 mb-3" size={20} strokeWidth={1.5} />
@@ -560,8 +883,33 @@ function AssetCardMock() {
             <div className="font-semibold text-charcoal-800">Invoice · Warranty · Manual</div>
           </div>
         </div>
+
+        {/* Live energy strip */}
+        <div className="mt-3 p-3.5 rounded-xl bg-sandstone-50 border border-sandstone-200">
+          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider mb-2">
+            <span className="flex items-center gap-1.5 text-sandstone-800">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Live energy · Running now
+            </span>
+            <span className="px-1.5 py-0.5 rounded bg-sandstone-200 text-charcoal-700 text-[9px] font-semibold tracking-wider uppercase">Example</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-xs">
+            <div>
+              <div className="text-warmgray-500 text-[10px]">Load</div>
+              <div className="font-semibold text-charcoal-800">[x.x] kW</div>
+            </div>
+            <div>
+              <div className="text-warmgray-500 text-[10px]">Today</div>
+              <div className="font-semibold text-charcoal-800">[x.x] kWh · ₹[xx]</div>
+            </div>
+            <div>
+              <div className="text-warmgray-500 text-[10px]">Last 30 days</div>
+              <div className="font-semibold text-charcoal-800">₹[xxx]</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="text-center text-[11px] text-warmgray-400 mt-3">Illustrative view</div>
+      <div className="text-center text-[11px] text-warmgray-400 mt-3">Illustrative view (Example data)</div>
     </div>
   )
 }
