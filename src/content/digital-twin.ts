@@ -25,11 +25,11 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'I am an HSI client. Is my villa included?',
-    a: 'Every HSI villa is being set up to be handed over with its Digital Twin, built from the records HSIOS™ already keeps during execution — the BOQ, vendor records and handover dossier. Book a walkthrough and we will show you what your home’s twin will contain.',
+    a: 'Every HSI villa is handed over with its Digital Twin, built from the records HSIOS™ already keeps during execution — the BOQ, vendor records and handover dossier. Request an online demo and our team will show you what your home’s twin will contain.',
   },
   {
     q: 'My villa was not built by HSI. Can I still get one?',
-    a: 'Yes — that is what early access is for. Our onboarding team visits the home, captures the 360° walkthrough, registers and labels each asset and reads your existing invoices and warranty cards. We are opening standalone homes in stages, starting with Alibag, Karjat–Lonavala and Goa.',
+    a: 'Yes. We implement the complete Digital Twin for existing luxury villas and second homes. Our onboarding team visits your home, captures the 360° walkthrough, registers and labels each asset, reads existing warranties, and installs the smart energy hardware. Book an online demo or schedule implementation for your property.',
   },
   {
     q: 'How are warranty and AMC reminders sent?',

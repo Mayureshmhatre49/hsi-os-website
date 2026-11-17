@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     absolute: 'HSIOS™ Digital Twin — Home Records & Live Energy Monitoring | Hestia Smart Interiors',
   },
   description:
-    'A verified record of your villa’s assets plus live 24/7 energy monitoring of the whole house and every major appliance. Get alerts when your second home uses power it shouldn’t. Pilot live in Alibag.',
+    'A verified record of your villa’s assets plus live 24/7 energy monitoring and remote appliance switching via home automation. Book an online demo or schedule implementation for your home.',
   alternates: getAlternates('/digital-twin'),
   openGraph: {
     title: 'HSIOS™ Digital Twin — Home Records & Live Energy Monitoring | Hestia Smart Interiors',
     description:
-      'A verified record of your villa’s assets plus live 24/7 energy monitoring of the whole house and every major appliance. Get alerts when your second home uses power it shouldn’t. Pilot live in Alibag.',
+      'A verified record of your villa’s assets plus live 24/7 energy monitoring and remote appliance switching via home automation. Book an online demo or schedule implementation for your home.',
     url: 'https://www.hsios.in/digital-twin',
     images: [OG_IMAGE],
   },
@@ -99,7 +99,7 @@ const problems = [
 
 const roadmap = [
   {
-    phase: 'Phase 1', name: 'Home Ledger + Live Energy', status: 'In pilot',
+    phase: 'Phase 1', name: 'Home Ledger + Live Energy', status: 'Live',
     items: [
       'Asset register & emergency points',
       '360° walkthrough with pins',
@@ -159,8 +159,8 @@ export default function DigitalTwinPage() {
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
             <RevealOnScroll>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-sandstone-300 animate-pulse" />
-                Early Access · Alibag Pilot Live
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Live System · Online Demos Available
               </div>
               <h1 className="font-serif text-display-xl text-white leading-[1.08] mb-6">
                 Every asset in your home, on record.{' '}
@@ -171,14 +171,11 @@ export default function DigitalTwinPage() {
                 pinned to a 360° walkthrough — with 24/7 live energy monitoring and remote appliance switching via home automation. Built for homes their owners don’t live in full time.
               </p>
               <div className="flex flex-wrap gap-3.5 mb-6">
-                <a href="#get-access" className="btn btn-bronze">Join Early Access</a>
-                <a href="#walkthrough" className="btn btn-outline-white">Book a Walkthrough</a>
+                <a href="#demo" className="btn btn-bronze">Book an Online Demo</a>
+                <a href="#implementation" className="btn btn-outline-white">Schedule Implementation</a>
               </div>
               <p className="text-sm text-warmgray-400">
-                Walkthroughs are for HSI clients. Live in pilot at{' '}
-                <Link href="/projects/casa-frangipani" className="text-sandstone-300 underline underline-offset-2 hover:text-sandstone-200">
-                  Casa Frangipani, Alibag
-                </Link>. Energy monitoring & automation included.
+                Book an online video demo to see the live operating system, or schedule complete implementation for your villa. Energy monitoring & automation included.
               </p>
             </RevealOnScroll>
 
@@ -294,7 +291,7 @@ export default function DigitalTwinPage() {
                   <div>
                     <div className="flex items-center justify-between mb-4 pb-3 border-b border-ivory-200">
                       <span className="text-[11px] font-bold tracking-wider uppercase text-sandstone-600">Asset Hierarchy</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold">Casa Frangipani · Alibag</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold">Live System Example · 5,200 sq.ft Villa</span>
                     </div>
                     <div className="space-y-3 font-sans text-xs">
                       <div className="p-3 rounded-xl bg-ivory-100 text-charcoal-800">
@@ -364,7 +361,7 @@ export default function DigitalTwinPage() {
                   bullets: [
                     'Dedicated relays on ACs, geysers, pool pump and borewell pump',
                     'Remote On/Off switching of applicable devices directly from the app',
-                    'Live power, running hours and cost per circuit (Live at Casa Frangipani)',
+                    'Live power, running hours and cost per circuit across all major loads',
                   ],
                 },
                 {
@@ -645,7 +642,7 @@ export default function DigitalTwinPage() {
                     The smart meter and automation relays are fitted before handover by a licensed electrician, enabling remote switching and live per-appliance monitoring.
                   </div>
                 </div>
-                <a href="#walkthrough" className="btn btn-bronze self-start">Book a Walkthrough</a>
+                <a href="#demo" className="btn btn-bronze self-start">Request an Online Demo</a>
               </div>
             </RevealOnScroll>
 
@@ -655,16 +652,14 @@ export default function DigitalTwinPage() {
                   <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-3">For any villa or second home</div>
                   <h3 className="font-serif text-2xl font-bold text-charcoal-800 mb-4">Onboarded by our team</h3>
                   <p className="text-warmgray-600 leading-relaxed text-sm mb-6">
-                    Our onboarding team visits the home, captures the 360° walkthrough, scans and
-                    labels every asset and reads your existing invoices and warranty cards. Standalone
-                    homes are opening in stages.
+                    Our onboarding team visits your home, captures the 360° walkthrough, scans and labels every asset, reads existing warranties, and fits the smart meter and automation relays. Ready for complete on-site implementation.
                   </p>
                   <div className="p-4 rounded-xl bg-white border border-ivory-300 mb-6 text-xs text-warmgray-600 leading-relaxed">
                     <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring & home automation included.</span>
                     Our team fits the 3-phase meter and automation relays during the onboarding visit, enabling remote appliance switching with no disruption to your interiors.
                   </div>
                 </div>
-                <a href="#get-access" className="btn btn-outline-dark self-start">Join Early Access</a>
+                <a href="#implementation" className="btn btn-outline-dark self-start">Schedule Implementation</a>
               </div>
             </RevealOnScroll>
           </div>
@@ -703,31 +698,30 @@ export default function DigitalTwinPage() {
             </div>
           </div>
 
-          {/* Pilot Proof & 4-Phase Roadmap */}
+          {/* Live Online Demo & 4-Phase Roadmap */}
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
             <RevealOnScroll>
               <div className="p-8 rounded-3xl bg-charcoal-800 text-white flex flex-col justify-between">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-4">
-                    Live Demo
+                    Live Online Demo
                   </div>
-                  <h4 className="font-serif text-2xl font-bold mb-3">See it live at Casa Frangipani</h4>
+                  <h4 className="font-serif text-2xl font-bold mb-3">See the system live in action</h4>
                   <p className="text-warmgray-300 text-sm leading-relaxed mb-6">
-                    Book a walkthrough and we’ll show you the live Casa Energy dashboard and Digital Twin in action on an operating luxury villa in Alibag.
+                    Book a 15-minute video walkthrough with our engineering team. We’ll show you real-time power readings, circuit controls, and how we handle the complete implementation for your villa.
                   </p>
                   <div className="text-xs text-warmgray-400 bg-white/5 p-3.5 rounded-xl border border-white/10 mb-6">
-                    Public walkthroughs are conducted privately with our engineering team.{' '}
-                    <span className="text-warmgray-400">[CONFIRM: whether to add 2–3 static screenshots of the Casa Energy dashboard with realistic data instead]</span>
+                    Online demos are conducted live over video call. Our team is ready to schedule your home’s on-site implementation immediately.
                   </div>
                 </div>
-                <a href="#walkthrough" className="btn btn-bronze self-start">Book a Walkthrough</a>
+                <a href="#demo" className="btn btn-bronze self-start">Request an Online Demo</a>
               </div>
             </RevealOnScroll>
 
             <RevealOnScroll delay={0.08}>
               <div className="section-label">Rollout</div>
               <h4 className="font-serif text-2xl font-bold text-charcoal-800 mb-4">
-                Proven on real villas first.
+                Proven and ready for implementation.
               </h4>
               <div className="grid sm:grid-cols-2 gap-4">
                 {roadmap.map(({ phase, name, status, items }, i) => {
@@ -789,8 +783,10 @@ export default function DigitalTwinPage() {
       </section>
 
       {/* Form */}
-      <section id="get-access" className="section-py bg-ivory-200 scroll-mt-16" aria-label="Enquire">
+      <section id="demo" className="section-py bg-ivory-200 scroll-mt-16" aria-label="Enquire">
+        <span id="get-access" className="block relative -top-16" aria-hidden="true" />
         <span id="walkthrough" className="block relative -top-16" aria-hidden="true" />
+        <span id="implementation" className="block relative -top-16" aria-hidden="true" />
         <div className="container-luxury">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
             <RevealOnScroll>
@@ -799,7 +795,7 @@ export default function DigitalTwinPage() {
                 Put your home <span className="text-sandstone-600">on record.</span>
               </h2>
               <p className="text-warmgray-600 leading-relaxed mb-6">
-                HSI clients can book a walkthrough now. For other homes, join early access and our onboarding engineering team will contact you.
+                Request an online video demo to see a live operating villa system, or schedule complete implementation for your home. Our engineering team will contact you within 24 hours.
               </p>
               <ul className="space-y-3 text-sm text-warmgray-600">
                 {['We reply within 24 hours', 'In person or over video', 'No obligation'].map((t) => (

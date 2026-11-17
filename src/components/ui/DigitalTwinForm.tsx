@@ -7,16 +7,16 @@ type Mode = 'early-access' | 'walkthrough'
 
 const MODES: Record<Mode, { tab: string; heading: string; intro: string; submit: string }> = {
   'early-access': {
-    tab: 'Early Access',
-    heading: 'Join early access',
-    intro: 'For villas and second homes not built by HSI. We are onboarding standalone homes in stages and will contact you when your area opens.',
-    submit: 'Join Early Access →',
+    tab: 'Request Online Demo',
+    heading: 'Request an online demo',
+    intro: 'See a live operating villa system in action over a 15-minute video walkthrough with our engineering team.',
+    submit: 'Request Online Demo →',
   },
   walkthrough: {
-    tab: 'HSI Clients',
-    heading: 'Book a walkthrough',
-    intro: 'Already building or living in an HSI villa? We will walk you through what your home’s Digital Twin will contain — in person or over video.',
-    submit: 'Book a Walkthrough →',
+    tab: 'Schedule Implementation',
+    heading: 'Schedule implementation',
+    intro: 'Ready to equip your home? Tell us about your villa and our engineering team will plan your onboarding and hardware setup.',
+    submit: 'Schedule Implementation →',
   },
 }
 
@@ -37,11 +37,11 @@ const initialForm: FormState = {
   name: '', email: '', phone: '', location: '', homes: '', hsiProject: '', message: '', honeypot: '',
 }
 
-/* Hero and card CTAs link to #get-access or #walkthrough — pick the matching tab. */
+/* Hero and card CTAs link to #demo or #get-access / #implementation — pick the matching tab. */
 function modeFromHash(): Mode | null {
   if (typeof window === 'undefined') return null
-  if (window.location.hash === '#walkthrough') return 'walkthrough'
-  if (window.location.hash === '#get-access') return 'early-access'
+  if (window.location.hash === '#walkthrough' || window.location.hash === '#implementation') return 'walkthrough'
+  if (window.location.hash === '#get-access' || window.location.hash === '#demo') return 'early-access'
   return null
 }
 
