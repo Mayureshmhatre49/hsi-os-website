@@ -11,50 +11,151 @@ import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 import DigitalTwinForm from '@/components/ui/DigitalTwinForm'
 import { JsonLd } from '@/lib/JsonLd'
-import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
+import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { twinFaqs } from '@/content/digital-twin'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'HSIOS™ Digital Twin — Home Records & Live Energy Monitoring | Hestia Smart Interiors',
+    absolute: 'HSIOS™ Digital Twin — Luxury Home Records, 24/7 Energy Monitoring & Smart Automation | Hestia Smart Interiors',
   },
   description:
-    'A verified record of your villa’s assets plus live 24/7 energy monitoring and remote appliance switching via home automation. Book an online demo or schedule implementation for your home.',
+    'A verified digital ledger of your luxury villa’s assets, 24/7 live energy monitoring via 3-phase smart meter, and remote appliance switching. Book an online demo or schedule villa implementation.',
+  keywords: [
+    'digital twin for villas',
+    'luxury home records India',
+    'villa energy monitoring Alibag',
+    '3 phase smart meter India',
+    'remote appliance switching villa',
+    'smart home automation second homes',
+    'caretaker app QR code labels',
+    'home asset register',
+    'luxury interior maintenance',
+    'Hestia Smart Interiors',
+    'HSIOS Digital Twin',
+  ],
   alternates: getAlternates('/digital-twin'),
   openGraph: {
-    title: 'HSIOS™ Digital Twin — Home Records & Live Energy Monitoring | Hestia Smart Interiors',
-    description:
-      'A verified record of your villa’s assets plus live 24/7 energy monitoring and remote appliance switching via home automation. Book an online demo or schedule implementation for your home.',
+    type: 'website',
+    locale: 'en_IN',
     url: 'https://www.hsios.in/digital-twin',
-    images: [OG_IMAGE],
+    siteName: 'Hestia Smart Interiors',
+    title: 'HSIOS™ Digital Twin — Luxury Home Records, 24/7 Energy Monitoring & Smart Automation',
+    description:
+      'A verified digital ledger of your luxury villa’s assets, 24/7 live energy monitoring via 3-phase smart meter, and remote appliance switching via home automation.',
+    images: [
+      {
+        url: '/opengraph-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'HSIOS Digital Twin — Luxury Home Records, 24/7 Energy Monitoring & Smart Automation',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HSIOS™ Digital Twin — Luxury Home Records, 24/7 Energy Monitoring & Smart Automation',
+    description:
+      'A verified digital ledger of your luxury villa’s assets, 24/7 live energy monitoring, and remote appliance switching via home automation. Online demo available.',
+    images: ['/opengraph-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  category: 'Technology / Smart Home / Luxury Real Estate',
 }
 
 /* ── Structured data ───────────────────────────────────────── */
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
+  '@id': 'https://www.hsios.in/digital-twin#software',
   name: 'HSIOS™ Digital Twin',
-  applicationCategory: 'LifestyleApplication',
-  operatingSystem: 'Web, iOS, Android',
+  alternateName: ['HSIOS Digital Twin App', 'HSIOS Home Ledger', 'HSIOS Caretaker App'],
+  applicationCategory: 'HomeAutomationApplication',
+  applicationSubCategory: 'AssetManagementApplication',
+  operatingSystem: 'Android, Web, iOS (coming soon)',
   url: 'https://www.hsios.in/digital-twin',
   description:
-    'A verified digital record of a home: room-by-room asset register, 360° walkthrough with pinned assets, 24/7 whole-house and per-appliance live energy monitoring, remote appliance switching via home automation, AI extraction of invoices and warranty cards, caretaker action alerts and WhatsApp reminders.',
+    'A verified digital record of a luxury home: room-by-room asset register, 360° walkthrough with pinned assets, 24/7 whole-house and per-appliance live energy monitoring, remote appliance switching via home automation, AI extraction of invoices and warranty cards, caretaker action alerts and WhatsApp reminders.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'INR',
+    availability: 'https://schema.org/InStock',
+    description: 'Included with Hestia Smart Interiors turnkey execution, or available as a standalone installation with 3-phase smart meter for existing luxury villas.',
+  },
   creator: { '@id': 'https://www.hsios.in/#business' },
+  publisher: { '@id': 'https://www.hsios.in/#business' },
   isPartOf: { '@type': 'SoftwareApplication', name: 'HSIOS™', url: 'https://www.hsios.in/hsi-os' },
-  areaServed: { '@type': 'Country', name: 'India' },
+  areaServed: [{ '@type': 'Country', name: 'India' }],
   inLanguage: ['en-IN', 'hi', 'mr'],
   featureList: [
-    'Room-by-room asset register',
-    '360° walkthrough with assets pinned in place',
+    'Room-by-room verified asset register with photos and documents',
+    '360° virtual walkthrough with assets pinned in place',
     'AI extraction of invoices, warranty cards and AMC contracts',
-    'HSIOS™ Caretaker app with actionable alerts (e.g. AC left on) and no-app QR scan in English, Hindi and Marathi',
-    'Warranty and AMC reminders on WhatsApp',
-    'Emergency points: main valve, DB, gas shut-off',
-    '24/7 whole-house live energy monitoring (3-phase smart meter)',
+    'HSIOS™ Caretaker app with actionable alerts (e.g. AC left on) and zero-login QR scan in English, Hindi and Marathi',
+    'Warranty and AMC expiration reminders delivered on WhatsApp',
+    'Emergency shut-off points mapping: main water valve, DB, gas shut-off',
+    '24/7 whole-house live energy monitoring (3-phase smart meter with SIM connectivity)',
     'Per-appliance monitoring on heavy loads (ACs, geysers, pumps)',
     'Remote switching and home automation control for applicable appliances',
-    'Unusual-use power alerts on the HSIOS™ Android app and WhatsApp',
+    'Unusual-use power alerts delivered to the HSIOS™ Android app and WhatsApp',
+  ],
+}
+
+const serviceSchemaData = serviceSchema({
+  name: 'Luxury Villa Digital Twin & 24/7 Energy Management',
+  description:
+    'Turnkey digital twin implementation for luxury villas and holiday homes: 360° room walkthrough, complete asset register, 3-phase smart energy meter installation with SIM connectivity, and smart home automation appliance controls.',
+  url: 'https://www.hsios.in/digital-twin',
+  serviceType: 'Smart Home Automation & Asset Management',
+  areaServed: ['Alibag', 'Mumbai', 'Goa', 'Pune', 'Khandala', 'Lonavala', 'Bangalore'],
+})
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Implement an HSIOS™ Digital Twin for Your Luxury Home',
+  description:
+    'Step-by-step implementation process for setting up a digital twin, 24/7 live energy monitoring, and smart home automation for luxury villas and second homes.',
+  totalTime: 'P2D',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: '360° Virtual Walkthrough & Asset Tagging',
+      text: 'Our engineering team visits your property to capture a high-resolution 360° walkthrough, logging every appliance, architectural finish, MEP fixture, and emergency shut-off point.',
+      url: 'https://www.hsios.in/digital-twin#demo',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Smart Energy Meter & Automation Relay Installation',
+      text: 'We install a 3-phase smart meter with dedicated SIM connectivity inside your main distribution board (works without villa Wi-Fi), alongside Wi-Fi relays for remote appliance switching.',
+      url: 'https://www.hsios.in/digital-twin#demo',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'AI Extraction of Invoices, Warranties & Bills',
+      text: 'We ingest your paper and digital documents — appliance invoices, warranty cards, AMC contracts, and electricity bills — extracting serial numbers, warranty end dates, and tariff slabs into a structured ledger.',
+      url: 'https://www.hsios.in/digital-twin#demo',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Caretaker QR Labeling & App Onboarding',
+      text: 'Weatherproof QR labels are affixed to key equipment for caretakers with instructions in English, Hindi, and Marathi, and you are onboarded to the HSIOS™ Digital Twin Android app.',
+      url: 'https://www.hsios.in/digital-twin#demo',
+    },
   ],
 }
 
@@ -146,7 +247,7 @@ const scanHides = ['Invoice values & purchase costs', 'The owner’s personal id
 export default function DigitalTwinPage() {
   return (
     <>
-      <JsonLd data={[breadcrumbSchema, softwareSchema, faqSchema]} />
+      <JsonLd data={[breadcrumbSchema, softwareSchema, serviceSchemaData, howToSchema, faqSchema]} />
 
       {/* ────────────────────────────────────────────────────────
           CHAPTER 1: THE REALITY & THE HOOK
@@ -748,9 +849,9 @@ export default function DigitalTwinPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   Live Online Demo
                 </div>
-                <h4 className="font-serif text-2xl md:text-3xl font-bold mb-3">
+                <h3 className="font-serif text-2xl md:text-3xl font-bold mb-3">
                   See the system live in action.
-                </h4>
+                </h3>
                 <p className="text-warmgray-300 text-sm leading-relaxed mb-4">
                   Book a 15-minute video walkthrough with our engineering team. We’ll show you real-time power readings, circuit controls, and plan the complete implementation for your villa.
                 </p>
