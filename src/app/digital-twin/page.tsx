@@ -48,7 +48,7 @@ const softwareSchema = {
     'Room-by-room asset register',
     '360° walkthrough with assets pinned in place',
     'AI extraction of invoices, warranty cards and AMC contracts',
-    'No-app QR labels for caretakers in English, Hindi and Marathi',
+    'HSIOS™ Caretaker app with actionable alerts (e.g. AC left on) and no-app QR scan in English, Hindi and Marathi',
     'Warranty and AMC reminders on WhatsApp',
     'Emergency points: main valve, DB, gas shut-off',
     '24/7 whole-house live energy monitoring (3-phase smart meter)',
@@ -138,8 +138,8 @@ const roadmap = [
   },
 ]
 
-const scanShows = ['Item name and room', 'Care steps and troubleshooting', 'Repair contact', 'Warranty and AMC status']
-const scanHides = ['Invoice values', 'The owner’s identity', 'The home’s full address', 'Photos of the interior', 'Live energy data and alerts']
+const scanShows = ['Actionable equipment alerts (AC, pump, geyser left on)', 'Care steps and troubleshooting in 3 languages', 'Direct repair contacts with 1-tap call', 'Warranty and AMC status']
+const scanHides = ['Invoice values & purchase costs', 'The owner’s personal identity', 'The home’s full address', 'Photos of the interior', 'Monthly electricity bills and financial projections']
 
 /* ── Page Component ────────────────────────────────────────── */
 export default function DigitalTwinPage() {
@@ -491,7 +491,7 @@ export default function DigitalTwinPage() {
                 <span className="text-sandstone-300">Two tailored experiences.</span>
               </h2>
               <p className="text-warmgray-300 text-lg leading-relaxed">
-                Villa owners and managers need deep insight, live power data, and asset documentation. Caretakers need immediate clarity on what to do when something stops working.
+                Villa owners and managers get deep insight, live power data, and asset documentation. Caretakers get actionable alerts on their app — like an AC or pump left running in a vacant villa — so they can take action immediately on site.
               </p>
             </div>
           </RevealOnScroll>
@@ -555,7 +555,7 @@ export default function DigitalTwinPage() {
               </div>
             </RevealOnScroll>
 
-            {/* Right: Caretaker QR View */}
+            {/* Right: Caretaker Experience */}
             <RevealOnScroll delay={0.08}>
               <div className="h-full p-8 md:p-10 rounded-3xl bg-charcoal-800/90 border border-white/10 flex flex-col justify-between">
                 <div>
@@ -563,24 +563,39 @@ export default function DigitalTwinPage() {
                     <span className="px-3.5 py-1 rounded-full bg-sandstone-400/20 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase">
                       For Caretakers
                     </span>
-                    <span className="text-xs text-sandstone-300 font-semibold">Zero App · Zero Login</span>
+                    <span className="text-xs text-sandstone-300 font-semibold">Caretaker App & QR Scan</span>
                   </div>
 
                   <h3 className="font-serif text-2xl font-bold text-white mb-3">
-                    Scan the Label. Know What to Do.
+                    Actionable Alerts. Instant Care Steps.
                   </h3>
                   <p className="text-warmgray-300 text-sm leading-relaxed mb-8">
-                    Your caretaker points any phone camera at the weather-resistant label and immediately sees care steps and the repair contact in English, Hindi, or Marathi.
+                    Caretakers get real-time alerts on the HSIOS™ Caretaker app when appliances need attention — like an AC left running or a pump operating overtime — so they can take action immediately on site. Plus, scanning any asset label shows care guides and repair contacts in English, Hindi, or Marathi.
                   </p>
 
                   <div className="flex justify-center mb-8">
-                    <QRPhoneMock />
+                    <CaretakerAppMock />
+                  </div>
+
+                  <div className="space-y-3 text-xs text-warmgray-300 mb-8">
+                    <div className="flex items-start gap-2.5">
+                      <Check size={15} className="text-sandstone-300 flex-shrink-0 mt-0.5" />
+                      <span><strong>Actionable equipment alerts:</strong> Direct alerts when an AC or geyser is left running in a vacant villa, prompting on-site shut-off.</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <Check size={15} className="text-sandstone-300 flex-shrink-0 mt-0.5" />
+                      <span><strong>Care steps in local languages:</strong> Clear instructions and troubleshooting in English, Hindi, or Marathi.</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <Check size={15} className="text-sandstone-300 flex-shrink-0 mt-0.5" />
+                      <span><strong>1-Tap technician call:</strong> Direct call buttons for vetted plumbers, electricians, and AMC service engineers.</span>
+                    </div>
                   </div>
 
                   {/* Scan Shows vs Never Shows */}
                   <div className="grid sm:grid-cols-2 gap-3 mb-6 text-xs">
                     <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                      <div className="text-[10px] font-bold tracking-wider uppercase text-sandstone-300 mb-2">A scan shows</div>
+                      <div className="text-[10px] font-bold tracking-wider uppercase text-sandstone-300 mb-2">Caretaker view shows</div>
                       <ul className="space-y-1.5 text-warmgray-300">
                         {scanShows.map(s => (
                           <li key={s} className="flex items-center gap-1.5">
@@ -590,7 +605,7 @@ export default function DigitalTwinPage() {
                       </ul>
                     </div>
                     <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                      <div className="text-[10px] font-bold tracking-wider uppercase text-warmgray-400 mb-2">A scan never shows</div>
+                      <div className="text-[10px] font-bold tracking-wider uppercase text-warmgray-400 mb-2">Caretaker view hides</div>
                       <ul className="space-y-1.5 text-warmgray-400">
                         {scanHides.map(s => (
                           <li key={s} className="flex items-center gap-1.5">
@@ -603,8 +618,7 @@ export default function DigitalTwinPage() {
                 </div>
 
                 <div className="pt-5 border-t border-white/10 text-xs text-warmgray-400 leading-relaxed">
-                  Caretakers never see energy data, invoices or owner details. Energy readings and alerts are for owners and managers only.{' '}
-                  <span className="text-sandstone-300 font-semibold">[CONFIRM: caretaker visibility]</span>
+                  Caretakers receive operational alerts to protect the home, but never see invoice values, full electricity bills, or private owner details.
                 </div>
               </div>
             </RevealOnScroll>
@@ -688,7 +702,7 @@ export default function DigitalTwinPage() {
                 { Icon: UserCheck,   title: 'Consent per purpose',      desc: 'Reminders, sharing and marketing are each opted into separately and can be withdrawn.' },
                 { Icon: MapPin,      title: 'Stored in India',          desc: 'Energy readings and asset documents are stored in an Indian cloud region.' },
                 { Icon: EyeOff,      title: 'Private by default',       desc: 'Public QR views exclude invoice values, owner identity, address and live energy readings.' },
-                { Icon: ShieldCheck, title: 'Controlled energy access', desc: 'You choose who sees live energy and alerts: owner, family, villa manager. Caretakers don’t see it by default.' },
+                { Icon: ShieldCheck, title: 'Controlled alert access', desc: 'You choose who receives alerts: owners, managers, and caretakers (who receive actionable alerts like AC left running to act on site, without seeing financial bills or personal data).' },
                 { Icon: Activity,    title: 'Monitoring & alerts only', desc: 'Real-time observation and anomaly detection without remote appliance switching or control.' },
               ].map(({ Icon, title, desc }) => (
                 <RevealOnScroll key={title}>
@@ -776,7 +790,7 @@ export default function DigitalTwinPage() {
                 <div className="font-semibold text-charcoal-800">Quick answers on energy & hardware:</div>
                 <div>• Independent SIM connection (no villa broadband needed)</div>
                 <div>• Energy monitoring included with setup</div>
-                <div>• Caretakers use camera only (no app required)</div>
+                <div>• Caretakers receive actionable alerts on the app (e.g. AC left on) so they can act immediately</div>
               </div>
             </RevealOnScroll>
 
@@ -963,40 +977,57 @@ function OwnerAppMock() {
   )
 }
 
-function QRPhoneMock() {
+function CaretakerAppMock() {
   return (
     <div className="relative w-[270px] rounded-[2.5rem] bg-charcoal-700 p-3 shadow-luxury-lg border border-white/10" aria-hidden="true">
-      <div className="rounded-[2rem] bg-ivory-50 overflow-hidden">
-        <div className="bg-charcoal-800 px-5 pt-6 pb-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-[10px] font-bold tracking-[0.14em] uppercase text-sandstone-300">HSIOS™ Care</span>
-            <span className="flex gap-1 text-[10px] font-semibold">
+      <div className="rounded-[2rem] bg-ivory-50 overflow-hidden text-charcoal-900">
+        {/* App Topbar */}
+        <div className="bg-charcoal-800 px-4 pt-5 pb-3 text-white">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[10px] font-bold tracking-[0.14em] uppercase text-sandstone-300">HSIOS™ Caretaker</span>
+            <span className="flex gap-1 text-[9px] font-semibold">
               <span className="px-1.5 py-0.5 rounded bg-white/10 text-white/60">EN</span>
               <span className="px-1.5 py-0.5 rounded bg-white/10 text-white/60">हि</span>
               <span className="px-1.5 py-0.5 rounded bg-sandstone-400 text-charcoal-900">मरा</span>
             </span>
           </div>
-          <div className="font-serif text-lg font-bold text-white leading-tight">बोअरवेल पंप</div>
-          <div className="text-xs text-warmgray-400">Borewell pump · Utility area</div>
+          <div className="text-[10px] text-warmgray-300 font-serif">Casa Frangipani · Alibag</div>
         </div>
-        <div className="p-4 space-y-3">
-          <div className="p-3 rounded-xl bg-white border border-ivory-300">
-            <div className="text-[10px] font-bold tracking-wider uppercase text-sandstone-600 mb-1.5">Care steps</div>
-            <ol className="text-xs text-charcoal-700 space-y-1 list-decimal list-inside">
+
+        {/* Action Alert Banner */}
+        <div className="p-3 bg-amber-500/15 border-b border-amber-500/30">
+          <div className="flex items-center gap-1.5 text-[10px] font-bold text-amber-900 uppercase tracking-wider mb-1">
+            <AlertTriangle size={12} className="text-amber-700 flex-shrink-0" />
+            <span>Action Alert · Check Room</span>
+          </div>
+          <div className="text-xs font-semibold text-charcoal-900">Master AC running in Vacant Villa</div>
+          <div className="text-[10px] text-warmgray-600 mt-0.5 mb-2">Running 4 hrs · Please inspect & switch off</div>
+          <div className="py-1 px-2 rounded-lg bg-amber-600 text-white text-[10px] font-semibold text-center w-full">
+            Mark Checked & Turned Off ✓
+          </div>
+        </div>
+
+        {/* Asset / QR scan detail */}
+        <div className="p-3 space-y-2 bg-ivory-50">
+          <div className="flex items-center justify-between text-[10px] text-warmgray-500 font-bold uppercase tracking-wider">
+            <span>Asset Care Guide</span>
+            <span className="text-emerald-700 font-semibold">AMC Active</span>
+          </div>
+          <div className="p-2.5 rounded-xl bg-white border border-ivory-300">
+            <div className="font-serif text-xs font-bold text-charcoal-900 leading-tight">बोअरवेल पंप (Borewell Pump)</div>
+            <div className="text-[10px] text-warmgray-500 mb-1">Utility Area · 3HP Starter</div>
+            <ol className="text-[10px] text-charcoal-700 space-y-0.5 list-decimal list-inside">
               <li>Check the tank float switch</li>
-              <li>Reset the starter once</li>
-              <li>If it trips again, call below</li>
+              <li>Reset starter once</li>
+              <li>If it trips again, call technician</li>
             </ol>
           </div>
-          <div className="flex gap-2">
-            <div className="flex-1 p-2.5 rounded-xl bg-emerald-50 text-[11px] font-semibold text-emerald-800">AMC active</div>
-            <div className="flex-1 p-2.5 rounded-xl bg-ivory-100 text-[11px] font-semibold text-charcoal-700">Warranty ended</div>
+          <div className="w-full py-2 rounded-xl bg-bronze-600 text-white text-center text-xs font-semibold">
+            Call Repair Contact
           </div>
-          <div className="w-full py-3 rounded-full bg-bronze-600 text-white text-center text-sm font-semibold">Call repair contact</div>
-          <div className="w-full py-3 rounded-full border border-ivory-300 text-center text-sm font-semibold text-charcoal-700">Watch the how-to video</div>
         </div>
       </div>
-      <div className="text-center text-[10px] text-warmgray-400 mt-2.5">Caretaker Public Scan (No App)</div>
+      <div className="text-center text-[10px] text-warmgray-400 mt-2.5">HSIOS™ Caretaker App & QR View</div>
     </div>
   )
 }

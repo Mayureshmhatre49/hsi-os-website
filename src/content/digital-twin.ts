@@ -17,7 +17,7 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Do caretakers need to install an app?',
-    a: 'No. Each asset carries a weather-resistant QR label. Scanning it with any phone camera opens a simple page — in English, Hindi or Marathi — showing what the item is, how to look after it and who to call when it needs repair.',
+    a: 'Caretakers use the HSIOS™ Caretaker app to receive real-time action alerts — such as an AC left running or a pump operating overtime in a vacant villa — so they can check the property and take action straight away. For day-to-day asset care, scanning a QR label with any phone camera also works without any app or login.',
   },
   {
     q: 'What can someone see if they scan a label?',
@@ -45,7 +45,7 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Can it tell me if someone is using my villa while I’m away?',
-    a: 'It tells you when the house is using power you didn’t expect, for example ACs or geysers running while the villa is marked vacant. You get an alert with the time and appliance, so you can check with your caretaker straight away.',
+    a: 'Yes. It detects unexpected power draw, such as ACs or geysers running while the villa is marked vacant. Both you and your caretaker receive an immediate alert with the exact room and appliance, so your caretaker can inspect and switch it off straight away.',
   },
   {
     q: 'Which appliances can be monitored individually?',
@@ -53,7 +53,7 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Do I need the app?',
-    a: 'Owners and villa managers use the HSIOS™ Android app for live energy, alerts and scanning. Caretakers don’t need it. A QR label scan works on any phone camera.',
+    a: 'Owners and villa managers use the HSIOS™ Android app for live energy, bill projections, full documents and portfolio oversight. Caretakers use the app to receive action alerts (like an AC left running) and care guides. A quick QR label scan also works on any phone camera without login.',
   },
   {
     q: 'Does monitoring need internet at the villa?',
