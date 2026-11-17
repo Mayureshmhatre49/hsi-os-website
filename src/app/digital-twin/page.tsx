@@ -698,54 +698,73 @@ export default function DigitalTwinPage() {
             </div>
           </div>
 
-          {/* Live Online Demo & 4-Phase Roadmap */}
-          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
+          {/* 4-Phase Roadmap */}
+          <div className="mb-14">
             <RevealOnScroll>
-              <div className="p-8 rounded-3xl bg-charcoal-800 text-white flex flex-col justify-between">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-4">
-                    Live Online Demo
-                  </div>
-                  <h4 className="font-serif text-2xl font-bold mb-3">See the system live in action</h4>
-                  <p className="text-warmgray-300 text-sm leading-relaxed mb-6">
-                    Book a 15-minute video walkthrough with our engineering team. We’ll show you real-time power readings, circuit controls, and how we handle the complete implementation for your villa.
-                  </p>
-                  <div className="text-xs text-warmgray-400 bg-white/5 p-3.5 rounded-xl border border-white/10 mb-6">
-                    Online demos are conducted live over video call. Our team is ready to schedule your home’s on-site implementation immediately.
-                  </div>
-                </div>
-                <a href="#demo" className="btn btn-bronze self-start">Request an Online Demo</a>
+              <div className="max-w-2xl mb-10">
+                <div className="section-label">Rollout</div>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-charcoal-800 mb-3">
+                  Proven and ready for implementation.
+                </h3>
+                <p className="text-warmgray-600 text-sm leading-relaxed">
+                  Every capability is tested on operating luxury villas before it is deployed across homes.
+                </p>
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={0.08}>
-              <div className="section-label">Rollout</div>
-              <h4 className="font-serif text-2xl font-bold text-charcoal-800 mb-4">
-                Proven and ready for implementation.
-              </h4>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {roadmap.map(({ phase, name, status, items }, i) => {
-                  const current = i === 0
-                  return (
-                    <div key={phase} className={`p-5 rounded-2xl border ${current ? 'bg-sandstone-50 border-sandstone-300' : 'bg-ivory-50 border-ivory-200'}`}>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-sandstone-700">{phase}</span>
-                        <span className={`text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${current ? 'bg-sandstone-200 text-sandstone-900' : 'bg-ivory-200 text-warmgray-600'}`}>{status}</span>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {roadmap.map(({ phase, name, status, items }, i) => {
+                const current = i === 0
+                return (
+                  <RevealOnScroll key={phase} delay={i * 0.05}>
+                    <div className={`h-full p-6 rounded-2xl border flex flex-col justify-between ${current ? 'bg-sandstone-50 border-sandstone-300 shadow-sm' : 'bg-ivory-50 border-ivory-200'}`}>
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-sandstone-700">{phase}</span>
+                          <span className={`text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${current ? 'bg-sandstone-200 text-sandstone-900 font-bold' : 'bg-ivory-200 text-warmgray-600'}`}>{status}</span>
+                        </div>
+                        <div className="font-serif font-bold text-charcoal-800 text-base mb-3">{name}</div>
+                        <ul className="space-y-1.5 text-xs text-warmgray-600">
+                          {items.map(it => (
+                            <li key={it} className="flex items-start gap-1.5 leading-snug">
+                              <span className="text-sandstone-600 mt-0.5 flex-shrink-0">·</span>
+                              <span>{it}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className="font-serif font-bold text-charcoal-800 text-base mb-2">{name}</div>
-                      <ul className="space-y-1 text-xs text-warmgray-600">
-                        {items.slice(0, 3).map(it => (
-                          <li key={it} className="flex items-center gap-1.5">
-                            <span className="text-sandstone-600">·</span> {it}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
-                  )
-                })}
-              </div>
-            </RevealOnScroll>
+                  </RevealOnScroll>
+                )
+              })}
+            </div>
           </div>
+
+          {/* Live Online Demo Callout Banner */}
+          <RevealOnScroll>
+            <div className="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-charcoal-800 via-charcoal-900 to-charcoal-800 text-white border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Live Online Demo
+                </div>
+                <h4 className="font-serif text-2xl md:text-3xl font-bold mb-3">
+                  See the system live in action.
+                </h4>
+                <p className="text-warmgray-300 text-sm leading-relaxed mb-4">
+                  Book a 15-minute video walkthrough with our engineering team. We’ll show you real-time power readings, circuit controls, and plan the complete implementation for your villa.
+                </p>
+                <div className="text-xs text-warmgray-400">
+                  Demos are conducted live over video call. Our team is ready to schedule your home’s on-site setup immediately.
+                </div>
+              </div>
+              <div className="flex-shrink-0">
+                <a href="#demo" className="btn btn-bronze whitespace-nowrap">
+                  Request an Online Demo
+                </a>
+              </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
