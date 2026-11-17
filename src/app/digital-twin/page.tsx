@@ -115,7 +115,7 @@ const features = [
   {
     Icon: QrCode,
     title: 'QR labels for caretakers',
-    desc: 'A weather-resistant label on every asset. Any phone camera opens its care steps and repair contact — no app, no login — in English, Hindi or Marathi.',
+    desc: 'A weather-resistant label on every asset. Scan it with any phone camera to see what the item is, how to care for it and who to call.',
   },
   {
     Icon: BellRing,
@@ -553,7 +553,7 @@ export default function DigitalTwinPage() {
           <RevealOnScroll>
             <div className="p-6 rounded-2xl bg-white border border-ivory-300 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="text-sm text-warmgray-700">
-                <strong className="text-charcoal-800 font-semibold">Caretakers don’t need the app:</strong> A scan with any phone camera still shows care steps and the repair contact without login.
+                <strong className="text-charcoal-800 font-semibold">Caretakers don’t need the app</strong> — a QR label scan works without it.
               </div>
               <div className="flex flex-wrap items-center gap-3">
                 <div className="text-xs font-semibold text-sandstone-700 bg-sandstone-100/60 px-4 py-2 rounded-xl flex items-center gap-2">
@@ -620,7 +620,7 @@ export default function DigitalTwinPage() {
                 </div>
               </div>
               <p className="text-sm text-warmgray-400 mt-5">
-                Owners and managers who are signed in see the full record from the same label. Caretakers never see energy data, invoices or owner details. Energy readings and alerts are for owners and managers only.{' '}
+                Owners and managers who are signed in see the full record from the same label. Caretakers never see energy data, invoices or owner details.{' '}
                 <span className="text-sandstone-300 font-semibold text-xs">[CONFIRM: caretaker visibility]</span>
               </p>
             </RevealOnScroll>
@@ -651,8 +651,7 @@ export default function DigitalTwinPage() {
                   the keys — with no separate data entry.
                 </p>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 text-xs text-warmgray-300 leading-relaxed">
-                  <span className="text-sandstone-300 font-semibold block mb-1">Energy monitoring is included.</span>
-                  Our team fits a 3-phase smart meter at your main supply and metering relays on your high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.
+                  <span className="text-sandstone-300 font-semibold">Energy monitoring is included</span> — the smart meter and appliance relays are fitted before handover by a licensed electrician.
                 </div>
                 <a href="#walkthrough" className="btn btn-bronze self-start">Book a Walkthrough</a>
               </div>
@@ -667,8 +666,7 @@ export default function DigitalTwinPage() {
                   homes are opening in stages.
                 </p>
                 <div className="p-4 rounded-xl bg-white border border-ivory-300 mb-6 text-xs text-warmgray-600 leading-relaxed">
-                  <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring is included.</span>
-                  Our team fits a 3-phase smart meter at your main supply and metering relays on your high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.
+                  <span className="text-sandstone-700 font-semibold">Energy monitoring is included</span> — our team fits the meter and relays during the onboarding visit.
                 </div>
                 <a href="#get-access" className="btn btn-outline-dark self-start">Join Early Access</a>
               </div>
