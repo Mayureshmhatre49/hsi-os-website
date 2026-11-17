@@ -53,7 +53,7 @@ const softwareSchema = {
     'Emergency points: main valve, DB, gas shut-off',
     '24/7 whole-house live energy monitoring (3-phase smart meter)',
     'Per-appliance monitoring on heavy loads (ACs, geysers, pumps)',
-    'Unusual-use power alerts on the HSIOS™ app and WhatsApp',
+    'Unusual-use power alerts on the HSIOS™ Android app and WhatsApp',
   ],
 }
 
@@ -109,8 +109,8 @@ const features = [
   },
   {
     Icon: ScanText,
-    title: 'Invoices read for you',
-    desc: 'Photograph or forward an invoice, warranty card or AMC contract. AI extracts the brand, model, dates and vendor; you confirm before anything is saved. The original is kept.',
+    title: 'Invoices & bills read for you',
+    desc: 'Photograph or forward an invoice, warranty card, AMC contract or electricity bill. AI extracts the brand, model, dates, tariff and vendor; you confirm before anything is saved. The original is kept.',
   },
   {
     Icon: QrCode,
@@ -142,13 +142,13 @@ const roadmap = [
     items: [
       'Asset register and emergency points',
       '360° walkthrough with pins',
-      'AI invoice and warranty reading',
+      'AI reading of invoices, warranties and electricity bills',
       'Caretaker QR labels',
       'WhatsApp reminders',
       'Live whole-house energy monitoring (3-phase smart meter)',
-      'Per-appliance monitoring on high-load appliances [CONFIRM: live now at Casa Frangipani, or Phase 2]',
+      'Per-appliance monitoring on high-load appliances',
       'Unusual-use power alerts',
-      'The HSIOS™ app',
+      'The HSIOS™ Android app',
     ],
   },
   {
@@ -214,7 +214,7 @@ export default function DigitalTwinPage() {
                 Walkthroughs are for HSI clients. Live in pilot at{' '}
                 <Link href="/projects/casa-frangipani" className="text-sandstone-300 underline underline-offset-2 hover:text-sandstone-200">
                   Casa Frangipani, Alibag
-                </Link>.
+                </Link>. Energy monitoring included.
               </p>
             </RevealOnScroll>
 
@@ -299,8 +299,8 @@ export default function DigitalTwinPage() {
               </h2>
               <p className="text-warmgray-600 text-lg leading-relaxed">
                 A smart 3-phase energy meter on your main supply streams readings to your Digital Twin
-                around the clock. Metering relays on your highest-load appliances show exactly where the
-                power goes, and what it costs.
+                around the clock over its own SIM connection, so it doesn’t depend on the villa’s Wi-Fi.
+                Metering relays on your highest-load appliances show exactly where the power goes, and what it costs.
               </p>
             </div>
           </RevealOnScroll>
@@ -356,6 +356,10 @@ export default function DigitalTwinPage() {
                     <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
                     <span>Spot an appliance using more than it should — an early sign it needs service</span>
                   </li>
+                  <li className="flex items-start gap-2.5 pt-1 text-xs font-semibold text-sandstone-700">
+                    <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
+                    <span>Live today at Casa Frangipani, Alibag.</span>
+                  </li>
                 </ul>
               </div>
             </RevealOnScroll>
@@ -397,7 +401,7 @@ export default function DigitalTwinPage() {
                   Because the supply to your home is watched 24/7, any use you didn’t expect shows up at
                   once. That means an AC running in a locked villa, a geyser switched on in the middle of
                   the night, or a sudden rise in load when the house should be empty. You get an alert on
-                  the app and WhatsApp, with the time, the appliance and how much it’s using.
+                  the Android app and WhatsApp, with the time, the appliance and how much it’s using.
                 </p>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-warmgray-400 leading-relaxed">
                   <strong className="text-sandstone-300 font-semibold block mb-1">Your rules, your privacy</strong>
@@ -446,8 +450,7 @@ export default function DigitalTwinPage() {
                     <li className="flex items-start gap-2.5">
                       <Check size={16} className="text-sandstone-600 flex-shrink-0 mt-0.5" />
                       <span>
-                        Live cost in ₹ at your electricity tariff{' '}
-                        <span className="text-xs text-sandstone-600 font-semibold">[CONFIRM: MSEDCL tariff applied automatically or entered by owner]</span>
+                        <strong className="font-semibold text-charcoal-800">Your real tariff, set by a scan.</strong> Scan or upload a past electricity bill. HSIOS™ reads your tariff, slabs and fixed charges, so every rupee shown matches what MSEDCL will charge.
                       </span>
                     </li>
                     <li className="flex items-start gap-2.5">
@@ -504,7 +507,7 @@ export default function DigitalTwinPage() {
                 <span className="text-sandstone-600">and its power.</span>
               </h2>
               <p className="text-warmgray-600 text-lg leading-relaxed">
-                Owners, villa managers and HSI’s onboarding team use the HSIOS™ app to build, run and
+                Owners, villa managers and HSI’s onboarding team use the HSIOS™ Android app to build, run and
                 check on the Digital Twin.
               </p>
             </div>
@@ -514,8 +517,7 @@ export default function DigitalTwinPage() {
             {[
               {
                 title: 'Scan to add',
-                desc: 'Scan an appliance’s barcode or model label to create its asset card. The make, model and specs fill in, and you confirm before saving.',
-                confirm: '[CONFIRM: barcode auto-fill is live or planned]',
+                desc: 'Scan an appliance’s barcode and HSIOS™ fills in the make, model and specs. You confirm before it’s saved.',
               },
               {
                 title: 'Scan to open',
@@ -527,7 +529,7 @@ export default function DigitalTwinPage() {
               },
               {
                 title: 'Alerts',
-                desc: 'Unusual use, appliances left running, AMC and warranty expiry, delivered instantly on the app and on WhatsApp.',
+                desc: 'Unusual use, appliances left running, AMC and warranty expiry, delivered instantly on the Android app and on WhatsApp.',
               },
               {
                 title: 'Every home in one place',
@@ -537,15 +539,12 @@ export default function DigitalTwinPage() {
                 title: 'Your language',
                 desc: 'Full multi-language support in English, Hindi and Marathi across interfaces and care guides.',
               },
-            ].map(({ title, desc, confirm }, i) => (
+            ].map(({ title, desc }, i) => (
               <RevealOnScroll key={title} delay={(i % 3) * 0.05}>
                 <div className="h-full p-7 rounded-2xl bg-white border border-ivory-300 hover:border-sandstone-300 transition-colors flex flex-col">
                   <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-sandstone-600 mb-2">Feature 0{i + 1}</div>
                   <h3 className="font-serif text-lg font-bold text-charcoal-800 mb-2.5">{title}</h3>
                   <p className="text-warmgray-600 text-sm leading-relaxed mb-2 flex-1">{desc}</p>
-                  {confirm && (
-                    <div className="text-xs text-sandstone-700 font-semibold mt-2 pt-2 border-t border-ivory-200">{confirm}</div>
-                  )}
                 </div>
               </RevealOnScroll>
             ))}
@@ -556,9 +555,22 @@ export default function DigitalTwinPage() {
               <div className="text-sm text-warmgray-700">
                 <strong className="text-charcoal-800 font-semibold">Caretakers don’t need the app:</strong> A scan with any phone camera still shows care steps and the repair contact without login.
               </div>
-              <div className="text-xs font-semibold text-sandstone-700 bg-sandstone-100/60 px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-2">
-                <Smartphone size={15} className="flex-shrink-0" />
-                <span>Platforms: [CONFIRM: Android / iOS / installable web app; launch status]</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="text-xs font-semibold text-sandstone-700 bg-sandstone-100/60 px-4 py-2 rounded-xl flex items-center gap-2">
+                  <Smartphone size={15} className="flex-shrink-0" />
+                  <span>Available now on <strong>Android</strong>. iPhone version coming soon.</span>
+                </div>
+                <a
+                  href="#TODO-play-store-link"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-charcoal-800 text-white text-xs font-semibold hover:bg-charcoal-900 transition-colors"
+                  title="TODO: Play Store link"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a2.38 2.38 0 0 1-.61-1.64V3.454c0-.64.22-1.22.61-1.64zm11.233 11.234l2.128 2.128-11.89 6.84 9.762-8.968zM4.08 2.05l11.89 6.84-2.128 2.128L4.08 2.05zm14.372 8.784l2.84 1.632a1.2 1.2 0 0 1 0 2.068l-2.84 1.632-2.348-2.348 2.348-2.348z" />
+                  </svg>
+                  <span>Get it on Google Play</span>
+                  <span className="text-[10px] text-warmgray-400 font-normal">(TODO: Play Store link)</span>
+                </a>
               </div>
             </div>
           </RevealOnScroll>
@@ -639,9 +651,8 @@ export default function DigitalTwinPage() {
                   the keys — with no separate data entry.
                 </p>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 text-xs text-warmgray-300 leading-relaxed">
-                  <span className="text-sandstone-300 font-semibold block mb-1">Energy monitoring add-on:</span>
-                  Our team fits a 3-phase smart meter at your main supply and metering relays on your chosen high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.{' '}
-                  <span className="text-sandstone-300 font-semibold text-[11px]">[CONFIRM: installation wording, typical time, and whether it’s an add-on or included]</span>
+                  <span className="text-sandstone-300 font-semibold block mb-1">Energy monitoring is included.</span>
+                  Our team fits a 3-phase smart meter at your main supply and metering relays on your high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.
                 </div>
                 <a href="#walkthrough" className="btn btn-bronze self-start">Book a Walkthrough</a>
               </div>
@@ -651,14 +662,13 @@ export default function DigitalTwinPage() {
                 <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-sandstone-600 mb-4">For any villa or second home</div>
                 <h3 className="font-serif text-display-sm text-charcoal-800 mb-4">Onboarded by our team</h3>
                 <p className="text-warmgray-600 leading-relaxed mb-6 flex-1">
-                  Our onboarding team visits the home, captures the 360° walkthrough, registers and
-                  labels each asset and reads your existing invoices and warranty cards. Standalone
+                  Our onboarding team visits the home, captures the 360° walkthrough, scans and
+                  labels every asset and reads your existing invoices and warranty cards. Standalone
                   homes are opening in stages.
                 </p>
                 <div className="p-4 rounded-xl bg-white border border-ivory-300 mb-6 text-xs text-warmgray-600 leading-relaxed">
-                  <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring add-on:</span>
-                  Our team fits a 3-phase smart meter at your main supply and metering relays on your chosen high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.{' '}
-                  <span className="text-sandstone-700 font-semibold text-[11px]">[CONFIRM: installation wording, typical time, and whether it’s an add-on or included]</span>
+                  <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring is included.</span>
+                  Our team fits a 3-phase smart meter at your main supply and metering relays on your high-load appliances. Installation is done by a licensed electrician, with no rewiring of your interiors.
                 </div>
                 <a href="#get-access" className="btn btn-outline-dark self-start">Join Early Access</a>
               </div>

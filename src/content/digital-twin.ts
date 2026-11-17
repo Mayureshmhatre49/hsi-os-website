@@ -41,7 +41,7 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Does it control smart devices or monitor energy?',
-    a: 'Yes, it monitors energy. A 3-phase smart meter tracks your whole home’s power use in real time, and metering relays track individual high-load appliances such as ACs, geysers and pool pumps. You see live use, cost in rupees and alerts on the HSIOS™ app. Controlling devices remotely isn’t part of the current release. [CONFIRM: remote switching or control of appliances]',
+    a: 'Yes, it monitors energy. A 3-phase smart meter tracks your whole home’s power use in real time, and metering relays track individual high-load appliances such as ACs, geysers and pool pumps. You see live use, cost in rupees and alerts on the HSIOS™ Android app. Controlling devices remotely isn’t part of the current release. [CONFIRM: remote switching or control of appliances]',
   },
   {
     q: 'Can it tell me if someone is using my villa while I’m away?',
@@ -53,10 +53,10 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Do I need the app?',
-    a: 'Owners and villa managers use the HSIOS™ app for live energy, alerts and scanning. Caretakers don’t need it. A QR label scan works on any phone camera.',
+    a: 'Owners and villa managers use the HSIOS™ Android app for live energy, alerts and scanning. Caretakers don’t need it. A QR label scan works on any phone camera.',
   },
   {
     q: 'Does monitoring need internet at the villa?',
-    a: '[CONFIRM: Wi-Fi / SIM connectivity, and what happens during outages, e.g. data stored and synced later]',
+    a: 'No. The energy meter has its own SIM connection and sends readings directly to HSIOS™, so it works even when the villa’s Wi-Fi is off or there’s no broadband at all.',
   },
 ]
