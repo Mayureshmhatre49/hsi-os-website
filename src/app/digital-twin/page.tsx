@@ -418,7 +418,7 @@ export default function DigitalTwinPage() {
                   </div>
                   {[
                     { title: 'Master-bedroom AC running for 6 hours', meta: 'The villa is marked Vacant' },
-                    { title: 'Load jumped to [x] kW at 02:14', meta: 'No booking or visit is scheduled' },
+                    { title: 'Load jumped to 3.1 kW at 02:14', meta: 'No booking or visit is scheduled' },
                     { title: 'Pool filter pump has run continuously for 20 hours', meta: 'Exceeds standard cycle' },
                     { title: 'Geyser 2 drawing power', meta: 'No hot-water use expected' },
                   ].map((alert, i) => (
@@ -904,15 +904,15 @@ function AssetCardMock() {
           <div className="grid grid-cols-3 gap-2 text-xs">
             <div>
               <div className="text-warmgray-500 text-[10px]">Load</div>
-              <div className="font-semibold text-charcoal-800">[x.x] kW</div>
+              <div className="font-semibold text-charcoal-800">2.0 kW</div>
             </div>
             <div>
               <div className="text-warmgray-500 text-[10px]">Today</div>
-              <div className="font-semibold text-charcoal-800">[x.x] kWh · ₹[xx]</div>
+              <div className="font-semibold text-charcoal-800">3.2 kWh · ₹38</div>
             </div>
             <div>
               <div className="text-warmgray-500 text-[10px]">Last 30 days</div>
-              <div className="font-semibold text-charcoal-800">₹[xxx]</div>
+              <div className="font-semibold text-charcoal-800">₹1,152</div>
             </div>
           </div>
         </div>
