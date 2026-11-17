@@ -41,7 +41,7 @@ export const twinFaqs: FAQ[] = [
   },
   {
     q: 'Does it control smart devices or monitor energy?',
-    a: 'Yes, it monitors energy. A 3-phase smart meter tracks your whole home’s power use in real time, and metering relays track individual high-load appliances such as ACs, geysers and pool pumps. You see live use, cost in rupees and alerts on the HSIOS™ Android app. Controlling devices remotely isn’t part of the current release. [CONFIRM: remote switching or control of appliances]',
+    a: 'Yes, it does both. Through integrated home automation in the HSIOS™ Digital Twin app, you can switch on or switch off applicable devices remotely from anywhere — such as turning off an AC left running in a vacant villa or pre-heating a geyser before your arrival. At the same time, a 3-phase smart meter and smart relays track live power and per-appliance energy consumption around the clock.',
   },
   {
     q: 'Can it tell me if someone is using my villa while I’m away?',

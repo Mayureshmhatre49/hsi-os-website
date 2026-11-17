@@ -5,7 +5,7 @@ import {
   FileSearch, PhoneCall, CalendarX2, Zap,
   Download, UserCheck, MapPin, EyeOff, Check, X,
   ShieldCheck, Activity, Gauge, AlertTriangle,
-  ChevronDown,
+  ChevronDown, Power,
 } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 import FAQAccordion from '@/components/ui/FAQAccordion'
@@ -39,7 +39,7 @@ const softwareSchema = {
   operatingSystem: 'Web, iOS, Android',
   url: 'https://www.hsios.in/digital-twin',
   description:
-    'A verified digital record of a home: room-by-room asset register, 360° walkthrough with pinned assets, 24/7 whole-house and per-appliance live energy monitoring, AI extraction of invoices and warranty cards, no-app QR labels for caretakers, unusual-use power alerts and WhatsApp warranty and AMC reminders.',
+    'A verified digital record of a home: room-by-room asset register, 360° walkthrough with pinned assets, 24/7 whole-house and per-appliance live energy monitoring, remote appliance switching via home automation, AI extraction of invoices and warranty cards, caretaker action alerts and WhatsApp reminders.',
   creator: { '@id': 'https://www.hsios.in/#business' },
   isPartOf: { '@type': 'SoftwareApplication', name: 'HSIOS™', url: 'https://www.hsios.in/hsi-os' },
   areaServed: { '@type': 'Country', name: 'India' },
@@ -53,6 +53,7 @@ const softwareSchema = {
     'Emergency points: main valve, DB, gas shut-off',
     '24/7 whole-house live energy monitoring (3-phase smart meter)',
     'Per-appliance monitoring on heavy loads (ACs, geysers, pumps)',
+    'Remote switching and home automation control for applicable appliances',
     'Unusual-use power alerts on the HSIOS™ Android app and WhatsApp',
   ],
 }
@@ -166,9 +167,8 @@ export default function DigitalTwinPage() {
                 <span className="text-sandstone-300">Every unit of power, on watch.</span>
               </h1>
               <p className="text-lg text-warmgray-300 leading-relaxed mb-8 max-w-2xl">
-                A verified record of your villa’s appliances, warranties, AMCs and repair contacts,
-                pinned to a 360° walkthrough, plus live energy monitoring of the whole house and its
-                biggest appliances, 24/7. Built for homes their owners don’t live in full time.
+                A verified record of your villa’s appliances, warranties, and AMCs,
+                pinned to a 360° walkthrough — with 24/7 live energy monitoring and remote appliance switching via home automation. Built for homes their owners don’t live in full time.
               </p>
               <div className="flex flex-wrap gap-3.5 mb-6">
                 <a href="#get-access" className="btn btn-bronze">Join Early Access</a>
@@ -178,7 +178,7 @@ export default function DigitalTwinPage() {
                 Walkthroughs are for HSI clients. Live in pilot at{' '}
                 <Link href="/projects/casa-frangipani" className="text-sandstone-300 underline underline-offset-2 hover:text-sandstone-200">
                   Casa Frangipani, Alibag
-                </Link>. Energy monitoring included.
+                </Link>. Energy monitoring & automation included.
               </p>
             </RevealOnScroll>
 
@@ -335,7 +335,7 @@ export default function DigitalTwinPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
                   <span className="px-3 py-1 rounded-full bg-sandstone-200 text-sandstone-800 text-[11px] font-bold tracking-[0.14em] uppercase">Pillar 02</span>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-charcoal-800">24/7 Live Energy & Anomaly Alerts</h3>
+                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-charcoal-800">24/7 Live Energy & Remote Appliance Switching</h3>
                 </div>
                 <div className="text-xs text-sandstone-700 bg-sandstone-100/80 px-3 py-1.5 rounded-lg font-semibold flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -363,8 +363,8 @@ export default function DigitalTwinPage() {
                   icon: Gauge,
                   bullets: [
                     'Dedicated relays on ACs, geysers, pool pump and borewell pump',
-                    'Running hours, energy use and cost for each circuit',
-                    'Live today at Casa Frangipani, Alibag',
+                    'Remote On/Off switching of applicable devices directly from the app',
+                    'Live power, running hours and cost per circuit (Live at Casa Frangipani)',
                   ],
                 },
                 {
@@ -523,15 +523,15 @@ export default function DigitalTwinPage() {
                   <div className="space-y-3 text-xs text-warmgray-300 mb-8">
                     <div className="flex items-start gap-2.5">
                       <Check size={15} className="text-sandstone-300 flex-shrink-0 mt-0.5" />
-                      <span><strong>Live power & rupee costs:</strong> Real-time 3-phase draw plus high-load relay breakdown.</span>
+                      <span><strong>Remote device switching:</strong> Switch on or switch off applicable devices (ACs, geysers, pumps) remotely from anywhere via home automation.</span>
                     </div>
                     <div className="flex items-start gap-2.5">
                       <Check size={15} className="text-sandstone-300 flex-shrink-0 mt-0.5" />
-                      <span><strong>Barcode auto-fill:</strong> Scan any appliance barcode to populate brand, model, and specs.</span>
+                      <span><strong>Per-appliance energy monitoring:</strong> Real-time 3-phase draw, circuit-by-circuit kWh, and rupee costs.</span>
                     </div>
                     <div className="flex items-start gap-2.5">
                       <Check size={15} className="text-sandstone-300 flex-shrink-0 mt-0.5" />
-                      <span><strong>Portfolio switching:</strong> Manage multiple second homes across Alibag, Goa, and Karjat.</span>
+                      <span><strong>Barcode auto-fill & portfolio view:</strong> Scan barcodes to add assets; switch between multiple villas in a tap.</span>
                     </div>
                   </div>
                 </div>
@@ -654,8 +654,8 @@ export default function DigitalTwinPage() {
                     the keys — with no separate data entry.
                   </p>
                   <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 text-xs text-warmgray-300 leading-relaxed">
-                    <span className="text-sandstone-300 font-semibold block mb-1">Energy monitoring is included.</span>
-                    The smart meter and appliance relays are fitted before handover by a licensed electrician, with no interior rewiring.
+                    <span className="text-sandstone-300 font-semibold block mb-1">Energy monitoring & home automation included.</span>
+                    The smart meter and automation relays are fitted before handover by a licensed electrician, enabling remote switching and live per-appliance monitoring.
                   </div>
                 </div>
                 <a href="#walkthrough" className="btn btn-bronze self-start">Book a Walkthrough</a>
@@ -673,8 +673,8 @@ export default function DigitalTwinPage() {
                     homes are opening in stages.
                   </p>
                   <div className="p-4 rounded-xl bg-white border border-ivory-300 mb-6 text-xs text-warmgray-600 leading-relaxed">
-                    <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring is included.</span>
-                    Our team fits the 3-phase meter and relays during the onboarding visit, with no disruption to your interiors.
+                    <span className="text-sandstone-700 font-semibold block mb-1">Energy monitoring & home automation included.</span>
+                    Our team fits the 3-phase meter and automation relays during the onboarding visit, enabling remote appliance switching with no disruption to your interiors.
                   </div>
                 </div>
                 <a href="#get-access" className="btn btn-outline-dark self-start">Join Early Access</a>
@@ -703,7 +703,7 @@ export default function DigitalTwinPage() {
                 { Icon: MapPin,      title: 'Stored in India',          desc: 'Energy readings and asset documents are stored in an Indian cloud region.' },
                 { Icon: EyeOff,      title: 'Private by default',       desc: 'Public QR views exclude invoice values, owner identity, address and live energy readings.' },
                 { Icon: ShieldCheck, title: 'Controlled alert access', desc: 'You choose who receives alerts: owners, managers, and caretakers (who receive actionable alerts like AC left running to act on site, without seeing financial bills or personal data).' },
-                { Icon: Activity,    title: 'Monitoring & alerts only', desc: 'Real-time observation and anomaly detection without remote appliance switching or control.' },
+                { Icon: Power,       title: 'Remote switching & security', desc: 'Secure, encrypted remote switching of applicable appliances with role-based owner and manager access.' },
               ].map(({ Icon, title, desc }) => (
                 <RevealOnScroll key={title}>
                   <div className="p-5 rounded-2xl bg-ivory-50 border border-ivory-200 h-full">
@@ -949,27 +949,50 @@ function OwnerAppMock() {
           </div>
         </div>
 
-        {/* Relay List */}
+        {/* Remote Device Controls with Live Power Draw */}
         <div className="p-3 space-y-2 text-[10px]">
-          <div className="text-warmgray-400 font-bold uppercase tracking-wider text-[9px] px-1">Active Circuits</div>
-          <div className="p-2 rounded-lg bg-white/5 flex items-center justify-between">
-            <span>Pool Filter Pump</span>
-            <span className="text-emerald-400 font-semibold">1.2 kW · Active</span>
+          <div className="flex items-center justify-between text-warmgray-400 font-bold uppercase tracking-wider text-[9px] px-1">
+            <span>Remote Switch & Power</span>
+            <span className="text-sandstone-300">Automation</span>
           </div>
           <div className="p-2 rounded-lg bg-white/5 flex items-center justify-between">
-            <span>Master AC</span>
-            <span className="text-warmgray-400">0.0 kW · Off</span>
+            <div>
+              <div className="font-semibold text-white">Pool Filter Pump</div>
+              <div className="text-[9px] text-emerald-400">1.2 kW live draw</div>
+            </div>
+            <span className="px-2 py-0.5 rounded bg-emerald-500/25 text-emerald-300 font-bold text-[9px] border border-emerald-500/40">
+              ON
+            </span>
           </div>
           <div className="p-2 rounded-lg bg-white/5 flex items-center justify-between">
-            <span>Geyser 25L</span>
-            <span className="text-warmgray-400">0.0 kW · Standby</span>
+            <div>
+              <div className="font-semibold text-white">Master AC</div>
+              <div className="text-[9px] text-warmgray-400">0.0 kW · Standby</div>
+            </div>
+            <span className="px-2 py-0.5 rounded bg-white/10 text-warmgray-400 font-bold text-[9px] border border-white/20">
+              OFF
+            </span>
+          </div>
+          <div className="p-2 rounded-lg bg-white/5 flex items-center justify-between">
+            <div>
+              <div className="font-semibold text-white">Geyser 25L</div>
+              <div className="text-[9px] text-warmgray-400">0.0 kW · Standby</div>
+            </div>
+            <span className="px-2 py-0.5 rounded bg-white/10 text-warmgray-400 font-bold text-[9px] border border-white/20">
+              OFF
+            </span>
           </div>
         </div>
 
-        {/* Active Alert Pill */}
-        <div className="p-2.5 mx-3 mb-4 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center gap-2 text-[10px] text-amber-200">
-          <AlertTriangle size={12} className="text-amber-400 flex-shrink-0" />
-          <span className="truncate">Load jumped to 3.1 kW at 02:14</span>
+        {/* Active Alert Pill with 1-Tap Remote Turn Off */}
+        <div className="p-2.5 mx-3 mb-4 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-between gap-2 text-[10px] text-amber-200">
+          <div className="flex items-center gap-1.5 min-w-0">
+            <AlertTriangle size={12} className="text-amber-400 flex-shrink-0" />
+            <span className="truncate">AC running in Vacant Villa</span>
+          </div>
+          <span className="px-2 py-0.5 rounded bg-amber-600 text-white font-bold text-[9px] flex-shrink-0">
+            Turn Off
+          </span>
         </div>
       </div>
       <div className="text-center text-[10px] text-warmgray-400 mt-2.5">HSIOS™ Android App</div>
