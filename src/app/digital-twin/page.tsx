@@ -336,7 +336,7 @@ export default function DigitalTwinPage() {
                 </div>
                 <div className="text-xs text-sandstone-700 bg-sandstone-100/80 px-3 py-1.5 rounded-lg font-semibold flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Independent SIM Connection (Works Without Villa Wi-Fi)
+                  SIM-Powered Meter (No Wi-Fi Needed) · Villa Wi-Fi for Home Automation
                 </div>
               </div>
             </RevealOnScroll>
@@ -769,7 +769,7 @@ export default function DigitalTwinPage() {
               </p>
               <div className="p-4 rounded-xl bg-white border border-ivory-300 text-xs text-warmgray-600 space-y-2">
                 <div className="font-semibold text-charcoal-800">Quick answers on energy & hardware:</div>
-                <div>• Independent SIM connection (no villa broadband needed)</div>
+                <div>• SIM-connected meter works without Wi-Fi; villa Wi-Fi is needed for full home automation</div>
                 <div>• Energy monitoring included with setup</div>
                 <div>• Caretakers receive actionable alerts on the app (e.g. AC left on) so they can act immediately</div>
               </div>

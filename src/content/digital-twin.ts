@@ -56,7 +56,7 @@ export const twinFaqs: FAQ[] = [
     a: 'Owners and villa managers use the HSIOS™ Android app for live energy, bill projections, full documents and portfolio oversight. Caretakers use the app to receive action alerts (like an AC left running) and care guides. A quick QR label scan also works on any phone camera without login.',
   },
   {
-    q: 'Does monitoring need internet at the villa?',
-    a: 'No. The energy meter has its own SIM connection and sends readings directly to HSIOS™, so it works even when the villa’s Wi-Fi is off or there’s no broadband at all.',
+    q: 'Does monitoring and automation need internet at the villa?',
+    a: 'Only the energy meter can work without villa Wi-Fi, as it has its own independent SIM connection that streams whole-house power readings directly to HSIOS™. However, for the entire home automation system to work — such as switching ACs, geysers, or pumps on and off remotely — the villa’s Wi-Fi network is required.',
   },
 ]
