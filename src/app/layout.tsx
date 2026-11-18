@@ -242,6 +242,7 @@ const localBusinessSchema = {
   },
   sameAs: [
     'https://hestiavillas.in',
+    'https://www.youtube.com/@hestiavillas',
     'https://www.instagram.com/hestiavillas',
     'https://www.linkedin.com/company/hestiasmartinteriors',
     // TODO(owner): Add Google Business Profile URL once verified
@@ -298,6 +299,7 @@ const organizationSchema = {
   },
   sameAs: [
     'https://hestiavillas.in',
+    'https://www.youtube.com/@hestiavillas',
     'https://www.instagram.com/hestiavillas',
     'https://www.linkedin.com/company/hestiasmartinteriors',
     // TODO(owner): Add Google Business Profile URL once verified

@@ -10,7 +10,7 @@
 
 ## Primary Services & Capabilities
 - [HSIOS Platform](https://www.hsios.in/hsi-os): Execution intelligence system powering luxury interiors.
-- [HSIOS™ Digital Twin](https://www.hsios.in/digital-twin): Verified home record for villas and second homes — asset register, 360° walkthrough, AI-read invoices, no-app caretaker QR labels, WhatsApp warranty/AMC reminders. Early access.
+- [HSIOS™ Digital Twin](https://www.hsios.in/digital-twin): Verified home record for villas and second homes — asset register, 360° walkthrough, AI-read invoices, no-app caretaker QR labels, WhatsApp warranty/AMC reminders (Watch video: https://www.youtube.com/watch?v=cwQoCWmyobA). Early access.
 - [How It Works](https://www.hsios.in/how-it-works): 5-phase structured delivery from brief to snag-free handover.
 - [Projects & Case Studies](https://www.hsios.in/projects): 7 delivered Alibag villas including Casa Frangipani (delivered three months ahead of schedule). Current client: Cerulean (https://www.ceruleanalibag.com/), a sky-pool villa development at Revdanda, Alibag (MahaRERA P52000081109) — HSI executes the interiors and coordinates design, and every residence is delivered on HSIOS™.
 - [Pricing & Transparency](https://www.hsios.in/pricing): Structured management fee model (8–15%) and per sq ft cost benchmarks (₹3,000–8,000+ per sq ft carpet area; ₹1.5–3.5 Cr for typical 4,000 sq ft villas).

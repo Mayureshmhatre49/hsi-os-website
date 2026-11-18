@@ -174,6 +174,30 @@ const faqSchema = {
   })),
 }
 
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Remote Villa Management With a Digital Twin | HSIOS™',
+  description:
+    'Managing a villa or second home remotely? HSIOS™ Digital Twin gives you a verified record of every asset in your home – and live visibility of what it is doing while you are away.',
+  thumbnailUrl: [
+    'https://img.youtube.com/vi/cwQoCWmyobA/maxresdefault.jpg',
+    'https://img.youtube.com/vi/cwQoCWmyobA/hqdefault.jpg',
+  ],
+  uploadDate: '2026-11-17T20:00:57-08:00',
+  contentUrl: 'https://www.youtube.com/watch?v=cwQoCWmyobA',
+  embedUrl: 'https://www.youtube-nocookie.com/embed/cwQoCWmyobA',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Hestia Smart Interiors',
+    url: 'https://www.hsios.in',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.hsios.in/logo.png',
+    },
+  },
+}
+
 /* ── Content Constants ─────────────────────────────────────── */
 const problems = [
   {
@@ -247,7 +271,7 @@ const scanHides = ['Invoice values & purchase costs', 'The owner’s personal id
 export default function DigitalTwinPage() {
   return (
     <>
-      <JsonLd data={[breadcrumbSchema, softwareSchema, serviceSchemaData, howToSchema, faqSchema]} />
+      <JsonLd data={[breadcrumbSchema, softwareSchema, serviceSchemaData, howToSchema, faqSchema, videoSchema]} />
 
       {/* ────────────────────────────────────────────────────────
           CHAPTER 1: THE REALITY & THE HOOK
@@ -319,6 +343,59 @@ export default function DigitalTwinPage() {
               </RevealOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ────────────────────────────────────────────────────────
+          VIDEO EXPLAINER: RESIDENTIAL DIGITAL TWIN IN ACTION
+          ──────────────────────────────────────────────────────── */}
+      <section className="section-py bg-charcoal-900 text-white relative overflow-hidden" aria-label="Digital Twin Video Explainer">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-sandstone-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="container-luxury relative z-10">
+          <RevealOnScroll>
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sandstone-400/15 border border-sandstone-400/30 text-sandstone-300 text-[11px] font-bold tracking-[0.14em] uppercase mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                Watch Explainer · 5 Minutes
+              </div>
+              <h2 className="font-serif text-display-md text-white mb-4">
+                See How a Residential Digital Twin <span className="text-sandstone-300">Solves Remote Villa Management.</span>
+              </h2>
+              <p className="text-warmgray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                Watch how HSIOS™ Digital Twin unifies verified asset mapping, 360° walkthroughs, caretaker QR alerts, and live 24/7 energy observation for luxury second homes.
+              </p>
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <div className="max-w-4xl mx-auto">
+              <div className="relative aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-charcoal-800">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube-nocookie.com/embed/cwQoCWmyobA?rel=0&modestbranding=1"
+                  title="Remote Villa Management With a Digital Twin | HSIOS™"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+              <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-warmgray-400 px-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-sandstone-400" />
+                  <span>Featured on our official YouTube channel (<a href="https://www.youtube.com/@hestiavillas" target="_blank" rel="noopener noreferrer" className="text-sandstone-300 hover:underline">@hestiavillas</a>)</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=cwQoCWmyobA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sandstone-300 hover:text-white font-medium transition-colors"
+                >
+                  <span>Watch on YouTube</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
