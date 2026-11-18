@@ -38,6 +38,23 @@ export const FACTS = {
    */
   typicalVillaInvestment: '₹1.5–3.5 Cr',
 
+  /**
+   * Typical per-sq-ft carpet area interior execution benchmark in Alibag.
+   * ₹3,000 to ₹8,000+ per sq ft depending on finish grade (Standard Premium to Bespoke Coastal).
+   * For a ~4,000 sq ft villa this correlates to ₹1.5–3.5 Cr all-in (including site prep & logistics).
+   * TODO(owner): Confirm exact canonical per-sq-ft range vs total villa investment alignment (carpet vs built-up).
+   */
+  villaCostPerSqFt: '₹3,000 to ₹8,000+',
+
+  /** Confirmed execution timeline for an Alibag villa interior once shell is ready. */
+  villaTimelineWeeks: 'around 18 weeks',
+
+  /** 10 coordinated execution disciplines under HSIOS™. */
+  disciplinesCount: 10,
+
+  /** Typical execution management fee charged by premium execution firms in India. */
+  managementFeeRange: '8–15%',
+
   /** Confirmed by Nishant (2026-09-21): minimum project value ₹50 Lakh. */
   minProjectValue: '₹50 Lakh',
 

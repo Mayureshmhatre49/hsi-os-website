@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
-import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
+import AuthorByline from '@/components/ui/AuthorByline'
+import { AUTHORS } from '@/content/authors'
 import { JsonLd } from '@/lib/JsonLd'
 import { OG_IMAGE, articleSchema as blogPosting, breadcrumb } from '@/lib/seo'
 
@@ -19,20 +21,56 @@ export const metadata: Metadata = {
   },
 }
 
+const faqs = [
+  {
+    q: 'What is the "NRI Premium" in Indian interior execution?',
+    a: 'The "NRI Premium" is an informal 20–40% markup added to quotes for non-resident homeowners. It is typically embedded through opaque material markups, inflated square-footage measurements, and unverified mid-project labour escalations.',
+  },
+  {
+    q: 'How do digital Material Takeoffs (MTOs) protect overseas clients from overbilling?',
+    a: 'An MTO translates architectural CAD drawings into exact quantities of marine ply, hardware, paint, and stone before site work begins. This prevents contractors from artificially billing for excess materials or pocketing volume discounts.',
+  },
+  {
+    q: 'Can NRIs verify vendor invoices directly without being on site?',
+    a: 'Yes. Under HSIOS™, execution management fees are separated entirely from raw material procurement. Clients see actual trade invoices from stone suppliers, lumber yards, and appliance distributors directly on their live dashboard.',
+  },
+  {
+    q: 'How are change orders managed for remote NRI homeowners?',
+    a: 'Every design modification or material upgrade generates a digital Change Order showing exact line-item cost differences and schedule impacts. Work cannot proceed without the owner’s digital approval from abroad.',
+  },
+]
+
 export default async function BlogNriCostInflationPage() {
+  const author = AUTHORS['nishant-mhatre']
   const articleSchema = blogPosting({
     slug: 'nri-cost-inflation',
     headline: 'The "NRI Premium": Why Local Contractors Overcharge and How to Avoid It',
     description: 'Understand why NRIs often face inflated quotes for interior projects in India, and how HSIOS™ enforces strict budget transparency.',
     datePublished: '2026-04-13',
-    dateModified: '2026-10-19',
+    dateModified: '2026-11-18',
     about: [{ '@type': 'Country', name: 'India' }],
+    author: {
+      '@type': 'Person',
+      '@id': author.id,
+      name: author.name,
+      jobTitle: author.role,
+      url: `https://www.hsios.in${author.aboutUrl}`,
+    },
   })
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
 
   return (
     <>
-      <JsonLd data={[articleSchema, breadcrumb([
+      <JsonLd data={[articleSchema, faqSchema, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
         { name: 'Insights', url: 'https://www.hsios.in/insights' },
         { name: 'The NRI Premium', url: 'https://www.hsios.in/insights/nri-cost-inflation' },
@@ -59,109 +97,168 @@ export default async function BlogNriCostInflationPage() {
       <article className="py-20 bg-white">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
+            <QuickAnswer>
+              The &ldquo;NRI Premium&rdquo; refers to an unearned 20–40% price inflation charged to overseas homeowners through padded material markups, fictitious labour escalations, and unmeasured joinery billing. NRIs can eliminate it by using digital material takeoffs (MTO), demanding raw vendor invoice visibility, and requiring pre-approved digital change orders before any spend occurs.
+            </QuickAnswer>
+
+            <AuthorByline
+              author={author}
+              publishedDate="13 Apr 2026"
+              modifiedDate="18 Nov 2026"
+            />
+
             <div className="space-y-8 text-warmgray-700 leading-relaxed">
               <p className="text-xl text-warmgray-600">
                 It is an open secret in the Indian interior design industry: when the client lives
-                in the US, UK, or UAE, the quotation magically increases by 20% to 40%. This
+                in the US, UK, or UAE, quotations magically increase by 20% to 40%. This
                 phenomenon, colloquially known as the &quot;NRI Premium,&quot; thrives on the homeowner&apos;s
-                inability to physically verify material rates and execution speed.
+                inability to physically verify local material rates and on-site execution speed.
               </p>
 
               <h2 className="font-serif text-2xl text-charcoal-900 pt-4">
-                How the NRI Premium is Applied
+                Why do local contractors routinely overcharge NRI homeowners?
               </h2>
               <p>
-                Contractors do not simply increase the final number — they embed the premium into
-                the micro-transactions of the project.
+                Contractors rarely apply this margin as a single visible fee. Instead, they embed the premium into
+                the micro-transactions of the build:
               </p>
               <ul className="space-y-4">
                 <li>
                   <strong className="text-charcoal-800">Opaque Material Sourcing:</strong> The
-                  contractor charges you for premium imported Italian marble but sources a
-                  lower-grade local block, pocketing the massive difference.
+                  contractor bills for premium imported Italian marble but sources a lower-grade commercial lot,
+                  pocketing the substantial price delta.
                 </li>
                 <li>
                   <strong className="text-charcoal-800">Fictitious Labour Escalations:</strong>{' '}
-                  &quot;The painters are demanding more money because of the festival season&quot; is a
-                  common excuse used to extract immediate mid-project cash injections.
+                  Claims such as &quot;labourers are demanding higher festival bonuses&quot; are weaponised to
+                  extract unplanned mid-project wire transfers.
                 </li>
                 <li>
-                  <strong className="text-charcoal-800">Unmeasured Carpet Area:</strong> The final
-                  billing is inflated by exaggerating the square footage of woodwork built. Without
-                  being there to measure it yourself, you are forced to trust the invoice.
+                  <strong className="text-charcoal-800">Unmeasured Carpet Area:</strong> Invoices are inflated
+                  by overstating the built square footage of millwork or false ceilings. Without being on site with a
+                  laser tape, overseas homeowners have little recourse.
                 </li>
               </ul>
 
+              {/* Model Comparison Table */}
+              <div className="pt-6">
+                <h3 className="font-serif text-xl text-charcoal-900 mb-4">
+                  Traditional Contractor Margins vs. HSIOS™ Financial Governance
+                </h3>
+                <div className="overflow-x-auto border border-ivory-300 rounded-2xl shadow-sm">
+                  <table className="w-full text-left border-collapse text-sm">
+                    <thead>
+                      <tr className="bg-sandstone-100/70 border-b border-ivory-300 text-charcoal-900 font-serif">
+                        <th className="p-4">Billing Aspect</th>
+                        <th className="p-4">Typical Contractor Practice</th>
+                        <th className="p-4">HSIOS™ Governance Standard</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-ivory-200 text-warmgray-700">
+                      <tr className="hover:bg-ivory-50/50">
+                        <td className="p-4 font-semibold text-charcoal-900">Material Costs</td>
+                        <td className="p-4">Lump-sum with hidden 20–35% markups</td>
+                        <td className="p-4">Direct vendor invoice transparency with zero hidden markups</td>
+                      </tr>
+                      <tr className="hover:bg-ivory-50/50 bg-sandstone-50/40">
+                        <td className="p-4 font-semibold text-charcoal-900">Quantities</td>
+                        <td className="p-4">Estimated loosely; excess materials unaccounted for</td>
+                        <td className="p-4">Digital Material Takeoff (MTO) mapped directly to CAD drawings</td>
+                      </tr>
+                      <tr className="hover:bg-ivory-50/50">
+                        <td className="p-4 font-semibold text-charcoal-900">Change Orders</td>
+                        <td className="p-4">Verbally agreed; billed at final handover</td>
+                        <td className="p-4">Pre-execution digital sign-off with clear budget impact analysis</td>
+                      </tr>
+                      <tr className="hover:bg-ivory-50/50 bg-sandstone-50/40">
+                        <td className="p-4 font-semibold text-charcoal-900">Fee Structure</td>
+                        <td className="p-4">Opaque overall contractor margin</td>
+                        <td className="p-4">Fixed transparent management fee (8–15%) decoupled from material spend</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
               <h2 className="font-serif text-2xl text-charcoal-900 pt-4">
-                Eradicating the Premium with Structural Transparency
+                How does structured execution eradicate the NRI premium?
               </h2>
               <p>
-                The only defense against opaque pricing is systemic, locked-in transparency. This
-                is precisely why we developed the HSIOS™ structure.
+                The only sustainable defense against opaque pricing is systemic, locked-in transparency.
+                HSIOS™ separates the execution fee entirely from the underlying material costs, aligning incentives
+                between the homeowner and the execution team.
               </p>
 
               <h3 className="font-serif text-xl text-charcoal-900">
                 1. Digital Material Takeoffs (MTO)
               </h3>
               <p>
-                Before execution begins, the HSIOS™ engine calculates the exact volume of ply,
-                paint, and stone required based on the architect&apos;s CAD drawings. If your villa
-                requires exactly 142 sheets of marine ply, you are aware of it. The contractor
-                cannot suddenly bill you for 200 sheets mid-way through the project.
+                Before procurement begins, the HSIOS™ planning engine calculates the exact volume of marine ply,
+                paint, conduit, and stone required based on approved architectural drawings. If a 4,000 sq ft villa
+                requires exactly 142 sheets of 18mm BWP marine ply, that count is locked. Contractors cannot inflate
+                material bills midway through construction.
               </p>
 
               <h3 className="font-serif text-xl text-charcoal-900">
-                2. Vendor Direct Payment Visibility
+                2. Direct Vendor Payment Visibility
               </h3>
               <p>
-                To eliminate the contractor middleman markup on raw materials, the HSI platform
-                allows for direct visibility into vendor invoices. If a premium European hardware
-                fitting costs ₹42,000, you see the actual invoice. The execution fee is separated
-                entirely from the raw material cost, aligning our incentives with yours.
+                To eliminate middleman markups on premium fittings, HSIOS™ grants full visibility into original
+                vendor bills. Whether sourcing architectural lighting from Italy or marine hardware from Mumbai distributors,
+                clients see original trade invoices.
               </p>
 
               <h3 className="font-serif text-xl text-charcoal-900">
-                3. Digital Change Orders
+                3. Pre-Approved Digital Change Orders
               </h3>
               <p>
-                No more surprise final bills. If you decide to upgrade a bathroom from ceramic tile
-                to natural stone, the system generates a formal Change Order. It highlights the
-                exact cost difference and requires your digital signature from abroad before the
-                stone is ever purchased. Every upgrade is your choice, documented, at the correct
-                price.
-              </p>
-
-              <h2 className="font-serif text-2xl text-charcoal-900 pt-4">
-                Protect Your Capital
-              </h2>
-              <p>
-                Building a legacy home in India shouldn&apos;t feel like a financial gamble. By
-                working with an execution partner that runs on a transparent operating system, you
-                pay the fair market rate for luxury quality — nothing more. Your investment in
-                India should be defined by the home you receive, not the margin your contractor
-                extracted.
+                Surprise final invoices are eliminated entirely. If you choose to upgrade from engineered quartz to
+                natural Italian marble, the platform produces a formal Change Order detailing the exact cost differential
+                and schedule variation, requiring your digital authorization before purchase orders are issued.
               </p>
             </div>
           </RevealOnScroll>
 
+          {/* ── COMMON QUESTIONS (FAQ) ── */}
+          <section className="mt-16 pt-12 border-t border-sandstone-200" aria-label="Common questions about NRI interior project costs">
+            <RevealOnScroll>
+              <div className="section-label mb-2">Common Questions</div>
+              <h2 className="font-serif text-2xl text-charcoal-900 mb-8">
+                Frequently Asked Questions About NRI Costs
+              </h2>
+            </RevealOnScroll>
+            <div className="space-y-4">
+              {faqs.map((f, i) => (
+                <RevealOnScroll key={i} delay={i * 0.05}>
+                  <div className="p-6 bg-ivory-100 border border-ivory-300 rounded-2xl">
+                    <h3 className="font-serif text-lg text-charcoal-900 mb-2 font-semibold">{f.q}</h3>
+                    <p className="text-warmgray-700 leading-relaxed text-sm sm:text-base">{f.a}</p>
+                  </div>
+                </RevealOnScroll>
+              ))}
+            </div>
+          </section>
+
           {/* ── IN-ARTICLE CTA ── */}
           <RevealOnScroll delay={0.1}>
             <div className="mt-16 pt-12 border-t border-sandstone-200 text-center">
-              <h3 className="font-serif text-2xl text-charcoal-900 mb-3">Lock in your budget.</h3>
+              <h3 className="font-serif text-2xl text-charcoal-900 mb-3">
+                Protect Your Capital in India
+              </h3>
               <p className="text-warmgray-600 mb-6">
-                Don&apos;t let distance dictate your project costs.
+                Build your luxury home without unearned premiums or opaque contractor markups.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
-                  href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20an%20NRI%20and%20interested%20in%20a%20transparent%20cost%20analysis"
+                  href="https://wa.me/918010234802?text=Hi%20HSI,%20I'm%20an%20NRI%20looking%20for%20transparent%20interior%20execution"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-bronze"
                 >
-                  Request a Transparent Estimate
+                  Schedule an NRI Consultation
                 </a>
                 <Link href="/nri-home-interior-management" className="btn btn-outline-dark">
-                  NRI Services Overview
+                  Our NRI Services
                 </Link>
               </div>
             </div>
@@ -185,7 +282,6 @@ export default async function BlogNriCostInflationPage() {
             </div>
           </RevealOnScroll>
         </div>
-      <ArticleCTA />
       </article>
     </>
   )

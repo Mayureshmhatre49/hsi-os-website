@@ -4,18 +4,35 @@ import { existsSync } from 'fs'
 
 const BASE_URL = 'https://www.hsios.in'
 
+/** Real content modification dates matching BlogPosting.dateModified for articles */
+const ARTICLE_DATES: Record<string, string> = {
+  '/insights/alibag-villa-cost': '2026-11-18',
+  '/insights/alibag-timeline': '2026-11-18',
+  '/insights/alibag-challenges': '2026-11-18',
+  '/insights/nri-cost-inflation': '2026-11-18',
+  '/insights/nri-remote-management': '2026-11-18',
+  '/insights/nri-tracking-progress': '2026-11-18',
+  '/insights/sustainable-luxury': '2026-11-18',
+  '/insights/alibag-villa-guide': '2026-11-18',
+  '/insights/designer-vs-execution-firm': '2026-11-18',
+  '/insights/alibag-second-home-from-mumbai': '2026-11-18',
+  '/insights/mumbai-apartment-renovation-society-noc': '2026-11-18',
+}
+
 /*
- * Accurate <lastmod> per URL: the date of the last commit touching that
- * route's source (the sitemap is generated at build time, inside the git
- * checkout that deploy.sh builds from). Search engines only trust lastmod
- * when it changes with real edits, so a blanket "now" is worse than none.
- * Falls back to the build time when git history isn't available.
+ * Accurate <lastmod> per URL: for articles, uses the canonical dateModified;
+ * for pages, checks git log on the page source file, falling back to build time.
  */
 function lastCommitDate(url: string, fallback: Date): Date {
-  const path = url === '/' ? 'src/app/page.tsx' : `src/app${url}`
-  if (!existsSync(path)) return fallback
+  if (ARTICLE_DATES[url]) {
+    return new Date(ARTICLE_DATES[url])
+  }
+  const pagePath = url === '/' ? 'src/app/page.tsx' : `src/app${url}/page.tsx`
+  const dirPath = url === '/' ? 'src/app/page.tsx' : `src/app${url}`
+  const targetPath = existsSync(pagePath) ? pagePath : (existsSync(dirPath) ? dirPath : null)
+  if (!targetPath) return fallback
   try {
-    const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', path], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
+    const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', targetPath], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
     return iso ? new Date(iso) : fallback
   } catch {
     return fallback

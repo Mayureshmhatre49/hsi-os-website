@@ -25,6 +25,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://www.hsios.in/sitemap.xml',
-    host: 'https://www.hsios.in',
   }
 }

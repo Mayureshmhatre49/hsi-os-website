@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
@@ -121,6 +122,9 @@ export default async function NriHomeInteriorManagementPage() {
                 From{' '}
                 <span className="text-sandstone-400">Anywhere in the World</span>
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors manages luxury residential interior builds across India for Non-Resident Indians (NRIs) in Dubai, London, and New York. Powered by HSIOS™, remote owners receive daily photo verification logs, direct raw vendor pricing, pre-approved digital change orders, and 104 milestone quality gates, eliminating 20–40% contractor inflation without site visits.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 HSIOS™ gives NRIs in Dubai, London and New York the same control as a homeowner on
                 site daily — live dashboards, transparent costs and zero dependency on WhatsApp.

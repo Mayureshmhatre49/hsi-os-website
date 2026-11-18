@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -117,6 +118,9 @@ export default async function GoaVillaInteriorsPage() {
                 <br />
                 Your Holiday Home, Executed Precisely
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes luxury villa interiors in Goa with marine-grade durability, monsoon-proof scheduling, and remote project management for second-home owners. Powered by HSIOS™, we oversee 10 execution disciplines with daily digital photo audits and pre-approved change orders, eliminating traditional local contractor opacity and schedule slippage.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Executing Goa&apos;s luxury second homes with total transparency. Built for absentee
                 owners who refuse to compromise on quality — powered by HSIOS™.

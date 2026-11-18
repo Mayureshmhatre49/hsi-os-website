@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -145,6 +146,9 @@ export default async function AlibagVillaInteriorsPage() {
                 <br />
                 Coastal Execution, Structured to Perfection
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes luxury villa interiors in Alibag (Alibaug) with marine-grade specifications (100% BWP ply, SS-304/316 hardware), pre-monsoon scheduling, and 10-trade sequencing. All-in execution ranges from {FACTS.villaCostPerSqFt} per sq ft of carpet area ({FACTS.typicalVillaInvestment} for typical 4,000 sq ft villas) across an 18-week timeline.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 {FACTS.villasDelivered} luxury villas delivered on the Konkan coast. HSIOS™ manages every
                 material, vendor, and monsoon window so you never discover surprises after handover.

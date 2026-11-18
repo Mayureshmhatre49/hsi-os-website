@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -118,6 +119,9 @@ export default async function PunePremiumInteriorsPage() {
                 <br />
                 Execution That Matches Global Standards
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes premium residential interiors in Pune across Koregaon Park, Kalyani Nagar, and Baner from our local Baner office. Powered by HSIOS™, we coordinate 10 execution disciplines with 104 quality checkpoints, eliminating contractor markups and delivering 30% lower cost overruns than traditional city execution.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Koregaon Park. Kalyani Nagar. Baner. Premium Pune residences, run from our Baner office
                 with every rupee tracked and every decision on record.

@@ -61,8 +61,25 @@ export function articleSchema(opts: {
   /** Places the article is about — strengthens local relevance. */
   about?: Array<Record<string, unknown>>
   image?: string
+  author?: {
+    '@type': 'Person'
+    '@id': string
+    name: string
+    jobTitle?: string
+    url?: string
+    sameAs?: string
+  }
 }) {
   const url = `${BASE}/insights/${opts.slug}`
+  const authorPerson = opts.author ?? {
+    '@type': 'Person' as const,
+    '@id': `${BASE}/about#nishant-mhatre`,
+    name: 'Nishant Mhatre',
+    jobTitle: 'Founder & CEO',
+    url: `${BASE}/about#nishant-mhatre`,
+    sameAs: 'https://www.linkedin.com/in/nishantmhatre',
+  }
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -74,7 +91,7 @@ export function articleSchema(opts: {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     inLanguage: 'en-IN',
-    author: { '@type': 'Organization', '@id': `${BASE}/#organization`, name: 'Hestia Smart Interiors', url: BASE },
+    author: authorPerson,
     publisher: {
       '@type': 'Organization',
       '@id': `${BASE}/#organization`,

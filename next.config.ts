@@ -6,7 +6,6 @@ import type { NextConfig } from 'next'
  */
 const securityHeaders = [
   { key: 'X-DNS-Prefetch-Control',       value: 'on' },
-  { key: 'Strict-Transport-Security',    value: 'max-age=63072000; includeSubDomains; preload' },
   { key: 'X-Frame-Options',              value: 'DENY' },
   { key: 'X-Content-Type-Options',       value: 'nosniff' },
   { key: 'Referrer-Policy',              value: 'strict-origin-when-cross-origin' },
@@ -93,6 +92,13 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // Apex host redirect to www (§Task 1)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'hsios.in' }],
+        destination: 'https://www.hsios.in/:path*',
+        permanent: true,
+      },
       { source: '/index.html', destination: '/', permanent: true },
       // Platform demo is paused — send /demo to the consultation flow (§3.13).
       { source: '/demo', destination: '/contact', permanent: true },

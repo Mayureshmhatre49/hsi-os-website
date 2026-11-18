@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, Zap, BarChart2, Eye, CheckSquare, Leaf, Archive, Maximize2, Layers, MapPin, GitBranch } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import { getVerifiedTestimonial } from '@/content/testimonials'
@@ -212,6 +213,9 @@ export default async function PricingPage() {
                 Transparent by Design.<br />
                 <em className="not-italic text-sandstone-300">No Hidden Costs.</em>
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Luxury interior execution typically costs {FACTS.villaCostPerSqFt} per sq ft of carpet area, translating to {FACTS.typicalVillaInvestment} all-in for a typical 4,000 sq ft villa (and ₹60L–2.5Cr for premium Mumbai apartments). HSIOS™ charges a transparent {FACTS.managementFeeRange} management fee with zero contractor markups and live line-item budget visibility.
+              </QuickAnswer>
               <p className="text-warmgray-300 text-lg leading-relaxed mb-10 max-w-2xl">
                 Most interior projects run over budget because pricing is opaque from the start.
                 HSIOS™ fixes this — with a complete BOQ before execution begins, live cost

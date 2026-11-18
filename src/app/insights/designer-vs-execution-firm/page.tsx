@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
+import AuthorByline from '@/components/ui/AuthorByline'
+import { AUTHORS } from '@/content/authors'
 import { getAlternates, breadcrumb, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 
@@ -105,6 +108,8 @@ const faqs = [
   },
 ]
 
+const author = AUTHORS['nishant-mhatre']
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -114,11 +119,17 @@ const articleSchema = {
   url: PAGE_URL,
   mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
   image: 'https://www.hsios.in/opengraph-image.jpg',
-  author: { '@type': 'Organization', '@id': 'https://www.hsios.in/#organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
+  author: {
+    '@type': 'Person',
+    '@id': author.id,
+    name: author.name,
+    jobTitle: author.role,
+    url: `https://www.hsios.in${author.aboutUrl}`,
+  },
   publisher: { '@type': 'Organization', '@id': 'https://www.hsios.in/#organization', name: 'Hestia Smart Interiors', logo: { '@type': 'ImageObject', url: 'https://www.hsios.in/logo.png' } },
   inLanguage: 'en-IN',
   datePublished: '2026-05-10',
-  dateModified: '2026-10-19',
+  dateModified: '2026-11-18',
 }
 
 const faqSchema = {
@@ -169,6 +180,16 @@ export default async function DesignerVsExecutionFirmPage() {
       <section className="section-py bg-ivory-100">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
+            <QuickAnswer>
+              An interior designer conceives the creative design intent — spatial layout, finishes, lighting, and 3D renders. An execution firm translates approved drawings into physical reality, managing daily site operations, multi-trade coordination, vendor procurement, budget accountability, and quality control. On luxury projects above ₹50L, hiring both prevents costly design compromise and site friction.
+            </QuickAnswer>
+
+            <AuthorByline
+              author={author}
+              publishedDate="10 May 2026"
+              modifiedDate="18 Nov 2026"
+            />
+
             <div className="space-y-6 text-lg text-warmgray-700 leading-relaxed">
               <p>
                 The traditional Indian luxury-home model conflates two distinct roles. The <strong>interior designer</strong>

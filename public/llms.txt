@@ -3,17 +3,17 @@
 > Hestia Smart Interiors (HSI) is a luxury interior execution firm based in Alibag (also spelt Alibaug), Maharashtra, serving villa owners on the Konkan coast and apartment owners in Mumbai. Operating on HSIOS™ (Hestia Smart Interiors Operating System), HSI delivers villas, premium apartments and developer projects with line-item cost transparency and milestone-verified execution. 7 villas delivered in and around Alibag; Casa Frangipani was handed over three months ahead of schedule.
 
 ## Core Value Proposition
-- **Operating System Driven**: HSIOS™ provides real-time cost tracking, trade sequencing across 10 disciplines, pre-construction clash analysis, and digital twin project tracking.
-- **Transparent Execution**: Line-item BOQ provided before site work begins. Every change order is digitally logged and approved prior to spend.
+- **Operating System Driven**: HSIOS™ provides real-time cost tracking, trade sequencing across 10 disciplines, pre-construction clash analysis (75 conflicts caught pre-execution), and digital twin project tracking.
+- **Transparent Execution**: Line-item BOQ provided before site work begins with a transparent 8–15% management fee. Every change order is digitally logged and approved prior to spend. 30% lower cost overruns vs industry average.
 - **Quality & Schedule Governance**: 104 milestone quality gates with photographic proof. Projects delivered on time with minimal surprises.
-- **Founding Leadership**: Founded by Nishant Mhatre — combining frontline luxury execution experience with enterprise-grade project intelligence.
+- **Founding Leadership**: Founded by Nishant Mhatre (Founder & CEO) and Sanjay Joshi (Co-founder & CTO), with site execution led by Vishal Patil (COO) — combining frontline luxury execution experience with enterprise-grade project intelligence.
 
 ## Primary Services & Capabilities
 - [HSIOS Platform](https://www.hsios.in/hsi-os): Execution intelligence system powering luxury interiors.
 - [HSIOS™ Digital Twin](https://www.hsios.in/digital-twin): Verified home record for villas and second homes — asset register, 360° walkthrough, AI-read invoices, no-app caretaker QR labels, WhatsApp warranty/AMC reminders. Early access.
 - [How It Works](https://www.hsios.in/how-it-works): 5-phase structured delivery from brief to snag-free handover.
 - [Projects & Case Studies](https://www.hsios.in/projects): 7 delivered Alibag villas including Casa Frangipani (delivered three months ahead of schedule). Current client: Cerulean (https://www.ceruleanalibag.com/), a sky-pool villa development at Revdanda, Alibag (MahaRERA P52000081109) — HSI executes the interiors and coordinates design, and every residence is delivered on HSIOS™.
-- [Pricing & Transparency](https://www.hsios.in/pricing): Structured management fee model and per sq ft cost benchmarks.
+- [Pricing & Transparency](https://www.hsios.in/pricing): Structured management fee model (8–15%) and per sq ft cost benchmarks (₹3,000–8,000+ per sq ft carpet area; ₹1.5–3.5 Cr for typical 4,000 sq ft villas).
 - [Sustainability](https://www.hsios.in/sustainability): Circular luxury framework (Refuse, Reuse, Recycle, Reduce).
 
 ## Audience Solutions
@@ -28,12 +28,16 @@
 - [Pune Premium Interiors](https://www.hsios.in/pune-premium-interiors): Gated communities and sprawling estates in Koregaon Park and Baner.
 - [Goa Villa Interiors](https://www.hsios.in/goa-villa-interiors): Heritage restorations and modern coastal holiday homes.
 - [Bangalore Luxury Interiors](https://www.hsios.in/bangalore-luxury-interiors): Tech-leader luxury residences in Indiranagar, Sadashivnagar, and Whitefield.
+- [Nashik Villa Interiors](https://www.hsios.in/nashik-villa-interiors): Vineyard estates and weekend retreats around Gangapur Dam.
+- [Lonavala Villa Interiors](https://www.hsios.in/lonavala-villa-interiors): Western Ghats hill retreats and monsoon-proof mountain residences in Lonavala, Khandala, and Karjat.
 
-## Mumbai & Alibag Guides
-- [Building an Alibag Second Home While Living in Mumbai](https://www.hsios.in/insights/alibag-second-home-from-mumbai): Travel (Atal Setu, ferries, RoRo), monsoon timing, logistics, budgets and remote control.
-- [Renovating a Mumbai Apartment: Society NOC & Rules](https://www.hsios.in/insights/mumbai-apartment-renovation-society-noc): Society approvals, structural limits, working hours and lift rules.
-- [Alibag Villa Interior Cost](https://www.hsios.in/insights/alibag-villa-cost): Typical 4,000 sq ft Alibag villa interior is ₹1.5–3.5 Cr all-in.
-- [Alibag Villa Interior Timeline](https://www.hsios.in/insights/alibag-timeline): Phase-by-phase, around 18 weeks of interior execution.
+## Mumbai & Alibag Quick Answers & Guides
+- [Alibag Villa Interior Cost](https://www.hsios.in/insights/alibag-villa-cost): A luxury villa interior in Alibag typically costs ₹3,000 to ₹8,000+ per sq ft of carpet area, translating to ₹1.5–3.5 Cr all-in for a typical 4,000 sq ft villa.
+- [Alibag Villa Interior Timeline](https://www.hsios.in/insights/alibag-timeline): Around 18 weeks (4.5 months) once the civil shell is weather-tight across five structured phases.
+- [Alibag Interior Challenges](https://www.hsios.in/insights/alibag-challenges): Mitigating capillary ground moisture, high saline humidity, and uncoordinated multi-trade logistics with BWP marine-grade joinery and pre-execution clash detection.
+- [Building an Alibag Second Home While Living in Mumbai](https://www.hsios.in/insights/alibag-second-home-from-mumbai): Managing travel (Atal Setu, ferries, Ro-Ro), late-May monsoon cutoff, and milestone-linked digital governance.
+- [Renovating a Mumbai Apartment: Society NOC & Rules](https://www.hsios.in/insights/mumbai-apartment-renovation-society-noc): Managing committee NOC approvals, permitted noisy hours (9 AM–6 PM), lift padding, and strict protection of load-bearing structures.
+- [Designer vs Execution Firm](https://www.hsios.in/insights/designer-vs-execution-firm): Interior designers create spatial design and 3D renders; execution firms own vendor management, site coordination, procurement, budget adherence, and delivery.
 
 ## Documentation & Full Information
 - [Full LLM Guide](https://www.hsios.in/llms-full.txt): Complete operational specifications, 10 execution disciplines, and detailed Q&A.

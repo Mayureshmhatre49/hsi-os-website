@@ -21,4 +21,7 @@ pm2 restart hsios-landing || PORT=3002 pm2 start npm --name "hsios-landing" -- s
 echo "Reloading Nginx..."
 sudo systemctl reload nginx
 
+echo "Submitting URLs to IndexNow (Bing/Seznam)..."
+npm run indexnow || true
+
 echo "Deployed successfully! [$(date '+%Y-%m-%d %H:%M:%S')]"

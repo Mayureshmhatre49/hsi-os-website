@@ -2,6 +2,22 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const isProd = process.env.NODE_ENV === 'production'
+  const host = request.headers.get('host') ?? ''
+
+  // Apex host redirect to www.hsios.in (Task 1)
+  if (host === 'hsios.in') {
+    const url = request.nextUrl.clone()
+    url.protocol = 'https:'
+    url.host = 'www.hsios.in'
+    return NextResponse.redirect(url, { status: 301 })
+  }
+
+  // Subdomain protection: prevent indexing if os.hsios.in reaches this app (Task 3)
+  if (host.startsWith('os.')) {
+    const response = NextResponse.next()
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+    return response
+  }
 
   // HTTPS enforcement — Nginx sets x-forwarded-proto
   if (isProd && request.headers.get('x-forwarded-proto') === 'http') {
@@ -40,7 +56,7 @@ export function middleware(request: NextRequest) {
     "form-action 'self'",
     "base-uri 'self'",
     "object-src 'none'",
-    "upgrade-insecure-requests",
+    ...(isProd ? ["upgrade-insecure-requests"] : []),
   ].join('; ')
 
   // Forward nonce + pathname to server components via request header

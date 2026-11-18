@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -117,6 +118,9 @@ export default async function NashikVillaInteriorsPage() {
                 <br />
                 Wine Country. Premium Execution.
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes luxury villa interiors in Nashik for vineyard estates, farmhouse retreats, and Gangapur Dam properties. Operating on HSIOS™, we oversee 10 coordinated execution disciplines with pre-construction conflict detection, climate-resilient material specifications, and live budget transparency, delivering 30% lower cost overruns for Mumbai and Pune owners.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Nashik&apos;s vineyard estates and weekend retreats deserve an execution standard
                 that matches their ambition. HSIOS™ delivers structured, transparent villa

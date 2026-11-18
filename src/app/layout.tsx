@@ -187,6 +187,23 @@ const localBusinessSchema = {
   currenciesAccepted: 'INR',
   paymentAccepted: 'Bank Transfer, NEFT, RTGS',
   foundingDate: '2021',
+  founder: [
+    {
+      '@type': 'Person',
+      '@id': 'https://www.hsios.in/about#nishant-mhatre',
+      name: 'Nishant Mhatre',
+      jobTitle: 'Founder & CEO',
+      url: 'https://www.hsios.in/about#nishant-mhatre',
+      sameAs: 'https://www.linkedin.com/in/nishantmhatre',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://www.hsios.in/about#sanjay-joshi',
+      name: 'Sanjay Joshi',
+      jobTitle: 'Co-founder & CTO',
+      url: 'https://www.hsios.in/about#sanjay-joshi',
+    },
+  ],
   // Primary markets first, fully disambiguated (see src/content/locations.ts).
   areaServed: [
     placeSchema(ALIBAG),
@@ -227,6 +244,9 @@ const localBusinessSchema = {
     'https://hestiavillas.in',
     'https://www.instagram.com/hestiavillas',
     'https://www.linkedin.com/company/hestiasmartinteriors',
+    // TODO(owner): Add Google Business Profile URL once verified
+    // TODO(owner): Add Houzz India profile URL once created
+    // TODO(owner): Add Justdial listing URL once created
   ],
 }
 
@@ -237,6 +257,23 @@ const organizationSchema = {
   name: 'Hestia Smart Interiors',
   url: 'https://www.hsios.in',
   logo: 'https://www.hsios.in/logo.png',
+  founder: [
+    {
+      '@type': 'Person',
+      '@id': 'https://www.hsios.in/about#nishant-mhatre',
+      name: 'Nishant Mhatre',
+      jobTitle: 'Founder & CEO',
+      url: 'https://www.hsios.in/about#nishant-mhatre',
+      sameAs: 'https://www.linkedin.com/in/nishantmhatre',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://www.hsios.in/about#sanjay-joshi',
+      name: 'Sanjay Joshi',
+      jobTitle: 'Co-founder & CTO',
+      url: 'https://www.hsios.in/about#sanjay-joshi',
+    },
+  ],
   contactPoint: [
     {
       '@type': 'ContactPoint',
@@ -263,6 +300,9 @@ const organizationSchema = {
     'https://hestiavillas.in',
     'https://www.instagram.com/hestiavillas',
     'https://www.linkedin.com/company/hestiasmartinteriors',
+    // TODO(owner): Add Google Business Profile URL once verified
+    // TODO(owner): Add Houzz India profile URL once created
+    // TODO(owner): Add Justdial listing URL once created
   ],
 }
 

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, serviceSchema, OG_IMAGE } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -132,6 +133,9 @@ export default async function MumbaiLuxuryInteriorsPage() {
                 <br />
                 High-Rise Execution Without Compromise
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes luxury apartment and penthouse interiors across South Mumbai, Bandra, and Worli with strict society NOC compliance, high-rise lift coordination, and zero structural compromises. Projects are managed via HSIOS™ with pre-execution conflict analysis, daily milestone photo tracking, and transparent vendor-direct procurement.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 From Worli penthouses to Bandra sea-facing apartments — HSIOS™ navigates every
                 society rule, logistics window, and vendor timeline so you don&apos;t have to.

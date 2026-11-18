@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -121,6 +122,9 @@ export default async function LonavalaVillaInteriorsPage() {
                 <br />
                 Hill Retreats. Precisely Executed.
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes luxury villa interiors in Lonavala, Khandala, and Karjat with torrential monsoon waterproofing, condensation management, and slope logistics. Powered by HSIOS™, we oversee 10 coordinated execution disciplines with 104 quality checkpoints, giving Mumbai and Pune weekend-home owners live milestone tracking and 30% lower cost overruns.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Lonavala and Karjat&apos;s luxury weekend homes deserve execution that matches
                 the Sahyadri backdrop. HSIOS™ delivers structured, transparent villa execution

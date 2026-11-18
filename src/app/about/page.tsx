@@ -45,38 +45,47 @@ const vishalFocus = [
 const nishantSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://www.hsios.in/about#nishant-mhatre',
   name: 'Nishant Mhatre',
   jobTitle: 'Founder & CEO',
-  worksFor: { '@id': 'https://www.hsios.in/#business' },
+  worksFor: { '@id': 'https://www.hsios.in/#organization' },
   image: 'https://www.hsios.in/nishant-mhatre.jpg',
   description:
     'Founder & CEO of Hestia Smart Interiors with 20+ years of international experience in real estate, technology, and AI-driven digital transformation.',
-  url: 'https://www.hsios.in/about',
+  url: 'https://www.hsios.in/about#nishant-mhatre',
+  sameAs: [
+    'https://www.linkedin.com/in/nishantmhatre',
+    'https://www.linkedin.com/company/hestiasmartinteriors',
+  ],
   knowsAbout: ['Luxury Real Estate', 'AI & Digital Transformation', 'Interior Execution', 'Startup Mentoring'],
 }
 
 const sanjaySchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://www.hsios.in/about#sanjay-joshi',
   name: 'Sanjay Joshi',
   jobTitle: 'Co-founder & CTO',
-  worksFor: { '@id': 'https://www.hsios.in/#business' },
+  worksFor: { '@id': 'https://www.hsios.in/#organization' },
   image: 'https://www.hsios.in/sanjay-joshi.jpg',
   description:
     'Co-founder & CTO of Hestia Smart Interiors with 20+ years in enterprise technology, platform strategy, and data-driven execution systems.',
-  url: 'https://www.hsios.in/about',
+  url: 'https://www.hsios.in/about#sanjay-joshi',
+  sameAs: ['https://www.linkedin.com/company/hestiasmartinteriors'],
 }
 
 const vishalSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://www.hsios.in/about#vishal-patil',
   name: 'Vishal Patil',
   jobTitle: 'COO',
-  worksFor: { '@id': 'https://www.hsios.in/#business' },
+  worksFor: { '@id': 'https://www.hsios.in/#organization' },
   image: 'https://www.hsios.in/vishal-patil.jpg',
   description:
     'COO of Hestia Smart Interiors overseeing site execution, quality control, vendor coordination, and statutory compliance across premium projects.',
-  url: 'https://www.hsios.in/about',
+  url: 'https://www.hsios.in/about#vishal-patil',
+  sameAs: ['https://www.linkedin.com/company/hestiasmartinteriors'],
 }
 
 const aboutPageSchema = {
@@ -131,7 +140,7 @@ export default async function AboutPage() {
       </section>
 
       {/* ── MEET THE FOUNDER ───────────────────────────────── */}
-      <section className="section-py bg-white overflow-hidden" aria-label="Meet our founder">
+      <section id="nishant-mhatre" className="section-py bg-white overflow-hidden scroll-mt-24" aria-label="Meet our founder">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
@@ -170,9 +179,24 @@ export default async function AboutPage() {
               <h2 className="font-serif text-display-md text-charcoal-800 mb-1 mt-2">
                 Nishant Mhatre
               </h2>
-              <p className="text-sandstone-600 font-semibold text-base mb-8 leading-relaxed">
-                Founder & CEO, Hestia Smart Interiors &nbsp;·&nbsp; Managing Partner, Hestia Villas
-              </p>
+              <div className="flex flex-wrap items-center gap-3 mb-8">
+                <p className="text-sandstone-600 font-semibold text-base leading-relaxed">
+                  Founder &amp; CEO, Hestia Smart Interiors &nbsp;·&nbsp; Managing Partner, Hestia Villas
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/nishantmhatre"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-sandstone-100 text-charcoal-700 hover:bg-sandstone-200 hover:text-charcoal-900 transition-colors border border-sandstone-300"
+                  aria-label="Nishant Mhatre on LinkedIn"
+                >
+                  <svg className="w-3.5 h-3.5 fill-[#0A66C2]" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 0 0-1.6 1.6 1.6 1.6 0 0 0 1.6 1.6 1.6 1.6 0 0 0 1.6-1.6 1.6 1.6 0 0 0-1.6-1.6Z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                  <span className="text-sandstone-400">↗</span>
+                </a>
+              </div>
 
               <div className="space-y-5 text-warmgray-600 leading-relaxed text-lg">
                 <p className="font-medium text-charcoal-800">
@@ -221,7 +245,7 @@ export default async function AboutPage() {
       </div>
 
       {/* ── SANJAY JOSHI ───────────────────────────────────── */}
-      <section className="section-py bg-ivory-100 overflow-hidden" aria-label="Sanjay Joshi — Co-founder & CTO">
+      <section id="sanjay-joshi" className="section-py bg-ivory-100 overflow-hidden scroll-mt-24" aria-label="Sanjay Joshi — Co-founder & CTO">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
@@ -302,7 +326,7 @@ export default async function AboutPage() {
       <div className="bg-sandstone-400 h-px w-full" />
 
       {/* ── VISHAL PATIL ───────────────────────────────────── */}
-      <section className="section-py bg-white overflow-hidden" aria-label="Vishal Patil — COO">
+      <section id="vishal-patil" className="section-py bg-white overflow-hidden scroll-mt-24" aria-label="Vishal Patil — COO">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 

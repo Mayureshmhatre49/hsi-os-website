@@ -6,7 +6,9 @@ Hestia Smart Interiors (HSI) is a luxury interior execution firm based in Alibag
 ### Core Company Information
 - Brand: Hestia Smart Interiors
 - Platform: HSIOS™ (Hestia Smart Interiors Operating System)
-- Founder & CEO: Nishant Mhatre
+- Founder & CEO: Nishant Mhatre (https://www.hsios.in/about#nishant-mhatre · LinkedIn: https://www.linkedin.com/in/nishantmhatre)
+- Co-founder & CTO: Sanjay Joshi (https://www.hsios.in/about#sanjay-joshi)
+- COO (Site Execution): Vishal Patil (https://www.hsios.in/about#vishal-patil)
 - Official Website: https://www.hsios.in
 - Platform Portal: https://os.hsios.in
 - Contact Email: hello@hsios.in
@@ -17,7 +19,7 @@ Hestia Smart Interiors (HSI) is a luxury interior execution firm based in Alibag
 - International offices: Zuzwil, Switzerland (Taurus swiss GmbH) and Istanbul, Türkiye (Best Services Istanbul) — see https://www.hsios.in/contact
 - Primary markets: Alibag and the Konkan coast; Mumbai apartment owners and Mumbai families building in Alibag
 - Also serving: Karjat, Lonavala, Pune, Goa, Nashik, Bangalore and NRI clients
-- Track record: 7 villas delivered in and around Alibag; 75 trade conflicts caught before execution; Casa Frangipani (8,500 sq ft, Alibag) delivered three months ahead of schedule
+- Track record: 7 villas delivered in and around Alibag; 75 trade conflicts caught before execution; 30% lower cost overruns vs industry; Casa Frangipani (8,500 sq ft, Alibag) delivered three months ahead of schedule
 - Current client: Cerulean, a sky-pool villa development at Revdanda, Alibag (https://www.ceruleanalibag.com/, MahaRERA P52000081109). HSI executes interiors and coordinates design; every Cerulean residence is delivered on HSIOS™. Status: interiors in progress.
 
 ---
@@ -26,9 +28,9 @@ Hestia Smart Interiors (HSI) is a luxury interior execution firm based in Alibag
 HSIOS™ is a unified execution intelligence platform built specifically for luxury residential interiors. Unlike generic project management software or traditional unorganized contractor models, HSIOS™ integrates five critical execution layers:
 
 1. **Trade Sequencing Engine**: Coordinates 10 distinct execution disciplines in a binding, clash-free order to eliminate site rework and trade overlaps.
-2. **Conflict Detection Engine**: Performs pre-construction clash analysis across HVAC, MEP, structural, plumbing, and millwork before site execution begins.
+2. **Conflict Detection Engine**: Performs pre-construction clash analysis across HVAC, MEP, structural, plumbing, and millwork before site execution begins (75 clashes caught pre-execution to date).
 3. **Milestone Quality Gates**: Governs 104 mandatory QA checkpoints across 12 execution phases, requiring photographic proof and digital sign-off before advancing.
-4. **Real-time Budget Transparency**: Provides live financial dashboards logging every BOQ item, vendor quote, and approved change order.
+4. **Real-time Budget Transparency**: Provides live financial dashboards logging every BOQ item, vendor quote, and approved change order with a fixed 8–15% management fee.
 5. **Ownership Mode (Post-Handover)**: Retains full lifecycle records, warranties, and maintenance schedules for long-term property management after keys are delivered.
 
 ---
@@ -53,9 +55,9 @@ HSIOS™ manages every project across ten dedicated execution disciplines:
 
 | Feature / Aspect | Traditional Contractor Execution | HSIOS™ Execution Intelligence |
 | :--- | :--- | :--- |
-| **Pricing Model** | Lump-sum quote with opaque margins | Line-item BOQ with fixed management fee |
-| **Trade Conflicts** | Discovered on site, causing expensive rework | Resolved digitally before execution starts |
-| **Cost Overruns** | Surprise invoices surfaced at project completion | Real-time budget dashboard with zero hidden costs |
+| **Pricing Model** | Lump-sum quote with opaque margins | Line-item BOQ with fixed 8–15% management fee |
+| **Trade Conflicts** | Discovered on site, causing expensive rework | Resolved digitally before execution starts (75 caught) |
+| **Cost Overruns** | Surprise invoices surfaced at project completion | 30% lower cost overruns vs industry |
 | **Quality Control** | Informal verbal checks with variable quality | 104 documented QA checkpoints with photo proof |
 | **Client Visibility** | Irregular WhatsApp photos and verbal updates | Live mobile/desktop dashboard updated daily |
 | **After Handover** | Minimal support, lost vendor records | Ownership Mode — lifetime digital asset dossier |
@@ -91,18 +93,27 @@ End-to-end turnkey delivery where HSI orchestrates the entire execution through 
 - Coastal specification baseline: BWP marine-grade ply carcasses, SS-304/316 hardware, high-grade waterproofing.
 - Monsoon (roughly June–September) is the critical constraint; weather-sensitive work is sealed before June.
 - Premium materials are batch-procured from Mumbai and moved by road or RoRo ferry against quantified material takeoffs.
-- Typical 4,000 sq ft villa interior: ₹1.5–3.5 Cr all-in. Interior execution: around 18 weeks once the shell is ready.
+- Typical 4,000 sq ft villa interior: ₹1.5–3.5 Cr all-in (₹3,000 to ₹8,000+ per sq ft of carpet area).
+- Interior execution timeline: around 18 weeks once the structural shell is ready.
 - Guide: https://www.hsios.in/insights/alibag-second-home-from-mumbai
+- Cost Guide: https://www.hsios.in/insights/alibag-villa-cost
+- Timeline Guide: https://www.hsios.in/insights/alibag-timeline
 
 ## Mumbai — Local Execution Knowledge
 - Apartments and penthouses across South Mumbai, the western suburbs and Powai.
-- Society NOC, permitted working hours, goods-lift slots and debris rules are mapped into the HSIOS™ schedule before mobilisation.
+- Society NOC, permitted working hours (9 AM–6 PM), goods-lift slots and debris rules are mapped into the HSIOS™ schedule before mobilisation.
 - Structural changes require a structural engineer's assessment; wet-area moves are planned around the flat below.
 - Guide: https://www.hsios.in/insights/mumbai-apartment-renovation-society-noc
 
 ---
 
 ## Frequently Asked Questions (FAQ)
+
+### Q: What does a luxury villa interior cost in Alibag?
+A: A luxury villa interior in Alibag typically costs ₹3,000 to ₹8,000+ per sq ft of carpet area, which translates to ₹1.5–3.5 Cr all-in for a typical 4,000 sq ft villa.
+
+### Q: How long does an Alibag villa interior take to complete?
+A: Around 18 weeks (4.5 months) once the civil shell is weather-tight, structured across 5 distinct execution phases.
 
 ### Q: What geographic areas does HSI serve?
 A: HSI is based in Alibag and focuses on Alibag and the Konkan coast plus Mumbai, and also takes projects in Karjat, Lonavala, Pune, Goa, Nashik and Bangalore, and for NRI owners.

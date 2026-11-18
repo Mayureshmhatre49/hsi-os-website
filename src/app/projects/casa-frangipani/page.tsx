@@ -80,10 +80,16 @@ const articleSchema = {
     'How HSIOS™ delivered a 8,500 sq ft luxury villa interior on the Konkan coast — 12 conflicts detected pre-execution, 0 on-site surprises, 3 months ahead of schedule.',
   image: ['https://www.hsios.in/projects-casa-frangipani-1.jpg'],
   url: PAGE_URL,
-  author: { '@type': 'Organization', name: 'Hestia Smart Interiors', url: 'https://www.hsios.in' },
+  author: { '@type': 'Person', '@id': 'https://www.hsios.in/about#nishant-mhatre', name: 'Nishant Mhatre', url: 'https://www.hsios.in/about#nishant-mhatre' },
   publisher: { '@id': 'https://www.hsios.in/#organization' },
   inLanguage: 'en-IN',
   about: { '@id': 'https://www.hsios.in/#business' },
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Alibag',
+    sameAs: 'https://en.wikipedia.org/wiki/Alibag',
+    address: { '@type': 'PostalAddress', addressLocality: 'Alibag', addressRegion: 'Maharashtra', addressCountry: 'IN' },
+  },
 }
 
 const creativeWorkSchema = {
@@ -94,6 +100,12 @@ const creativeWorkSchema = {
   description: 'A 8,500 sq ft luxury villa interior executed end-to-end by Hestia Smart Interiors using HSIOS™.',
   url: PAGE_URL,
   image: 'https://www.hsios.in/projects-casa-frangipani-1.jpg',
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Alibag',
+    sameAs: 'https://en.wikipedia.org/wiki/Alibag',
+    address: { '@type': 'PostalAddress', addressLocality: 'Alibag', addressRegion: 'Maharashtra', addressCountry: 'IN' },
+  },
   locationCreated: {
     '@type': 'Place',
     name: 'Alibag',

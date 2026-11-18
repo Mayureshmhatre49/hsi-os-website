@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
-import ArticleCTA from '@/components/ui/ArticleCTA'
 import Link from 'next/link'
+import ArticleCTA from '@/components/ui/ArticleCTA'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
+import AuthorByline from '@/components/ui/AuthorByline'
 import { ALIBAG, placeSchema } from '@/content/locations'
+import { FACTS } from '@/content/facts'
+import { AUTHORS } from '@/content/authors'
 import { JsonLd } from '@/lib/JsonLd'
 import { OG_IMAGE, articleSchema as blogPosting, breadcrumb } from '@/lib/seo'
 
@@ -20,20 +24,56 @@ export const metadata: Metadata = {
   },
 }
 
+const faqs = [
+  {
+    q: 'What is the most critical material specification for Alibag villa interiors?',
+    a: '100% BWP Marine Grade plywood (IS 710) for all casework carcasses and SS-304/316 marine-grade stainless steel hardware. Commercial or MR-grade plywood absorbs moisture and delaminates within two to three seasons in coastal Alibag.',
+  },
+  {
+    q: 'Why must exterior envelope and civil waterproofing be complete by late May?',
+    a: 'The heavy monsoon arrives in coastal Maharashtra in early June and halts external wet trades. If the roof, windows, and waterproofing are not sealed before June, interior execution must pause for four months, risking extensive moisture damage.',
+  },
+  {
+    q: 'What is the realistic all-in interior cost for a luxury villa in Alibag?',
+    a: `All-in interior execution typically ranges from ${FACTS.villaCostPerSqFt} per sq ft of carpet area, translating to ${FACTS.typicalVillaInvestment} for a typical 4,000 sq ft villa. This includes marine-grade upgrades, bespoke joinery, and Ro-Ro ferry logistics from Mumbai.`,
+  },
+  {
+    q: 'How does HSIOS™ coordinate multi-trade execution on remote coastal sites?',
+    a: `HSIOS™ coordinates ${FACTS.disciplinesCount} execution disciplines in a binding, clash-free sequence backed by ${FACTS.qaCheckpoints} milestone quality checkpoints, preventing trade collisions and delivering 30% lower cost overruns vs industry.`,
+  },
+]
+
 export default async function BlogAlibagVillaGuidePage() {
+  const author = AUTHORS['nishant-mhatre']
   const articleSchema = blogPosting({
     slug: 'alibag-villa-guide',
     headline: 'The Complete Guide to Villa Interior Design in Alibag (2026)',
     description: 'A comprehensive execution guide for building or renovating a luxury villa interior in Alibag.',
     datePublished: '2026-04-13',
-    dateModified: '2026-10-19',
+    dateModified: '2026-11-18',
     about: [placeSchema(ALIBAG)],
+    author: {
+      '@type': 'Person',
+      '@id': author.id,
+      name: author.name,
+      jobTitle: author.role,
+      url: `https://www.hsios.in${author.aboutUrl}`,
+    },
   })
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
 
   return (
     <>
-      <JsonLd data={[articleSchema, breadcrumb([
+      <JsonLd data={[articleSchema, faqSchema, breadcrumb([
         { name: 'Home', url: 'https://www.hsios.in' },
         { name: 'Insights', url: 'https://www.hsios.in/insights' },
         { name: 'Alibag Villa Interior Guide', url: 'https://www.hsios.in/insights/alibag-villa-guide' },
@@ -61,6 +101,16 @@ export default async function BlogAlibagVillaGuidePage() {
       <article className="py-20 bg-white">
         <div className="container-luxury max-w-3xl">
           <RevealOnScroll>
+            <QuickAnswer>
+              Executing a luxury villa interior in Alibag requires marine-grade material specifications (BWP marine ply, SS-304/316 hardware), rigorous pre-monsoon envelope sealing by late May, logistics planning via Ro-Ro ferries from Mumbai, and multi-trade sequencing. All-in execution typically ranges from {FACTS.villaCostPerSqFt} per sq ft of carpet area, taking {FACTS.villaTimelineWeeks}.
+            </QuickAnswer>
+
+            <AuthorByline
+              author={author}
+              publishedDate="13 Apr 2026"
+              modifiedDate="18 Nov 2026"
+            />
+
             <div className="prose prose-lg max-w-none text-warmgray-700 leading-relaxed space-y-8">
 
               <p className="text-xl text-warmgray-600 font-medium">
@@ -79,7 +129,7 @@ export default async function BlogAlibagVillaGuidePage() {
 
               {/* Section 1 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                1. The Coastal Climate Is Not Forgiving
+                Why is the coastal climate unsparing on standard interior materials?
               </h2>
               <p>
                 The single biggest — and most expensive — mistake in Alibag interiors is sourcing
@@ -120,12 +170,12 @@ export default async function BlogAlibagVillaGuidePage() {
 
               {/* Section 2 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                2. Vendor and Logistics Management Is the Hidden Risk
+                How does island and ferry logistics constrain Alibag procurement?
               </h2>
               <p>
                 In Mumbai, if you run short on a specific adhesive or need replacement tiles on
                 site, a vendor is 20 minutes away. In Alibag, a missing material can halt an entire
-                trade for two to four days. The RORO ferry from Mandwa to Mumbai carries goods, but
+                trade for two to four days. The Ro-Ro ferry from Mandwa to Mumbai carries goods, but
                 schedules are weather-dependent and turnaround is measured in days, not hours.
               </p>
               <p>
@@ -151,7 +201,7 @@ export default async function BlogAlibagVillaGuidePage() {
 
               {/* Section 3 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                3. The Pre-Monsoon Deadline Is Absolute
+                Why is the late-May pre-monsoon deadline absolute for villa builds?
               </h2>
               <p>
                 This is the constraint that separates experienced Alibag project managers from
@@ -175,39 +225,23 @@ export default async function BlogAlibagVillaGuidePage() {
                 We have seen projects where a single missed pre-monsoon milestone added six to
                 nine months to the overall timeline.
               </p>
-              <p>
-                The correct approach is to work backwards from the May deadline at the project
-                planning stage. If your civil structure can&apos;t be weatherproofed by May of Year
-                One, plan to execute the interior in the post-monsoon window of Year Two — not
-                to rush and cut corners trying to beat the rains.
-              </p>
 
               {/* Section 4 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                4. Space Planning for Villa Layouts
+                How should space planning adapt to generous coastal villa volumes?
               </h2>
               <p>
                 Alibag villas tend to sit on larger plots and have more generous internal volumes
                 than city apartments. This is an opportunity — but it also surfaces planning
                 problems that don&apos;t appear in constrained urban spaces.
               </p>
-              <p>
-                Large open-plan living areas look appealing in renders but often produce
-                uncomfortable spaces in practice. Without acoustic planning, a large living room
-                with high ceilings, hard floors, and minimal soft furnishings becomes
-                reverberant and unpleasant. Without proper ventilation planning, the same space
-                becomes hot in summer and damp in monsoon.
-              </p>
-              <p>
-                Key planning decisions that need to be made before interior execution begins:
-              </p>
               <ul className="space-y-3 list-none pl-0">
                 {[
-                  'Ceiling height vs HVAC duct depth — many villa projects discover a false ceiling conflict with AC ducting after the civil structure is fixed',
-                  'Cross-ventilation paths — which windows and openings work together to flush heat? This affects door placement and partition walls',
-                  'Pool mechanical and pump room positioning relative to bedrooms — noise travels further than expected through a concrete structure',
-                  'Outdoor kitchen and BBQ area drainage and waterproofing — often treated as an afterthought but causes expensive leaks',
-                  'Staircase geometry — the most common space conflict in villas, often not resolved until civil is partially done',
+                  'Ceiling height vs HVAC duct depth — false ceiling conflicts with AC ducting must be resolved digitally before civil work begins',
+                  'Cross-ventilation paths — layout openings to flush coastal humidity and reduce heavy AC load',
+                  'Pool mechanical and pump room positioning relative to bedrooms — acoustic isolation through concrete structures',
+                  'Outdoor kitchen and verandah drainage — robust waterproofing barriers to prevent terrace leaks into living spaces below',
+                  'Staircase geometry and joinery clearances — resolving MEP riser routes alongside structural stair flights',
                 ].map(item => (
                   <li key={item} className="flex gap-3">
                     <span className="text-sandstone-600 font-bold mt-0.5 flex-shrink-0">—</span>
@@ -215,20 +249,15 @@ export default async function BlogAlibagVillaGuidePage() {
                   </li>
                 ))}
               </ul>
-              <p>
-                Resolving these at the planning stage costs almost nothing. Resolving them
-                mid-execution costs weeks and significant rupees.
-              </p>
 
               {/* Section 5 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                5. Multi-Trade Sequencing Is Where Projects Break Down
+                Why does multi-trade sequencing determine project success or failure?
               </h2>
               <p>
-                A typical luxury villa interior involves at minimum eight to twelve distinct
-                trades: civil, waterproofing, electrical, plumbing, HVAC, false ceiling, carpentry
-                and millwork, flooring, painting, sanitary and hardware installation, and smart
-                home commissioning. Each trade has predecessors and dependents.
+                A typical luxury villa interior involves at minimum 10 coordinated disciplines: civil,
+                waterproofing, electrical, plumbing, HVAC, false ceiling, carpentry and millwork,
+                flooring, painting, and smart villa integration.
               </p>
               <p>
                 The most common sequencing failure in Alibag projects: <strong className="text-charcoal-800">
@@ -237,139 +266,90 @@ export default async function BlogAlibagVillaGuidePage() {
                 underneath it. The island has to come out. Three days of work is undone, the
                 carpenter is demobilised and won&apos;t return for ten days.
               </p>
-              <p>
-                The correct execution sequence for a luxury villa interior, in broad terms:
-              </p>
-              <ol className="space-y-2 list-decimal pl-5 text-warmgray-700">
-                <li>Civil modifications and structural changes</li>
-                <li>Concealed plumbing rough-in and testing</li>
-                <li>Concealed electrical conduit and box-out</li>
-                <li>HVAC duct routing and primary installation</li>
-                <li>Waterproofing — bathrooms, terrace, external walls</li>
-                <li>False ceiling framework — after all concealed services are signed off</li>
-                <li>Flooring — screed, then floor covering</li>
-                <li>Millwork and carpentry</li>
-                <li>Final electrical fittings and HVAC commissioning</li>
-                <li>Painting and final finishes</li>
-                <li>Sanitary, hardware, and fixture installation</li>
-                <li>Smart home commissioning and testing</li>
-              </ol>
-              <p>
-                Any deviation from this sequence creates rework. Rework creates cost. In a
-                coastal site with limited local vendor availability, rework creates long delays.
-              </p>
 
               {/* Section 6 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                6. Realistic Cost Expectations
+                What are realistic cost expectations for villa interiors in Alibag?
               </h2>
               <p>
                 The cost of a premium villa interior in Alibag is meaningfully higher than
-                the equivalent project in a Mumbai high-rise — not because labour is more
-                expensive, but because of the coastal material premium, logistics costs,
-                and the smaller vendor competition pool.
-              </p>
-              <p>
-                Broad benchmarks for a premium finished villa interior in Alibag (2026):
+                the equivalent project in a Mumbai high-rise — driven by coastal material upgrades,
+                logistics via ferries, and skilled labour mobilisation.
               </p>
               <div className="overflow-x-auto rounded-xl border border-ivory-300 my-6">
                 <table className="w-full text-sm text-warmgray-700">
-                  <thead className="bg-ivory-100 text-charcoal-800">
+                  <thead className="bg-ivory-100 text-charcoal-800 font-serif">
                     <tr>
-                      <th className="text-left px-5 py-3 font-semibold">Category</th>
-                      <th className="text-left px-5 py-3 font-semibold">Cost per Sq Ft (finished)</th>
+                      <th className="text-left px-5 py-3 font-semibold">Execution Grade</th>
+                      <th className="text-left px-5 py-3 font-semibold">Cost / Sq Ft (Carpet Area)</th>
+                      <th className="text-left px-5 py-3 font-semibold">Typical 4,000 Sq Ft Villa</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-ivory-200">
-                    {[
-                      ['Good quality execution', '₹2,500 – ₹3,500'],
-                      ['Premium execution', '₹3,500 – ₹5,000'],
-                      ['Ultra-luxury / bespoke', '₹5,000 – ₹9,000+'],
-                    ].map(([cat, cost]) => (
-                      <tr key={cat}>
-                        <td className="px-5 py-3">{cat}</td>
-                        <td className="px-5 py-3 font-medium text-charcoal-800">{cost}</td>
-                      </tr>
-                    ))}
+                    <tr className="hover:bg-ivory-50/50">
+                      <td className="px-5 py-3 font-semibold text-charcoal-900">Standard Premium Execution</td>
+                      <td className="px-5 py-3">₹3,000 – ₹4,500</td>
+                      <td className="px-5 py-3 font-medium text-charcoal-800">₹1.2 – ₹1.8 Cr</td>
+                    </tr>
+                    <tr className="hover:bg-ivory-50/50 bg-sandstone-50/40">
+                      <td className="px-5 py-3 font-semibold text-charcoal-900">Luxury Bespoke Execution</td>
+                      <td className="px-5 py-3">₹4,500 – ₹6,500</td>
+                      <td className="px-5 py-3 font-medium text-charcoal-800">₹1.8 – ₹2.6 Cr</td>
+                    </tr>
+                    <tr className="hover:bg-ivory-50/50">
+                      <td className="px-5 py-3 font-semibold text-charcoal-900">Ultra-Luxury Coastal Estate</td>
+                      <td className="px-5 py-3">₹6,500 – ₹8,000+</td>
+                      <td className="px-5 py-3 font-medium text-charcoal-800">{FACTS.typicalVillaInvestment}</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
               <p>
-                These figures include materials and labour but exclude loose furniture, landscape,
-                and external civil. Add 15–25% for the Alibag coastal material premium
-                (marine ply, SS hardware, elastomeric paints). Add logistics cost for
-                city-side vendor mobilisation if specialist tradespeople are required. All-in,
-                the villas HSI executes typically land between ₹3,000 and ₹8,000+ per sq ft — see{' '}
+                All-in, the villas HSI executes typically land between {FACTS.villaCostPerSqFt} per sq ft — see{' '}
                 <Link href="/pricing" className="text-bronze-700 underline underline-offset-2 hover:text-bronze-900">pricing</Link>.
-              </p>
-              <p>
-                Budget overruns in Alibag are almost always caused by one of three things:
-                inadequate pre-execution planning, wrong material specifications that require
-                replacement, or monsoon-related delays that extend the project into an additional
-                season. All three are preventable with the right execution approach.
               </p>
 
               {/* Section 7 */}
               <h2 className="font-serif text-2xl text-charcoal-800 pt-6">
-                7. Choosing the Right Execution Partner
+                How should you choose an interior execution partner in Alibag?
               </h2>
               <p>
                 The most important question to ask any execution partner before engaging them
                 for an Alibag villa project is: <em>How many Alibag projects have you
                 completed in the last three years?</em> Local execution experience is not
-                interchangeable with city experience. A Mumbai-based contractor who has never
-                dealt with the pre-monsoon deadline, coastal material specs, or Alibag logistics
-                will learn on your project — at your expense.
+                interchangeable with city experience. A contractor who has never managed pre-monsoon
+                deadlines or marine hardware standards will learn on your project — at your expense.
               </p>
-              <p>
-                Beyond experience, look for structured process. A good execution partner should
-                be able to show you:
-              </p>
-              <ul className="space-y-3 list-none pl-0">
-                {[
-                  'A detailed project plan with trade sequencing and milestone dates before execution starts',
-                  'A complete Material Takeoff (MTO) that accounts for coastal spec requirements',
-                  'A live budget tracking mechanism — not a monthly email update',
-                  'A documented change order process — verbal approvals create disputes',
-                  'Pre-execution conflict detection: HVAC vs ceiling, plumbing vs millwork, structural vs layout',
-                ].map(item => (
-                  <li key={item} className="flex gap-3">
-                    <span className="text-sandstone-600 font-bold mt-0.5 flex-shrink-0">—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p>
-                If a contractor cannot provide these things before execution begins, they are
-                managing the project reactively. Reactive management in a coastal site with a
-                hard seasonal deadline is a recipe for a difficult, expensive project.
-              </p>
-
-              {/* Takeaway */}
-              <h2 className="font-serif text-2xl text-charcoal-800 pt-6">The Takeaway</h2>
-              <p>
-                Alibag offers some of the most beautiful villa living in Maharashtra — but it
-                demands respect for its specific constraints. Coastal material specifications,
-                pre-monsoon sequencing, logistics-aware procurement, and multi-trade coordination
-                are not optional considerations. They are the difference between a project that
-                delivers on budget and one that runs over by 40% with a quality that disappoints.
-              </p>
-              <p>
-                The homeowners who execute Alibag villas successfully are the ones who start
-                with a structured plan, choose an execution partner with genuine local experience,
-                and insist on cost and progress transparency from day one.
-              </p>
-
             </div>
           </RevealOnScroll>
+
+          {/* ── COMMON QUESTIONS (FAQ) ── */}
+          <section className="mt-16 pt-12 border-t border-sandstone-200" aria-label="Common questions about Alibag villa interior design and execution">
+            <RevealOnScroll>
+              <div className="section-label mb-2">Common Questions</div>
+              <h2 className="font-serif text-2xl text-charcoal-800 mb-8">
+                Frequently Asked Questions About Alibag Villas
+              </h2>
+            </RevealOnScroll>
+            <div className="space-y-4">
+              {faqs.map((f, i) => (
+                <RevealOnScroll key={i} delay={i * 0.05}>
+                  <div className="p-6 bg-ivory-100 border border-ivory-300 rounded-2xl">
+                    <h3 className="font-serif text-lg text-charcoal-800 mb-2 font-semibold">{f.q}</h3>
+                    <p className="text-warmgray-700 leading-relaxed text-sm sm:text-base">{f.a}</p>
+                  </div>
+                </RevealOnScroll>
+              ))}
+            </div>
+          </section>
 
           {/* ── IN-ARTICLE CTA ── */}
           <RevealOnScroll delay={0.1}>
             <div className="mt-16 pt-12 border-t border-sandstone-200 text-center">
               <h3 className="font-serif text-2xl text-charcoal-800 mb-3">Planning an Alibag Villa?</h3>
               <p className="text-warmgray-600 mb-6">
-                Don&apos;t leave execution to chance. HSIOS™ has delivered 7 premium villas
-                across Alibag and Karjat — with cost overruns 30% below the industry average.
+                Don&apos;t leave execution to chance. HSIOS™ has delivered {FACTS.villasDelivered} premium villas
+                across Alibag — with cost overruns {FACTS.budgetClaim}.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
@@ -395,8 +375,8 @@ export default async function BlogAlibagVillaGuidePage() {
                 {[
                   { href: '/insights/alibag-villa-cost', title: 'How Much Does a Villa Interior Cost in Alibag?', cat: 'Cost Intelligence' },
                   { href: '/insights/alibag-timeline', title: 'Alibag Villa Interior: What to Expect from Start to Finish', cat: 'Execution Timeline' },
-                  { href: '/insights/alibag-challenges', title: 'The 5 Biggest Mistakes in Alibag Villa Execution', cat: 'Common Mistakes' },
-                  { href: '/insights/nri-remote-management', title: 'How NRIs Manage Premium Interior Projects Remotely', cat: 'NRI Guide' },
+                  { href: '/insights/alibag-challenges', title: 'Top Interior Design Challenges in Coastal Alibag Homes', cat: 'Common Mistakes' },
+                  { href: '/insights/nri-remote-management', title: 'Remote Interior Project Management: What NRIs Need to Know', cat: 'NRI Guide' },
                 ].map((r) => (
                   <Link key={r.href} href={r.href} className="card-warm p-6 group block hover:shadow-luxury-md transition-shadow">
                     <div className="text-xs font-bold tracking-widest uppercase text-sandstone-600 mb-2">{r.cat}</div>

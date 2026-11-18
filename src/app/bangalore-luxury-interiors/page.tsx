@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
+import QuickAnswer from '@/components/ui/QuickAnswer'
 import { getAlternates, breadcrumb, OG_IMAGE, serviceSchema } from '@/lib/seo'
 import { JsonLd } from '@/lib/JsonLd'
 import LocationLinks from '@/components/ui/LocationLinks'
@@ -121,6 +122,9 @@ export default async function BangaloreLuxuryInteriorsPage() {
                 <br />
                 Intelligent Execution. Every Decision on Record.
               </h1>
+              <QuickAnswer className="bg-charcoal-900/90 border-sandstone-500 text-warmgray-200 shadow-xl mb-6">
+                Hestia Smart Interiors executes luxury residential interiors in Bangalore across Indiranagar, Sadashivnagar, and Whitefield for discerning tech leaders and homeowners. Powered by HSIOS™, we coordinate 10 execution disciplines with digital clash detection, 104 quality checkpoints, and transparent vendor-direct billing, delivering 30% lower cost overruns than traditional contractor methods.
+              </QuickAnswer>
               <p className="text-xl text-warmgray-300 mb-8 max-w-2xl">
                 Bangalore homeowners demand more than aesthetics — they expect intelligence,
                 automation, and airtight execution. HSIOS™ delivers exactly that.
