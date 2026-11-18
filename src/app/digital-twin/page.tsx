@@ -452,7 +452,7 @@ export default function DigitalTwinPage() {
                   bullets: [
                     'Real-time power draw across all three phases',
                     'Daily, monthly and annual spend in kWh and ₹',
-                    'Power-quality checks (voltage, balance, power factor) [CONFIRM: which readings Casa Energy shows]',
+                    'Power-quality checks (voltage stability, 3-phase load balance and power factor)',
                   ],
                 },
                 {
